@@ -875,6 +875,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <div class="tb-sep"></div>
   <span class="tb-crumb">/ All loans</span>
   <div class="bw-pill"><span class="bw-pill-lbl">client</span><span class="bw-pill-name">PIMCO</span></div>
+  <a class="bw-pill" href="https://bwam-private.github.io/bellwether-data-platform-overview/index.html" target="_blank" rel="noopener" title="Bellwether Data Platform overview" style="text-decoration:none"><span class="bw-pill-lbl">powered by</span><span class="bw-pill-name">Bellwether</span></a>
 
   <div style="margin-left:auto"></div>
 
@@ -911,11 +912,11 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 </div>
 <div class="main">
 
-<div class="ph"><span class="pt">Your loan portfolio</span><span class="ps">Asset-managed by Bellwether · Q1 2026 · 24 active loans · tape Mar 26, 2026</span></div>
+<div class="ph"><span class="pt">Your loan portfolio</span><span class="ps">Asset-managed by Bellwether · Q1 2026 · 24 active loans · tape 03/26/2026</span></div>
 <div class="krow k3">
   <div class="kpi"><div class="kl">Total outstanding</div><div class="kv">$1.00B</div><div class="ks nu">Across 24 loans</div></div>
   <div class="kpi"><div class="kl">Watchlist alerts</div><div class="kv">3</div><div class="ks wa">Yellow rated loans</div></div>
-  <div class="kpi"><div class="kl">Last tape refresh</div><div class="kv">Mar 26</div><div class="ks up">Fully reconciled</div></div>
+  <div class="kpi"><div class="kl">Last tape refresh</div><div class="kv">03/26/2026</div><div class="ks up">Fully reconciled</div></div>
 </div>
 
 <!-- Your Loans + Filter & sort side-by-side (1:2 ratio so Search fits inline) -->
@@ -981,8 +982,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 
 <div class="card">
   <div class="ch">Master Loan Tracker <span class="cm">24 loans &middot; click column headers to sort &middot; click any row to open</span></div>
+  <div style="max-height:600px;overflow-y:auto">
   <table class="tbl">
-    <thead><tr>
+    <thead style="position:sticky;top:0;z-index:5;background:#0B2D4F;color:#fff"><tr>
   <th data-sort="name" style="width:22%;cursor:pointer;user-select:none">Loan name <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
   <th data-sort="no" style="cursor:pointer;user-select:none">Loan # <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
   <th data-sort="orig" class="tr" style="cursor:pointer;user-select:none">Original <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
@@ -997,61 +999,174 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
       <tr>
         <td><a href="03_asset_debt.html">333 West Wacker</a></td><td>#11088</td>
         <td class="tr">$185mm</td><td class="tr">$173.1mm</td>
-        <td class="tr">6.00%</td><td class="tr nu">&mdash;</td><td class="tr">60%</td>
-        <td class="tr">Jul 2031</td>
-        <td class="tr"><span class="badge b-ok">Current</span></td>
+        <td class="tr">6.00%</td><td class="tr">0.00x</td><td class="tr">60%</td>
+        <td class="tr">07/01/2031</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
         <td><a href="loan.html?id=10999">Intersect</a></td><td>#10999</td>
-        <td class="tr">$117.6mm</td><td class="tr">$117.6mm</td>
-        <td class="tr">4.68%</td><td class="tr up">2.65x</td><td class="tr">76%</td>
-        <td class="tr">Jul 2032</td>
-        <td class="tr"><span class="badge b-ok">Current</span></td>
+        <td class="tr">$118mm</td><td class="tr">$117.6mm</td>
+        <td class="tr">4.68%</td><td class="tr">2.65x</td><td class="tr">76%</td>
+        <td class="tr">07/01/2032</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10848">Granite TX Office Port.</a></td><td>#10848</td>
+        <td><a href="loan.html?id=10848">Granite TX Office Portfolio</a></td><td>#10848</td>
         <td class="tr">$120mm</td><td class="tr">$110.1mm</td>
-        <td class="tr">3.22%</td><td class="tr up">1.56x</td><td class="tr">69%</td>
-        <td class="tr">Apr 2028</td>
-        <td class="tr"><span class="badge b-ok">Current</span></td>
+        <td class="tr">3.22%</td><td class="tr">1.56x</td><td class="tr">69%</td>
+        <td class="tr">04/01/2028</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
         <td><a href="loan.html?id=10318">101 North Wacker</a></td><td>#10318</td>
         <td class="tr">$116mm</td><td class="tr">$72.4mm</td>
-        <td class="tr">6.00%</td><td class="tr up">1.55x</td><td class="tr wa">96%</td>
-        <td class="tr">Apr 2029</td>
-        <td class="tr"><span class="badge b-ok">Current</span></td>
+        <td class="tr">6.00%</td><td class="tr">1.55x</td><td class="tr">96%</td>
+        <td class="tr">04/01/2029</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
         <td><a href="loan.html?id=10767">715 Peachtree Street</a></td><td>#10767</td>
         <td class="tr">$60mm</td><td class="tr">$60.0mm</td>
-        <td class="tr">3.70%</td><td class="tr up">3.45x</td><td class="tr">80%</td>
-        <td class="tr">Aug 2031</td>
-        <td class="tr"><span class="badge b-ok">Current</span></td>
+        <td class="tr">3.70%</td><td class="tr">3.45x</td><td class="tr">79%</td>
+        <td class="tr">08/01/2031</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
         <td><a href="02_asset_equity.html">The Beacon Apartments</a></td><td>#10556</td>
-        <td class="tr">$54.3mm</td><td class="tr">$46.0mm</td>
-        <td class="tr">4.35%</td><td class="tr nu">1.26x</td><td class="tr wa">90%</td>
-        <td class="tr">Oct 2027</td>
-        <td class="tr"><span class="badge b-w">Watch</span></td>
+        <td class="tr">$54mm</td><td class="tr">$46.0mm</td>
+        <td class="tr">4.35%</td><td class="tr">1.26x</td><td class="tr">90%</td>
+        <td class="tr">10/01/2027</td>
+        <td class="tr"><span title="Watchlist" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);box-shadow:0 0 0 2.5px rgba(217,119,6,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10945">Orleans at Fannin Station</a></td><td>#10945</td>
+        <td class="tr">$42mm</td><td class="tr">$42.0mm</td>
+        <td class="tr">3.84%</td><td class="tr">2.05x</td><td class="tr">100%</td>
+        <td class="tr">08/01/2041</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
         <td><a href="02b_loan_ella.html">Ella Parkside</a></td><td>#11047</td>
         <td class="tr">$41mm</td><td class="tr">$41.0mm</td>
-        <td class="tr">5.79%</td><td class="tr nu">1.32x</td><td class="tr">81%</td>
-        <td class="tr">May 2028</td>
-        <td class="tr"><span class="badge b-w">Watch</span></td>
+        <td class="tr">5.79%</td><td class="tr">1.32x</td><td class="tr">81%</td>
+        <td class="tr">05/01/2028</td>
+        <td class="tr"><span title="Watchlist" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);box-shadow:0 0 0 2.5px rgba(217,119,6,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=9926">Prairie Lakes Corp Ctr</a></td><td>#9926</td>
-        <td class="tr">$21.4mm</td><td class="tr">$6.4mm</td>
-        <td class="tr">5.63%</td><td class="tr dn">~1.0x</td><td class="tr wa">~110%</td>
-        <td class="tr">Oct 2030</td>
-        <td class="tr"><span class="badge b-w">Watch</span></td>
+        <td><a href="loan.html?id=10653">Apex West Midtown</a></td><td>#10653</td>
+        <td class="tr">$45mm</td><td class="tr">$39.7mm</td>
+        <td class="tr">3.93%</td><td class="tr">1.12x</td><td class="tr">83%</td>
+        <td class="tr">03/01/2028</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10587">55 Third Avenue-Cammeyer</a></td><td>#10587</td>
+        <td class="tr">$38mm</td><td class="tr">$38.0mm</td>
+        <td class="tr">4.01%</td><td class="tr">1.94x</td><td class="tr">85%</td>
+        <td class="tr">10/01/2027</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10380">8201 Greensboro Drive</a></td><td>#10380</td>
+        <td class="tr">$60mm</td><td class="tr">$34.5mm</td>
+        <td class="tr">3.90%</td><td class="tr">0.89x</td><td class="tr">81%</td>
+        <td class="tr">10/01/2035</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=11098">Charleston at Fannin Station</a></td><td>#11098</td>
+        <td class="tr">$35mm</td><td class="tr">$34.4mm</td>
+        <td class="tr">5.60%</td><td class="tr">1.08x</td><td class="tr">78%</td>
+        <td class="tr">12/01/2044</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10401">Walnut Creek Business Park</a></td><td>#10401</td>
+        <td class="tr">$54mm</td><td class="tr">$32.7mm</td>
+        <td class="tr">4.32%</td><td class="tr">2.24x</td><td class="tr">48%</td>
+        <td class="tr">03/01/2028</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10548">World Kitchen Distribution</a></td><td>#10548</td>
+        <td class="tr">$33mm</td><td class="tr">$27.6mm</td>
+        <td class="tr">4.25%</td><td class="tr">2.75x</td><td class="tr">49%</td>
+        <td class="tr">06/01/2027</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10448">122 South Michigan Avenue</a></td><td>#10448</td>
+        <td class="tr">$23mm</td><td class="tr">$16.6mm</td>
+        <td class="tr">3.85%</td><td class="tr">1.30x</td><td class="tr">80%</td>
+        <td class="tr">07/01/2026</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10436">Seaport Logistics Center</a></td><td>#10436</td>
+        <td class="tr">$20mm</td><td class="tr">$16.0mm</td>
+        <td class="tr">3.85%</td><td class="tr">1.05x</td><td class="tr">38%</td>
+        <td class="tr">07/01/2026</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10894">600 Pennsylvania Avenue</a></td><td>#10894</td>
+        <td class="tr">$18mm</td><td class="tr">$15.9mm</td>
+        <td class="tr">3.20%</td><td class="tr">1.32x</td><td class="tr">82%</td>
+        <td class="tr">11/01/2030</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10526">185 Avenue B Apartments</a></td><td>#10526</td>
+        <td class="tr">$17mm</td><td class="tr">$15.6mm</td>
+        <td class="tr">4.28%</td><td class="tr">1.40x</td><td class="tr">91%</td>
+        <td class="tr">09/01/2032</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10721">Brunner Building</a></td><td>#10721</td>
+        <td class="tr">$15mm</td><td class="tr">$13.4mm</td>
+        <td class="tr">4.92%</td><td class="tr">1.15x</td><td class="tr">102%</td>
+        <td class="tr">01/01/2039</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10207">Georgetown Retail</a></td><td>#10207</td>
+        <td class="tr">$18mm</td><td class="tr">$13.3mm</td>
+        <td class="tr">4.72%</td><td class="tr">1.36x</td><td class="tr">77%</td>
+        <td class="tr">11/01/2027</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10239">Trader Joes</a></td><td>#10239</td>
+        <td class="tr">$16mm</td><td class="tr">$12.8mm</td>
+        <td class="tr">4.31%</td><td class="tr">1.10x</td><td class="tr">81%</td>
+        <td class="tr">08/01/2033</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=11089">333 West Wacker</a></td><td>#11089</td>
+        <td class="tr">$76mm</td><td class="tr">$12.6mm</td>
+        <td class="tr">6.00%</td><td class="tr">0.00x</td><td class="tr">4%</td>
+        <td class="tr">07/01/2031</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=10927">C9 Flats Apartments</a></td><td>#10927</td>
+        <td class="tr">$12mm</td><td class="tr">$11.7mm</td>
+        <td class="tr">2.82%</td><td class="tr">1.51x</td><td class="tr">78%</td>
+        <td class="tr">07/01/2031</td>
+        <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
+      </tr>
+      <tr>
+        <td><a href="loan.html?id=9926">Prairie Lakes Corporate Center</a></td><td>#9926</td>
+        <td class="tr">$21mm</td><td class="tr">$6.4mm</td>
+        <td class="tr">5.63%</td><td class="tr">0.84x</td><td class="tr">81%</td>
+        <td class="tr">10/01/2030</td>
+        <td class="tr"><span title="Watchlist" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);box-shadow:0 0 0 2.5px rgba(217,119,6,.22)"></span></td>
       </tr>
     </tbody>
   </table>
+  </div>
 </div>
 <div class="bwfoot">
   <span class="bwfl">Bellwether Asset Management</span>
@@ -1117,8 +1232,20 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         }).join('');
       }
     }
-    input.addEventListener('focus', function(){ render(input.value); dd.style.display='block'; });
+    // On focus: clear input + render ALL loans so user can pick a different one
+    input.addEventListener('focus', function(){
+      input.dataset.prev = input.value;
+      input.value = '';
+      render('');
+      dd.style.display='block';
+    });
     input.addEventListener('input', function(){ render(input.value); dd.style.display='block'; });
+    // On blur with no selection: restore previous value
+    input.addEventListener('blur', function(){
+      setTimeout(function(){
+        if(input.value === '' && input.dataset.prev){ input.value = input.dataset.prev; }
+      }, 200);
+    });
     document.addEventListener('click', function(e){
       if(!e.target.closest('.loan-selector')) dd.style.display='none';
     });
@@ -1210,7 +1337,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   function parseNum(s){
     if(!s) return 0;
     s = s.trim();
-    // Date format e.g. "Jul 2031" → sortable YYYYMM
+    // Date format e.g. "07/01/2031" → sortable YYYYMM
     var months = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
     var d = s.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})$/);
     if(d) return parseInt(d[2]) * 100 + months[d[1]];
@@ -1312,4 +1439,5 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     applyFilters();
   });
 })();
-</script
+</script>
+</body></html>

@@ -939,6 +939,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <div class="tb-sep"></div>
   <span class="tb-crumb">/ 333 West Wacker / <span class="cur">Payments</span></span>
   <div class="bw-pill"><span class="bw-pill-lbl">client</span><span class="bw-pill-name">PIMCO</span></div>
+  <a class="bw-pill" href="https://bwam-private.github.io/bellwether-data-platform-overview/index.html" target="_blank" rel="noopener" title="Bellwether Data Platform overview" style="text-decoration:none"><span class="bw-pill-lbl">powered by</span><span class="bw-pill-name">Bellwether</span></a>
     <div class="gsearch" style="position:relative">
     <svg class="gsearch-icon" width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     <input class="gsearch-input" id="gsearchInput" type="text" placeholder="Search loans by name, sponsor, city, state&hellip;" autocomplete="off"/>
@@ -1032,8 +1033,8 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <div class="card">
     <div class="ch">Tranche details</div>
     <table class="tbl">
-      <thead><tr><th style="width:24%">Rank / Holder</th><th class="tr">Amount</th><th class="tr">% Stack</th><th class="tr">Rate</th><th class="tr">Maturity</th><th>Notes</th></tr></thead>
-      <tbody><tr><td style="border-left:3px solid #0B2D4F;padding-left:10px"><strong>Senior debt</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">PIMCO senior loan (Loan #11088)</div></td><td class="tr"><strong>$173.1mm</strong></td><td class="tr">59.7%</td><td class="tr">6.00% fixed</td><td class="tr">07/10/2031</td><td style="font-size:10px">Interest-only 60mo · 40 mo. remaining</td></tr><tr><td style="border-left:3px solid #0F766E;padding-left:10px"><strong>Mezzanine</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">Companion mezz (Loan #11089)</div></td><td class="tr"><strong>$12.6mm</strong></td><td class="tr">4.3%</td><td class="tr">6.00% fixed</td><td class="tr">07/10/2031</td><td style="font-size:10px">Pari passu structure · John Lawrence</td></tr><tr><td style="border-left:3px solid #B45309;padding-left:10px"><strong>Sponsor equity</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">Beacon Capital Partners equity</div></td><td class="tr"><strong>$104.3mm</strong></td><td class="tr">36.0%</td><td class="tr">—</td><td class="tr">—</td><td style="font-size:10px">Implied behind senior + mezz</td></tr></tbody>
+      <thead><tr><th style="width:22%">Rank / Holder</th><th class="tr">Amount</th><th class="tr">% Stack</th><th class="tr">Cum UPB / Measure</th><th class="tr">Rate</th><th class="tr">Maturity</th><th>Notes</th></tr></thead>
+      <tbody><tr><td style="border-left:3px solid #0B2D4F;padding-left:10px"><strong>Senior debt</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">PIMCO senior loan (Loan #11088)</div></td><td class="tr"><strong>$173.1mm</strong></td><td class="tr">59.7%</td><td class="tr">$173.1mm <span style="color:var(--muted);font-size:9px">/ 59.7%</span></td><td class="tr">6.00% fixed</td><td class="tr">07/10/2031</td><td style="font-size:10px">Interest-only 60mo · 40 mo. remaining</td></tr><tr><td style="border-left:3px solid #0F766E;padding-left:10px"><strong>Mezzanine</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">Companion mezz (Loan #11089)</div></td><td class="tr"><strong>$12.6mm</strong></td><td class="tr">4.3%</td><td class="tr">$185.7mm <span style="color:var(--muted);font-size:9px">/ 64.0%</span></td><td class="tr">6.00% fixed</td><td class="tr">07/10/2031</td><td style="font-size:10px">Pari passu structure · John Lawrence</td></tr><tr><td style="border-left:3px solid #B45309;padding-left:10px"><strong>Sponsor equity</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">Beacon Capital Partners equity</div></td><td class="tr"><strong>$104.3mm</strong></td><td class="tr">36.0%</td><td class="tr">$290.0mm <span style="color:var(--muted);font-size:9px">/ 100.0%</span></td><td class="tr">—</td><td class="tr">—</td><td style="font-size:10px">Implied behind senior + mezz</td></tr></tbody>
     </table>
   </div>
 </div>
@@ -1223,8 +1224,20 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         }).join('');
       }
     }
-    input.addEventListener('focus', function(){ render(input.value); dd.style.display='block'; });
+    // On focus: clear input + render ALL loans so user can pick a different one
+    input.addEventListener('focus', function(){
+      input.dataset.prev = input.value;
+      input.value = '';
+      render('');
+      dd.style.display='block';
+    });
     input.addEventListener('input', function(){ render(input.value); dd.style.display='block'; });
+    // On blur with no selection: restore previous value
+    input.addEventListener('blur', function(){
+      setTimeout(function(){
+        if(input.value === '' && input.dataset.prev){ input.value = input.dataset.prev; }
+      }, 200);
+    });
     document.addEventListener('click', function(e){
       if(!e.target.closest('.loan-selector')) dd.style.display='none';
     });
@@ -1294,8 +1307,20 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         }).join('');
       }
     }
-    input.addEventListener('focus', function(){ render(input.value); dd.style.display='block'; });
+    // On focus: clear input + render ALL loans so user can pick a different one
+    input.addEventListener('focus', function(){
+      input.dataset.prev = input.value;
+      input.value = '';
+      render('');
+      dd.style.display='block';
+    });
     input.addEventListener('input', function(){ render(input.value); dd.style.display='block'; });
+    // On blur with no selection: restore previous value
+    input.addEventListener('blur', function(){
+      setTimeout(function(){
+        if(input.value === '' && input.dataset.prev){ input.value = input.dataset.prev; }
+      }, 200);
+    });
     document.addEventListener('click', function(e){
       if(!e.target.closest('.loan-selector')) dd.style.display='none';
     });

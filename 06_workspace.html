@@ -941,7 +941,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <span class="tb-tag">Investment Portal</span>
   <div class="tb-sep"></div>
   <span class="tb-crumb">/ Collaboration / <span class='cur'>Workspace</span></span>
-  <a class="bw-pill" href="../index.html" title="Platform overview"><span class="bw-pill-lbl">powered by</span><span class="bw-pill-name">Bellwether</span></a>
+  <a class="bw-pill" href="https://bwam-private.github.io/bellwether-data-platform-overview/index.html" target="_blank" rel="noopener" title="Bellwether Data Platform overview"><span class="bw-pill-lbl">powered by</span><span class="bw-pill-name">Bellwether</span></a>
     <div class="gsearch" style="position:relative">
     <svg class="gsearch-icon" width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     <input class="gsearch-input" id="gsearchInput" type="text" placeholder="Search loans by name, sponsor, city, state&hellip;" autocomplete="off"/>
@@ -1177,8 +1177,20 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         }).join('');
       }
     }
-    input.addEventListener('focus', function(){ render(input.value); dd.style.display='block'; });
+    // On focus: clear input + render ALL loans so user can pick a different one
+    input.addEventListener('focus', function(){
+      input.dataset.prev = input.value;
+      input.value = '';
+      render('');
+      dd.style.display='block';
+    });
     input.addEventListener('input', function(){ render(input.value); dd.style.display='block'; });
+    // On blur with no selection: restore previous value
+    input.addEventListener('blur', function(){
+      setTimeout(function(){
+        if(input.value === '' && input.dataset.prev){ input.value = input.dataset.prev; }
+      }, 200);
+    });
     document.addEventListener('click', function(e){
       if(!e.target.closest('.loan-selector')) dd.style.display='none';
     });

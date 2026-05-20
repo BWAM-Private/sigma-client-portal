@@ -878,7 +878,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <span class="tb-tag">Investment Portal</span>
   <div class="tb-sep"></div>
   <span class="tb-crumb">/ Portfolio overview</span>
-  <a class="bw-pill" href="../index.html" title="Platform overview"><span class="bw-pill-lbl">powered by</span><span class="bw-pill-name">Bellwether</span></a>
+  <a class="bw-pill" href="https://bwam-private.github.io/bellwether-data-platform-overview/index.html" target="_blank" rel="noopener" title="Bellwether Data Platform overview"><span class="bw-pill-lbl">powered by</span><span class="bw-pill-name">Bellwether</span></a>
     <div class="gsearch" style="position:relative">
     <svg class="gsearch-icon" width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     <input class="gsearch-input" id="gsearchInput" type="text" placeholder="Search loans by name, sponsor, city, state&hellip;" autocomplete="off"/>
@@ -1247,7 +1247,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         <tr><td><a href="02b_loan_ella.html" style="color:var(--text);text-decoration:none;font-weight:600">Ella Parkside</a> <span class="badge b-w" style="font-size:8px;margin-left:4px">Watch</span></td><td>May 2028</td><td class="wa">Refinance pending</td><td class="tr">$41mm</td></tr>
       </tbody>
     </table>
-    <div style="padding:8px 12px;border-top:1px solid var(--border);font-size:9px;color:var(--muted);display:flex;justify-content:space-between;align-items:center"><span>Expected payoff dates entered by Bellwether Asset Manager based on sponsor conversations</span><span style="color:var(--a);font-weight:600;cursor:pointer">Request update &rarr;</span></div>
+    <div style="padding:8px 12px;border-top:1px solid var(--border);font-size:9px;color:var(--muted);display:flex;justify-content:space-between;align-items:center"><span>Expected payoff dates entered by Bellwether Asset Manager based on sponsor conversations</span><span style="color:var(--a);font-weight:600;cursor:pointer" onclick="alert('Request sent to your Bellwether Asset Manager — expected payoff dates will be refreshed and posted to this view within 24 hours.');return false;" title="Send a request to your Bellwether Asset Manager to refresh expected payoff dates">Request update &rarr;</span></div>
   </div>
 </div>
 
@@ -1298,140 +1298,6 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   btnBoth.addEventListener('click', function(){ setMode(true); });
 })();
 </script>
-
-<div class="warn-bar">The Beacon Apartments &mdash; added to watchlist for high LTV (89.8%) and DSCR pressure (1.26x) &middot; Bellwether engaged with sponsor</div>
-<div class="warn-bar" style="margin-top:1px">Ella Parkside (Austin MF) &mdash; yellow rated for market conditions; Q1 occupancy 89.0%</div>
-<div class="warn-bar" style="margin-top:1px">Prairie Lakes Corp Center &mdash; low occupancy (41%) and projected DSCR pressure</div>
-
-<!-- Covenant Watch -->
-<div class="card">
-  <div class="ch">Covenant Watch <span class="cm">Loans within 15% of trigger thresholds &middot; sorted by days to next test &middot; click to drill in</span></div>
-  <table class="tbl">
-    <thead><tr><th style="width:24%">Loan</th><th>Metric</th><th class="tr">Current</th><th class="tr">Threshold</th><th class="tr">Margin</th><th class="tr">Days to next test</th><th class="tr">Trend</th><th>BW commentary</th></tr></thead>
-    <tbody>
-      <tr style="cursor:pointer" onclick="location.href='02_asset_equity.html'">
-        <td><a href="02_asset_equity.html" style="color:var(--text);text-decoration:none;font-weight:600">The Beacon Apartments</a></td>
-        <td>LTV (in-place)</td>
-        <td class="tr dn">89.8%</td>
-        <td class="tr">85.0%</td>
-        <td class="tr dn">+4.8 pp over</td>
-        <td class="tr wa">62 days</td>
-        <td class="tr dn">&uarr; trending up</td>
-        <td style="font-size:10px">Refinance dialogue with Pearl Properties ahead of 10/2027 maturity</td>
-      </tr>
-      <tr style="cursor:pointer" onclick="location.href='02_asset_equity.html'">
-        <td><a href="02_asset_equity.html" style="color:var(--text);text-decoration:none;font-weight:600">The Beacon Apartments</a></td>
-        <td>DSCR (min 1.20x)</td>
-        <td class="tr wa">1.26x</td>
-        <td class="tr">1.20x</td>
-        <td class="tr wa">+0.06x cushion</td>
-        <td class="tr wa">62 days</td>
-        <td class="tr wa">&darr; slow drift</td>
-        <td style="font-size:10px">Coverage tight; sponsor planning rate-lock evaluation</td>
-      </tr>
-      <tr style="cursor:pointer" onclick="location.href='02b_loan_ella.html'">
-        <td><a href="02b_loan_ella.html" style="color:var(--text);text-decoration:none;font-weight:600">Ella Parkside</a></td>
-        <td>DSCR (min 1.20x)</td>
-        <td class="tr wa">1.32x</td>
-        <td class="tr">1.20x</td>
-        <td class="tr wa">+0.12x cushion</td>
-        <td class="tr">62 days</td>
-        <td class="tr wa">&darr; market pressure</td>
-        <td style="font-size:10px">Austin MF supply weighing on rent growth; monitoring 2027 absorption</td>
-      </tr>
-      <tr style="cursor:pointer" onclick="location.href='loan.html?id=10318'">
-        <td><a href="loan.html?id=10318" style="color:var(--text);text-decoration:none;font-weight:600">101 North Wacker</a></td>
-        <td>LTV (max 95%)</td>
-        <td class="tr wa">95.8%</td>
-        <td class="tr">95.0%</td>
-        <td class="tr wa">+0.8 pp over</td>
-        <td class="tr wa">14 days</td>
-        <td class="tr up">&rarr; stable</td>
-        <td style="font-size:10px">CapEx and lobby renovation in progress; FINRA expansion underway</td>
-      </tr>
-      <tr style="cursor:pointer" onclick="location.href='loan.html?id=9926'">
-        <td><a href="loan.html?id=9926" style="color:var(--text);text-decoration:none;font-weight:600">Prairie Lakes Corp Ctr</a></td>
-        <td>Occupancy (min 50%)</td>
-        <td class="tr dn">41%</td>
-        <td class="tr">50.0%</td>
-        <td class="tr dn">-9 pp under</td>
-        <td class="tr dn">8 days</td>
-        <td class="tr dn">&darr; low absorption</td>
-        <td style="font-size:10px">Tenant retention plan in flight; cash sweep active</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- Watchlist covenant summary + Recent asset-management activity -->
-<div class="two">
-<div class="card">
-    <div class="ch">Watchlist Covenant Summary <span class="cm">3 yellow loans · Q1 2026</span></div>
-    <div class="cov"><div><div class="cov-n"><a href="02_asset_equity.html" style="color:inherit;text-decoration:underline">The Beacon</a> — DSCR (min 1.20x)</div><div class="cov-sub">Watchlist trigger: high LTV &amp; tight DSCR</div></div><div class="c-w">1.26x ▲</div></div>
-    <div class="cov"><div><div class="cov-n"><a href="02_asset_equity.html" style="color:inherit;text-decoration:underline">The Beacon</a> — LTV (in-place)</div></div><div class="c-fail">89.8% ✗</div></div>
-    <div class="cov"><div><div class="cov-n"><a href="02b_loan_ella.html" style="color:inherit;text-decoration:underline">Ella Parkside</a> — Market conditions</div><div class="cov-sub">Austin MF supply pressure flagged Q4 2025</div></div><div class="c-w">Yellow ▲</div></div>
-    <div class="cov"><div><div class="cov-n"><a href="02b_loan_ella.html" style="color:inherit;text-decoration:underline">Ella Parkside</a> — DSCR (min 1.20x)</div></div><div class="c-ok">1.32x ✓</div></div>
-    <div class="cov"><div><div class="cov-n"><a href="loan.html?id=9926" style="color:inherit;text-decoration:underline">Prairie Lakes</a> — Occupancy</div><div class="cov-sub">41% occupancy; projected DSCR pressure</div></div><div class="c-fail">41% ✗</div></div>
-    <div class="cov"><div><div class="cov-n"><a href="loan.html?id=9926" style="color:inherit;text-decoration:underline">Prairie Lakes</a> — Time to maturity</div></div><div class="c-w">55 mo. ▲</div></div>
-  </div>
-<div class="card">
-    <div class="ch">Recent Asset-Management Activity <span class="cm">All loans &middot; managed by Bellwether</span></div>
-    <div class="ni2"><div class="ndot" style="background:var(--y)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1">The Beacon Apartments &mdash; added to watchlist for high in-place LTV (89.8%) and DSCR pressure. Bellwether engaged Pearl Properties on refinance options.</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap;flex-shrink:0">Mar 26, 2026 &middot; <span class="nby">Bellwether AM</span></div></div></div>
-    <div class="ni2"><div class="ndot" style="background:var(--y)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1">Ella Parkside &mdash; yellow rated for Austin multifamily market conditions. Q1 occupancy 89%, all covenants passing.</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap;flex-shrink:0">Mar 26, 2026 &middot; <span class="nby">Bellwether AM</span></div></div></div>
-    <div class="ni2"><div class="ndot" style="background:var(--g)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1">Q1 2026 MRI tape received and reconciled across all 24 loans. T-12, rent rolls, and balance sheets tied out.</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap;flex-shrink:0">Mar 26, 2026 &middot; <span class="nby">Bellwether AM</span></div></div></div>
-  </div>
-</div>
-<!-- Live Activity Feed (restored below watchlist + recent AM) -->
-<div class="card">
-  <div class="ch">Live Activity Feed <span class="cm">Last 7 days &middot; auto-refresh</span></div>
-  <div class="ni2"><div class="ndot" style="background:var(--g)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1"><span class="ntag">Tape</span>Q1 2026 MRI tape reconciled &mdash; 24 loans, UPB tied out to $1.00B across all sources.</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap">2 hours ago &middot; <span class="nby">Bellwether AM</span></div></div></div>
-  <div class="ni2"><div class="ndot" style="background:var(--y)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1"><span class="ntag">Covenant</span>Beacon Apartments &mdash; Q1 covenant test result published. LTV 89.8% (above 85% trigger), DSCR 1.26x (above 1.20x floor).</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap">Mar 26 &middot; <span class="nby">Bellwether AM</span></div></div></div>
-  <div class="ni2"><div class="ndot" style="background:var(--g)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1"><span class="ntag">Document</span>Rent roll uploaded for Ella Parkside (Q1 2026, 89% leased) &mdash; auto-parsed and reconciled to tape.</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap">Mar 24 &middot; <span class="nby">Bellwether AM</span></div></div></div>
-  <div class="ni2"><div class="ndot" style="background:var(--a)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1"><span class="ntag">Inspection</span>333 W Wacker site inspection complete &mdash; no material deferred maintenance findings.</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap">Mar 24 &middot; <span class="nby">Bellwether Field Team</span></div></div></div>
-  <div class="ni2"><div class="ndot" style="background:var(--g)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1"><span class="ntag">Refi</span>Pearl Properties (Beacon Apts) opened refi conversation &mdash; preliminary term sheet from Capital One under review.</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap">Mar 22 &middot; <span class="nby">Bellwether AM</span></div></div></div>
-  <div class="ni2"><div class="ndot" style="background:var(--g)"></div><div style="flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div style="flex:1"><span class="ntag">Cap stack</span>333 W Wacker mezz balance refreshed &mdash; $12.6mm outstanding, no paydown activity Q1.</div><div class="nmeta-right" style="text-align:right;font-size:9px;color:var(--muted);white-space:nowrap">Mar 20 &middot; <span class="nby">Bellwether AM</span></div></div></div>
-</div>
-
-
-
-<div class="bwfoot">
-  <span class="bwfl">Bellwether Asset Management</span>
-  <div class="bwfd"></div>
-  <span class="bwft">Portfolio management &middot; Loans &middot; Valuation &middot; Analytics &middot; Deliverables</span>
-  <div class="bwfr">&copy; 2026 Proprietary &amp; Confidential</div>
 </div>
 </div>
-</div>
-
-
-<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#6B7280;grid-column:1/-1">
-  <div><a href="00_home.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; Home</a></div>
-  <div style="color:#9CA3AF"><span style="color:#1C2B5A;font-weight:600">Portfolio overview</span></div>
-  <div><a href="10_servicing_overview.html" style="color:#0066AF;text-decoration:none;font-weight:500">Loan portfolio &rarr;</a></div>
-</nav>
-<!-- nav-active-v1 -->
-<script>
-(function(){
-  function activate(){
-    var qs = new URLSearchParams(location.search);
-    var type = qs.get('type');
-    var rating = qs.get('rating');
-    var sidebar = document.querySelector('.sb');
-    if(!sidebar) return;
-    // Clear any pre-baked .on from Overview if a filter is active
-    if(type || rating){
-      sidebar.querySelectorAll('.ni').forEach(function(a){ a.classList.remove('on'); });
-    }
-    var target = null;
-    if(type === 'office')       target = sidebar.querySelector('a[href$="?type=office"]');
-    else if(type === 'multifamily') target = sidebar.querySelector('a[href$="?type=multifamily"]');
-    else if(type === 'retail')  target = sidebar.querySelector('a[href$="?type=retail"]');
-    else if(type === 'industrial') target = sidebar.querySelector('a[href$="?type=industrial"]');
-    else if(rating === 'YELLOW') target = sidebar.querySelector('a[href$="?rating=YELLOW"]');
-    if(target) target.classList.add('on');
-  }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', activate);
-  else activate();
-})();
-</script>
-</body></html>              
+</body></html>
