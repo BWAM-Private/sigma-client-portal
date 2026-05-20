@@ -1,0 +1,1315 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>333 West Wacker &mdash; Cap Stack</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--ink:#0E1C2A;
+  --g:#059669;--r:#DC2626;--y:#D97706;--teal:#0891B2;
+  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#9CA3AF;
+  --text:#0A1628;--sub:#6B7280;
+}
+body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px}
+.shell{display:grid;grid-template-columns:210px 1fr;grid-template-rows:52px 1fr;min-height:100vh}
+
+/* topbar */
+.tb{grid-column:1/-1;background:var(--n);display:flex;align-items:center;padding:0 22px;gap:12px;height:52px;border-bottom:3px solid var(--a)}
+.logo{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;color:#fff;letter-spacing:-.2px;flex-shrink:0}
+.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.45);margin-left:2px;letter-spacing:.02em}
+.tb-tag{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(153,190,228,.3);border-radius:20px;flex-shrink:0}
+.tb-sep{flex:1}
+.tb-crumb{font-size:11px;color:rgba(255,255,255,.42)}
+.tb-crumb .cur{color:rgba(255,255,255,.85);font-weight:500}
+.tb-crumb .sep{margin:0 4px;opacity:.3}
+.tb-client{font-size:11px;font-weight:500;color:var(--s)}
+.tb-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
+.bw-pill{display:flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;flex-shrink:0}
+.bw-pill-lbl{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;text-transform:uppercase}
+.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.55)}
+
+/* sidebar */
+.sb{background:var(--card);border-right:1px solid var(--border);padding:14px 0;overflow-y:auto}
+.sb-block{padding:10px 14px 11px;border-bottom:1px solid #F3F4F6;margin-bottom:6px}
+.sb-block-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:1px}
+.sb-block-sub{font-size:10px;color:var(--muted)}
+.sl{font-size:9px;font-weight:600;color:var(--muted);letter-spacing:.10em;text-transform:uppercase;padding:9px 14px 3px}
+.ni{display:flex;align-items:center;gap:7px;padding:6px 14px;font-size:12px;color:var(--sub);border-left:3px solid transparent;cursor:pointer;line-height:1.3}
+.ni:hover{background:#F9FAFB;color:var(--text)}
+.ni.on{background:#EBF2FA;color:var(--n);border-left-color:var(--a);font-weight:600}
+.ni.sub{padding-left:26px;font-size:11px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.dg{background:#059669}.db{background:#0066AF}.dy{background:#D97706}
+.dr{background:#DC2626}.ds{background:#9CA3AF}.dm{background:#1C2B5A}
+.dt{background:#0891B2}.dp{background:#7C3AED}.dv{background:#D97706}
+.sb-div{height:0.5px;background:#F3F4F6;margin:5px 0}
+.li{padding:8px 14px;border-bottom:1px solid #F3F4F6;cursor:pointer}
+.li:hover{background:#F9FAFB}
+.li.on{background:#EBF2FA}
+.li-name{font-size:11px;font-weight:600;color:var(--text);margin-bottom:1px}
+.li-sub{font-size:9px;color:var(--muted)}
+.li-badge{display:inline-block;font-size:8px;font-weight:600;padding:1px 6px;border-radius:20px;margin-top:3px}
+.lb-ok{background:#ECFDF5;color:#065F46}.lb-w{background:#FFFBEB;color:#92400E}.lb-a{background:#FEF2F2;color:#991B1B}
+
+/* main */
+.main{padding:20px 22px;display:flex;flex-direction:column;gap:12px;background:var(--bg);overflow-y:auto}
+.ph{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pt{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--text);letter-spacing:-.3px}
+.ps{font-size:11px;color:var(--muted)}
+
+/* tabs */
+.tabs{display:flex;border-bottom:1.5px solid var(--border)}
+.tab{font-size:11px;font-weight:500;padding:7px 14px;cursor:pointer;color:var(--muted);border-bottom:2.5px solid transparent;margin-bottom:-1.5px}
+.tab.on{color:var(--n);border-bottom-color:var(--a);font-weight:600}
+
+/* kpis */
+.krow{display:grid;gap:8px}
+.k5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.k4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.k3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.k6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:10px 12px}
+.kl{font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.kv{font-size:18px;font-weight:600;color:var(--text);line-height:1.1;font-family:'DM Serif Display',serif}
+.ks{font-size:10px;margin-top:2px;font-weight:500}
+.up{color:var(--g)}.dn{color:var(--r)}.nu{color:var(--muted)}.wa{color:var(--y)}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.ch{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-bottom:1px solid #F3F4F6;font-size:11px;font-weight:600;color:var(--text);background:#FAFAFA}
+.cm{font-size:10px;color:var(--muted);font-weight:400}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed}
+.tbl th{text-align:left;padding:6px 10px;font-size:9px;font-weight:600;color:#fff;background:var(--n);letter-spacing:.05em;text-transform:uppercase}
+.tbl td{padding:6px 10px;border-bottom:1px solid #F3F4F6;color:var(--text);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:#F9FAFB;cursor:pointer}
+.tbl .sub-r td{background:#EBF2FA;font-weight:600;color:var(--n)}
+.tbl .tot-r td{background:#EBF2FA;font-weight:700;color:var(--n);font-size:11px}
+.tr{text-align:right}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+
+/* bars */
+.bw{padding:10px 12px}
+.br{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.br:last-child{margin-bottom:0}
+.brl{font-size:10px;color:var(--sub);width:110px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brt{flex:1;height:6px;background:#F3F4F6;border-radius:2px;overflow:hidden}
+.brf{height:100%;border-radius:2px}
+.brv{font-size:10px;font-weight:600;color:var(--text);width:44px;text-align:right;flex-shrink:0}
+
+/* progress */
+.prog{padding:7px 12px;border-bottom:1px solid #F3F4F6}
+.prog:last-child{border-bottom:none}
+.prh{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.prt{height:5px;background:#F3F4F6;border-radius:2px;overflow:hidden}
+.pf-ok{height:100%;border-radius:2px;background:var(--g)}
+.pf-w{height:100%;border-radius:2px;background:var(--y)}
+.pf-bad{height:100%;border-radius:2px;background:var(--r)}
+
+/* alert bars */
+.ok-bar{background:#ECFDF5;border-left:3px solid var(--g);padding:7px 11px;font-size:11px;color:#065F46;line-height:1.4;border-radius:0}
+.warn-bar{background:#FFFBEB;border-left:3px solid var(--y);padding:7px 11px;font-size:11px;color:#92400E;line-height:1.4;border-radius:0}
+.alert-bar{background:#FEF2F2;border-left:3px solid var(--r);padding:7px 11px;font-size:11px;color:#991B1B;line-height:1.4;border-radius:0}
+
+/* notice */
+.ni2{display:flex;gap:9px;padding:8px 12px;border-bottom:1px solid #F3F4F6;font-size:11px;color:#374151;line-height:1.4}
+.ni2:last-child{border-bottom:none}
+.ndot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.nmeta{font-size:9px;color:var(--muted);margin-top:2px}
+.nby{color:var(--a);font-weight:600;font-size:9px}
+.ntag{display:inline-block;font-size:8px;font-weight:600;padding:1px 5px;border-radius:20px;background:#EBF2FA;color:var(--n);margin-right:3px}
+
+/* badges */
+.badge{display:inline-block;font-size:9px;padding:2px 7px;border-radius:20px;font-weight:600}
+.b-eq{background:#E1F5EE;color:#0F6E56}.b-dt{background:#E6F1FB;color:#185FA5}
+.b-mx{background:#EEEDFE;color:#534AB7}.b-sv{background:#EBF2FA;color:var(--n)}
+.b-ok{background:#ECFDF5;color:#065F46}.b-w{background:#FFFBEB;color:#92400E}.b-a{background:#FEF2F2;color:#991B1B}
+.b-val{background:#FAEEDA;color:#854F0B}.b-esg{background:#EAF3DE;color:#3B6D11}
+
+/* cov rows */
+.cov{display:flex;align-items:flex-start;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #F3F4F6;font-size:11px}
+.cov:last-child{border-bottom:none}
+.cov-n{color:var(--sub)}
+.cov-sub{font-size:9px;color:var(--muted);margin-top:1px}
+.c-ok{color:var(--g);font-weight:600}.c-w{color:var(--y);font-weight:600}.c-fail{color:var(--r);font-weight:600}
+
+/* doc rows */
+.dr2{display:flex;align-items:center;gap:9px;padding:7px 12px;border-bottom:1px solid #F3F4F6;cursor:pointer}
+.dr2:last-child{border-bottom:none}
+.dr2:hover{background:#F9FAFB}
+.di{width:28px;height:28px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;flex-shrink:0}
+.di-pdf{background:#FFFBEB;color:#92400E}.di-xl{background:#ECFDF5;color:#065F46}.di-doc{background:#EFF6FF;color:#1E40AF}
+.dn2{font-weight:600;color:var(--text);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}
+.dm2{font-size:9px;color:var(--muted);margin-top:1px}
+.dd{font-size:10px;color:var(--muted);flex-shrink:0}
+
+/* file rows */
+.fr{display:grid;grid-template-columns:32px minmax(0,1fr) 120px 60px;gap:7px;align-items:center;padding:7px 12px;border-bottom:1px solid #F3F4F6}
+.fr:last-child{border-bottom:none}
+.fr:hover{background:#F9FAFB;cursor:pointer}
+.fb{display:inline-block;font-size:8px;font-weight:700;padding:2px 4px;border-radius:3px;text-align:center;width:30px}
+.fb-xl{background:#E1F5EE;color:#0F6E56}.fb-pd{background:#FAEEDA;color:#854F0B}.fb-cv{background:#E6F1FB;color:#185FA5}.fb-tb{background:#EEEDFE;color:#534AB7}
+.fn{font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fm{font-size:9px;color:var(--muted)}
+.st{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:600}
+.st::before{content:'';width:5px;height:5px;border-radius:50%}
+.st-ok::before{background:var(--g)}.st-ok{color:#065F46}
+.st-pr::before{background:var(--y)}.st-pr{color:#92400E}
+.st-er::before{background:var(--r)}.st-er{color:#991B1B}
+.st-nd::before{background:var(--muted)}.st-nd{color:var(--sub)}
+
+/* Flash Report styles */
+.flash-wrap{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.flash-header{background:var(--n);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.flash-logo-area{display:flex;align-items:center;gap:12px}
+.flash-client-logo{font-size:13px;font-weight:600;color:#fff;padding:4px 10px;border:1px solid rgba(255,255,255,.25);border-radius:4px}
+.flash-divider-v{width:1px;height:20px;background:rgba(255,255,255,.2)}
+.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.7);font-weight:400}
+.flash-title-area{text-align:right}
+.flash-report-type{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase}
+.flash-as-of{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
+.flash-deal-bar{background:#EBF2FA;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:12px}
+.flash-deal-name{font-size:14px;font-weight:700;color:var(--n);flex:1}
+.flash-metric{text-align:center;min-width:80px}
+.flash-metric-v{font-size:13px;font-weight:700;color:#fff;background:var(--n);padding:4px 8px;border-radius:3px;display:block;margin-bottom:2px}
+.flash-metric-l{font-size:8px;color:var(--sub);text-align:center;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.flash-body{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.flash-section{display:flex;gap:14px}
+.flash-section-label{font-size:10px;font-weight:700;color:var(--n);width:72px;flex-shrink:0;padding-top:1px}
+.flash-section-text{font-size:10px;color:var(--sub);line-height:1.55;flex:1}
+.flash-key-metrics{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.fkm{padding:6px 8px;text-align:center;border-right:1px solid var(--border);background:var(--n)}
+.fkm:last-child{border-right:none}
+.fkm-l{font-size:8px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.fkm-v{font-size:11px;font-weight:700;color:#fff}
+.flash-cap-stack{border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.fcs-header{background:var(--n);padding:6px 10px;font-size:10px;font-weight:700;color:#fff;text-align:center}
+.fcs-tbl{width:100%;border-collapse:collapse;font-size:10px}
+.fcs-tbl th{background:#EBF2FA;padding:5px 8px;text-align:right;font-size:8px;font-weight:700;color:var(--n);border-bottom:1px solid var(--border);letter-spacing:.03em}
+.fcs-tbl th:first-child{text-align:left}
+.fcs-tbl td{padding:5px 8px;border-bottom:1px solid #F3F4F6;text-align:right;color:var(--text)}
+.fcs-tbl td:first-child{text-align:left;font-weight:500}
+.fcs-tbl tr:last-child td{border-bottom:none;font-weight:700;background:#F9FAFB}
+
+/* Del grid */
+.del-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.del-card{border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:pointer;background:var(--card)}
+.del-card:hover{border-color:var(--a)}
+.del-thumb{height:60px;background:#F4F5F7;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:center}
+.del-body{padding:8px 10px}
+.del-title{font-size:11px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.del-meta{font-size:9px;color:var(--muted);margin-top:2px}
+
+/* Folder tree for PDF deliverables */
+.folder{padding:0}
+.folder-section{border-bottom:1px solid #F3F4F6}
+.folder-section:last-child{border-bottom:none}
+.fs-header{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;background:#FAFAFA;border-bottom:1px solid #F3F4F6}
+.fs-icon{font-size:11px}
+.fs-name{font-size:11px;font-weight:600;color:var(--text);flex:1}
+.fs-count{font-size:9px;color:var(--muted)}
+.fs-files{padding:4px 0}
+.ff{display:flex;align-items:center;gap:8px;padding:5px 12px 5px 28px;cursor:pointer}
+.ff:hover{background:#F9FAFB}
+.ff-icon{width:22px;height:22px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;flex-shrink:0}
+.fi-pdf{background:#FFFBEB;color:#92400E}.fi-xl{background:#ECFDF5;color:#065F46}.fi-tb{background:#EEEDFE;color:#534AB7}
+.ff-name{font-size:10px;color:var(--text);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ff-date{font-size:9px;color:var(--muted);flex-shrink:0}
+.ff-new{font-size:8px;font-weight:700;color:var(--g);background:#ECFDF5;padding:1px 5px;border-radius:20px;flex-shrink:0}
+
+/* prop stat */
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px 12px}
+.ps-i{background:#F9FAFB;border:1px solid #F3F4F6;border-radius:4px;padding:7px 9px}
+.psl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px}
+.psv{font-size:12px;font-weight:600;color:var(--text)}
+
+/* BW footer strip */
+.bwstrip{background:linear-gradient(90deg,var(--a) 60%,var(--s) 60%);height:4px}
+.bwfoot{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:8px 12px;display:flex;align-items:center;gap:10px}
+.bwfl{font-family:'DM Serif Display',serif;font-size:12px;font-weight:400;color:var(--n)}
+.bwfd{width:1px;height:12px;background:var(--border)}
+.bwft{font-size:10px;color:var(--muted);font-weight:300}
+.bwfr{margin-left:auto;font-size:9px;color:#D1D5DB}
+
+/* embed */
+.embed-frame{border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.embed-top{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-bottom:1px solid #F3F4F6;background:var(--n)}
+.embed-title{font-size:11px;font-weight:600;color:#fff}
+.embed-src{font-size:9px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
+.live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--g);margin-right:3px}
+
+.sd{display:flex;align-items:center;gap:8px;margin:2px 0}
+.sd-l{flex:1;height:0.5px;background:var(--border)}
+.sd-t{font-size:9px;font-weight:600;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pill{font-size:10px;padding:3px 10px;border-radius:20px;background:var(--card);border:1px solid var(--border);color:var(--sub);cursor:pointer;font-weight:500}
+.pill.on{background:var(--n);color:#fff;border-color:var(--n)}
+
+.screen-lbl{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;padding:18px 0 8px;border-top:1px solid var(--border);margin-top:12px}
+.screen-lbl:first-of-type{border-top:none;margin-top:0;padding-top:0}
+
+/* Topbar nav buttons (BH = home, powered by Bellwether = platform overview) */
+.tb-home-link{display:flex;align-items:center;gap:9px;flex-shrink:0;text-decoration:none;cursor:pointer;border-radius:6px;padding:2px;margin:-2px;transition:background .15s ease}
+.tb-home-link:hover{background:rgba(255,255,255,.08)}
+a.bw-pill{text-decoration:none;cursor:pointer;transition:background .15s ease, border-color .15s ease}
+a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28)}
+
+/* Sigma chat widget */
+.sigma-fab{position:fixed;left:14px;bottom:14px;z-index:9990;width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,#0066AF 0%,#1C2B5A 100%);
+    box-shadow:0 6px 18px rgba(28,43,90,.32),0 1px 2px rgba(0,0,0,.06);
+    border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:transform .15s ease, box-shadow .15s ease}
+  .sigma-fab:hover{transform:translateY(-1px) scale(1.04);box-shadow:0 10px 24px rgba(28,43,90,.42)}
+  .sigma-fab svg{width:20px;height:20px}
+  .sigma-fab-pulse{position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;
+    background:#99BEE4;border:2px solid #fff;animation:sigma-pulse 2s ease-in-out infinite}
+  @keyframes sigma-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+  .sigma-panel{position:fixed;left:14px;bottom:68px;z-index:9991;width:340px;max-height:520px;
+    background:#fff;border:1px solid #E2E5EA;border-radius:12px;
+    box-shadow:0 24px 60px rgba(28,43,90,.22),0 4px 12px rgba(0,0,0,.05);
+    display:none;flex-direction:column;overflow:hidden;
+    font-family:'DM Sans',Arial,sans-serif;color:#0E1C2A}
+  .sigma-panel.open{display:flex;animation:sigma-rise .2s ease-out}
+  @keyframes sigma-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  .sigma-head{padding:14px 16px 12px;background:linear-gradient(135deg,#1C2B5A 0%,#0066AF 100%);color:#fff}
+  .sigma-head-row{display:flex;align-items:center;gap:10px}
+  .sigma-head-icon{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .sigma-head-icon svg{width:18px;height:18px}
+  .sigma-head-title{font-family:'DM Serif Display',Georgia,serif;font-size:16px;font-weight:400;line-height:1.1}
+  .sigma-head-sub{font-size:10.5px;color:rgba(255,255,255,.78);margin-top:2px;letter-spacing:.02em}
+  .sigma-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,.7);
+    cursor:pointer;font-size:18px;line-height:1;padding:2px 6px;border-radius:4px}
+  .sigma-close:hover{background:rgba(255,255,255,.12);color:#fff}
+
+  .sigma-body{padding:14px 14px 12px;overflow-y:auto;flex:1}
+  .sigma-intro{font-size:12px;color:#374151;line-height:1.45;margin-bottom:12px}
+  .sigma-intro b{color:#0E1C2A}
+  .sigma-section{font-size:9.5px;font-weight:600;color:#9CA3AF;letter-spacing:.10em;
+    text-transform:uppercase;margin:6px 0 8px}
+  .sigma-chips{display:flex;flex-direction:column;gap:7px}
+  .sigma-chip{text-align:left;background:#F4F7FB;border:1px solid #E2E8F2;border-radius:8px;
+    padding:9px 11px;font-size:12px;color:#0E1C2A;cursor:pointer;line-height:1.35;
+    font-family:inherit;transition:background .12s ease, border-color .12s ease}
+  .sigma-chip:hover{background:#EBF2FA;border-color:#99BEE4}
+  .sigma-chip-eye{display:block;font-size:9px;font-weight:600;color:#0066AF;letter-spacing:.06em;
+    text-transform:uppercase;margin-bottom:2px}
+
+  .sigma-msgs{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+  .sigma-msg{font-size:12px;line-height:1.45;padding:8px 11px;border-radius:8px;max-width:88%}
+  .sigma-msg.u{background:#0066AF;color:#fff;align-self:flex-end;border-bottom-right-radius:2px}
+  .sigma-msg.b{background:#F4F5F7;color:#0E1C2A;align-self:flex-start;border-bottom-left-radius:2px}
+  .sigma-msg.b em{color:#6B7280;font-style:normal}
+
+  .sigma-foot{border-top:1px solid #F0F2F5;padding:10px 12px;background:#FAFBFC;
+    display:flex;align-items:center;gap:8px}
+  .sigma-input{flex:1;border:1px solid #E2E5EA;border-radius:18px;padding:7px 12px;
+    font-size:12px;font-family:inherit;color:#0E1C2A;outline:none;background:#fff}
+  .sigma-input:focus{border-color:#0066AF;box-shadow:0 0 0 2px rgba(0,102,175,.12)}
+  .sigma-send{width:30px;height:30px;border-radius:50%;background:#0066AF;border:none;
+    color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .sigma-send:hover{background:#1C2B5A}
+  .sigma-send svg{width:14px;height:14px}
+  .sigma-disclaimer{font-size:9.5px;color:#9CA3AF;text-align:center;padding:6px 12px 10px;
+    background:#FAFBFC}
+
+
+/* === Dark mode additions for recent components === */
+html[data-theme="dark"] .ip-loan-picker input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .ip-loan-picker input::placeholder{color:#9EAAC4 !important}
+html[data-theme="dark"] #ipLoanDD{background:#162035 !important;border-color:#38436A !important;box-shadow:0 14px 32px rgba(0,0,0,.55) !important}
+html[data-theme="dark"] #ipLoanDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] #ipLoanDD a:hover{background:#1F2D4D !important}
+
+html[data-theme="dark"] .note-loan-picker input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .note-loan-picker input::placeholder{color:#9EAAC4 !important}
+html[data-theme="dark"] #noteLoanDD,
+html[data-theme="dark"] #noteFilterLoanDD{background:#162035 !important;border-color:#38436A !important;box-shadow:0 14px 32px rgba(0,0,0,.55) !important}
+html[data-theme="dark"] #noteLoanDD a,
+html[data-theme="dark"] #noteFilterLoanDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] #noteLoanDD a:hover,
+html[data-theme="dark"] #noteFilterLoanDD a:hover{background:#1F2D4D !important}
+
+html[data-theme="dark"] #noteSearch,
+html[data-theme="dark"] #noteFilterFrom,
+html[data-theme="dark"] #noteFilterTo,
+html[data-theme="dark"] #noteLoanSearch,
+html[data-theme="dark"] #noteFilterLoanSearch,
+html[data-theme="dark"] #ntBody{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+
+html[data-theme="dark"] #noteFilterClear{background:#1A243F !important;color:#C8D2E8 !important;border-color:#38436A !important}
+
+html[data-theme="dark"] .note-row{border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] .lnote-row{border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] .note-text, html[data-theme="dark"] .lnote-text,
+html[data-theme="dark"] .note-author, html[data-theme="dark"] .lnote-author{color:#F2F5FB !important}
+
+/* Reporting page preview tiles */
+html[data-theme="dark"] a[href*=".html"][style*="border-radius:8px"]{background:#162035 !important;border-color:#38436A !important;box-shadow:0 2px 8px rgba(0,0,0,.4) !important}
+
+/* Bottom pagination nav */
+html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !important;color:#C8D2E8 !important;border-top-color:#2E3954 !important}
+html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
+html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
+
+</style>
+
+<style>
+<!-- PIMCO-PORTAL-INJECT-V2 -->
+:root{
+  --n:#1C2B5A; --a:#0066AF; --s:#99BEE4;
+  --bg:#F4F5F7; --card:#fff; --border:#E2E5EA;
+  --text:#0A1628; --sub:#6B7280; --muted:#9CA3AF;
+  --g:#059669; --r:#DC2626; --y:#D97706; --teal:#0891B2;
+  --bar-grad-a: linear-gradient(180deg, #1C77D8 0%, #0066AF 100%);
+  --bar-shadow: 0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.10) inset;
+}
+html[data-theme="dark"]{
+  --n:#0B1F4F; --a:#3B82F6; --s:#5C8DEF;
+  --bg:#0E172A; --card:#172033; --border:#28324A;
+  --text:#E8EEF8; --sub:#9CA8C0; --muted:#6B7791;
+  --g:#10B981; --r:#F87171; --y:#FBBF24; --teal:#22D3EE;
+  --bar-grad-a: linear-gradient(180deg, #5C8DEF 0%, #2A66CF 100%);
+  --bar-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 -1px 0 rgba(0,0,0,.30) inset;
+  color-scheme: dark;
+}
+html[data-theme="dark"] body{ background:var(--bg) !important; color:var(--text) }
+html[data-theme="dark"] .tbl tr:hover td{ background:#1F2A40 !important }
+html[data-theme="dark"] .ch{ background:#10182A !important; color:var(--text) !important }
+html[data-theme="dark"] .ch .cm{ color:var(--muted) !important }
+html[data-theme="dark"] .kpi, html[data-theme="dark"] .card,
+html[data-theme="dark"] .ps-i, html[data-theme="dark"] .li,
+html[data-theme="dark"] .pill, html[data-theme="dark"] .bwfoot,
+html[data-theme="dark"] .embed-frame, html[data-theme="dark"] .flash-wrap,
+html[data-theme="dark"] .flash-cap-stack{ background:var(--card) !important; color:var(--text) !important; border-color:var(--border) !important }
+html[data-theme="dark"] .tbl td{ color:var(--text); border-color:var(--border) }
+html[data-theme="dark"] .tbl th{ background:var(--n) }
+html[data-theme="dark"] .tabs{ border-bottom-color:var(--border) }
+html[data-theme="dark"] .tab{ color:var(--muted) }
+html[data-theme="dark"] .tab.on{ color:var(--s); border-bottom-color:var(--a) }
+html[data-theme="dark"] .ni:hover{ background:#1F2A40; color:var(--text) }
+html[data-theme="dark"] .ni.on{ background:#13294D; color:var(--s) }
+html[data-theme="dark"] .sb{ background:#0F1828; border-color:var(--border) }
+html[data-theme="dark"] .sb-block-name{ color:var(--text) }
+html[data-theme="dark"] .li-name{ color:var(--text) }
+html[data-theme="dark"] .ok-bar{ background:#0B2D24; color:#86EFAC; border-left-color:var(--g) }
+html[data-theme="dark"] .warn-bar{ background:#3A2A0B; color:#FCD34D; border-left-color:var(--y) }
+html[data-theme="dark"] .alert-bar{ background:#3F1818; color:#FCA5A5; border-left-color:var(--r) }
+html[data-theme="dark"] nav[aria-label="Portal pagination"]{ background:var(--card); color:var(--muted); border-color:var(--border) }
+
+/* Bar polish — gradient + inner shadow */
+.brt{ background:rgba(125,140,170,.18) !important; box-shadow: var(--bar-shadow) }
+.brf{ background-image: var(--bar-grad-a); box-shadow: 0 1px 1px rgba(0,0,0,.08); position:relative }
+.brf::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 50%); pointer-events:none }
+html[data-theme="dark"] .brf{ filter: brightness(1.1) }
+
+/* Theme toggle button */
+.theme-toggle{ display:inline-flex; align-items:center; gap:6px; padding:4px 9px; border-radius:14px;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.7);
+  font-size:10px; font-weight:600; cursor:pointer; letter-spacing:.04em; user-select:none; transition:background .15s }
+.theme-toggle:hover{ background:rgba(255,255,255,.16); color:#fff }
+.theme-toggle .tt-dot{ width:8px; height:8px; border-radius:50%; background:#FBBF24 }
+html[data-theme="dark"] .theme-toggle .tt-dot{ background:#5C8DEF }
+.theme-toggle .tt-lbl::after{ content:'Light' }
+html[data-theme="dark"] .theme-toggle .tt-lbl::after{ content:'Dark' }
+
+/* SURV/Yellow tooltip */
+.rating-cell{ position:relative; cursor:help }
+.rating-cell::before, .rating-cell::after{ display:none; position:absolute; left:50%; transform:translateX(-50%); z-index:50; pointer-events:none }
+.rating-cell:hover::before{ display:block; content:attr(data-tip); background:#0A1628; color:#fff; font-size:10px; font-weight:500;
+  padding:6px 9px; border-radius:4px; white-space:nowrap; bottom:calc(100% + 6px); box-shadow:0 4px 12px rgba(0,0,0,.18) }
+.rating-cell:hover::after{ display:block; content:''; bottom:calc(100% + 1px); border:5px solid transparent; border-top-color:#0A1628 }
+</style>
+<script>
+<!-- PIMCO-PORTAL-INJECT-V2 -->
+(function(){
+  function applyTheme(t){ document.documentElement.setAttribute('data-theme', t); }
+  try{ var saved = localStorage.getItem('pimcoTheme') || 'light'; applyTheme(saved); }catch(e){ applyTheme('light'); }
+  document.addEventListener('DOMContentLoaded', function(){
+    var btn = document.getElementById('themeToggle');
+    if(btn){ btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'light';
+      var nxt = cur === 'light' ? 'dark' : 'light';
+      applyTheme(nxt);
+      try{ localStorage.setItem('pimcoTheme', nxt); }catch(e){}
+    }); }
+  });
+
+  // URL-param table filter for portfolio overview / servicing overview
+  function getParam(k){ try{ return new URLSearchParams(location.search).get(k); }catch(e){ return null; } }
+  document.addEventListener('DOMContentLoaded', function(){
+    var f = { rating: getParam('rating'), type: getParam('type'), state: getParam('state'),
+              year: getParam('year'), name: getParam('name') };
+    if(!Object.values(f).some(Boolean)) return;
+    var rows = document.querySelectorAll('table.tbl tbody tr[data-loan]');
+    if(!rows.length) return;
+    var shown = 0;
+    rows.forEach(function(r){
+      var keep = true;
+      if(f.rating && r.dataset.rating !== f.rating) keep = false;
+      if(f.type && r.dataset.type !== f.type) keep = false;
+      if(f.state && r.dataset.state !== f.state) keep = false;
+      if(f.year && r.dataset.year !== f.year) keep = false;
+      if(f.name && r.dataset.loan !== f.name) keep = false;
+      r.style.display = keep ? '' : 'none';
+      if(keep) shown++;
+    });
+    // Update title indicator if there's a .filter-banner placeholder
+    var fb = document.getElementById('filterBanner');
+    if(fb){
+      var parts = [];
+      if(f.rating === 'YELLOW') parts.push('Watchlist (Yellow rated)');
+      if(f.rating === 'SURV') parts.push('Surveillance');
+      if(f.type) parts.push('Type: '+f.type);
+      if(f.state) parts.push('State: '+f.state);
+      if(f.year) parts.push('Maturity: '+f.year);
+      fb.innerHTML = '<strong>Filtered:</strong> '+parts.join(' · ')+' &middot; '+shown+' of '+rows.length+' loans &middot; <a href="?" style="color:inherit;text-decoration:underline">Clear filter</a>';
+      fb.style.display = 'block';
+    }
+  });
+})();
+</script>
+
+<style>
+<!-- PIMCO-PORTAL-INJECT-V3 -->
+/* === DARK MODE v3: bump contrast on sidebar, tabs, badges, hover, etc. === */
+html[data-theme="dark"]{
+  --n:#0B1F4F; --a:#5C8DEF; --s:#9BBCFF;
+  --bg:#0A1428; --card:#162035; --border:#2A3550;
+  --text:#F2F5FB; --sub:#B7C2D9; --muted:#8896B3;
+  --g:#22C55E; --r:#F87171; --y:#FBBF24; --teal:#22D3EE;
+}
+html[data-theme="dark"] .sb{ background:#101B30 !important }
+html[data-theme="dark"] .sb-block-name{ color:#F2F5FB !important }
+html[data-theme="dark"] .sb-block-sub{ color:#B7C2D9 !important }
+html[data-theme="dark"] .sl{ color:#9BBCFF !important; opacity:.85 }
+html[data-theme="dark"] .ni{ color:#D7DFEE !important }
+html[data-theme="dark"] .ni:hover{ background:#1A2741 !important; color:#FFFFFF !important }
+html[data-theme="dark"] .ni.on{ background:#15315E !important; color:#FFFFFF !important; border-left-color:#5C8DEF !important }
+html[data-theme="dark"] .li{ background:transparent !important; border-color:#2A3550 !important }
+html[data-theme="dark"] .li:hover{ background:#1A2741 !important }
+html[data-theme="dark"] .li.on{ background:#15315E !important }
+html[data-theme="dark"] .li-name{ color:#F2F5FB !important }
+html[data-theme="dark"] .li-sub{ color:#9BBCFF !important; opacity:.7 }
+html[data-theme="dark"] .li-badge{ background:#1A2741 !important }
+
+html[data-theme="dark"] .tb,
+html[data-theme="dark"] .tabs{ border-bottom-color:#2A3550 !important }
+html[data-theme="dark"] .tab{ color:#9BBCFF !important; opacity:.85 }
+html[data-theme="dark"] .tab:hover{ color:#FFFFFF !important; opacity:1 }
+html[data-theme="dark"] .tab.on{ color:#FFFFFF !important; opacity:1; border-bottom-color:#5C8DEF !important }
+
+html[data-theme="dark"] .tbl tr:hover td{ background:#1A2741 !important; color:#FFFFFF }
+html[data-theme="dark"] .tbl .sub-r td{ background:#15315E !important; color:#FFFFFF !important }
+html[data-theme="dark"] .tbl .tot-r td{ background:#15315E !important; color:#FFFFFF !important }
+
+html[data-theme="dark"] .badge{ filter:brightness(1.25) saturate(1.05) }
+html[data-theme="dark"] .b-eq{ background:#0F3D2C !important; color:#86EFAC !important }
+html[data-theme="dark"] .b-dt{ background:#0F2A4D !important; color:#9BBCFF !important }
+html[data-theme="dark"] .b-mx{ background:#241F4D !important; color:#C4B5FD !important }
+html[data-theme="dark"] .b-ok{ background:#0F3D2C !important; color:#86EFAC !important }
+html[data-theme="dark"] .b-w{ background:#3A2A0B !important; color:#FCD34D !important }
+html[data-theme="dark"] .b-a{ background:#3F1818 !important; color:#FCA5A5 !important }
+html[data-theme="dark"] .b-val{ background:#3A2A0B !important; color:#FCD34D !important }
+html[data-theme="dark"] .b-esg{ background:#0F3D2C !important; color:#86EFAC !important }
+
+html[data-theme="dark"] .ch{ color:#F2F5FB !important; background:#0F1828 !important }
+html[data-theme="dark"] .kpi .kl{ color:#9BBCFF !important; opacity:.85 }
+html[data-theme="dark"] .kpi .kv{ color:#FFFFFF !important }
+html[data-theme="dark"] .ps-i{ background:#1A2741 !important; border-color:#2A3550 !important }
+html[data-theme="dark"] .psl{ color:#9BBCFF !important }
+html[data-theme="dark"] .psv{ color:#F2F5FB !important }
+
+html[data-theme="dark"] .ok-bar{ background:#0F2D24 !important; color:#86EFAC !important }
+html[data-theme="dark"] .warn-bar{ background:#3A2A0B !important; color:#FCD34D !important }
+html[data-theme="dark"] .alert-bar{ background:#3F1818 !important; color:#FCA5A5 !important }
+
+html[data-theme="dark"] .ni2{ color:#D7DFEE !important; border-color:#2A3550 !important }
+html[data-theme="dark"] .nby{ color:#9BBCFF !important }
+html[data-theme="dark"] .nmeta{ color:#8896B3 !important }
+html[data-theme="dark"] .ntag{ background:#15315E !important; color:#9BBCFF !important }
+
+html[data-theme="dark"] .pill{ background:#1A2741 !important; color:#D7DFEE !important; border-color:#2A3550 !important }
+html[data-theme="dark"] .pill:hover{ background:#15315E !important; color:#FFFFFF !important }
+html[data-theme="dark"] .pill.on{ background:#5C8DEF !important; color:#FFFFFF !important; border-color:#5C8DEF !important }
+
+html[data-theme="dark"] .filter-banner,
+html[data-theme="dark"] #filterBanner{ background:#3A2A0B !important; color:#FCD34D !important }
+
+html[data-theme="dark"] .bwfoot,
+html[data-theme="dark"] .embed-frame,
+html[data-theme="dark"] .flash-wrap,
+html[data-theme="dark"] .flash-cap-stack,
+html[data-theme="dark"] .del-card{ background:#162035 !important; border-color:#2A3550 !important; color:#F2F5FB }
+html[data-theme="dark"] .bwfl{ color:#F2F5FB }
+html[data-theme="dark"] .bwft, html[data-theme="dark"] .del-meta{ color:#9BBCFF !important }
+html[data-theme="dark"] .bwfr, html[data-theme="dark"] .ff-date, html[data-theme="dark"] .fs-count{ color:#8896B3 !important }
+html[data-theme="dark"] .fs-header, html[data-theme="dark"] .ff:hover{ background:#1A2741 !important }
+html[data-theme="dark"] .fs-name, html[data-theme="dark"] .ff-name{ color:#F2F5FB !important }
+html[data-theme="dark"] .dr2{ border-color:#2A3550 !important }
+html[data-theme="dark"] .dr2:hover{ background:#1A2741 !important }
+html[data-theme="dark"] .dn2{ color:#F2F5FB !important }
+html[data-theme="dark"] .dm2, html[data-theme="dark"] .dd{ color:#9BBCFF !important }
+
+/* Activity-row right aligned subtitle */
+.ni2 .nmeta-right{ float:right; font-size:9px; color:var(--muted); white-space:nowrap }
+.ni2 .nmeta-right .nby{ color:var(--a); font-weight:600; font-size:9px; margin-left:4px }
+
+/* === Doc preview slide-out === */
+.docprev-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.4); opacity:0; pointer-events:none;
+  transition:opacity .2s ease; z-index:9995 }
+.docprev-overlay.open{ opacity:1; pointer-events:auto }
+.docprev-panel{ position:fixed; top:0; right:0; bottom:0; width:min(560px, 96vw); background:var(--card);
+  border-left:1px solid var(--border); transform:translateX(100%); transition:transform .25s ease;
+  z-index:9996; display:flex; flex-direction:column; box-shadow:-12px 0 30px rgba(0,0,0,.20);
+  font-family:'DM Sans',Arial,sans-serif }
+.docprev-panel.open{ transform:translateX(0) }
+.docprev-head{ background:var(--n); color:#fff; padding:14px 16px 12px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border) }
+.docprev-head-icon{ width:34px; height:34px; border-radius:6px; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; flex-shrink:0 }
+.docprev-head-title{ font-family:'DM Serif Display',serif; font-size:15px; line-height:1.15; font-weight:400 }
+.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.6); margin-top:2px }
+.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.7); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
+.docprev-close:hover{ color:#fff }
+.docprev-body{ flex:1; overflow:auto; padding:18px 18px 24px; background:var(--bg); color:var(--text) }
+.docprev-meta{ display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; font-size:11px; padding:10px 14px; background:var(--card); border:1px solid var(--border); border-radius:6px; margin-bottom:14px }
+.docprev-meta dt{ color:var(--sub); font-size:9px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:1px }
+.docprev-meta dd{ color:var(--text); font-weight:600 }
+.docprev-page{ background:#fff; border:1px solid #E2E5EA; border-radius:6px; padding:28px 32px; min-height:480px; box-shadow:0 4px 14px rgba(0,0,0,.06); color:#0A1628; font-family:'DM Serif Display','Times New Roman',serif }
+html[data-theme="dark"] .docprev-page{ background:#1F2A40; border-color:#2A3550; color:#F2F5FB }
+.docprev-page h1{ font-size:18px; margin-bottom:12px; border-bottom:2px solid #E2E5EA; padding-bottom:8px }
+.docprev-page h2{ font-size:13px; font-weight:600; margin-top:14px; margin-bottom:6px; color:#1C2B5A; font-family:'DM Sans',sans-serif }
+html[data-theme="dark"] .docprev-page h2{ color:#9BBCFF }
+.docprev-page p, .docprev-page li{ font-family:'DM Sans',sans-serif; font-size:11px; line-height:1.6; color:#374151; margin-bottom:6px }
+html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page li{ color:#D7DFEE }
+.docprev-actions{ padding:10px 16px; border-top:1px solid var(--border); display:flex; gap:8px; background:var(--card) }
+.docprev-actions button, .docprev-actions a{ font-family:'DM Sans',sans-serif; font-size:10px; font-weight:600; padding:6px 12px; border-radius:4px; cursor:pointer; border:1px solid var(--border); background:transparent; color:var(--text); text-decoration:none }
+.docprev-actions a.primary{ background:var(--a); color:#fff; border-color:var(--a) }
+.docprev-actions a.primary:hover{ filter:brightness(1.1) }
+
+/* Trigger button styling */
+.doc-view-btn{ font-size:9px; font-weight:600; padding:4px 9px; border-radius:14px; border:1px solid var(--border);
+  background:var(--card); color:var(--a); cursor:pointer; font-family:inherit }
+.doc-view-btn:hover{ background:var(--a); color:#fff; border-color:var(--a) }
+</style>
+
+<script>
+<!-- PIMCO-PORTAL-INJECT-V3 -->
+(function(){
+  // Doc preview slide-out (lazy mounted on first call)
+  var overlay, panel, headTitle, headSub, headIcon, body, downloadLink;
+  function ensureDom(){
+    if(panel) return;
+    overlay = document.createElement('div');
+    overlay.className = 'docprev-overlay';
+    overlay.addEventListener('click', closePanel);
+    document.body.appendChild(overlay);
+    panel = document.createElement('aside');
+    panel.className = 'docprev-panel';
+    panel.setAttribute('role','dialog');
+    panel.setAttribute('aria-label','Document preview');
+    panel.innerHTML = ''
+      + '<div class="docprev-head">'
+      + '  <div class="docprev-head-icon" id="dpHeadIcon">PDF</div>'
+      + '  <div><div class="docprev-head-title" id="dpHeadTitle">Document</div>'
+      + '    <div class="docprev-head-sub" id="dpHeadSub">Bellwether Asset Management</div></div>'
+      + '  <button class="docprev-close" id="dpClose" aria-label="Close">&times;</button>'
+      + '</div>'
+      + '<div class="docprev-body" id="dpBody"></div>'
+      + '<div class="docprev-actions">'
+      + '  <a class="primary" id="dpDownload" href="#" onclick="return false">Download</a>'
+      + '  <button id="dpClose2">Close preview</button>'
+      + '</div>';
+    document.body.appendChild(panel);
+    headTitle = document.getElementById('dpHeadTitle');
+    headSub   = document.getElementById('dpHeadSub');
+    headIcon  = document.getElementById('dpHeadIcon');
+    body      = document.getElementById('dpBody');
+    downloadLink = document.getElementById('dpDownload');
+    document.getElementById('dpClose').addEventListener('click', closePanel);
+    document.getElementById('dpClose2').addEventListener('click', closePanel);
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closePanel(); });
+  }
+  function closePanel(){ if(panel){ panel.classList.remove('open'); overlay.classList.remove('open'); } }
+  function openPanel(opts){
+    ensureDom();
+    headTitle.textContent = opts.title || 'Document';
+    headSub.textContent = opts.sub || 'Bellwether Asset Management';
+    headIcon.textContent = (opts.kind || 'PDF').toUpperCase().slice(0,3);
+    body.innerHTML = (opts.body || defaultPreview(opts));
+    panel.classList.add('open');
+    overlay.classList.add('open');
+  }
+  function defaultPreview(opts){
+    var loan = opts.loan || '333 West Wacker';
+    var date = opts.date || 'Q1 2026';
+    var meta = ''
+      + '<div class="docprev-meta">'
+      + '  <div><dt>Loan</dt><dd>'+loan+'</dd></div>'
+      + '  <div><dt>Document</dt><dd>'+(opts.title||'')+'</dd></div>'
+      + '  <div><dt>Period</dt><dd>'+date+'</dd></div>'
+      + '  <div><dt>Source</dt><dd>'+(opts.sub||'Bellwether Asset Management')+'</dd></div>'
+      + '</div>';
+    var summary = opts.summary || ('Preview of <strong>'+(opts.title||'document')+'</strong> for '+loan+'. In production this panel would render a paginated preview from the document store.');
+    return meta
+      + '<div class="docprev-page">'
+      + '  <h1>'+(opts.title||'Document Preview')+'</h1>'
+      + '  <p style="font-style:italic;color:#6B7280">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
+      + '  <h2>Summary</h2><p>'+summary+'</p>'
+      + '  <h2>Selected metrics</h2>'
+      + '  <ul style="padding-left:18px">'
+      + '    <li>UPB: $173.1mm of $185.0mm original</li>'
+      + '    <li>Interest rate: 6.00% fixed (IO period · 40 mo. remaining)</li>'
+      + '    <li>Occupancy: 78.3% (Q1 2026 tape)</li>'
+      + '    <li>In-place LTV: 60.1% &middot; Debt yield: 9.8%</li>'
+      + '    <li>Maturity: July 10, 2031</li>'
+      + '  </ul>'
+      + '  <h2>Notes</h2>'
+      + '  <p>This is a stylised in-app preview. In production, the slide-out would render the actual PDF / Excel / Word document from the document store with full pagination and download controls.</p>'
+      + '</div>';
+  }
+  // Click delegation: any element with [data-doc-preview] opens the panel
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-doc-preview]');
+    if(!el) return;
+    e.preventDefault();
+    openPanel({
+      title: el.getAttribute('data-doc-title') || el.textContent.trim().slice(0,60),
+      sub:   el.getAttribute('data-doc-sub')   || 'Bellwether Asset Management',
+      kind:  el.getAttribute('data-doc-kind')  || 'PDF',
+      loan:  el.getAttribute('data-doc-loan')  || '333 West Wacker',
+      date:  el.getAttribute('data-doc-date')  || 'Q1 2026',
+      summary: el.getAttribute('data-doc-summary') || ''
+    });
+  });
+})();
+</script>
+
+
+<style>
+<!-- PIMCO-PORTAL-INJECT-V4 -->
+/* === DARK MODE v4: stronger contrast — brighter foreground, deeper backgrounds === */
+html[data-theme="dark"]{
+  --n:#0A1A40; --a:#7AA5F4; --s:#B6D0FF;
+  --bg:#070F1F; --card:#10192E; --border:#2E3954;
+  --text:#FFFFFF; --sub:#D4DEF0; --muted:#9EAAC4;
+  --g:#34D399; --r:#FCA5A5; --y:#FCD34D; --teal:#5EEAD4;
+}
+html[data-theme="dark"] body{ background:var(--bg) !important; color:#FFFFFF !important }
+html[data-theme="dark"] .sb{ background:#0C1528 !important }
+html[data-theme="dark"] .sb-block-name, html[data-theme="dark"] .li-name,
+html[data-theme="dark"] .kv, html[data-theme="dark"] .pt,
+html[data-theme="dark"] .psv, html[data-theme="dark"] .dn2,
+html[data-theme="dark"] .fn{ color:#FFFFFF !important }
+
+html[data-theme="dark"] .sb-block-sub, html[data-theme="dark"] .ps,
+html[data-theme="dark"] .cm, html[data-theme="dark"] .kl,
+html[data-theme="dark"] .li-sub, html[data-theme="dark"] .psl{ color:#C8D2E8 !important }
+
+html[data-theme="dark"] .sl{ color:#B6D0FF !important; opacity:1 }
+html[data-theme="dark"] .ni{ color:#E2E8F5 !important; font-weight:500 }
+html[data-theme="dark"] .ni:hover{ background:#1F2D4D !important; color:#FFFFFF !important }
+html[data-theme="dark"] .ni.on{ background:#1B3A75 !important; color:#FFFFFF !important; border-left-color:#7AA5F4 !important; font-weight:700 }
+
+html[data-theme="dark"] .li{ background:transparent !important; border-color:#2E3954 !important }
+html[data-theme="dark"] .li:hover{ background:#1F2D4D !important }
+html[data-theme="dark"] .li.on{ background:#1B3A75 !important }
+
+html[data-theme="dark"] .tab{ color:#B6D0FF !important; opacity:1; font-weight:500 }
+html[data-theme="dark"] .tab:hover{ color:#FFFFFF !important }
+html[data-theme="dark"] .tab.on{ color:#FFFFFF !important; border-bottom-color:#7AA5F4 !important; font-weight:700 }
+
+html[data-theme="dark"] .tbl td{ color:#FFFFFF !important; border-color:#2E3954 !important }
+html[data-theme="dark"] .tbl tr:hover td{ background:#1F2D4D !important; color:#FFFFFF !important }
+html[data-theme="dark"] .tbl th{ background:#0A1A40 !important; color:#FFFFFF !important }
+html[data-theme="dark"] .tbl .sub-r td, html[data-theme="dark"] .tbl .tot-r td{ background:#1B3A75 !important; color:#FFFFFF !important }
+
+html[data-theme="dark"] .badge{ filter:brightness(1.3) saturate(1.1) }
+html[data-theme="dark"] .b-eq{ background:#0F3D2C !important; color:#86EFAC !important }
+html[data-theme="dark"] .b-dt{ background:#0F2A4D !important; color:#B6D0FF !important }
+html[data-theme="dark"] .b-mx{ background:#2C2461 !important; color:#C4B5FD !important }
+html[data-theme="dark"] .b-ok{ background:#103D2C !important; color:#86EFAC !important }
+html[data-theme="dark"] .b-w{ background:#4A2A0B !important; color:#FCD34D !important }
+html[data-theme="dark"] .b-a{ background:#4F1818 !important; color:#FCA5A5 !important }
+html[data-theme="dark"] .b-val{ background:#4A2A0B !important; color:#FCD34D !important }
+html[data-theme="dark"] .b-esg{ background:#103D2C !important; color:#86EFAC !important }
+
+html[data-theme="dark"] .ch{ color:#FFFFFF !important; background:#0A1422 !important; border-color:#2E3954 !important }
+html[data-theme="dark"] .ps-i{ background:#1A243F !important; border-color:#2E3954 !important }
+
+html[data-theme="dark"] .ok-bar{ background:#0F3D2C !important; color:#86EFAC !important; border-left-color:#34D399 !important }
+html[data-theme="dark"] .warn-bar{ background:#4A2A0B !important; color:#FCD34D !important; border-left-color:#FCD34D !important }
+html[data-theme="dark"] .alert-bar{ background:#4F1818 !important; color:#FCA5A5 !important; border-left-color:#FCA5A5 !important }
+
+html[data-theme="dark"] .ni2{ color:#E2E8F5 !important; border-color:#2E3954 !important }
+html[data-theme="dark"] .nby{ color:#B6D0FF !important; font-weight:700 }
+html[data-theme="dark"] .nmeta, html[data-theme="dark"] .nmeta-right{ color:#9EAAC4 !important }
+html[data-theme="dark"] .ntag{ background:#1B3A75 !important; color:#B6D0FF !important }
+
+html[data-theme="dark"] .pill{ background:#1A243F !important; color:#E2E8F5 !important; border-color:#2E3954 !important }
+html[data-theme="dark"] .pill:hover{ background:#1B3A75 !important; color:#FFFFFF !important }
+html[data-theme="dark"] .pill.on{ background:#7AA5F4 !important; color:#0A1A40 !important; border-color:#7AA5F4 !important; font-weight:700 }
+
+html[data-theme="dark"] .kpi, html[data-theme="dark"] .card,
+html[data-theme="dark"] .bwfoot, html[data-theme="dark"] .embed-frame,
+html[data-theme="dark"] .flash-wrap, html[data-theme="dark"] .flash-cap-stack,
+html[data-theme="dark"] .del-card{ background:#10192E !important; color:#FFFFFF !important; border-color:#2E3954 !important }
+html[data-theme="dark"] .bwfl{ color:#FFFFFF !important }
+html[data-theme="dark"] .bwft{ color:#C8D2E8 !important }
+html[data-theme="dark"] .bwfr{ color:#9EAAC4 !important }
+
+html[data-theme="dark"] .dr2{ border-color:#2E3954 !important }
+html[data-theme="dark"] .dr2:hover{ background:#1F2D4D !important }
+html[data-theme="dark"] .fs-header{ background:#1A243F !important }
+html[data-theme="dark"] .fs-name, html[data-theme="dark"] .ff-name{ color:#FFFFFF !important }
+html[data-theme="dark"] .dm2, html[data-theme="dark"] .ff-date, html[data-theme="dark"] .fs-count{ color:#9EAAC4 !important }
+html[data-theme="dark"] .ff:hover{ background:#1F2D4D !important }
+html[data-theme="dark"] .fr{ border-color:#2E3954 !important }
+html[data-theme="dark"] .fr:hover{ background:#1F2D4D !important }
+html[data-theme="dark"] .fm{ color:#9EAAC4 !important }
+
+html[data-theme="dark"] nav[aria-label="Portal pagination"]{ background:#10192E !important; color:#C8D2E8 !important; border-color:#2E3954 !important }
+html[data-theme="dark"] nav[aria-label="Portal pagination"] a{ color:#7AA5F4 !important }
+html[data-theme="dark"] nav[aria-label="Portal pagination"] span{ color:#FFFFFF }
+
+html[data-theme="dark"] .up{ color:#86EFAC !important }
+html[data-theme="dark"] .dn{ color:#FCA5A5 !important }
+html[data-theme="dark"] .wa{ color:#FCD34D !important }
+html[data-theme="dark"] .nu{ color:#9EAAC4 !important }
+
+html[data-theme="dark"] .c-ok{ color:#86EFAC !important }
+html[data-theme="dark"] .c-w{ color:#FCD34D !important }
+html[data-theme="dark"] .c-fail{ color:#FCA5A5 !important }
+
+html[data-theme="dark"] .doc-view-btn{ background:#1A243F !important; color:#7AA5F4 !important; border-color:#2E3954 !important }
+html[data-theme="dark"] .doc-view-btn:hover{ background:#7AA5F4 !important; color:#0A1A40 !important; border-color:#7AA5F4 !important }
+</style>
+<style>@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}</style>
+<style>
+<!-- PIMCO-PORTAL-SEARCH-V1 -->
+.gsearch{position:relative;display:flex;align-items:center;gap:6px;margin-left:18px}
+.gsearch-input{width:240px;padding:5px 10px 5px 28px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;outline:none;transition:background .15s, border-color .15s}
+.gsearch-input::placeholder{color:rgba(255,255,255,.45)}
+.gsearch-input:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);width:300px}
+.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.55);pointer-events:none}
+.gsearch-dd{position:absolute;top:36px;left:0;width:340px;max-height:360px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 14px 32px rgba(11,31,79,.22);z-index:9994;display:none;padding:4px 0}
+.gsearch-dd.open{display:block}
+.gsearch-item{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:1px solid #F3F4F6;cursor:pointer;text-decoration:none;color:var(--text)}
+.gsearch-item:hover{background:#EBF2FA}
+html[data-theme="dark"] .gsearch-item:hover{background:#1F2D4D}
+.gsearch-item:last-child{border-bottom:none}
+.gsearch-name{font-size:11px;font-weight:600;color:var(--text)}
+.gsearch-sub{font-size:9px;color:var(--muted);margin-top:1px}
+.gsearch-tag{font-size:8px;font-weight:700;padding:2px 6px;border-radius:20px;background:#EBF2FA;color:var(--n);margin-left:auto;flex-shrink:0}
+html[data-theme="dark"] .gsearch-tag{background:#1B3A75;color:#B6D0FF}
+.gsearch-empty{padding:14px;font-size:10px;color:var(--muted);text-align:center}
+</style>
+
+<script>
+<!-- PIMCO-PORTAL-SEARCH-V1 -->
+(function(){
+  var LOANS = [
+    {n:'333 West Wacker', spn:'Beacon Capital Partners', ct:'Chicago, IL', st:'IL', am:'BW Asset Manager', upb:'$173mm', href:'03_asset_debt.html'},
+    {n:'Intersect', spn:'MetLife Investment Mgmt', ct:'Irvine, CA', st:'CA', am:'BW Asset Manager', upb:'$118mm', href:'loan.html?id=10999'},
+    {n:'Granite TX Office Portfolio', spn:'Granite Properties', ct:'Various, TX', st:'TX', am:'BW Asset Manager', upb:'$110mm', href:'loan.html?id=10848'},
+    {n:'101 North Wacker', spn:'LaSalle Investment Mgmt', ct:'Chicago, IL', st:'IL', am:'BW Asset Manager', upb:'$72mm', href:'loan.html?id=10318'},
+    {n:'715 Peachtree Street', spn:'Northwood Investors', ct:'Atlanta, GA', st:'GA', am:'BW Asset Manager', upb:'$60mm', href:'loan.html?id=10767'},
+    {n:'The Beacon Apartments', spn:'Pearl Properties', ct:'Philadelphia, PA', st:'PA', am:'BW Asset Manager', upb:'$46mm', href:'02_asset_equity.html', tag:'YELLOW'},
+    {n:'Orleans at Fannin Station', spn:'Warehouse Associates', ct:'Houston, TX', st:'TX', am:'BW Asset Manager', upb:'$42mm', href:'loan.html?id=10945'},
+    {n:'Ella Parkside', spn:'Sidal Realty', ct:'Austin, TX', st:'TX', am:'BW Asset Manager', upb:'$41mm', href:'02b_loan_ella.html', tag:'YELLOW'},
+    {n:'Apex West Midtown', spn:'Venterra Realty', ct:'Atlanta, GA', st:'GA', am:'BW Asset Manager', upb:'$40mm', href:'loan.html?id=10653'},
+    {n:'55 Third Avenue (Cammeyer)', spn:'Hubb NYC Properties', ct:'New York, NY', st:'NY', am:'BW Asset Manager', upb:'$38mm', href:'loan.html?id=10587'},
+    {n:'8201 Greensboro Drive', spn:'B.F. Saul Company', ct:'Mclean, VA', st:'VA', am:'BW Asset Manager', upb:'$35mm', href:'loan.html?id=10380'},
+    {n:'Charleston at Fannin Station', spn:'Warehouse Associates', ct:'Houston, TX', st:'TX', am:'BW Asset Manager', upb:'$34mm', href:'loan.html?id=11098'},
+    {n:'Walnut Creek Business Park', spn:'Majestic Realty', ct:'San Dimas, CA', st:'CA', am:'BW Asset Manager', upb:'$33mm', href:'loan.html?id=10401'},
+    {n:'World Kitchen Distribution', spn:'Matrix Development', ct:'Greencastle, PA', st:'PA', am:'BW Asset Manager', upb:'$28mm', href:'loan.html?id=10548'},
+    {n:'122 South Michigan Avenue', spn:'Aetna Realty', ct:'Chicago, IL', st:'IL', am:'BW Asset Manager', upb:'$17mm', href:'loan.html?id=10448'},
+    {n:'600 Pennsylvania Avenue', spn:'Bernstein Mgmt Corp', ct:'Washington, DC', st:'DC', am:'BW Asset Manager', upb:'$16mm', href:'loan.html?id=10894'},
+    {n:'Seaport Logistics Center', spn:'Investco, LLC', ct:'Sumner, WA', st:'WA', am:'BW Asset Manager', upb:'$16mm', href:'loan.html?id=10436'},
+    {n:'185 Avenue B Apartments', spn:'Hubb Realty', ct:'New York, NY', st:'NY', am:'BW Asset Manager', upb:'$16mm', href:'loan.html?id=10526'},
+    {n:'Brunner Building', spn:'The Wood Companies', ct:'Columbus, OH', st:'OH', am:'BW Asset Manager', upb:'$13mm', href:'loan.html?id=10721'},
+    {n:'Trader Joes (Staten Is.)', spn:'Helm Equities', ct:'Staten Island, NY', st:'NY', am:'BW Asset Manager', upb:'$13mm', href:'loan.html?id=10239'},
+    {n:'Georgetown Retail', spn:'Eastbanc, Inc.', ct:'Washington, DC', st:'DC', am:'BW Asset Manager', upb:'$13mm', href:'loan.html?id=10207'},
+    {n:'333 West Wacker (Mezz)', spn:'John Lawrence', ct:'Chicago, IL', st:'IL', am:'BW Asset Manager', upb:'$13mm', href:'loan.html?id=11089'},
+    {n:'C9 Flats Apartments', spn:'De Anza Properties', ct:'Salt Lake City, UT', st:'UT', am:'BW Asset Manager', upb:'$12mm', href:'loan.html?id=10927'},
+    {n:'Prairie Lakes Corporate Center', spn:'Kraus-Anderson Inc', ct:'Eden Prairie, MN', st:'MN', am:'BW Asset Manager', upb:'$6mm', href:'loan.html?id=9926', tag:'YELLOW'},
+  ];
+  document.addEventListener('DOMContentLoaded', function(){
+    var input = document.getElementById('gsearchInput');
+    var dd    = document.getElementById('gsearchDd');
+    if(!input || !dd) return;
+    function render(q){
+      q = (q||'').trim().toLowerCase();
+      if(!q){ dd.classList.remove('open'); dd.innerHTML=''; return; }
+      var hits = LOANS.filter(function(L){
+        return (L.n+' '+L.spn+' '+L.ct+' '+L.st+' '+L.am).toLowerCase().indexOf(q) >= 0;
+      }).slice(0, 12);
+      if(!hits.length){
+        dd.innerHTML = '<div class="gsearch-empty">No matches</div>';
+      } else {
+        dd.innerHTML = hits.map(function(L){
+          var tag = L.tag === 'YELLOW' ? '<span class="gsearch-tag" style="background:#FFFBEB;color:#92400E">WATCHLIST</span>' : '';
+          return '<a class="gsearch-item" href="'+L.href+'">'
+            + '<div style="flex:1;min-width:0">'
+            + '  <div class="gsearch-name">'+L.n+'</div>'
+            + '  <div class="gsearch-sub">'+L.spn+' &middot; '+L.ct+' &middot; '+L.upb+'</div>'
+            + '</div>' + tag + '</a>';
+        }).join('');
+      }
+      dd.classList.add('open');
+    }
+    input.addEventListener('input', function(){ render(input.value); });
+    input.addEventListener('focus', function(){ if(input.value) render(input.value); });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.gsearch')) dd.classList.remove('open');
+    });
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ input.blur(); dd.classList.remove('open'); }
+    });
+  });
+})();
+</script>
+
+<style>
+/* Sidebar elevated over top tabs (per principal feedback) */
+.tabs .tab{font-size:10.5px;color:var(--muted);font-weight:500}
+.tabs .tab.on{color:var(--a);font-weight:600;border-bottom-color:var(--a)}
+.sb .sl{font-size:10px;color:var(--n);font-weight:700;letter-spacing:.08em;opacity:1}
+html[data-theme="dark"] .sb .sl{color:#9BBCFF}
+.sb .ni{font-weight:600;font-size:12.5px}
+.sb .ni.on{box-shadow:inset 3px 0 0 var(--a)}
+</style>
+<style>
+<!-- PIMCO-PORTAL-INJECT-V5 -->
+/* === Dark mode v5: tiles + buttons + pills crisper === */
+html[data-theme="dark"] .kpi{background:#162035 !important;border:1px solid #38436A !important;box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+html[data-theme="dark"] .kpi .kv{color:#FFFFFF !important;font-weight:700}
+html[data-theme="dark"] .kpi .kl{color:#C8D2E8 !important;font-weight:600;opacity:1}
+html[data-theme="dark"] .kpi .ks{opacity:1;font-weight:500}
+html[data-theme="dark"] .kpi .ks.up{color:#86EFAC !important}
+html[data-theme="dark"] .kpi .ks.dn{color:#FCA5A5 !important}
+html[data-theme="dark"] .kpi .ks.wa{color:#FCD34D !important}
+html[data-theme="dark"] .kpi .ks.nu{color:#C8D2E8 !important}
+/* Status pills on home */
+html[data-theme="dark"] .st2{background:#162035 !important;border:1px solid #38436A !important;color:#FFFFFF !important;font-weight:600}
+html[data-theme="dark"] .st2 .sdot{box-shadow:0 0 0 2px rgba(255,255,255,.10)}
+/* Buttons */
+html[data-theme="dark"] .doc-view-btn{background:#1F3268 !important;color:#FFFFFF !important;border-color:#3B5BAA !important;font-weight:700}
+html[data-theme="dark"] .doc-view-btn:hover{background:#7AA5F4 !important;color:#0A1A40 !important}
+html[data-theme="dark"] .compose-btn,
+html[data-theme="dark"] .cov-export-btn,
+html[data-theme="dark"] .h-cta{background:#7AA5F4 !important;color:#0A1A40 !important;font-weight:700;border:none}
+html[data-theme="dark"] .compose-btn:hover,
+html[data-theme="dark"] .cov-export-btn:hover{background:#B6D0FF !important}
+html[data-theme="dark"] select,
+html[data-theme="dark"] .compose select{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] input[type="text"],
+html[data-theme="dark"] .compose textarea,
+html[data-theme="dark"] .sigma-input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] input[type="text"]::placeholder{color:#9EAAC4 !important}
+html[data-theme="dark"] .gsearch-input{background:rgba(255,255,255,.10) !important;color:#FFFFFF !important;border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.55) !important}
+html[data-theme="dark"] #loanSel{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] #loanSelDD{background:#162035 !important;border-color:#38436A !important}
+html[data-theme="dark"] #loanSelDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
+
+/* === Global table alignment fix === */
+/* Headers AND values left-aligned by default */
+.tbl th,
+.tbl td{text-align:left}
+/* If a cell or header is explicitly marked .tr, keep right-aligned (legacy fallback) — but we drop most .tr usage */
+.tbl th.tr,
+.tbl td.tr{text-align:left !important}
+/* Ensure td contents don't get pushed by nested elements */
+.tbl td > span,
+.tbl td > a{text-align:left}
+</style>
+</head><body>
+<div class="shell">
+<div class="tb">
+  <a href="00_home.html" style="text-decoration:none"><span class="logo">Bellwether<span class="logo-sub">.co</span></span></a>
+  <span class="tb-tag">Servicing Portal</span>
+  <div class="tb-sep"></div>
+  <span class="tb-crumb">/ 333 West Wacker / <span class="cur">Payments</span></span>
+  <div class="bw-pill"><span class="bw-pill-lbl">client</span><span class="bw-pill-name">PIMCO</span></div>
+    <div class="gsearch" style="position:relative">
+    <svg class="gsearch-icon" width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <input class="gsearch-input" id="gsearchInput" type="text" placeholder="Search loans by name, sponsor, city, state&hellip;" autocomplete="off"/>
+    <div class="gsearch-dd" id="gsearchDd"></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><span class="tt-dot"></span><span class="tt-lbl"></span></button>
+  <div class="tb-av">BP</div>
+</div><div class="sb">
+<div class="sb-block">
+  <div class="sb-block-name">PIMCO</div>
+  <div class="sb-block-sub">24 loans · 3 on watchlist</div>
+</div>
+  <div class="sl">Your loans</div>
+  <div class="loan-selector" style="padding:6px 14px 10px">
+    <div style="position:relative">
+      <input type="text" id="loanSel" placeholder="Select or search loan…" autocomplete="off"
+        style="width:100%;padding:6px 26px 6px 9px;font-family:inherit;font-size:11px;border:1px solid var(--border);border-radius:5px;background:#fff;color:var(--text);outline:none;cursor:pointer"/>
+      <svg style="position:absolute;right:8px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none" width="10" height="10" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div id="loanSelDD" style="display:none;position:absolute;top:30px;left:0;right:0;max-height:280px;overflow-y:auto;background:#fff;border:1px solid var(--border);border-radius:6px;box-shadow:0 8px 22px rgba(11,31,79,.18);z-index:9990"></div>
+    </div>
+    <div id="loanSelActive" style="font-size:9px;color:var(--muted);margin-top:6px;line-height:1.4"></div>
+  </div>
+  <div class="sb-div"></div>
+  <div class="sl">Portfolio</div>
+  <a class="ni" href="01_portfolio_overview.html" style="text-decoration:none"><div class="dot dm"></div>Overview</a>
+  <a class="ni sub" href="01_portfolio_overview.html?type=office" style="text-decoration:none"><div class="dot db"></div>Office</a>
+  <a class="ni sub" href="01_portfolio_overview.html?type=multifamily" style="text-decoration:none"><div class="dot dg"></div>Multifamily</a>
+  <a class="ni sub" href="01_portfolio_overview.html?type=retail" style="text-decoration:none"><div class="dot dp"></div>Retail</a>
+  <a class="ni sub" href="01_portfolio_overview.html?type=industrial" style="text-decoration:none"><div class="dot ds"></div>Industrial</a>
+  <a class="ni sub" href="01_portfolio_overview.html?rating=YELLOW" style="text-decoration:none"><div class="dot dy"></div>Watchlist</a>
+  <a class="ni sub" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Valuation</a>
+  <div class="sb-div"></div>
+  <div class="sl">Investments</div>
+  <a class="ni" href="10_servicing_overview.html" style="text-decoration:none"><div class="dot dr"></div>Overview</a>
+  <div class="sb-div"></div>
+  <div class="sl">Collaboration</div>
+  <a class="ni" href="09_analytics.html" style="text-decoration:none"><div class="dot ds"></div>Analytics</a>
+  <a class="ni" href="06b_notes.html" style="text-decoration:none"><div class="dot dt"></div>Portfolio notes</a>
+  <a class="ni" href="07_deliverables_flash.html" style="text-decoration:none"><div class="dot ds"></div>Reporting</a>
+  <a class="ni" href="06_workspace.html" style="text-decoration:none"><div class="dot ds"></div>Workspace</a>
+
+
+</div>
+<div class="main">
+
+<!-- breadcrumb-row-v2 -->
+<div style="font-size:10px;color:var(--muted);margin-bottom:6px;font-weight:500;letter-spacing:.02em">
+  <a href="00_home.html" style="color:var(--a);text-decoration:none">Home</a>
+  <span style="opacity:.5;margin:0 4px">›</span>
+  <a href="01_portfolio_overview.html" style="color:var(--a);text-decoration:none">Portfolio</a>
+  <span style="opacity:.5;margin:0 4px">›</span>
+  <span style="color:var(--text);font-weight:600">333 West Wacker</span>
+  <span style="opacity:.5;margin:0 4px">›</span>
+  <span style="color:var(--text)">Cap Stack</span>
+</div>
+
+<div class="ph">
+  <span class="pt">333 West Wacker</span>
+  <span class="ps">Loan #11088 · Chicago, IL · Sponsor: Beacon Capital Partners, LLC</span>
+</div>
+<div class="tabs">
+  <a class="tab" href="03_asset_debt.html" style="text-decoration:none">Investment Overview</a>
+  <a class="tab" href="11_servicing_payments.html" style="text-decoration:none">Payments</a>
+  <a class="tab" href="12_servicing_covenants.html" style="text-decoration:none">Covenants</a>
+  <a class="tab" href="13_servicing_collateral.html" style="text-decoration:none">Collateral</a>
+  <a class="tab on" href="17_capstack.html" style="text-decoration:none">Cap Stack</a>
+  <a class="tab" href="15_servicing_documents.html" style="text-decoration:none">Documents</a>
+  <a class="tab" href="16_servicing_escrow.html" style="text-decoration:none">Escrow</a>
+  <a class="tab" href="14_servicing_notices.html" style="text-decoration:none">Activity</a>
+  <a class="tab" href="18_notes.html" style="text-decoration:none">Notes</a>
+</div>
+<div class="krow k4">
+  <div class="kpi"><div class="kl">Total capital stack</div><div class="kv">$290.0mm</div><div class="ks nu">All tranches</div></div>
+  <div class="kpi"><div class="kl">PIMCO senior</div><div class="kv">$173.1mm</div><div class="ks nu">59.7% of stack</div></div>
+  <div class="kpi"><div class="kl">Subordinate debt</div><div class="kv">$12.6mm</div><div class="ks nu">4.3% of stack</div></div>
+  <div class="kpi"><div class="kl">Sponsor equity</div><div class="kv">$104.3mm</div><div class="ks nu">36.0% of stack</div></div>
+</div>
+<div class="two">
+  <div class="card">
+    <div class="ch">Capital structure (vertical stack)</div>
+    <div style="padding:14px">
+      <div style="border-radius:6px;overflow:hidden;border:1px solid var(--border)">
+<div title="Senior debt: $173.1MM (59.7%)" style="background:#0B2D4F;height:238.8px;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;color:#fff;font-size:11px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.10)"><span>Senior debt</span><span>$173.1MM &middot; 59.7%</span></div><div title="Mezzanine: $12.6MM (4.3%)" style="background:#0F766E;height:17.4px;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;color:#fff;font-size:11px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.10)"><span>Mezzanine</span><span>$12.6MM &middot; 4.3%</span></div><div title="Sponsor equity: $104.3MM (36.0%)" style="background:#B45309;height:143.9px;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;color:#fff;font-size:11px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.10)"><span>Sponsor equity</span><span>$104.3MM &middot; 36.0%</span></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:8px">
+        <span>Senior (top)</span>
+        <span>Equity (bottom)</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch">Tranche details</div>
+    <table class="tbl">
+      <thead><tr><th style="width:24%">Rank / Holder</th><th class="tr">Amount</th><th class="tr">% Stack</th><th class="tr">Rate</th><th class="tr">Maturity</th><th>Notes</th></tr></thead>
+      <tbody><tr><td style="border-left:3px solid #0B2D4F;padding-left:10px"><strong>Senior debt</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">PIMCO senior loan (Loan #11088)</div></td><td class="tr"><strong>$173.1mm</strong></td><td class="tr">59.7%</td><td class="tr">6.00% fixed</td><td class="tr">07/10/2031</td><td style="font-size:10px">Interest-only 60mo · 40 mo. remaining</td></tr><tr><td style="border-left:3px solid #0F766E;padding-left:10px"><strong>Mezzanine</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">Companion mezz (Loan #11089)</div></td><td class="tr"><strong>$12.6mm</strong></td><td class="tr">4.3%</td><td class="tr">6.00% fixed</td><td class="tr">07/10/2031</td><td style="font-size:10px">Pari passu structure · John Lawrence</td></tr><tr><td style="border-left:3px solid #B45309;padding-left:10px"><strong>Sponsor equity</strong><div style="font-size:9px;color:var(--muted);margin-top:1px">Beacon Capital Partners equity</div></td><td class="tr"><strong>$104.3mm</strong></td><td class="tr">36.0%</td><td class="tr">—</td><td class="tr">—</td><td style="font-size:10px">Implied behind senior + mezz</td></tr></tbody>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="ch">Position commentary</div>
+  <div style="padding:14px 18px;font-size:11px;line-height:1.65;color:var(--text)">
+    <p style="margin-bottom:10px">PIMCO sits in the <strong>senior position</strong> at $173.1MM, representing 59.7% of the 290.0MM capital stack. A pari passu mezzanine tranche of $12.6MM sits behind the senior, with sponsor equity providing the remainder.</p>
+    <p style="margin-bottom:10px">Senior loan implied LTV of <strong>59.7%</strong> based on current basis. Should the asset experience a 30% value decline, senior position is still covered with 29.9mm cushion.</p>
+    <p style="font-style:italic;color:var(--muted);font-size:10px">Bellwether updates the cap stack at each surveillance cycle. Subordinate debt and equity values are estimates pending appraisal refresh.</p>
+  </div>
+</div>
+<div class="bwfoot">
+  <span class="bwfl">Bellwether Asset Management</span>
+  <div class="bwfd"></div>
+  <span class="bwft">Portfolio management · Loans · Valuation · Analytics · Reporting</span>
+  <div class="bwfr">&copy; 2026 Proprietary &amp; Confidential</div>
+</div>
+</div>
+</div>
+<button class="sigma-fab" id="sigmaFab" aria-label="Open Bellwether AI chat" title="Bellwether AI">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 5.5C4 4.67 4.67 4 5.5 4h13c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H10l-4 4v-4H5.5c-.83 0-1.5-.67-1.5-1.5v-9z"
+          fill="#fff" opacity=".95"/>
+    <path d="M9.2 7.6l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1 1-2.2zM15 9l.6 1.3 1.4.7-1.4.7L15 13l-.6-1.3-1.4-.7 1.4-.7L15 9z"
+          fill="#0066AF"/>
+  </svg>
+  <span class="sigma-fab-pulse"></span>
+</button>
+
+<div class="sigma-panel" id="sigmaPanel" role="dialog" aria-label="Bellwether AI assistant">
+  <div class="sigma-head">
+    <div class="sigma-head-row">
+      <div class="sigma-head-icon">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M9.2 6l1.2 2.6L13 9.8l-2.6 1.2L9.2 13.6 8 11l-2.6-1.2L8 8.6 9.2 6zM16 11l.7 1.5 1.5.7-1.5.7L16 15.4l-.7-1.5-1.5-.7 1.5-.7L16 11z"
+                fill="#fff"/>
+        </svg>
+      </div>
+      <div>
+        <div class="sigma-head-title">Bellwether AI</div>
+        <div class="sigma-head-sub">Ask anything about this portal</div>
+      </div>
+      <button class="sigma-close" id="sigmaClose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <div class="sigma-body" id="sigmaBody">
+    <div class="sigma-intro">
+      Hi Emily &mdash; I&rsquo;m <b>Bellwether AI</b>. I can pull from your portfolios,
+      assets, covenants, deliverables, and the underlying data lake. Try one of
+      these to get started:
+    </div>
+    <div class="sigma-section">Suggested prompts</div>
+    <div class="sigma-chips">
+      <button class="sigma-chip" data-prompt="What changed in my portfolio this quarter?">
+        <span class="sigma-chip-eye">Portfolio</span>
+        What changed in my portfolio this quarter?
+      </button>
+      <button class="sigma-chip" data-prompt="Which covenants are at risk in the next 60 days?">
+        <span class="sigma-chip-eye">Servicing</span>
+        Which covenants are at risk in the next 60 days?
+      </button>
+      <button class="sigma-chip" data-prompt="Compare appraisal vs. model valuation across my equity assets.">
+        <span class="sigma-chip-eye">Valuation</span>
+        Compare appraisal vs. model valuation across my equity assets.
+      </button>
+      <button class="sigma-chip" data-prompt="Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.">
+        <span class="sigma-chip-eye">Deliverables</span>
+        Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.
+      </button>
+    </div>
+    <div class="sigma-msgs" id="sigmaMsgs"></div>
+  </div>
+
+  <div class="sigma-foot">
+    <input class="sigma-input" id="sigmaInput" type="text" placeholder="Ask Bellwether AI about your portal&hellip;" />
+    <button class="sigma-send" id="sigmaSend" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 12L21 4l-3 8 3 8L3 12z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+  <div class="sigma-disclaimer">Demo &middot; queries the catalog with row-level tenant filters.</div>
+</div>
+
+<script>
+(function(){
+  var fab    = document.getElementById('sigmaFab');
+  var panel  = document.getElementById('sigmaPanel');
+  var close  = document.getElementById('sigmaClose');
+  var input  = document.getElementById('sigmaInput');
+  var send   = document.getElementById('sigmaSend');
+  var msgs   = document.getElementById('sigmaMsgs');
+  if(!fab||!panel) return;
+
+  function open(){ panel.classList.add('open'); setTimeout(function(){input&&input.focus();}, 60); }
+  function shut(){ panel.classList.remove('open'); }
+  fab.addEventListener('click', function(){
+    panel.classList.contains('open') ? shut() : open();
+  });
+  close && close.addEventListener('click', shut);
+
+  document.querySelectorAll('.sigma-chip').forEach(function(c){
+    c.addEventListener('click', function(){
+      var p = c.getAttribute('data-prompt') || c.textContent.trim();
+      input.value = p;
+      input.focus();
+    });
+  });
+
+  function addMsg(text, who){
+    var d = document.createElement('div');
+    d.className = 'sigma-msg ' + (who === 'u' ? 'u' : 'b');
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.parentElement.scrollTop = msgs.parentElement.scrollHeight;
+    return d;
+  }
+  function submit(){
+    var v = (input.value || '').trim();
+    if(!v) return;
+    addMsg(v, 'u');
+    input.value = '';
+    var bot = addMsg('Bellwether AI is thinking…', 'b');
+    setTimeout(function(){
+      bot.innerHTML = '<em>Demo response &mdash; in production this would query the Bellwether catalog and return a sourced answer with links to the underlying records.</em>';
+    }, 700);
+  }
+  send && send.addEventListener('click', submit);
+  input && input.addEventListener('keydown', function(e){ if(e.key==='Enter') submit(); });
+})();
+</script>
+
+<!-- nmeta-right-applied-v1 -->
+<script>
+(function(){
+  var LOANS_LIST = [
+    {n:'333 West Wacker', no:'11088', spn:'Beacon Capital Partners', loc:'Chicago, IL', rating:'SURV', href:'03_asset_debt.html'},
+    {n:'Intersect', no:'10999', spn:'MetLife Investment Mgmt', loc:'Irvine, CA', rating:'SURV', href:'loan.html?id=10999'},
+    {n:'Granite TX Office Portfolio', no:'10848', spn:'Granite Properties', loc:'Various, TX', rating:'SURV', href:'loan.html?id=10848'},
+    {n:'101 North Wacker', no:'10318', spn:'LaSalle Investment Mgmt', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=10318'},
+    {n:'715 Peachtree Street', no:'10767', spn:'Northwood Investors', loc:'Atlanta, GA', rating:'SURV', href:'loan.html?id=10767'},
+    {n:'The Beacon Apartments', no:'10556', spn:'Pearl Properties', loc:'Philadelphia, PA', rating:'YELLOW', href:'02_asset_equity.html'},
+    {n:'Orleans at Fannin Station', no:'11098', spn:'Warehouse Associates', loc:'Houston, TX', rating:'SURV', href:'loan.html?id=10945'},
+    {n:'Ella Parkside', no:'11047', spn:'Sidal Realty', loc:'Austin, TX', rating:'YELLOW', href:'02b_loan_ella.html'},
+    {n:'Apex West Midtown', no:'10653', spn:'Venterra Realty Mgmt', loc:'Atlanta, GA', rating:'SURV', href:'loan.html?id=10653'},
+    {n:'55 Third Avenue-Cammeyer', no:'10587', spn:'Hubb NYC Properties', loc:'New York, NY', rating:'SURV', href:'loan.html?id=10587'},
+    {n:'Charleston at Fannin Station', no:'11098', spn:'Warehouse Associates', loc:'Houston, TX', rating:'SURV', href:'loan.html?id=11098'},
+    {n:'8201 Greensboro Drive', no:'10380', spn:'B.F. Saul Company', loc:'Mclean, VA', rating:'SURV', href:'loan.html?id=10380'},
+    {n:'Walnut Creek Business Park', no:'10401', spn:'Majestic Realty', loc:'San Dimas, CA', rating:'SURV', href:'loan.html?id=10401'},
+    {n:'World Kitchen Distribution', no:'10548', spn:'Matrix Development', loc:'Greencastle, PA', rating:'SURV', href:'loan.html?id=10548'},
+    {n:'600 Pennsylvania Avenue', no:'10894', spn:'Bernstein Mgmt Corp', loc:'Washington, DC', rating:'SURV', href:'loan.html?id=10894'},
+    {n:'Seaport Logistics Center', no:'10436', spn:'Investco, LLC', loc:'Sumner, WA', rating:'SURV', href:'loan.html?id=10436'},
+    {n:'185 Avenue B Apartments', no:'10526', spn:'Hubb Realty', loc:'New York, NY', rating:'SURV', href:'loan.html?id=10526'},
+    {n:'122 South Michigan Avenue', no:'10448', spn:'Aetna Realty', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=10448'},
+    {n:'Brunner Building', no:'10721', spn:'The Wood Companies', loc:'Columbus, OH', rating:'SURV', href:'loan.html?id=10721'},
+    {n:'Trader Joes', no:'10239', spn:'Helm Equities', loc:'Staten Island, NY', rating:'SURV', href:'loan.html?id=10239'},
+    {n:'Georgetown Retail', no:'10207', spn:'Eastbanc, Inc.', loc:'Washington, DC', rating:'SURV', href:'loan.html?id=10207'},
+    {n:'333 West Wacker (Mezz)', no:'11089', spn:'John Lawrence', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=11089'},
+    {n:'C9 Flats Apartments', no:'10927', spn:'De Anza Properties', loc:'Salt Lake City, UT', rating:'SURV', href:'loan.html?id=10927'},
+    {n:'Prairie Lakes Corporate Center', no:'9926', spn:'Kraus-Anderson Inc', loc:'Eden Prairie, MN', rating:'YELLOW', href:'loan.html?id=9926'}
+  ];
+  function ratingDot(r){
+    if(r === 'YELLOW') return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);margin-right:5px;vertical-align:middle"></span>';
+    return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);margin-right:5px;vertical-align:middle"></span>';
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var input = document.getElementById('loanSel');
+    var dd    = document.getElementById('loanSelDD');
+    var info  = document.getElementById('loanSelActive');
+    if(!input || !dd) return;
+    function render(q){
+      q = (q||'').trim().toLowerCase();
+      var matches = LOANS_LIST.filter(function(L){
+        return !q || (L.n+' '+L.no+' '+L.spn+' '+L.loc).toLowerCase().indexOf(q) >= 0;
+      });
+      if(!matches.length){
+        dd.innerHTML = '<div style="padding:10px;font-size:10px;color:var(--muted);text-align:center">No matches</div>';
+      } else {
+        dd.innerHTML = matches.map(function(L){
+          return '<a href="'+L.href+'" style="display:block;padding:7px 10px;font-size:11px;color:var(--text);text-decoration:none;border-bottom:1px solid #F3F4F6">'
+            + ratingDot(L.rating)
+            + '<span style="font-weight:600">'+L.n+'</span>'
+            + '<span style="float:right;font-size:9px;color:var(--muted)">#'+L.no+'</span>'
+            + '<div style="font-size:9px;color:var(--muted);margin-top:1px;margin-left:13px">'+L.spn+' &middot; '+L.loc+'</div>'
+            + '</a>';
+        }).join('');
+      }
+    }
+    input.addEventListener('focus', function(){ render(input.value); dd.style.display='block'; });
+    input.addEventListener('input', function(){ render(input.value); dd.style.display='block'; });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.loan-selector')) dd.style.display='none';
+    });
+    // Detect current loan from URL
+    var current = LOANS_LIST.find(function(L){ return location.pathname.endsWith(L.href) || location.search.indexOf(encodeURIComponent(L.n)) >= 0; });
+    if(current){
+      input.value = current.n;
+      info.innerHTML = ratingDot(current.rating) + 'Loan #'+current.no+' · '+current.spn;
+    } else {
+      info.textContent = '24 loans · 3 on watchlist';
+    }
+  });
+})();
+</script>
+<script>
+(function(){
+  var LOANS_LIST = [
+    {n:'333 West Wacker', no:'11088', spn:'Beacon Capital Partners', loc:'Chicago, IL', rating:'SURV', href:'03_asset_debt.html'},
+    {n:'Intersect', no:'10999', spn:'MetLife Investment Mgmt', loc:'Irvine, CA', rating:'SURV', href:'loan.html?id=10999'},
+    {n:'Granite TX Office Portfolio', no:'10848', spn:'Granite Properties', loc:'Various, TX', rating:'SURV', href:'loan.html?id=10848'},
+    {n:'101 North Wacker', no:'10318', spn:'LaSalle Investment Mgmt', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=10318'},
+    {n:'715 Peachtree Street', no:'10767', spn:'Northwood Investors', loc:'Atlanta, GA', rating:'SURV', href:'loan.html?id=10767'},
+    {n:'The Beacon Apartments', no:'10556', spn:'Pearl Properties', loc:'Philadelphia, PA', rating:'YELLOW', href:'02_asset_equity.html'},
+    {n:'Orleans at Fannin Station', no:'11098', spn:'Warehouse Associates', loc:'Houston, TX', rating:'SURV', href:'loan.html?id=10945'},
+    {n:'Ella Parkside', no:'11047', spn:'Sidal Realty', loc:'Austin, TX', rating:'YELLOW', href:'02b_loan_ella.html'},
+    {n:'Apex West Midtown', no:'10653', spn:'Venterra Realty Mgmt', loc:'Atlanta, GA', rating:'SURV', href:'loan.html?id=10653'},
+    {n:'55 Third Avenue-Cammeyer', no:'10587', spn:'Hubb NYC Properties', loc:'New York, NY', rating:'SURV', href:'loan.html?id=10587'},
+    {n:'Charleston at Fannin Station', no:'11098', spn:'Warehouse Associates', loc:'Houston, TX', rating:'SURV', href:'loan.html?id=11098'},
+    {n:'8201 Greensboro Drive', no:'10380', spn:'B.F. Saul Company', loc:'Mclean, VA', rating:'SURV', href:'loan.html?id=10380'},
+    {n:'Walnut Creek Business Park', no:'10401', spn:'Majestic Realty', loc:'San Dimas, CA', rating:'SURV', href:'loan.html?id=10401'},
+    {n:'World Kitchen Distribution', no:'10548', spn:'Matrix Development', loc:'Greencastle, PA', rating:'SURV', href:'loan.html?id=10548'},
+    {n:'600 Pennsylvania Avenue', no:'10894', spn:'Bernstein Mgmt Corp', loc:'Washington, DC', rating:'SURV', href:'loan.html?id=10894'},
+    {n:'Seaport Logistics Center', no:'10436', spn:'Investco, LLC', loc:'Sumner, WA', rating:'SURV', href:'loan.html?id=10436'},
+    {n:'185 Avenue B Apartments', no:'10526', spn:'Hubb Realty', loc:'New York, NY', rating:'SURV', href:'loan.html?id=10526'},
+    {n:'122 South Michigan Avenue', no:'10448', spn:'Aetna Realty', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=10448'},
+    {n:'Brunner Building', no:'10721', spn:'The Wood Companies', loc:'Columbus, OH', rating:'SURV', href:'loan.html?id=10721'},
+    {n:'Trader Joes', no:'10239', spn:'Helm Equities', loc:'Staten Island, NY', rating:'SURV', href:'loan.html?id=10239'},
+    {n:'Georgetown Retail', no:'10207', spn:'Eastbanc, Inc.', loc:'Washington, DC', rating:'SURV', href:'loan.html?id=10207'},
+    {n:'333 West Wacker (Mezz)', no:'11089', spn:'John Lawrence', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=11089'},
+    {n:'C9 Flats Apartments', no:'10927', spn:'De Anza Properties', loc:'Salt Lake City, UT', rating:'SURV', href:'loan.html?id=10927'},
+    {n:'Prairie Lakes Corporate Center', no:'9926', spn:'Kraus-Anderson Inc', loc:'Eden Prairie, MN', rating:'YELLOW', href:'loan.html?id=9926'}
+  ];
+  function ratingDot(r){
+    if(r === 'YELLOW') return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);margin-right:5px;vertical-align:middle"></span>';
+    return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);margin-right:5px;vertical-align:middle"></span>';
+  }
+  function init(){
+    var input = document.getElementById('loanSel');
+    var dd    = document.getElementById('loanSelDD');
+    var info  = document.getElementById('loanSelActive');
+    if(!input || !dd) return;
+    function render(q){
+      q = (q||'').trim().toLowerCase();
+      var matches = LOANS_LIST.filter(function(L){
+        return !q || (L.n+' '+L.no+' '+L.spn+' '+L.loc).toLowerCase().indexOf(q) >= 0;
+      });
+      if(!matches.length){
+        dd.innerHTML = '<div style="padding:10px;font-size:10px;color:#9CA3AF;text-align:center">No matches</div>';
+      } else {
+        dd.innerHTML = matches.map(function(L){
+          return '<a href="'+L.href+'" style="display:block;padding:7px 10px;font-size:11px;color:inherit;text-decoration:none;border-bottom:1px solid #F3F4F6">'
+            + ratingDot(L.rating)
+            + '<span style="font-weight:600">'+L.n+'</span>'
+            + '<span style="float:right;font-size:9px;color:#9CA3AF">#'+L.no+'</span>'
+            + '<div style="font-size:9px;color:#9CA3AF;margin-top:1px;margin-left:13px">'+L.spn+' &middot; '+L.loc+'</div>'
+            + '</a>';
+        }).join('');
+      }
+    }
+    input.addEventListener('focus', function(){ render(input.value); dd.style.display='block'; });
+    input.addEventListener('input', function(){ render(input.value); dd.style.display='block'; });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.loan-selector')) dd.style.display='none';
+    });
+    if(info) info.textContent = '24 loans · 3 on watchlist · click to select';
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+
+<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#6B7280;grid-column:1/-1">
+  <div><a href="03_asset_debt.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; 333 West Wacker</a></div>
+  <div style="color:#9CA3AF"><span style="color:#1C2B5A;font-weight:600">333 West Wacker — Cap Stack</span></div>
+  <div><a href="03_asset_debt.html" style="color:#0066AF;text-decoration:none;font-weight:500">333 West Wacker &rarr;</a></div>
+</nav>
+</body></html>

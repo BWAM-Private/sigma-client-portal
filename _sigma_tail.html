@@ -1,0 +1,187 @@
+<button class="sigma-fab" id="sigmaFab" aria-label="Open Bellwether AI chat" title="Bellwether AI">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 5.5C4 4.67 4.67 4 5.5 4h13c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H10l-4 4v-4H5.5c-.83 0-1.5-.67-1.5-1.5v-9z"
+          fill="#fff" opacity=".95"/>
+    <path d="M9.2 7.6l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1 1-2.2zM15 9l.6 1.3 1.4.7-1.4.7L15 13l-.6-1.3-1.4-.7 1.4-.7L15 9z"
+          fill="#0066AF"/>
+  </svg>
+  <span class="sigma-fab-pulse"></span>
+</button>
+
+<div class="sigma-panel" id="sigmaPanel" role="dialog" aria-label="Bellwether AI assistant">
+  <div class="sigma-head">
+    <div class="sigma-head-row">
+      <div class="sigma-head-icon">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M9.2 6l1.2 2.6L13 9.8l-2.6 1.2L9.2 13.6 8 11l-2.6-1.2L8 8.6 9.2 6zM16 11l.7 1.5 1.5.7-1.5.7L16 15.4l-.7-1.5-1.5-.7 1.5-.7L16 11z"
+                fill="#fff"/>
+        </svg>
+      </div>
+      <div>
+        <div class="sigma-head-title">Bellwether AI</div>
+        <div class="sigma-head-sub">Ask anything about this portal</div>
+      </div>
+      <button class="sigma-close" id="sigmaClose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <div class="sigma-body" id="sigmaBody">
+    <div class="sigma-intro">
+      Hi Emily &mdash; I&rsquo;m <b>Bellwether AI</b>. I can pull from your portfolios,
+      assets, covenants, deliverables, and the underlying data lake. Try one of
+      these to get started:
+    </div>
+    <div class="sigma-section">Suggested prompts</div>
+    <div class="sigma-chips">
+      <button class="sigma-chip" data-prompt="What changed in my portfolio this quarter?">
+        <span class="sigma-chip-eye">Portfolio</span>
+        What changed in my portfolio this quarter?
+      </button>
+      <button class="sigma-chip" data-prompt="Which covenants are at risk in the next 60 days?">
+        <span class="sigma-chip-eye">Servicing</span>
+        Which covenants are at risk in the next 60 days?
+      </button>
+      <button class="sigma-chip" data-prompt="Compare appraisal vs. model valuation across my equity assets.">
+        <span class="sigma-chip-eye">Valuation</span>
+        Compare appraisal vs. model valuation across my equity assets.
+      </button>
+      <button class="sigma-chip" data-prompt="Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.">
+        <span class="sigma-chip-eye">Deliverables</span>
+        Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.
+      </button>
+    </div>
+    <div class="sigma-msgs" id="sigmaMsgs"></div>
+  </div>
+
+  <div class="sigma-foot">
+    <input class="sigma-input" id="sigmaInput" type="text" placeholder="Ask Bellwether AI about your portal&hellip;" />
+    <button class="sigma-send" id="sigmaSend" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 12L21 4l-3 8 3 8L3 12z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+  <div class="sigma-disclaimer">Demo &middot; queries the catalog with row-level tenant filters.</div>
+</div>
+
+<script>
+(function(){
+  var fab    = document.getElementById('sigmaFab');
+  var panel  = document.getElementById('sigmaPanel');
+  var close  = document.getElementById('sigmaClose');
+  var input  = document.getElementById('sigmaInput');
+  var send   = document.getElementById('sigmaSend');
+  var msgs   = document.getElementById('sigmaMsgs');
+  if(!fab||!panel) return;
+
+  function open(){ panel.classList.add('open'); setTimeout(function(){input&&input.focus();}, 60); }
+  function shut(){ panel.classList.remove('open'); }
+  fab.addEventListener('click', function(){
+    panel.classList.contains('open') ? shut() : open();
+  });
+  close && close.addEventListener('click', shut);
+
+  document.querySelectorAll('.sigma-chip').forEach(function(c){
+    c.addEventListener('click', function(){
+      var p = c.getAttribute('data-prompt') || c.textContent.trim();
+      input.value = p;
+      input.focus();
+    });
+  });
+
+  function addMsg(text, who){
+    var d = document.createElement('div');
+    d.className = 'sigma-msg ' + (who === 'u' ? 'u' : 'b');
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.parentElement.scrollTop = msgs.parentElement.scrollHeight;
+    return d;
+  }
+  function submit(){
+    var v = (input.value || '').trim();
+    if(!v) return;
+    addMsg(v, 'u');
+    input.value = '';
+    var bot = addMsg('Bellwether AI is thinking…', 'b');
+    setTimeout(function(){
+      bot.innerHTML = '<em>Demo response &mdash; in production this would query the Bellwether catalog and return a sourced answer with links to the underlying records.</em>';
+    }, 700);
+  }
+  send && send.addEventListener('click', submit);
+  input && input.addEventListener('keydown', function(e){ if(e.key==='Enter') submit(); });
+})();
+</script>
+
+<!-- nmeta-right-applied-v1 -->
+<script>
+(function(){
+  var LOANS_LIST = [
+    {n:'333 West Wacker', no:'11088', spn:'Beacon Capital Partners', loc:'Chicago, IL', rating:'SURV', href:'03_asset_debt.html'},
+    {n:'Intersect', no:'10999', spn:'MetLife Investment Mgmt', loc:'Irvine, CA', rating:'SURV', href:'loan.html?id=10999'},
+    {n:'Granite TX Office Portfolio', no:'10848', spn:'Granite Properties', loc:'Various, TX', rating:'SURV', href:'loan.html?id=10848'},
+    {n:'101 North Wacker', no:'10318', spn:'LaSalle Investment Mgmt', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=10318'},
+    {n:'715 Peachtree Street', no:'10767', spn:'Northwood Investors', loc:'Atlanta, GA', rating:'SURV', href:'loan.html?id=10767'},
+    {n:'The Beacon Apartments', no:'10556', spn:'Pearl Properties', loc:'Philadelphia, PA', rating:'YELLOW', href:'02_asset_equity.html'},
+    {n:'Orleans at Fannin Station', no:'11098', spn:'Warehouse Associates', loc:'Houston, TX', rating:'SURV', href:'loan.html?id=10945'},
+    {n:'Ella Parkside', no:'11047', spn:'Sidal Realty', loc:'Austin, TX', rating:'YELLOW', href:'02b_loan_ella.html'},
+    {n:'Apex West Midtown', no:'10653', spn:'Venterra Realty Mgmt', loc:'Atlanta, GA', rating:'SURV', href:'loan.html?id=10653'},
+    {n:'55 Third Avenue-Cammeyer', no:'10587', spn:'Hubb NYC Properties', loc:'New York, NY', rating:'SURV', href:'loan.html?id=10587'},
+    {n:'Charleston at Fannin Station', no:'11098', spn:'Warehouse Associates', loc:'Houston, TX', rating:'SURV', href:'loan.html?id=11098'},
+    {n:'8201 Greensboro Drive', no:'10380', spn:'B.F. Saul Company', loc:'Mclean, VA', rating:'SURV', href:'loan.html?id=10380'},
+    {n:'Walnut Creek Business Park', no:'10401', spn:'Majestic Realty', loc:'San Dimas, CA', rating:'SURV', href:'loan.html?id=10401'},
+    {n:'World Kitchen Distribution', no:'10548', spn:'Matrix Development', loc:'Greencastle, PA', rating:'SURV', href:'loan.html?id=10548'},
+    {n:'600 Pennsylvania Avenue', no:'10894', spn:'Bernstein Mgmt Corp', loc:'Washington, DC', rating:'SURV', href:'loan.html?id=10894'},
+    {n:'Seaport Logistics Center', no:'10436', spn:'Investco, LLC', loc:'Sumner, WA', rating:'SURV', href:'loan.html?id=10436'},
+    {n:'185 Avenue B Apartments', no:'10526', spn:'Hubb Realty', loc:'New York, NY', rating:'SURV', href:'loan.html?id=10526'},
+    {n:'122 South Michigan Avenue', no:'10448', spn:'Aetna Realty', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=10448'},
+    {n:'Brunner Building', no:'10721', spn:'The Wood Companies', loc:'Columbus, OH', rating:'SURV', href:'loan.html?id=10721'},
+    {n:'Trader Joes', no:'10239', spn:'Helm Equities', loc:'Staten Island, NY', rating:'SURV', href:'loan.html?id=10239'},
+    {n:'Georgetown Retail', no:'10207', spn:'Eastbanc, Inc.', loc:'Washington, DC', rating:'SURV', href:'loan.html?id=10207'},
+    {n:'333 West Wacker (Mezz)', no:'11089', spn:'John Lawrence', loc:'Chicago, IL', rating:'SURV', href:'loan.html?id=11089'},
+    {n:'C9 Flats Apartments', no:'10927', spn:'De Anza Properties', loc:'Salt Lake City, UT', rating:'SURV', href:'loan.html?id=10927'},
+    {n:'Prairie Lakes Corporate Center', no:'9926', spn:'Kraus-Anderson Inc', loc:'Eden Prairie, MN', rating:'YELLOW', href:'loan.html?id=9926'}
+  ];
+  function ratingDot(r){
+    if(r === 'YELLOW') return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);margin-right:5px;vertical-align:middle"></span>';
+    return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);margin-right:5px;vertical-align:middle"></span>';
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var input = document.getElementById('loanSel');
+    var dd    = document.getElementById('loanSelDD');
+    var info  = document.getElementById('loanSelActive');
+    if(!input || !dd) return;
+    function render(q){
+      q = (q||'').trim().toLowerCase();
+      var matches = LOANS_LIST.filter(function(L){
+        return !q || (L.n+' '+L.no+' '+L.spn+' '+L.loc).toLowerCase().indexOf(q) >= 0;
+      });
+      if(!matches.length){
+        dd.innerHTML = '<div style="padding:10px;font-size:10px;color:var(--muted);text-align:center">No matches</div>';
+      } else {
+        dd.innerHTML = matches.map(function(L){
+          return '<a href="'+L.href+'" style="display:block;padding:7px 10px;font-size:11px;color:var(--text);text-decoration:none;border-bottom:1px solid #F3F4F6">'
+            + ratingDot(L.rating)
+            + '<span style="font-weight:600">'+L.n+'</span>'
+            + '<span style="float:right;font-size:9px;color:var(--muted)">#'+L.no+'</span>'
+            + '<div style="font-size:9px;color:var(--muted);margin-top:1px;margin-left:13px">'+L.spn+' &middot; '+L.loc+'</div>'
+            + '</a>';
+        }).join('');
+      }
+    }
+    input.addEventListener('focus', function(){ render(input.value); dd.style.display='block'; });
+    input.addEventListener('input', function(){ render(input.value); dd.style.display='block'; });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.loan-selector')) dd.style.display='none';
+    });
+    // Detect current loan from URL
+    var current = LOANS_LIST.find(function(L){ return location.pathname.endsWith(L.href) || location.search.indexOf(encodeURIComponent(L.n)) >= 0; });
+    if(current){
+      input.value = current.n;
+      info.innerHTML = ratingDot(current.rating) + 'Loan #'+current.no+' · '+current.spn;
+    } else {
+      info.textContent = '24 loans · 3 on watchlist';
+    }
+  });
+})();
+</script>
+</body></html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notes &mdash; Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--text:#0A1628;--sub:#6B7280;--muted:#9CA3AF;--g:#059669;--r:#DC2626;--y:#D97706;}
+body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px}
+.shell{display:grid;grid-template-columns:210px 1fr;grid-template-rows:52px 1fr;min-height:100vh}
+.tb{grid-column:1/-1;background:var(--n);display:flex;align-items:center;padding:0 22px;gap:12px;height:52px;border-bottom:3px solid var(--a)}
+.logo{font-family:'DM Serif Display',serif;font-size:14px;color:#fff;letter-spacing:.5px}
+.logo-sub{color:var(--s);margin-left:1px;font-size:11px}
+.tb-tag{font-size:8px;font-weight:700;letter-spacing:.10em;color:var(--s);padding:2px 8px;border:1px solid rgba(255,255,255,.18);border-radius:14px;text-transform:uppercase}
+.tb-sep{width:1px;height:18px;background:rgba(255,255,255,.18)}
+.tb-crumb{font-size:11px;color:rgba(255,255,255,.42)}
+.bw-pill{font-size:9px;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:3px 9px;border-radius:14px;display:flex;align-items:center;gap:5px;margin-left:8px}
+.bw-pill-lbl{font-size:7px;color:var(--s);letter-spacing:.05em;text-transform:uppercase}
+.tb-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;margin-left:8px}
+.sb{background:var(--card);border-right:1px solid var(--border);padding:14px 0;overflow-y:auto}
+.sl{font-size:9px;font-weight:600;color:var(--muted);letter-spacing:.10em;text-transform:uppercase;padding:9px 14px 3px}
+.ni{display:flex;align-items:center;gap:7px;padding:6px 14px;font-size:12px;color:var(--sub);border-left:3px solid transparent;cursor:pointer;line-height:1.3;text-decoration:none}
+.ni:hover{background:#F9FAFB;color:var(--text)}
+.ni.on{background:#EBF2FA;color:var(--n);border-left-color:var(--a);font-weight:600}
+.ni.sub{font-size:11px;padding-left:30px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.dg{background:#059669}.db{background:#0066AF}.dy{background:#D97706}.dr{background:#DC2626}.ds{background:#9CA3AF}.dm{background:#1C2B5A}.dt{background:#0891B2}.dp{background:#7C3AED}
+.sb-div{height:0.5px;background:#F3F4F6;margin:5px 0}
+.sb-block{padding:10px 14px 11px;border-bottom:1px solid #F3F4F6;margin-bottom:6px}
+.sb-block-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:1px}
+.sb-block-sub{font-size:10px;color:var(--muted)}
+.main{padding:20px 22px;display:flex;flex-direction:column;gap:12px;background:var(--bg);overflow-y:auto}
+.ph{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.pt{font-family:'DM Serif Display',serif;font-size:22px;color:var(--text);letter-spacing:-.3px}
+.ps{font-size:11px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.ch{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-bottom:1px solid #F3F4F6;font-size:11px;font-weight:600;color:var(--text);background:#FAFAFA}
+.cm{font-size:10px;color:var(--muted);font-weight:400}
+.bwfoot{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:8px 12px;display:flex;align-items:center;gap:10px}
+.bwfl{font-family:'DM Serif Display',serif;font-size:12px;color:var(--n)}
+.bwfd{width:1px;height:12px;background:var(--border)}
+.bwft{font-size:10px;color:var(--muted)}
+.bwfr{margin-left:auto;font-size:9px;color:#D1D5DB}
+.note-row{padding:14px 16px;border-bottom:1px solid #F3F4F6;display:flex;gap:14px;align-items:flex-start}
+.note-row:last-child{border-bottom:none}
+.note-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0066AF,#1C2B5A);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.note-avatar.pi{background:linear-gradient(135deg,#2A66B0,#0B2D4F)}
+.note-body{flex:1;min-width:0}
+.note-head{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.note-author{font-size:12px;font-weight:600;color:var(--text)}
+.note-tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase}
+.note-tag.bw{background:#EBF2FA;color:#1C2B5A}
+.note-tag.cl{background:#E1F5EE;color:#0F6E56}
+.note-time{font-size:10px;color:var(--muted);margin-left:auto}
+.note-text{font-size:12px;line-height:1.55;color:var(--text)}
+.compose{padding:14px 16px;background:#FAFBFC;border-bottom:1px solid var(--border)}
+.compose textarea{width:100%;border:1px solid var(--border);border-radius:6px;padding:9px 11px;font-family:inherit;font-size:12px;color:var(--text);resize:vertical;min-height:60px;outline:none;background:#fff}
+.compose-foot{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.compose-as{font-size:10px;color:var(--muted)}
+.compose-as select,select#noteAs,select#noteTag{font-family:inherit;font-size:11px;padding:3px 8px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--text)}
+.compose-btn{margin-left:auto;background:var(--a);color:#fff;border:none;padding:6px 14px;border-radius:14px;font-family:inherit;font-size:11px;font-weight:600;cursor:pointer}
+
+<!-- PIMCO-PORTAL-SEARCH-V1 -->
+.gsearch{position:relative;display:flex;align-items:center;gap:6px;margin-left:18px}
+.gsearch-input{width:240px;padding:5px 10px 5px 28px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;outline:none;transition:background .15s, border-color .15s}
+.gsearch-input::placeholder{color:rgba(255,255,255,.45)}
+.gsearch-input:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);width:300px}
+.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.55);pointer-events:none}
+.gsearch-dd{position:absolute;top:36px;left:0;width:340px;max-height:360px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 14px 32px rgba(11,31,79,.22);z-index:9994;display:none;padding:4px 0}
+.gsearch-dd.open{display:block}
+.gsearch-item{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:1px solid #F3F4F6;cursor:pointer;text-decoration:none;color:var(--text)}
+.gsearch-item:hover{background:#EBF2FA}
+html[data-theme="dark"] .gsearch-item:hover{background:#1F2D4D}
+.gsearch-item:last-child{border-bottom:none}
+.gsearch-name{font-size:11px;font-weight:600;color:var(--text)}
+.gsearch-sub{font-size:9px;color:var(--muted);margin-top:1px}
+.gsearch-tag{font-size:8px;font-weight:700;padding:2px 6px;border-radius:20px;background:#EBF2FA;color:var(--n);margin-left:auto;flex-shrink:0}
+html[data-theme="dark"] .gsearch-tag{background:#1B3A75;color:#B6D0FF}
+.gsearch-empty{padding:14px;font-size:10px;color:var(--muted);text-align:center}
+
+/* === Dark mode additions for recent components === */
+html[data-theme="dark"] .ip-loan-picker input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .ip-loan-picker input::placeholder{color:#9EAAC4 !important}
+html[data-theme="dark"] #ipLoanDD{background:#162035 !important;border-color:#38436A !important;box-shadow:0 14px 32px rgba(0,0,0,.55) !important}
+html[data-theme="dark"] #ipLoanDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] #ipLoanDD a:hover{background:#1F2D4D !important}
+
+html[data-theme="dark"] .note-loan-picker input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .note-loan-picker input::placeholder{color:#9EAAC4 !important}
+html[data-theme="dark"] #noteLoanDD,
+html[data-theme="dark"] #noteFilterLoanDD{background:#162035 !important;border-color:#38436A !important;box-shadow:0 14px 32px rgba(0,0,0,.55) !important}
+html[data-theme="dark"] #noteLoanDD a,
+html[data-theme="dark"] #noteFilterLoanDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] #noteLoanDD a:hover,
+html[data-theme="dark"] #noteFilterLoanDD a:hover{background:#1F2D4D !important}
+
+html[data-theme="dark"] #noteSearch,
+html[data-theme="dark"] #noteFilterFrom,
+html[data-theme="dark"] #noteFilterTo,
+html[data-theme="dark"] #noteLoanSearch,
+html[data-theme="dark"] #noteFilterLoanSearch,
+html[data-theme="dark"] #ntBody{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+
+html[data-theme="dark"] #noteFilterClear{background:#1A243F !important;color:#C8D2E8 !important;border-color:#38436A !important}
+
+html[data-theme="dark"] .note-row{border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] .lnote-row{border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] .note-text, html[data-theme="dark"] .lnote-text,
+html[data-theme="dark"] .note-author, html[data-theme="dark"] .lnote-author{color:#F2F5FB !important}
+
+/* Reporting page preview tiles */
+html[data-theme="dark"] a[href*=".html"][style*="border-radius:8px"]{background:#162035 !important;border-color:#38436A !important;box-shadow:0 2px 8px rgba(0,0,0,.4) !important}
+
+/* Bottom pagination nav */
+html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !important;color:#C8D2E8 !important;border-top-color:#2E3954 !important}
+html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
+html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
+
+</style>
+</head><body>
+<div class="shell">
+<div class="tb">
+  <a href="00_home.html" style="text-decoration:none"><span class="logo">Bellwether<span class="logo-sub">.co</span></span></a>
+  <span class="tb-tag">Servicing Portal</span>
+  <div class="tb-sep"></div>
+  <span class="tb-crumb">/ Notes</span>
+  <div class="bw-pill"><span class="bw-pill-lbl">client</span><span class="bw-pill-name">PIMCO</span></div>
+  <div class="gsearch" style="position:relative">
+    <svg class="gsearch-icon" width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <input class="gsearch-input" id="gsearchInput" type="text" placeholder="Search loans by name, sponsor, city, state&hellip;" autocomplete="off"/>
+    <div class="gsearch-dd" id="gsearchDd"></div>
+  </div>
+  <div class="tb-av">BP</div>
+</div>
+<div class="sb">
+<div class="sb-block">
+  <div class="sb-block-name">PIMCO</div>
+  <div class="sb-block-sub">24 loans &middot; 3 on watchlist</div>
+</div>
+  <div class="sl">Portfolio</div>
+  <a class="ni" href="01_portfolio_overview.html" style="text-decoration:none"><div class="dot dm"></div>Overview</a>
+  <a class="ni sub" href="01_portfolio_overview.html?type=office" style="text-decoration:none"><div class="dot db"></div>Office</a>
+  <a class="ni sub" href="01_portfolio_overview.html?type=multifamily" style="text-decoration:none"><div class="dot dg"></div>Multifamily</a>
+  <a class="ni sub" href="01_portfolio_overview.html?type=retail" style="text-decoration:none"><div class="dot dp"></div>Retail</a>
+  <a class="ni sub" href="01_portfolio_overview.html?type=industrial" style="text-decoration:none"><div class="dot ds"></div>Industrial</a>
+  <a class="ni sub" href="01_portfolio_overview.html?rating=YELLOW" style="text-decoration:none"><div class="dot dy"></div>Watchlist</a>
+  <a class="ni sub" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Valuation</a>
+  <div class="sb-div"></div>
+  <div class="sl">Investments</div>
+  <a class="ni" href="10_servicing_overview.html" style="text-decoration:none"><div class="dot dr"></div>Overview</a>
+  <div class="sb-div"></div>
+  <div class="sl">Collaboration</div>
+  <a class="ni" href="09_analytics.html" style="text-decoration:none"><div class="dot ds"></div>Analytics</a>
+  <a class="ni on" href="06b_notes.html" style="text-decoration:none"><div class="dot dt"></div>Portfolio notes</a>
+  <a class="ni" href="07_deliverables_flash.html" style="text-decoration:none"><div class="dot ds"></div>Reporting</a>
+  <a class="ni" href="06_workspace.html" style="text-decoration:none"><div class="dot ds"></div>Workspace</a>
+
+
+</div>
+<div class="main">
+<div style="font-size:10px;color:var(--muted);margin-bottom:6px;font-weight:500;letter-spacing:.02em">
+  <a href="00_home.html" style="color:var(--a);text-decoration:none">Home</a>
+  <span style="opacity:.5;margin:0 4px">&rsaquo;</span>
+  <span style="color:var(--text);font-weight:600">Collaboration</span>
+  <span style="opacity:.5;margin:0 4px">&rsaquo;</span>
+  <span style="color:var(--text)">Notes</span>
+</div>
+<div class="ph"><span class="pt">Portfolio notes</span><span class="ps">Shared workspace &middot; PIMCO + Bellwether &middot; all notes visible to both teams</span></div>
+<div class="card">
+  <div class="compose">
+    <textarea id="noteBody" placeholder="Add a note about the portfolio, a specific loan, a borrower conversation, a market view..."></textarea>
+    <div class="compose-foot">
+      <span class="compose-as">Post as:</span>
+      <select id="noteAs"><option value="bw">Bellwether</option><option value="cl">PIMCO (you)</option></select>
+      <span class="compose-as">Loan:</span>
+      <div class="note-loan-picker" style="position:relative;display:inline-block">
+        <input type="text" id="noteLoanInput" readonly placeholder="&mdash; portfolio-wide &mdash;" autocomplete="off" style="width:200px;padding:3px 22px 3px 9px;font-family:inherit;font-size:11px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--text);outline:none;cursor:pointer"/>
+        <svg style="position:absolute;right:8px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none" width="9" height="9" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <input type="hidden" id="noteLoan" value="">
+        <div id="noteLoanDD" style="display:none;position:absolute;top:26px;left:0;width:300px;max-height:280px;overflow-y:auto;background:#fff;border:1px solid var(--border);border-radius:6px;box-shadow:0 8px 22px rgba(11,31,79,.18);z-index:9990">
+          <div style="padding:8px 10px;border-bottom:1px solid #F3F4F6"><input type="text" id="noteLoanSearch" placeholder="Search loans&hellip;" style="width:100%;font-family:inherit;font-size:11px;padding:4px 8px;border:1px solid var(--border);border-radius:5px;outline:none"></div>
+          <div id="noteLoanDDList"></div>
+        </div>
+      </div>
+      <span class="compose-as">Tag:</span>
+      <select id="noteTag"><option value="">&mdash; none &mdash;</option><option value="watchlist">Watchlist</option><option value="market">Market</option><option value="sponsor">Sponsor</option><option value="payment">Payment</option><option value="reporting">Reporting</option></select>
+      <button class="compose-btn" id="noteSubmit" type="button">Post note</button>
+    </div>
+  </div>
+  <div class="ch" style="flex-wrap:wrap;gap:8px">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <span style="font-size:10px;color:var(--muted);font-weight:500">Search</span>
+      <input id="noteSearch" type="text" placeholder="Search note text&hellip;" style="font-family:inherit;font-size:11px;padding:4px 9px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--text);width:180px;outline:none">
+      <span style="font-size:10px;color:var(--muted);font-weight:500">Loan</span>
+      <div class="note-loan-picker" style="position:relative;display:inline-block">
+        <input type="text" id="noteFilterLoanInput" readonly placeholder="All loans" autocomplete="off" style="width:200px;padding:3px 22px 3px 9px;font-family:inherit;font-size:11px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--text);outline:none;cursor:pointer"/>
+        <svg style="position:absolute;right:8px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none" width="9" height="9" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <input type="hidden" id="noteFilterLoan" value="">
+        <div id="noteFilterLoanDD" style="display:none;position:absolute;top:26px;left:0;width:300px;max-height:280px;overflow-y:auto;background:#fff;border:1px solid var(--border);border-radius:6px;box-shadow:0 8px 22px rgba(11,31,79,.18);z-index:9990">
+          <div style="padding:8px 10px;border-bottom:1px solid #F3F4F6"><input type="text" id="noteFilterLoanSearch" placeholder="Search loans&hellip;" style="width:100%;font-family:inherit;font-size:11px;padding:4px 8px;border:1px solid var(--border);border-radius:5px;outline:none"></div>
+          <div id="noteFilterLoanDDList"></div>
+        </div>
+      </div>
+      <span style="font-size:10px;color:var(--muted);font-weight:500">From</span>
+      <input id="noteFilterFrom" type="date" style="font-family:inherit;font-size:11px;padding:3px 8px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--text)">
+      <span style="font-size:10px;color:var(--muted);font-weight:500">To</span>
+      <input id="noteFilterTo" type="date" style="font-family:inherit;font-size:11px;padding:3px 8px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--text)">
+      <button id="noteFilterClear" type="button" style="font-family:inherit;font-size:10px;padding:3px 10px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--sub);cursor:pointer">Clear</button>
+    </div>
+    <span class="cm" id="noteCount">&mdash; note(s)</span>
+  </div>
+  <div id="noteList"></div>
+</div>
+<div class="bwfoot"><span class="bwfl">Bellwether Asset Management</span><div class="bwfd"></div><span class="bwft">Portfolio management &middot; Loans &middot; Valuation &middot; Analytics &middot; Reporting</span><div class="bwfr">&copy; 2026</div></div>
+</div>
+</div>
+<script>
+(function(){
+var STORAGE_KEY='pimcoPortalNotes_v2';
+var LOANS=[
+{no:'11088',name:'333 West Wacker',href:'03_asset_debt.html'},
+{no:'10999',name:'Intersect',href:'loan.html?id=10999'},
+{no:'10848',name:'Granite TX Office Portfolio',href:'loan.html?id=10848'},
+{no:'10318',name:'101 North Wacker',href:'loan.html?id=10318'},
+{no:'10767',name:'715 Peachtree Street',href:'loan.html?id=10767'},
+{no:'10556',name:'The Beacon Apartments',href:'02_asset_equity.html',rating:'YELLOW'},
+{no:'11047',name:'Ella Parkside',href:'02b_loan_ella.html',rating:'YELLOW'},
+{no:'9926',name:'Prairie Lakes Corporate Center',href:'loan.html?id=9926',rating:'YELLOW'},
+{no:'10945',name:'Orleans at Fannin Station',href:'loan.html?id=10945'},
+{no:'10653',name:'Apex West Midtown',href:'loan.html?id=10653'},
+{no:'10587',name:'55 Third Avenue-Cammeyer',href:'loan.html?id=10587'},
+{no:'11098',name:'Charleston at Fannin Station',href:'loan.html?id=11098'},
+{no:'10380',name:'8201 Greensboro Drive',href:'loan.html?id=10380'},
+{no:'10401',name:'Walnut Creek Business Park',href:'loan.html?id=10401'},
+{no:'10548',name:'World Kitchen Distribution',href:'loan.html?id=10548'},
+{no:'10894',name:'600 Pennsylvania Avenue',href:'loan.html?id=10894'},
+{no:'10436',name:'Seaport Logistics Center',href:'loan.html?id=10436'},
+{no:'10526',name:'185 Avenue B Apartments',href:'loan.html?id=10526'},
+{no:'10448',name:'122 South Michigan Avenue',href:'loan.html?id=10448'},
+{no:'10207',name:'Georgetown Retail',href:'loan.html?id=10207'},
+{no:'10721',name:'Brunner Building',href:'loan.html?id=10721'},
+{no:'10239',name:'Trader Joes',href:'loan.html?id=10239'},
+{no:'11089',name:'333 West Wacker (Mezz)',href:'loan.html?id=11089'},
+{no:'10927',name:'C9 Flats Apartments',href:'loan.html?id=10927'}
+];
+var DEFAULT_NOTES=[
+{author:'Bellwether',tag:'watchlist',loan:'10556',body:'Beacon Apartments DSCR at 1.26x, watching closely ahead of Oct 2027 maturity.',when:'2026-04-08 10:22'},
+{author:'PIMCO',tag:'reporting',loan:'11088',body:'Need updated cap stack breakdown for 333 W Wacker — board materials due 5/15.',when:'2026-04-15 14:05'},
+{author:'Bellwether',tag:'market',loan:'11047',body:'Austin MF supply continues to weigh on Ella Parkside. Q1 occupancy fell 1 point to 89%.',when:'2026-04-22 09:11'},
+{author:'PIMCO',tag:'sponsor',loan:'11088',body:'Spoke with Beacon Capital this morning re: 333 W Wacker leasing pipeline.',when:'2026-05-01 16:48'},
+{author:'Bellwether',tag:'',loan:'',body:'Quarterly tape reconciled — $1.00B UPB across 24 loans, 3 on watchlist.',when:'2026-05-05 11:30'}
+];
+function load(){try{var r=localStorage.getItem(STORAGE_KEY);if(r)return JSON.parse(r);}catch(e){}return DEFAULT_NOTES.slice();}
+function save(n){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(n));}catch(e){}}
+function loanByNo(no){for(var i=0;i<LOANS.length;i++){if(LOANS[i].no===no)return LOANS[i];}return null;}
+function ratingDot(r){if(r==='YELLOW')return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);margin-right:5px;vertical-align:middle"></span>';return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);margin-right:5px;vertical-align:middle"></span>';}
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function wirePicker(inputId,hiddenId,ddId,searchId,listId,emptyLabel,includeAll,onChange){
+  var input=document.getElementById(inputId),hidden=document.getElementById(hiddenId),dd=document.getElementById(ddId),search=document.getElementById(searchId),listEl=document.getElementById(listId);
+  if(!input||!dd)return;
+  function renderList(q){
+    q=(q||'').trim().toLowerCase();
+    var matches=LOANS.filter(function(L){return !q||(L.name+' '+L.no).toLowerCase().indexOf(q)>=0;});
+    var items='';
+    if(includeAll)items+='<a data-val="" data-label="" style="display:block;padding:7px 10px;font-size:11px;color:var(--text);text-decoration:none;border-bottom:1px solid #F3F4F6;font-weight:600;background:#FAFAFA;cursor:pointer">'+emptyLabel+'</a>';
+    else items+='<a data-val="" data-label="" style="display:block;padding:7px 10px;font-size:11px;color:var(--muted);text-decoration:none;border-bottom:1px solid #F3F4F6;font-style:italic;cursor:pointer">&mdash; portfolio-wide &mdash;</a>';
+    items+=matches.map(function(L){return '<a data-val="'+L.no+'" data-label="'+L.name+'" style="display:block;padding:7px 10px;font-size:11px;color:var(--text);text-decoration:none;border-bottom:1px solid #F3F4F6;cursor:pointer">'+ratingDot(L.rating||'SURV')+'<span style="font-weight:600">'+L.name+'</span><span style="float:right;font-size:9px;color:var(--muted)">#'+L.no+'</span></a>';}).join('');
+    if(!matches.length)items+='<div style="padding:12px;font-size:10px;color:var(--muted);text-align:center">No matches</div>';
+    listEl.innerHTML=items;
+    Array.prototype.slice.call(listEl.querySelectorAll('a')).forEach(function(a){
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        var v=a.getAttribute('data-val')||'';
+        var label=a.getAttribute('data-label');
+        if(!v&&includeAll)label=emptyLabel;
+        hidden.value=v;input.value=label||'';
+        dd.style.display='none';search.value='';
+        if(onChange)onChange();
+      });
+    });
+  }
+  input.addEventListener('click',function(){dd.style.display=(dd.style.display==='block'?'none':'block');renderList('');if(dd.style.display==='block')search.focus();});
+  search.addEventListener('input',function(){renderList(search.value);});
+  document.addEventListener('click',function(e){if(!e.target.closest('.note-loan-picker'))dd.style.display='none';});
+  renderList('');
+}
+function applyFilters(notes){
+  var q=(document.getElementById('noteSearch').value||'').toLowerCase().trim();
+  var loanNo=document.getElementById('noteFilterLoan').value;
+  var fromD=document.getElementById('noteFilterFrom').value;
+  var toD=document.getElementById('noteFilterTo').value;
+  return notes.filter(function(n){
+    if(q){var L=n.loan?loanByNo(n.loan):null;var hay=n.body.toLowerCase()+' '+(L?L.name.toLowerCase():'');if(hay.indexOf(q)===-1)return false;}
+    if(loanNo&&n.loan!==loanNo)return false;
+    var d=(n.when||'').slice(0,10);
+    if(fromD&&d<fromD)return false;
+    if(toD&&d>toD)return false;
+    return true;
+  });
+}
+function render(){
+  var all=load();var notes=applyFilters(all);
+  document.getElementById('noteCount').textContent=notes.length+' of '+all.length+' note'+(all.length===1?'':'s');
+  var list=document.getElementById('noteList');
+  if(!notes.length){list.innerHTML='<div style="padding:36px 16px;text-align:center;color:var(--muted);font-size:12px">No notes match the current filters.</div>';return;}
+  list.innerHTML=notes.slice().reverse().map(function(n){
+    var tagHtml=n.tag?'<span class="note-tag bw" style="background:#EEEDFE;color:#534AB7">'+n.tag.toUpperCase()+'</span>':'';
+    var loanHtml='';if(n.loan){var L=loanByNo(n.loan);if(L)loanHtml='<a href="'+L.href+'" class="note-tag" style="background:#E0F2FE;color:#075985;text-decoration:none;text-transform:none;font-weight:600">'+L.name+'</a>';}
+    var authorTag=n.author==='PIMCO'?'<span class="note-tag cl">PIMCO</span>':'<span class="note-tag bw">BELLWETHER</span>';
+    var initials=n.author==='PIMCO'?'PI':'BW';
+    var avClass=n.author==='PIMCO'?'note-avatar pi':'note-avatar';
+    return '<div class="note-row"><div class="'+avClass+'">'+initials+'</div><div class="note-body"><div class="note-head"><span class="note-author">'+n.author+'</span>'+authorTag+loanHtml+tagHtml+'<span class="note-time">'+n.when+'</span></div><div class="note-text">'+escapeHtml(n.body)+'</div></div></div>';
+  }).join('');
+}
+wirePicker('noteLoanInput','noteLoan','noteLoanDD','noteLoanSearch','noteLoanDDList','— portfolio-wide —',false,null);
+wirePicker('noteFilterLoanInput','noteFilterLoan','noteFilterLoanDD','noteFilterLoanSearch','noteFilterLoanDDList','All loans',true,render);
+document.getElementById('noteSubmit').addEventListener('click',function(){
+  var body=document.getElementById('noteBody').value.trim();if(!body)return;
+  var as=document.getElementById('noteAs').value;
+  var loan=document.getElementById('noteLoan').value;
+  var tag=document.getElementById('noteTag').value;
+  var now=new Date();
+  var ts=now.toISOString().slice(0,10)+' '+('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2);
+  var notes=load();
+  notes.push({author:as==='cl'?'PIMCO':'Bellwether',tag:tag,loan:loan,body:body,when:ts});
+  save(notes);
+  document.getElementById('noteBody').value='';
+  render();
+});
+['noteSearch','noteFilterFrom','noteFilterTo'].forEach(function(id){var el=document.getElementById(id);if(el){el.addEventListener('input',render);el.addEventListener('change',render);}});
+document.getElementById('noteFilterClear').addEventListener('click',function(){
+  document.getElementById('noteSearch').value='';
+  document.getElementById('noteFilterLoan').value='';
+  document.getElementById('noteFilterLoanInput').value='';
+  document.getElementById('noteFilterFrom').value='';
+  document.getElementById('noteFilterTo').value='';
+  render();
+});
+render();
+})();
+</script>
+<script>
+<!-- PIMCO-PORTAL-SEARCH-V1 -->
+(function(){
+  var LOANS = [
+    {n:'333 West Wacker', spn:'Beacon Capital Partners', ct:'Chicago, IL', st:'IL', am:'BW Asset Manager', upb:'$173mm', href:'03_asset_debt.html'},
+    {n:'Intersect', spn:'MetLife Investment Mgmt', ct:'Irvine, CA', st:'CA', am:'BW Asset Manager', upb:'$118mm', href:'loan.html?id=10999'},
+    {n:'Granite TX Office Portfolio', spn:'Granite Properties', ct:'Various, TX', st:'TX', am:'BW Asset Manager', upb:'$110mm', href:'loan.html?id=10848'},
+    {n:'101 North Wacker', spn:'LaSalle Investment Mgmt', ct:'Chicago, IL', st:'IL', am:'BW Asset Manager', upb:'$72mm', href:'loan.html?id=10318'},
+    {n:'715 Peachtree Street', spn:'Northwood Investors', ct:'Atlanta, GA', st:'GA', am:'BW Asset Manager', upb:'$60mm', href:'loan.html?id=10767'},
+    {n:'The Beacon Apartments', spn:'Pearl Properties', ct:'Philadelphia, PA', st:'PA', am:'BW Asset Manager', upb:'$46mm', href:'02_asset_equity.html', tag:'YELLOW'},
+    {n:'Orleans at Fannin Station', spn:'Warehouse Associates', ct:'Houston, TX', st:'TX', am:'BW Asset Manager', upb:'$42mm', href:'loan.html?id=10945'},
+    {n:'Ella Parkside', spn:'Sidal Realty', ct:'Austin, TX', st:'TX', am:'BW Asset Manager', upb:'$41mm', href:'02b_loan_ella.html', tag:'YELLOW'},
+    {n:'Apex West Midtown', spn:'Venterra Realty', ct:'Atlanta, GA', st:'GA', am:'BW Asset Manager', upb:'$40mm', href:'loan.html?id=10653'},
+    {n:'55 Third Avenue (Cammeyer)', spn:'Hubb NYC Properties', ct:'New York, NY', st:'NY', am:'BW Asset Manager', upb:'$38mm', href:'loan.html?id=10587'},
+    {n:'8201 Greensboro Drive', spn:'B.F. Saul Company', ct:'Mclean, VA', st:'VA', am:'BW Asset Manager', upb:'$35mm', href:'loan.html?id=10380'},
+    {n:'Charleston at Fannin Station', spn:'Warehouse Associates', ct:'Houston, TX', st:'TX', am:'BW Asset Manager', upb:'$34mm', href:'loan.html?id=11098'},
+    {n:'Walnut Creek Business Park', spn:'Majestic Realty', ct:'San Dimas, CA', st:'CA', am:'BW Asset Manager', upb:'$33mm', href:'loan.html?id=10401'},
+    {n:'World Kitchen Distribution', spn:'Matrix Development', ct:'Greencastle, PA', st:'PA', am:'BW Asset Manager', upb:'$28mm', href:'loan.html?id=10548'},
+    {n:'122 South Michigan Avenue', spn:'Aetna Realty', ct:'Chicago, IL', st:'IL', am:'BW Asset Manager', upb:'$17mm', href:'loan.html?id=10448'},
+    {n:'600 Pennsylvania Avenue', spn:'Bernstein Mgmt Corp', ct:'Washington, DC', st:'DC', am:'BW Asset Manager', upb:'$16mm', href:'loan.html?id=10894'},
+    {n:'Seaport Logistics Center', spn:'Investco, LLC', ct:'Sumner, WA', st:'WA', am:'BW Asset Manager', upb:'$16mm', href:'loan.html?id=10436'},
+    {n:'185 Avenue B Apartments', spn:'Hubb Realty', ct:'New York, NY', st:'NY', am:'BW Asset Manager', upb:'$16mm', href:'loan.html?id=10526'},
+    {n:'Brunner Building', spn:'The Wood Companies', ct:'Columbus, OH', st:'OH', am:'BW Asset Manager', upb:'$13mm', href:'loan.html?id=10721'},
+    {n:'Trader Joes (Staten Is.)', spn:'Helm Equities', ct:'Staten Island, NY', st:'NY', am:'BW Asset Manager', upb:'$13mm', href:'loan.html?id=10239'},
+    {n:'Georgetown Retail', spn:'Eastbanc, Inc.', ct:'Washington, DC', st:'DC', am:'BW Asset Manager', upb:'$13mm', href:'loan.html?id=10207'},
+    {n:'333 West Wacker (Mezz)', spn:'John Lawrence', ct:'Chicago, IL', st:'IL', am:'BW Asset Manager', upb:'$13mm', href:'loan.html?id=11089'},
+    {n:'C9 Flats Apartments', spn:'De Anza Properties', ct:'Salt Lake City, UT', st:'UT', am:'BW Asset Manager', upb:'$12mm', href:'loan.html?id=10927'},
+    {n:'Prairie Lakes Corporate Center', spn:'Kraus-Anderson Inc', ct:'Eden Prairie, MN', st:'MN', am:'BW Asset Manager', upb:'$6mm', href:'loan.html?id=9926', tag:'YELLOW'},
+  ];
+  document.addEventListener('DOMContentLoaded', function(){
+    var input = document.getElementById('gsearchInput');
+    var dd    = document.getElementById('gsearchDd');
+    if(!input || !dd) return;
+    function render(q){
+      q = (q||'').trim().toLowerCase();
+      if(!q){ dd.classList.remove('open'); dd.innerHTML=''; return; }
+      var hits = LOANS.filter(function(L){
+        return (L.n+' '+L.spn+' '+L.ct+' '+L.st+' '+L.am).toLowerCase().indexOf(q) >= 0;
+      }).slice(0, 12);
+      if(!hits.length){
+        dd.innerHTML = '<div class="gsearch-empty">No matches</div>';
+      } else {
+        dd.innerHTML = hits.map(function(L){
+          var tag = L.tag === 'YELLOW' ? '<span class="gsearch-tag" style="background:#FFFBEB;color:#92400E">WATCHLIST</span>' : '';
+          return '<a class="gsearch-item" href="'+L.href+'">'
+            + '<div style="flex:1;min-width:0">'
+            + '  <div class="gsearch-name">'+L.n+'</div>'
+            + '  <div class="gsearch-sub">'+L.spn+' &middot; '+L.ct+' &middot; '+L.upb+'</div>'
+            + '</div>' + tag + '</a>';
+        }).join('');
+      }
+      dd.classList.add('open');
+    }
+    input.addEventListener('input', function(){ render(input.value); });
+    input.addEventListener('focus', function(){ if(input.value) render(input.value); });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.gsearch')) dd.classList.remove('open');
+    });
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ input.blur(); dd.classList.remove('open'); }
+    });
+  });
+})();
+</script>
+
+<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#6B7280;grid-column:1/-1">
+  <div><a href="06_workspace.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; Workspace</a></div>
+  <div style="color:#9CA3AF"><span style="color:#1C2B5A;font-weight:600">Notes</span></div>
+  <div><a href="07_deliverables_flash.html" style="color:#0066AF;text-decoration:none;font-weight:500">Reporting &rarr;</a></div>
+</nav>
+</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Redirect</title>
+<meta http-equiv="refresh" content="0; url=01_portfolio_overview.html">
+<script>location.replace('01_portfolio_overview.html');</script>
+<style>
+/* Sidebar elevated over top tabs (per principal feedback) */
+.tabs .tab{font-size:10.5px;color:var(--muted);font-weight:500}
+.tabs .tab.on{color:var(--a);font-weight:600;border-bottom-color:var(--a)}
+.sb .sl{font-size:10px;color:var(--n);font-weight:700;letter-spacing:.08em;opacity:1}
+html[data-theme="dark"] .sb .sl{color:#9BBCFF}
+.sb .ni{font-weight:600;font-size:12.5px}
+.sb .ni.on{box-shadow:inset 3px 0 0 var(--a)}
+
+/* === Dark mode additions for recent components === */
+html[data-theme="dark"] .ip-loan-picker input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .ip-loan-picker input::placeholder{color:#9EAAC4 !important}
+html[data-theme="dark"] #ipLoanDD{background:#162035 !important;border-color:#38436A !important;box-shadow:0 14px 32px rgba(0,0,0,.55) !important}
+html[data-theme="dark"] #ipLoanDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] #ipLoanDD a:hover{background:#1F2D4D !important}
+
+html[data-theme="dark"] .note-loan-picker input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .note-loan-picker input::placeholder{color:#9EAAC4 !important}
+html[data-theme="dark"] #noteLoanDD,
+html[data-theme="dark"] #noteFilterLoanDD{background:#162035 !important;border-color:#38436A !important;box-shadow:0 14px 32px rgba(0,0,0,.55) !important}
+html[data-theme="dark"] #noteLoanDD a,
+html[data-theme="dark"] #noteFilterLoanDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] #noteLoanDD a:hover,
+html[data-theme="dark"] #noteFilterLoanDD a:hover{background:#1F2D4D !important}
+
+html[data-theme="dark"] #noteSearch,
+html[data-theme="dark"] #noteFilterFrom,
+html[data-theme="dark"] #noteFilterTo,
+html[data-theme="dark"] #noteLoanSearch,
+html[data-theme="dark"] #noteFilterLoanSearch,
+html[data-theme="dark"] #ntBody{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+
+html[data-theme="dark"] #noteFilterClear{background:#1A243F !important;color:#C8D2E8 !important;border-color:#38436A !important}
+
+html[data-theme="dark"] .note-row{border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] .lnote-row{border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] .note-text, html[data-theme="dark"] .lnote-text,
+html[data-theme="dark"] .note-author, html[data-theme="dark"] .lnote-author{color:#F2F5FB !important}
+
+/* Reporting page preview tiles */
+html[data-theme="dark"] a[href*=".html"][style*="border-radius:8px"]{background:#162035 !important;border-color:#38436A !important;box-shadow:0 2px 8px rgba(0,0,0,.4) !important}
+
+/* Bottom pagination nav */
+html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !important;color:#C8D2E8 !important;border-top-color:#2E3954 !important}
+html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
+html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
+
+</style>
+<style>
+<!-- PIMCO-PORTAL-INJECT-V5 -->
+/* === Dark mode v5: tiles + buttons + pills crisper === */
+html[data-theme="dark"] .kpi{background:#162035 !important;border:1px solid #38436A !important;box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+html[data-theme="dark"] .kpi .kv{color:#FFFFFF !important;font-weight:700}
+html[data-theme="dark"] .kpi .kl{color:#C8D2E8 !important;font-weight:600;opacity:1}
+html[data-theme="dark"] .kpi .ks{opacity:1;font-weight:500}
+html[data-theme="dark"] .kpi .ks.up{color:#86EFAC !important}
+html[data-theme="dark"] .kpi .ks.dn{color:#FCA5A5 !important}
+html[data-theme="dark"] .kpi .ks.wa{color:#FCD34D !important}
+html[data-theme="dark"] .kpi .ks.nu{color:#C8D2E8 !important}
+/* Status pills on home */
+html[data-theme="dark"] .st2{background:#162035 !important;border:1px solid #38436A !important;color:#FFFFFF !important;font-weight:600}
+html[data-theme="dark"] .st2 .sdot{box-shadow:0 0 0 2px rgba(255,255,255,.10)}
+/* Buttons */
+html[data-theme="dark"] .doc-view-btn{background:#1F3268 !important;color:#FFFFFF !important;border-color:#3B5BAA !important;font-weight:700}
+html[data-theme="dark"] .doc-view-btn:hover{background:#7AA5F4 !important;color:#0A1A40 !important}
+html[data-theme="dark"] .compose-btn,
+html[data-theme="dark"] .cov-export-btn,
+html[data-theme="dark"] .h-cta{background:#7AA5F4 !important;color:#0A1A40 !important;font-weight:700;border:none}
+html[data-theme="dark"] .compose-btn:hover,
+html[data-theme="dark"] .cov-export-btn:hover{background:#B6D0FF !important}
+html[data-theme="dark"] select,
+html[data-theme="dark"] .compose select{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] input[type="text"],
+html[data-theme="dark"] .compose textarea,
+html[data-theme="dark"] .sigma-input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] input[type="text"]::placeholder{color:#9EAAC4 !important}
+html[data-theme="dark"] .gsearch-input{background:rgba(255,255,255,.10) !important;color:#FFFFFF !important;border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.55) !important}
+html[data-theme="dark"] #loanSel{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
+html[data-theme="dark"] #loanSelDD{background:#162035 !important;border-color:#38436A !important}
+html[data-theme="dark"] #loanSelDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
+html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
+
+/* === Global table alignment fix === */
+/* Headers AND values left-aligned by default */
+.tbl th,
+.tbl td{text-align:left}
+/* If a cell or header is explicitly marked .tr, keep right-aligned (legacy fallback) — but we drop most .tr usage */
+.tbl th.tr,
+.tbl td.tr{text-align:left !important}
+/* Ensure td contents don't get pushed by nested elements */
+.tbl td > span,
+.tbl td > a{text-align:left}
+</style>
+</head><body>Redirecting...</body></html>
