@@ -1334,62 +1334,103 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 <!-- loans-tracker filters + sort -->
 <script>
 (function(){
+  // Metadata keyed by loan # — drives the Type / Rating / Maturity-Year filters
+  // since the table itself doesn't carry these attributes in plain text.
+  var META = {
+    '11088':{type:'office',rating:'SURV',year:'2031',spn:'Beacon Capital Partners',loc:'Chicago, IL'},
+    '10999':{type:'office',rating:'SURV',year:'2032',spn:'MetLife Investment Mgmt',loc:'Irvine, CA'},
+    '10848':{type:'office',rating:'SURV',year:'2028',spn:'Granite Properties',loc:'Various, TX'},
+    '10318':{type:'office',rating:'SURV',year:'2029',spn:'LaSalle Investment Mgmt',loc:'Chicago, IL'},
+    '10767':{type:'office',rating:'SURV',year:'2031',spn:'Northwood Investors',loc:'Atlanta, GA'},
+    '10556':{type:'multifamily',rating:'YELLOW',year:'2027',spn:'Pearl Properties',loc:'Philadelphia, PA'},
+    '10945':{type:'multifamily',rating:'SURV',year:'2041',spn:'Warehouse Associates',loc:'Houston, TX'},
+    '11047':{type:'multifamily',rating:'YELLOW',year:'2028',spn:'Sidal Realty',loc:'Austin, TX'},
+    '10653':{type:'multifamily',rating:'SURV',year:'2028',spn:'Venterra Realty Mgmt',loc:'Atlanta, GA'},
+    '10587':{type:'retail',rating:'SURV',year:'2027',spn:'Hubb NYC Properties',loc:'New York, NY'},
+    '10380':{type:'office',rating:'SURV',year:'2035',spn:'B.F. Saul Company',loc:'McLean, VA'},
+    '11098':{type:'multifamily',rating:'SURV',year:'2044',spn:'Warehouse Associates',loc:'Houston, TX'},
+    '10401':{type:'office',rating:'SURV',year:'2028',spn:'Majestic Realty',loc:'San Dimas, CA'},
+    '10548':{type:'industrial',rating:'SURV',year:'2027',spn:'Matrix Development',loc:'Greencastle, PA'},
+    '10448':{type:'retail',rating:'SURV',year:'2026',spn:'Aetna Realty',loc:'Chicago, IL'},
+    '10436':{type:'industrial',rating:'SURV',year:'2026',spn:'Investco, LLC',loc:'Sumner, WA'},
+    '10894':{type:'office',rating:'SURV',year:'2030',spn:'Bernstein Mgmt Corp',loc:'Washington, DC'},
+    '10526':{type:'multifamily',rating:'SURV',year:'2032',spn:'Hubb Realty',loc:'New York, NY'},
+    '10721':{type:'multifamily',rating:'SURV',year:'2039',spn:'The Wood Companies',loc:'Columbus, OH'},
+    '10207':{type:'retail',rating:'SURV',year:'2027',spn:'Eastbanc, Inc.',loc:'Washington, DC'},
+    '10239':{type:'retail',rating:'SURV',year:'2033',spn:'Helm Equities',loc:'Staten Island, NY'},
+    '11089':{type:'office',rating:'SURV',year:'2031',spn:'John Lawrence',loc:'Chicago, IL'},
+    '10927':{type:'multifamily',rating:'SURV',year:'2031',spn:'De Anza Properties',loc:'Salt Lake City, UT'},
+    '9926' :{type:'office',rating:'YELLOW',year:'2030',spn:'Kraus-Anderson Inc',loc:'Eden Prairie, MN'}
+  };
+  function getRowMeta(r){
+    var cells = r.querySelectorAll('td');
+    if(!cells.length) return null;
+    var no = (cells[1] && cells[1].textContent || '').replace(/[^0-9]/g,'');
+    var m = META[no];
+    if(!m) return null;
+    // also fold in the loan name / sponsor / location for richer search matching
+    var name = (cells[0] && cells[0].textContent || '').trim();
+    return {no:no, name:name, type:m.type, rating:m.rating, year:m.year, spn:m.spn, loc:m.loc};
+  }
+  // Stamp data attributes on every row up front so other code can use them too.
+  function stampRows(){
+    document.querySelectorAll('table.tbl tbody tr').forEach(function(r){
+      var m = getRowMeta(r); if(!m) return;
+      r.setAttribute('data-type', m.type);
+      r.setAttribute('data-rating', m.rating);
+      r.setAttribute('data-year', m.year);
+      r.setAttribute('data-no', m.no);
+    });
+  }
   function parseNum(s){
     if(!s) return 0;
     s = s.trim();
-    // Date format e.g. "07/01/2031" → sortable YYYYMM
+    // MM/DD/YYYY → YYYYMMDD numeric for proper date sort
+    var iso = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if(iso) return parseInt(iso[3],10)*10000 + parseInt(iso[1],10)*100 + parseInt(iso[2],10);
+    // "Jul 2031" fallback
     var months = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
     var d = s.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})$/);
-    if(d) return parseInt(d[2]) * 100 + months[d[1]];
-    // Dollar shorthand: $1.00B, $185mm, etc
-    var dollarMatch = s.match(/\$?([0-9.]+)\s*(b|B|mm|MM|m|M|k|K)?/i);
-    if(dollarMatch){
-      var val = parseFloat(dollarMatch[1]);
-      var unit = (dollarMatch[2]||'').toLowerCase();
+    if(d) return parseInt(d[2],10)*100 + months[d[1]];
+    // Dollar shorthand $185mm, $1.00B
+    var dol = s.match(/\$?([0-9.]+)\s*(b|B|mm|MM|m|M|k|K)?/);
+    if(dol){
+      var val = parseFloat(dol[1]);
+      var unit = (dol[2]||'').toLowerCase();
       if(unit === 'b') val *= 1000;
       else if(unit === 'k') val /= 1000;
-      // mm, m → keep as-is (treat as millions)
       return val;
     }
     var m = s.match(/([0-9.]+)/);
     return m ? parseFloat(m[1]) : 0;
   }
   function applyFilters(){
-    var type   = document.getElementById('fltType').value.toLowerCase();
-    var rating = document.getElementById('fltRating').value.toUpperCase();
+    var type   = (document.getElementById('fltType').value||'').toLowerCase();
+    var rating = (document.getElementById('fltRating').value||'').toUpperCase();
     var year   = document.getElementById('fltYear').value;
     var q      = (document.getElementById('fltSearch').value||'').toLowerCase().trim();
     var rows   = document.querySelectorAll('table.tbl tbody tr');
     var shown  = 0;
     rows.forEach(function(r){
-      var txt = r.textContent.toLowerCase();
+      var m = getRowMeta(r);
       var keep = true;
-      if(type && txt.indexOf(type) < 0){
-        // Strict match: check property type badge
-        var b = r.querySelector('.badge');
-        var bt = b ? b.textContent.toLowerCase() : '';
-        var typeMap = {office:'off', multifamily:'mf', retail:'ret', industrial:'ind'};
-        if(!bt || bt !== typeMap[type]) keep = false;
+      if(m){
+        if(type && m.type !== type) keep = false;
+        if(rating && m.rating !== rating) keep = false;
+        if(year && m.year !== year) keep = false;
+        if(q){
+          var hay = (m.name+' '+m.no+' '+m.spn+' '+m.loc+' '+m.type).toLowerCase();
+          if(hay.indexOf(q) < 0) keep = false;
+        }
+      } else {
+        // unknown row — fall back to plain text match for search only
+        if(q && r.textContent.toLowerCase().indexOf(q) < 0) keep = false;
       }
-      if(rating){
-        var dot = r.querySelector('span[title]');
-        var dotTitle = dot ? dot.getAttribute('title') : '';
-        var isYellow = /Watchlist/i.test(dotTitle) || /Yellow/i.test(dotTitle);
-        if(rating === 'YELLOW' && !isYellow) keep = false;
-        if(rating === 'SURV' && isYellow) keep = false;
-      }
-      if(year){
-        // Check if maturity column contains year
-        var cells = r.querySelectorAll('td');
-        var maturity = '';
-        if(cells.length >= 8) maturity = cells[7].textContent;
-        if(maturity.indexOf(year) < 0) keep = false;
-      }
-      if(q && txt.indexOf(q) < 0) keep = false;
       r.style.display = keep ? '' : 'none';
       if(keep) shown++;
     });
-    document.getElementById('fltCount').textContent = shown + ' loan' + (shown===1?'':'s');
+    var cnt = document.getElementById('fltCount');
+    if(cnt) cnt.textContent = shown + ' of ' + rows.length + ' loan' + (rows.length===1?'':'s');
   }
   function sortBy(key){
     var tbody = document.querySelector('table.tbl tbody');
@@ -1409,7 +1450,6 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
       } else {
         var an = parseNum(ax), bn = parseNum(bx);
         diff = an - bn;
-        // tie-break alphabetically
         if(diff === 0) diff = ax.localeCompare(bx);
       }
       return asc ? diff : -diff;
@@ -1421,7 +1461,8 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
       if(ind) ind.textContent = label;
     });
   }
-  document.addEventListener('DOMContentLoaded', function(){
+  function wire(){
+    stampRows();
     ['fltType','fltRating','fltYear','fltSearch'].forEach(function(id){
       var el = document.getElementById(id);
       if(el){ el.addEventListener('input', applyFilters); el.addEventListener('change', applyFilters); }
@@ -1437,7 +1478,12 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
       th.addEventListener('click', function(){ sortBy(th.dataset.sort); });
     });
     applyFilters();
-  });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', wire);
+  } else {
+    wire();
+  }
 })();
 </script>
 </body></html>
