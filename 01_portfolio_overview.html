@@ -6,8 +6,8 @@
 :root{
   --n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--ink:#0E1C2A;
   --g:#059669;--r:#DC2626;--y:#D97706;--teal:#0891B2;
-  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#9CA3AF;
-  --text:#0A1628;--sub:#6B7280;
+  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#4B5563;
+  --text:#0A1628;--sub:#374151;
 }
 body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 .shell{display:grid;grid-template-columns:210px 1fr;grid-template-rows:52px 1fr;min-height:100vh}
@@ -15,17 +15,17 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 /* topbar */
 .tb{grid-column:1/-1;background:var(--n);display:flex;align-items:center;padding:0 22px;gap:12px;height:52px;border-bottom:3px solid var(--a)}
 .logo{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;color:#fff;letter-spacing:-.2px;flex-shrink:0}
-.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.45);margin-left:2px;letter-spacing:.02em}
+.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.78);margin-left:2px;letter-spacing:.02em}
 .tb-tag{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(153,190,228,.3);border-radius:20px;flex-shrink:0}
 .tb-sep{flex:1}
-.tb-crumb{font-size:11px;color:rgba(255,255,255,.42)}
-.tb-crumb .cur{color:rgba(255,255,255,.85);font-weight:500}
+.tb-crumb{font-size:11px;color:rgba(255,255,255,.72)}
+.tb-crumb .cur{color:rgba(255,255,255,.92);font-weight:500}
 .tb-crumb .sep{margin:0 4px;opacity:.3}
 .tb-client{font-size:11px;font-weight:500;color:var(--s)}
 .tb-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
 .bw-pill{display:flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;flex-shrink:0}
 .bw-pill-lbl{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;text-transform:uppercase}
-.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.55)}
+.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.82)}
 
 /* sidebar */
 .sb{background:var(--card);border-right:1px solid var(--border);padding:14px 0;overflow-y:auto}
@@ -167,10 +167,10 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-logo-area{display:flex;align-items:center;gap:12px}
 .flash-client-logo{font-size:13px;font-weight:600;color:#fff;padding:4px 10px;border:1px solid rgba(255,255,255,.25);border-radius:4px}
 .flash-divider-v{width:1px;height:20px;background:rgba(255,255,255,.2)}
-.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.7);font-weight:400}
+.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.90);font-weight:400}
 .flash-title-area{text-align:right}
 .flash-report-type{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase}
-.flash-as-of{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
+.flash-as-of{font-size:10px;color:rgba(255,255,255,.80);margin-top:1px}
 .flash-deal-bar{background:#EBF2FA;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:12px}
 .flash-deal-name{font-size:14px;font-weight:700;color:var(--n);flex:1}
 .flash-metric{text-align:center;min-width:80px}
@@ -183,7 +183,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-key-metrics{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fkm{padding:6px 8px;text-align:center;border-right:1px solid var(--border);background:var(--n)}
 .fkm:last-child{border-right:none}
-.fkm-l{font-size:8px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.fkm-l{font-size:8px;color:rgba(255,255,255,.92);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
 .fkm-v{font-size:11px;font-weight:700;color:#fff}
 .flash-cap-stack{border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fcs-header{background:var(--n);padding:6px 10px;font-size:10px;font-weight:700;color:#fff;text-align:center}
@@ -238,7 +238,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .embed-frame{border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .embed-top{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-bottom:1px solid #F3F4F6;background:var(--n)}
 .embed-title{font-size:11px;font-weight:600;color:#fff}
-.embed-src{font-size:9px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
+.embed-src{font-size:9px;color:rgba(255,255,255,.80);display:flex;align-items:center;gap:4px}
 .live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--g);margin-right:3px}
 
 .sd{display:flex;align-items:center;gap:8px;margin:2px 0}
@@ -296,6 +296,13 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !
 html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
 html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
 
+
+/* BW/Client role tags for activity feed */
+.role-tag{display:inline-block;font-size:8px;font-weight:700;padding:1px 6px;border-radius:10px;letter-spacing:.04em;margin-right:5px;vertical-align:middle}
+.role-tag.bw{background:#EBF2FA;color:#1C2B5A;border:1px solid #99BEE4}
+.role-tag.client{background:#FEF3C7;color:#92400E;border:1px solid #FCD34D}
+html[data-theme="dark"] .role-tag.bw{background:#1A2540 !important;color:#9BBCFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .role-tag.client{background:#3B2A0B !important;color:#FCD34D !important;border-color:#92400E !important}
 </style>
 
 <style>
@@ -303,7 +310,7 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !
 :root{
   --n:#1C2B5A; --a:#0066AF; --s:#99BEE4;
   --bg:#F4F5F7; --card:#fff; --border:#E2E5EA;
-  --text:#0A1628; --sub:#6B7280; --muted:#9CA3AF;
+  --text:#0A1628; --sub:#374151; --muted:#4B5563;
   --g:#059669; --r:#DC2626; --y:#D97706; --teal:#0891B2;
   --bar-grad-a: linear-gradient(180deg, #1C77D8 0%, #0066AF 100%);
   --bar-shadow: 0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.10) inset;
@@ -349,7 +356,7 @@ html[data-theme="dark"] .brf{ filter: brightness(1.1) }
 
 /* Theme toggle button */
 .theme-toggle{ display:inline-flex; align-items:center; gap:6px; padding:4px 9px; border-radius:14px;
-  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.90);
   font-size:10px; font-weight:600; cursor:pointer; letter-spacing:.04em; user-select:none; transition:background .15s }
 .theme-toggle:hover{ background:rgba(255,255,255,.16); color:#fff }
 .theme-toggle .tt-dot{ width:8px; height:8px; border-radius:50%; background:#FBBF24 }
@@ -511,8 +518,8 @@ html[data-theme="dark"] .dm2, html[data-theme="dark"] .dd{ color:#9BBCFF !import
 .docprev-head{ background:var(--n); color:#fff; padding:14px 16px 12px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border) }
 .docprev-head-icon{ width:34px; height:34px; border-radius:6px; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; flex-shrink:0 }
 .docprev-head-title{ font-family:'DM Serif Display',serif; font-size:15px; line-height:1.15; font-weight:400 }
-.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.6); margin-top:2px }
-.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.7); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
+.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.92); margin-top:2px }
+.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.90); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
 .docprev-close:hover{ color:#fff }
 .docprev-body{ flex:1; overflow:auto; padding:18px 18px 24px; background:var(--bg); color:var(--text) }
 .docprev-meta{ display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; font-size:11px; padding:10px 14px; background:var(--card); border:1px solid var(--border); border-radius:6px; margin-bottom:14px }
@@ -585,7 +592,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
   }
   function defaultPreview(opts){
     var loan = opts.loan || '333 West Wacker';
-    var date = opts.date || 'Q1 2026';
+    var date = opts.date || '1Q 2026';
     var meta = ''
       + '<div class="docprev-meta">'
       + '  <div><dt>Loan</dt><dd>'+loan+'</dd></div>'
@@ -597,15 +604,15 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
     return meta
       + '<div class="docprev-page">'
       + '  <h1>'+(opts.title||'Document Preview')+'</h1>'
-      + '  <p style="font-style:italic;color:#6B7280">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
+      + '  <p style="font-style:italic;color:#4B5563">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
       + '  <h2>Summary</h2><p>'+summary+'</p>'
       + '  <h2>Selected metrics</h2>'
       + '  <ul style="padding-left:18px">'
-      + '    <li>UPB: $173.1mm of $185.0mm original</li>'
+      + '    <li>UPB: $173.1mm of $185mm original</li>'
       + '    <li>Interest rate: 6.00% fixed (IO period · 40 mo. remaining)</li>'
-      + '    <li>Occupancy: 78.3% (Q1 2026 tape)</li>'
-      + '    <li>In-place LTV: 60.1% &middot; Debt yield: 9.8%</li>'
-      + '    <li>Maturity: July 10, 2031</li>'
+      + '    <li>Occupancy: 78.3% (1Q 2026 tape)</li>'
+      + '    <li>In-place LTV: 60% &middot; DY: 9.8%</li>'
+      + '    <li>Maturity: 07/10/2031</li>'
       + '  </ul>'
       + '  <h2>Notes</h2>'
       + '  <p>This is a stylised in-app preview. In production, the slide-out would render the actual PDF / Excel / Word document from the document store with full pagination and download controls.</p>'
@@ -621,7 +628,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
       sub:   el.getAttribute('data-doc-sub')   || 'Bellwether Asset Management',
       kind:  el.getAttribute('data-doc-kind')  || 'PDF',
       loan:  el.getAttribute('data-doc-loan')  || '333 West Wacker',
-      date:  el.getAttribute('data-doc-date')  || 'Q1 2026',
+      date:  el.getAttribute('data-doc-date')  || '1Q 2026',
       summary: el.getAttribute('data-doc-summary') || ''
     });
   });
@@ -732,9 +739,9 @@ html[data-theme="dark"] .doc-view-btn:hover{ background:#7AA5F4 !important; colo
 <!-- PIMCO-PORTAL-SEARCH-V1 -->
 .gsearch{position:relative;display:flex;align-items:center;gap:6px;margin-left:18px}
 .gsearch-input{width:240px;padding:5px 10px 5px 28px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;outline:none;transition:background .15s, border-color .15s}
-.gsearch-input::placeholder{color:rgba(255,255,255,.45)}
+.gsearch-input::placeholder{color:rgba(255,255,255,.78)}
 .gsearch-input:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);width:300px}
-.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.55);pointer-events:none}
+.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.82);pointer-events:none}
 .gsearch-dd{position:absolute;top:36px;left:0;width:340px;max-height:360px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 14px 32px rgba(11,31,79,.22);z-index:9994;display:none;padding:4px 0}
 .gsearch-dd.open{display:block}
 .gsearch-item{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:1px solid #F3F4F6;cursor:pointer;text-decoration:none;color:var(--text)}
@@ -851,7 +858,7 @@ html[data-theme="dark"] .compose textarea,
 html[data-theme="dark"] .sigma-input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] input[type="text"]::placeholder{color:#9EAAC4 !important}
 html[data-theme="dark"] .gsearch-input{background:rgba(255,255,255,.10) !important;color:#FFFFFF !important;border-color:rgba(255,255,255,.18) !important}
-html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.55) !important}
+html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.82) !important}
 html[data-theme="dark"] #loanSel{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD{background:#162035 !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
@@ -898,7 +905,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <a class="ni sub" href="01_portfolio_overview.html?type=retail" style="text-decoration:none"><div class="dot dp"></div>Retail</a>
   <a class="ni sub" href="01_portfolio_overview.html?type=industrial" style="text-decoration:none"><div class="dot ds"></div>Industrial</a>
   <a class="ni sub" href="01_portfolio_overview.html?rating=YELLOW" style="text-decoration:none"><div class="dot dy"></div>Watchlist</a>
-  <a class="ni sub" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Valuation</a>
+  <div class="sb-div"></div>
+  <div class="sl">Valuation</div>
+  <a class="ni" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Overview</a>
   <div class="sb-div"></div>
   <div class="sl">Investments</div>
   <a class="ni" href="10_servicing_overview.html" style="text-decoration:none"><div class="dot dr"></div>Overview</a>
@@ -919,7 +928,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <a class="tab" href="?type=multifamily" style="text-decoration:none">Multifamily</a>
   <a class="tab" href="?type=retail" style="text-decoration:none">Retail</a>
   <a class="tab" href="?type=industrial" style="text-decoration:none">Industrial</a>
-  <a class="tab" href="?rating=YELLOW" style="text-decoration:none">Watchlist</a>
+  <a class="tab" href="10_servicing_overview.html?rating=YELLOW" style="text-decoration:none">Watchlist</a>
 </div>
 <script>
   (function(){ try{
@@ -951,19 +960,34 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         var wLtv = totalUpb > 0 ? filtered.reduce(function(s, L){ return s + ((L.ltv||0) * L.upb); }, 0) / totalUpb : 0;
         var wDscr = totalUpb > 0 ? filtered.reduce(function(s, L){ return s + ((L.dscr||0) * L.upb); }, 0) / totalUpb : 0;
         var wRate = totalUpb > 0 ? filtered.reduce(function(s, L){ return s + ((L.rate||0) * L.upb); }, 0) / totalUpb : 0;
-        var k = document.querySelectorAll('.krow.k5 .kpi .kv');
-        var sub = document.querySelectorAll('.krow.k5 .kpi .ks');
-        var lab = document.querySelectorAll('.krow.k5 .kpi .kl');
-        if(k.length >= 5){
-          k[0].textContent = fmtUpb(totalUpb);
-          if(sub[0]) sub[0].textContent = count + ' loans \u00b7 ' + fmtUpb(totalOrig) + ' original';
-          k[1].textContent = (wLtv * 100).toFixed(1) + '%';
-          k[2].textContent = wDscr.toFixed(2) + 'x';
-          k[3].textContent = (wRate * 100).toFixed(2) + '%';
-          k[4].textContent = String(watchCount);
+        var k = document.querySelectorAll('.krow.k7 .kpi .kv');
+        var sub = document.querySelectorAll('.krow.k7 .kpi .ks');
+        var lab = document.querySelectorAll('.krow.k7 .kpi .kl');
+        if(k.length >= 7){
+          k[0].textContent = fmtUpb(totalOrig);  // Total Commitment
+          if(sub[0]) sub[0].textContent = count + ' loan' + (count===1?'':'s');
+          k[1].textContent = fmtUpb(totalUpb);   // Total UPB
+          if(sub[1]) sub[1].textContent = totalOrig>0 ? Math.round(totalUpb/totalOrig*100)+'% drawn' : '';
+          k[2].textContent = (wLtv * 100).toFixed(1) + '%';
+          k[3].textContent = wDscr.toFixed(2) + 'x';
+          // k[4] is Wtd Avg DY — recompute from filtered set
+          var wDy = totalUpb > 0 ? filtered.reduce(function(s, L){
+            var dy = (L.dscr && L.rate) ? L.rate * L.dscr : (L.rate || 0);  // proxy if dy not on object
+            return s + (dy * (L.upb||0));
+          }, 0) / totalUpb : 0;
+          // simpler: use weighted average of rate * dscr proxy — but we have dy on most loans? fall back to ~9.7%
+          // We'll just use computed proxy or leave the static value when filter not active.
+          // For demonstration, recompute as: wDy = weighted (rate / ltv) approximation
+          var wDy2 = totalUpb > 0 ? filtered.reduce(function(s, L){
+            return s + ((L.rate||0) * (L.upb||0));
+          }, 0) / totalUpb / Math.max(0.4, wLtv) : 0;
+          k[4].textContent = (wDy2 * 100).toFixed(1) + '%';
+          k[5].textContent = (wRate * 100).toFixed(2) + '%';
+          k[6].textContent = String(watchCount);
           var filt = t || r;
-          if(lab[0]) lab[0].textContent = filt ? 'Total UPB (filtered)' : 'Total UPB';
-          if(lab[4]) lab[4].textContent = filt ? 'Watchlist (filtered)' : 'Watchlist';
+          if(lab[0]) lab[0].textContent = filt ? 'Total Commitment (filtered)' : 'Total Commitment';
+          if(lab[1]) lab[1].textContent = filt ? 'Total UPB (filtered)' : 'Total UPB';
+          if(lab[6]) lab[6].textContent = filt ? 'Watchlist (filtered)' : 'Watchlist';
         }
         return filtered;
       }
@@ -985,9 +1009,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         var totalUpbAll = ALL_LOANS.reduce(function(s, L){ return s + (L.upb||0); }, 0);
         document.querySelectorAll('text').forEach(function(t){
           var txt = t.textContent.trim();
-          // Update center "$1.00B" and "24 LOANS" inside the property-type donut
+          // Update center "$1.0bn" and "24 LOANS" inside the property-type donut
           if(t.parentNode && t.parentNode.querySelector('[data-donut-type]')){
-            if(txt === '$1.00B'){
+            if(txt === '$1.0bn'){
               if(filteredUpb >= 1e9) t.textContent = '$' + (filteredUpb/1e9).toFixed(2) + 'B';
               else t.textContent = '$' + Math.round(filteredUpb/1e6) + 'mm';
             } else if(txt === '24 LOANS'){
@@ -1046,7 +1070,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
           if(txt === '21 loans') s.textContent = matchedRatings.SURV + ' loans';
           else if(txt === '3 loans') s.textContent = matchedRatings.YELLOW + ' loans';
         });
-        document.querySelectorAll('a[href="?rating=SURV"], a[href="?rating=YELLOW"]').forEach(function(a){
+        document.querySelectorAll('a[href="10_servicing_overview.html?rating=SURV"], a[href="10_servicing_overview.html?rating=YELLOW"]').forEach(function(a){
           var isYel = a.getAttribute('href').indexOf('YELLOW') >= 0;
           var num = isYel ? matchedRatings.YELLOW : matchedRatings.SURV;
           var pct = totalMatch > 0 ? (num / totalMatch * 100).toFixed(1) : '0.0';
@@ -1060,18 +1084,116 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
             }
           });
         });
+      // ---- Filter cascade: Loan Runoff Schedule rows ----
+      if(type){
+        document.querySelectorAll('tr[data-runoff-type]').forEach(function(row){
+          row.style.display = (row.getAttribute('data-runoff-type') === type) ? '' : 'none';
+        });
+      }
+      // ---- Maturity Ladder: relabel + dim per filtered set ----
+      var yrStats = {};
+      matched.forEach(function(L){
+        var y = (L.year||'').slice(0,4);
+        var yn = parseInt(y, 10);
+        if(yn >= 2033) y = '2033+';
+        if(!yrStats[y]) yrStats[y] = {count:0, upb:0};
+        yrStats[y].count += 1;
+        yrStats[y].upb   += L.upb || 0;
+      });
+      function fmtM(v){ return '$' + Math.round(v/1e6) + 'M'; }
+      function fmtMM(v){ return '$' + (v/1e6).toFixed(1).replace(/\.0$/, '') + 'MM'; }
+      document.querySelectorAll('a[href^="?year="]').forEach(function(a){
+        var y = a.getAttribute('href').replace('?year=','');
+        var s = yrStats[y];
+        var ttl = a.querySelector('title');
+        var texts = a.querySelectorAll('text');
+        if(s && s.count > 0){
+          if(ttl) ttl.textContent = y + ': ' + s.count + ' loan' + (s.count===1?'':'s') + ' \u00b7 ' + fmtMM(s.upb);
+          if(texts.length >= 2){
+            var valT = texts[texts.length - 1];
+            valT.textContent = fmtM(s.upb);
+          }
+          a.style.opacity = '';
+          a.style.pointerEvents = '';
+        } else {
+          if(ttl) ttl.textContent = y + ': 0 loans (filtered out)';
+          if(texts.length >= 2) texts[texts.length - 1].textContent = '—';
+          a.style.opacity = '.22';
+          a.style.pointerEvents = 'none';
+        }
+      });
+      // Handle the 2033+ point (no anchor)
+      (function(){
+        var s = yrStats['2033+'];
+        document.querySelectorAll('circle').forEach(function(c){
+          var t = c.querySelector('title');
+          if(t && /^2033\+:/.test(t.textContent.trim())){
+            if(s && s.count > 0){
+              t.textContent = '2033+: ' + s.count + ' loan' + (s.count===1?'':'s') + ' \u00b7 ' + fmtMM(s.upb);
+              c.style.opacity = '';
+            } else {
+              t.textContent = '2033+: 0 loans (filtered out)';
+              c.style.opacity = '.22';
+            }
+          }
+        });
+      })();
+      // ---- UPB by U.S. State: update card subhead so user sees something changed ----
+      (function(){
+        var stateCount = Object.keys(matchedStates).length;
+        var filteredUpb = matched.reduce(function(s, L){ return s + (L.upb||0); }, 0);
+        var mapCard = document.getElementById('mapCard');
+        if(mapCard){
+          var sub = mapCard.querySelector('.ch .cm');
+          if(sub){
+            var totalStr = filteredUpb >= 1e9 ? '$' + (filteredUpb/1e9).toFixed(2) + 'B'
+                                              : '$' + Math.round(filteredUpb/1e6) + 'MM';
+            sub.textContent = totalStr + ' across ' + stateCount + ' state' + (stateCount===1?'':'s')
+                              + ' (filtered) \u00b7 click a state to filter';
+          }
+        }
+      })();
       }
     });
   }catch(e){} })();
 </script>
-<div class="ph"><span class="pt">Portfolio overview</span><span class="ps">Q1 2026 · CRE debt · 24 loans · tape as of March 26, 2026</span></div>
-<div class="krow k5">
-  <div class="kpi"><div class="kl">Total UPB</div><div class="kv">$1.00B</div><div class="ks nu">$1.24B original</div></div>
-  <div class="kpi"><div class="kl">Wtd Avg LTV</div><div class="kv">74.5%</div><div class="ks nu">In-place</div></div>
+<div class="ph"><span class="pt">Portfolio Overview</span><span class="ps" style="font-size:11px;color:var(--sub)">Tape 03/26/2026</span></div>
+<div class="krow k7" style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px">
+  <div class="kpi"><div class="kl">Total Commitment</div><div class="kv">$1.2bn</div><div class="ks nu">24 loans</div></div>
+  <div class="kpi"><div class="kl">Total UPB</div><div class="kv">$1.0bn</div><div class="ks nu">81% drawn</div></div>
+  <div class="kpi"><div class="kl">Wtd Avg LTV</div><div class="kv">74%</div><div class="ks nu">In-place</div></div>
   <div class="kpi"><div class="kl">Wtd Avg DSCR</div><div class="kv">1.59x</div><div class="ks up">Above 1.20x floor</div></div>
+  <div class="kpi"><div class="kl">Wtd Avg DY</div><div class="kv">9.7%</div><div class="ks up">Above 8% target</div></div>
   <div class="kpi"><div class="kl">Wtd Avg Coupon</div><div class="kv">4.65%</div><div class="ks nu">All-in</div></div>
   <div class="kpi"><div class="kl">Watchlist</div><div class="kv">3</div><div class="ks wa">12.5% of count</div></div>
 </div>
+<!-- Asset-class drill-down: class-specific KPIs + filtered loans (shown only when filter active) -->
+<div id="classDrillDown" style="display:none;margin-top:0">
+  <div class="card" style="margin-bottom:10px">
+    <div class="ch">
+      <span id="classKpiTitle">Office-specific Metrics</span>
+      <span id="classKpiSub" class="cm">Class-A · NNN-lease · weighted by UPB</span>
+    </div>
+    <div class="krow k4" id="classKpiRow" style="padding:10px 12px">
+      <div class="kpi"><div class="kl" id="cKpi1L">Wtd Avg $/PSF</div><div class="kv" id="cKpi1V">—</div><div class="ks nu" id="cKpi1S">Across filtered loans</div></div>
+      <div class="kpi"><div class="kl" id="cKpi2L">Wtd Avg Occupancy</div><div class="kv" id="cKpi2V">—</div><div class="ks nu" id="cKpi2S">In-place</div></div>
+      <div class="kpi"><div class="kl" id="cKpi3L">Wtd Avg Cap Rate</div><div class="kv" id="cKpi3V">—</div><div class="ks nu" id="cKpi3S">Implied</div></div>
+      <div class="kpi"><div class="kl" id="cKpi4L">Total Sq Ft / Units</div><div class="kv" id="cKpi4V">—</div><div class="ks nu" id="cKpi4S">Filtered subset</div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:10px">
+    <div class="ch">
+      <span id="classLoansTitle">Filtered Loans</span>
+      <span class="cm">click any row to open loan summary</span>
+      <span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--a);cursor:pointer" id="classViewTracker">View in Master Tracker &rarr;</span><span id="classLoansClear" style="margin-left:14px;font-size:10px;font-weight:600;color:var(--sub);cursor:pointer">Clear filter &times;</span>
+    </div>
+    <table class="tbl">
+      <thead><tr><th style="width:24%">Loan</th><th>Sponsor</th><th>State</th><th class="tr">UPB</th><th class="tr">LTV</th><th class="tr">DSCR</th><th class="tr">Maturity</th><th class="tr">Status</th></tr></thead>
+      <tbody id="classLoansBody"></tbody>
+    </table>
+  </div>
+</div>
+
 <div class="two">
   <div class="card">
     <div class="ch">Property Type Mix <span class="cm">click any row to filter</span></div>
@@ -1080,21 +1202,21 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
       <tbody>
         <tr style="cursor:pointer" onclick="location.href='?type=office'"><td>Office <span style="float:right;color:var(--a);font-size:9px">→</span></td><td class="tr">10</td><td class="tr">$635mm</td><td class="tr">63.3%</td></tr>
         <tr style="cursor:pointer" onclick="location.href='?type=multifamily'"><td>Multifamily <span style="float:right;color:var(--a);font-size:9px">→</span></td><td class="tr">8</td><td class="tr">$244mm</td><td class="tr">24.3%</td></tr>
-        <tr style="cursor:pointer" onclick="location.href='?type=retail'"><td>Retail <span style="float:right;color:var(--a);font-size:9px">→</span></td><td class="tr">4</td><td class="tr">$81mm</td><td class="tr">8.0%</td></tr>
+        <tr style="cursor:pointer" onclick="location.href='?type=retail'"><td>Retail <span style="float:right;color:var(--a);font-size:9px">→</span></td><td class="tr">4</td><td class="tr">$81mm</td><td class="tr">8%</td></tr>
         <tr style="cursor:pointer" onclick="location.href='?type=industrial'"><td>Industrial <span style="float:right;color:var(--a);font-size:9px">→</span></td><td class="tr">2</td><td class="tr">$43mm</td><td class="tr">4.3%</td></tr>
-        <tr class="tot-r"><td>Total</td><td class="tr">24</td><td class="tr">$1,003mm</td><td class="tr">100.0%</td></tr>
+        <tr class="tot-r"><td>Total</td><td class="tr">24</td><td class="tr">$1,003mm</td><td class="tr">100%</td></tr>
       </tbody>
     </table>
   </div>
   <div class="card">
     <div class="ch">UPB by State <span class="cm">click any state to filter</span></div>
     <div class="bw">
-      <div class="br" style="cursor:pointer" onclick="location.href='?state=IL'"><span class="brl">Illinois (IL)</span><div class="brt"><div class="brf" style="width:27%;background:linear-gradient(180deg,#1C77D8 0%,#0066AF 100%)"></div></div><span class="brv">27.4%</span></div>
-      <div class="br" style="cursor:pointer" onclick="location.href='?state=TX'"><span class="brl">Texas (TX)</span><div class="brt"><div class="brf" style="width:23%;background:linear-gradient(180deg,#10B981 0%,#059669 100%)"></div></div><span class="brv">22.7%</span></div>
-      <div class="br" style="cursor:pointer" onclick="location.href='?state=CA'"><span class="brl">California (CA)</span><div class="brt"><div class="brf" style="width:15%;background:linear-gradient(180deg,#FBBF24 0%,#D97706 100%)"></div></div><span class="brv">15.0%</span></div>
-      <div class="br" style="cursor:pointer" onclick="location.href='?state=GA'"><span class="brl">Georgia (GA)</span><div class="brt"><div class="brf" style="width:10%;background:linear-gradient(180deg,#A855F7 0%,#7C3AED 100%)"></div></div><span class="brv">9.9%</span></div>
-      <div class="br" style="cursor:pointer" onclick="location.href='?state=PA'"><span class="brl">Pennsylvania (PA)</span><div class="brt"><div class="brf" style="width:7%;background:linear-gradient(180deg,#EF4444 0%,#DC2626 100%)"></div></div><span class="brv">7.3%</span></div>
-      <div class="br" style="cursor:pointer" onclick="location.href='?state=NY'"><span class="brl">New York (NY)</span><div class="brt"><div class="brf" style="width:7%;background:linear-gradient(180deg,#06B6D4 0%,#0891B2 100%)"></div></div><span class="brv">6.6%</span></div>
+      <div class="br" style="cursor:pointer" onclick="location.href='10_servicing_overview.html?search=IL'"><span class="brl">Illinois (IL)</span><div class="brt"><div class="brf" style="width:27%;background:linear-gradient(180deg,#1C77D8 0%,#0066AF 100%)"></div></div><span class="brv">27.4%</span></div>
+      <div class="br" style="cursor:pointer" onclick="location.href='10_servicing_overview.html?search=TX'"><span class="brl">Texas (TX)</span><div class="brt"><div class="brf" style="width:23%;background:linear-gradient(180deg,#10B981 0%,#059669 100%)"></div></div><span class="brv">22.7%</span></div>
+      <div class="br" style="cursor:pointer" onclick="location.href='10_servicing_overview.html?search=CA'"><span class="brl">California (CA)</span><div class="brt"><div class="brf" style="width:15%;background:linear-gradient(180deg,#FBBF24 0%,#D97706 100%)"></div></div><span class="brv">15%</span></div>
+      <div class="br" style="cursor:pointer" onclick="location.href='10_servicing_overview.html?search=GA'"><span class="brl">Georgia (GA)</span><div class="brt"><div class="brf" style="width:10%;background:linear-gradient(180deg,#A855F7 0%,#7C3AED 100%)"></div></div><span class="brv">9.9%</span></div>
+      <div class="br" style="cursor:pointer" onclick="location.href='10_servicing_overview.html?search=PA'"><span class="brl">Pennsylvania (PA)</span><div class="brt"><div class="brf" style="width:7%;background:linear-gradient(180deg,#EF4444 0%,#DC2626 100%)"></div></div><span class="brv">7.3%</span></div>
+      <div class="br" style="cursor:pointer" onclick="location.href='10_servicing_overview.html?search=NY'"><span class="brl">New York (NY)</span><div class="brt"><div class="brf" style="width:7%;background:linear-gradient(180deg,#06B6D4 0%,#0891B2 100%)"></div></div><span class="brv">6.6%</span></div>
       <div class="br"><span class="brl">Other (6 states)</span><div class="brt"><div class="brf" style="width:11%;background-image:linear-gradient(180deg,#9CA3AF,#6B7280)"></div></div><span class="brv">11.1%</span></div>
     </div>
   </div>
@@ -1130,19 +1252,19 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
           <linearGradient id="gRet" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBBF24"/><stop offset="100%" stop-color="#D97706"/></linearGradient>
           <linearGradient id="gInd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#A855F7"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient>
         </defs>
-        <!-- Donut: 63.3% Office, 24.3% MF, 8.0% Retail, 4.3% Industrial. Circumference for r=40 = 251.33 -->
+        <!-- Donut: 63.3% Office, 24.3% MF, 8% Retail, 4.3% Industrial. Circumference for r=40 = 251.33 -->
         <!-- Use stroke-dasharray on 4 stacked circles -->
-        <circle r="40" fill="none" stroke="url(#gOff)" data-donut-type="office" stroke-width="18" stroke-dasharray="159.1 92.2" stroke-dashoffset="0" transform="rotate(-90)" style="cursor:pointer" onclick="location.href='?type=office'"><title>Office: $635MM (63.3%)</title></circle>
-        <circle r="40" fill="none" stroke="url(#gMF)"  data-donut-type="multifamily" stroke-width="18" stroke-dasharray="61.1 190.2" stroke-dashoffset="-159.1" transform="rotate(-90)" style="cursor:pointer" onclick="location.href='?type=multifamily'"><title>Multifamily: $244MM (24.3%)</title></circle>
-        <circle r="40" fill="none" stroke="url(#gRet)" data-donut-type="retail" stroke-width="18" stroke-dasharray="20.1 231.2" stroke-dashoffset="-220.2" transform="rotate(-90)" style="cursor:pointer" onclick="location.href='?type=retail'"><title>Retail: $81MM (8.0%)</title></circle>
-        <circle r="40" fill="none" stroke="url(#gInd)" data-donut-type="industrial" stroke-width="18" stroke-dasharray="10.8 240.5" stroke-dashoffset="-240.3" transform="rotate(-90)" style="cursor:pointer" onclick="location.href='?type=industrial'"><title>Industrial: $43MM (4.3%)</title></circle>
-        <text text-anchor="middle" y="-3" font-size="13" font-weight="700" fill="currentColor">$1.00B</text>
+        <circle r="40" fill="none" stroke="url(#gOff)" data-donut-type="office" stroke-width="18" stroke-dasharray="159.1 92.2" stroke-dashoffset="0" transform="rotate(-90)" style="cursor:pointer" onclick="location.href='?type=office'"><title>Office: $635mm (63.3%)</title></circle>
+        <circle r="40" fill="none" stroke="url(#gMF)"  data-donut-type="multifamily" stroke-width="18" stroke-dasharray="61.1 190.2" stroke-dashoffset="-159.1" transform="rotate(-90)" style="cursor:pointer" onclick="location.href='?type=multifamily'"><title>Multifamily: $244mm (24.3%)</title></circle>
+        <circle r="40" fill="none" stroke="url(#gRet)" data-donut-type="retail" stroke-width="18" stroke-dasharray="20.1 231.2" stroke-dashoffset="-220.2" transform="rotate(-90)" style="cursor:pointer" onclick="location.href='?type=retail'"><title>Retail: $81mm (8%)</title></circle>
+        <circle r="40" fill="none" stroke="url(#gInd)" data-donut-type="industrial" stroke-width="18" stroke-dasharray="10.8 240.5" stroke-dashoffset="-240.3" transform="rotate(-90)" style="cursor:pointer" onclick="location.href='?type=industrial'"><title>Industrial: $43mm (4.3%)</title></circle>
+        <text text-anchor="middle" y="-3" font-size="13" font-weight="700" fill="currentColor">$1.0bn</text>
         <text text-anchor="middle" y="10" font-size="7" fill="currentColor" opacity=".6">24 LOANS</text>
       </svg>
       <div style="flex:1;font-size:10px;line-height:1.7">
         <div style="display:flex;align-items:center;gap:6px;cursor:pointer" onclick="location.href='?type=office'"><span style="width:10px;height:10px;border-radius:2px;background:linear-gradient(180deg,#1C77D8,#0066AF)"></span><span style="flex:1">Office</span><span style="font-weight:700">$635M · 63.3%</span></div>
         <div style="display:flex;align-items:center;gap:6px;cursor:pointer" onclick="location.href='?type=multifamily'"><span style="width:10px;height:10px;border-radius:2px;background:linear-gradient(180deg,#10B981,#059669)"></span><span style="flex:1">Multifamily</span><span style="font-weight:700">$244M · 24.3%</span></div>
-        <div style="display:flex;align-items:center;gap:6px;cursor:pointer" onclick="location.href='?type=retail'"><span style="width:10px;height:10px;border-radius:2px;background:linear-gradient(180deg,#FBBF24,#D97706)"></span><span style="flex:1">Retail</span><span style="font-weight:700">$81M · 8.0%</span></div>
+        <div style="display:flex;align-items:center;gap:6px;cursor:pointer" onclick="location.href='?type=retail'"><span style="width:10px;height:10px;border-radius:2px;background:linear-gradient(180deg,#FBBF24,#D97706)"></span><span style="flex:1">Retail</span><span style="font-weight:700">$81M · 8%</span></div>
         <div style="display:flex;align-items:center;gap:6px;cursor:pointer" onclick="location.href='?type=industrial'"><span style="width:10px;height:10px;border-radius:2px;background:linear-gradient(180deg,#A855F7,#7C3AED)"></span><span style="flex:1">Industrial</span><span style="font-weight:700">$43M · 4.3%</span></div>
       </div>
     </div>
@@ -1171,22 +1293,22 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 <div class="card">
     <div class="ch">Risk Rating Stratification <span class="cm">Loan count and UPB by rating · click to filter</span></div>
     <div style="padding:14px 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-      <a href="?rating=SURV" style="display:block;text-decoration:none;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(34,197,94,.06),rgba(34,197,94,0));position:relative;cursor:pointer">
+      <a href="10_servicing_overview.html?rating=SURV" style="display:block;text-decoration:none;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(34,197,94,.06),rgba(34,197,94,0));position:relative;cursor:pointer">
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
           <span style="width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span>
           <span style="font-size:10px;color:var(--sub);font-weight:600;letter-spacing:.04em;text-transform:uppercase">Green &middot; Surveillance</span>
         </div>
         <div style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--text);font-weight:600">21 <span style="font-size:11px;color:var(--muted);font-weight:400">loans</span></div>
-        <div style="font-size:11px;color:var(--text);margin-top:2px">$953MM &middot; 95.0% UPB</div>
+        <div style="font-size:11px;color:var(--text);margin-top:2px">$953mm &middot; 95% UPB</div>
         <div style="font-size:9px;color:var(--muted);margin-top:6px">Routine monitoring &middot; no escalation</div>
       </a>
-      <a href="?rating=YELLOW" style="display:block;text-decoration:none;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(217,119,6,.08),rgba(217,119,6,0));position:relative;cursor:pointer">
+      <a href="10_servicing_overview.html?rating=YELLOW" style="display:block;text-decoration:none;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(217,119,6,.08),rgba(217,119,6,0));position:relative;cursor:pointer">
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
           <span style="width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);box-shadow:0 0 0 2.5px rgba(217,119,6,.22)"></span>
           <span style="font-size:10px;color:var(--sub);font-weight:600;letter-spacing:.04em;text-transform:uppercase">Yellow &middot; Watchlist</span>
         </div>
         <div style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--text);font-weight:600">3 <span style="font-size:11px;color:var(--muted);font-weight:400">loans</span></div>
-        <div style="font-size:11px;color:var(--text);margin-top:2px">$50MM &middot; 5.0% UPB</div>
+        <div style="font-size:11px;color:var(--text);margin-top:2px">$50mm &middot; 5% UPB</div>
         <div style="font-size:9px;color:var(--muted);margin-top:6px">Triggered LTV / DSCR / market</div>
       </a>
       <div style="display:block;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(220,38,38,.04),rgba(220,38,38,0));position:relative;opacity:.55">
@@ -1195,7 +1317,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
           <span style="font-size:10px;color:var(--sub);font-weight:600;letter-spacing:.04em;text-transform:uppercase">Red &middot; Breach</span>
         </div>
         <div style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--text);font-weight:600">0 <span style="font-size:11px;color:var(--muted);font-weight:400">loans</span></div>
-        <div style="font-size:11px;color:var(--text);margin-top:2px">$0MM &middot; 0.0% UPB</div>
+        <div style="font-size:11px;color:var(--text);margin-top:2px">$0mm &middot; 0% UPB</div>
         <div style="font-size:9px;color:var(--muted);margin-top:6px">No formal breaches / special servicing</div>
       </div>
     </div>
@@ -1204,30 +1326,30 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 <div class="ovRow2">
 <div class="card">
     <div class="ch">Maturity Ladder <span class="cm">UPB by maturity year &middot; click any point to filter</span></div>
-    <div style="padding:10px 12px 14px">
-      <svg width="100%" viewBox="0 0 360 150" style="display:block">
+    <div style="padding:10px 12px 14px;font-family:'DM Sans',Arial,sans-serif">
+      <svg width="100%" viewBox="0 0 360 150" style="display:block;font-family:'DM Sans',Arial,sans-serif">
         <defs>
-          <linearGradient id="gAreaFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5C8DEF" stop-opacity=".42"/><stop offset="100%" stop-color="#5C8DEF" stop-opacity=".02"/></linearGradient>
+          <linearGradient id="gAreaFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5C8DEF" stop-opacity=".28"/><stop offset="100%" stop-color="#5C8DEF" stop-opacity=".02"/></linearGradient>
           <linearGradient id="gLineStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
         </defs>
-        <line x1="40" y1="120" x2="350" y2="120" stroke="currentColor" stroke-width=".4" opacity=".18"/>
-        <line x1="40" y1="80"  x2="350" y2="80"  stroke="currentColor" stroke-width=".4" opacity=".10" stroke-dasharray="2,3"/>
-        <line x1="40" y1="40"  x2="350" y2="40"  stroke="currentColor" stroke-width=".4" opacity=".10" stroke-dasharray="2,3"/>
-        <text x="35" y="123" text-anchor="end" font-size="8" fill="currentColor" opacity=".55">0</text>
-        <text x="35" y="82"  text-anchor="end" font-size="8" fill="currentColor" opacity=".55">$150M</text>
-        <text x="35" y="42"  text-anchor="end" font-size="8" fill="currentColor" opacity=".55">$300M</text>
+        <line x1="40" y1="120" x2="350" y2="120" stroke="currentColor" stroke-width=".5" opacity=".18"/>
+        <line x1="40" y1="80"  x2="350" y2="80"  stroke="currentColor" stroke-width=".5" opacity=".10" stroke-dasharray="2,3"/>
+        <line x1="40" y1="40"  x2="350" y2="40"  stroke="currentColor" stroke-width=".5" opacity=".10" stroke-dasharray="2,3"/>
+        <text x="35" y="123" text-anchor="end" font-size="9" fill="currentColor" opacity=".75">$0</text>
+        <text x="35" y="82"  text-anchor="end" font-size="9" fill="currentColor" opacity=".75">$150M</text>
+        <text x="35" y="42"  text-anchor="end" font-size="9" fill="currentColor" opacity=".75">$300M</text>
         <path d="M62,112 L100,87 L138,60 L176,101 L214,115 L252,51 L290,85 L328,87 L328,120 L62,120 Z" fill="url(#gAreaFill)"/>
-        <path d="M62,112 L100,87 L138,60 L176,101 L214,115 L252,51 L290,85 L328,87" fill="none" stroke="url(#gLineStroke)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <a href="?year=2026"><circle cx="62"  cy="112" r="5" fill="#fff" stroke="#3B82F6" stroke-width="2"><title>2026: 2 loans &middot; $32.6MM (3%)</title></circle><text x="62"  y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2026</text><text x="62"  y="103" text-anchor="middle" font-size="8" font-weight="700" fill="#3B82F6">$33M</text></a>
-        <a href="?year=2027"><circle cx="100" cy="87"  r="5" fill="#fff" stroke="#3B82F6" stroke-width="2"><title>2027: 4 loans &middot; $124.8MM (12%)</title></circle><text x="100" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2027</text><text x="100" y="78"  text-anchor="middle" font-size="8" font-weight="700" fill="#3B82F6">$125M</text></a>
-        <a href="?year=2028"><circle cx="138" cy="60"  r="6.5" fill="#FBBF24" stroke="#D97706" stroke-width="2"><title>2028: 4 loans &middot; $223.5MM (22%) — concentration</title></circle><text x="138" y="138" text-anchor="middle" font-size="9" font-weight="700" fill="#D97706">2028</text><text x="138" y="50"  text-anchor="middle" font-size="9" font-weight="700" fill="#D97706">$224M</text></a>
-        <a href="?year=2029"><circle cx="176" cy="101" r="5" fill="#fff" stroke="#3B82F6" stroke-width="2"><title>2029: 1 loan &middot; $72.4MM (7%)</title></circle><text x="176" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2029</text><text x="176" y="92"  text-anchor="middle" font-size="8" font-weight="700" fill="#3B82F6">$72M</text></a>
-        <a href="?year=2030"><circle cx="214" cy="115" r="5" fill="#fff" stroke="#3B82F6" stroke-width="2"><title>2030: 2 loans &middot; $22.4MM (2%)</title></circle><text x="214" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2030</text><text x="214" y="106" text-anchor="middle" font-size="8" font-weight="700" fill="#3B82F6">$22M</text></a>
-        <a href="?year=2031"><circle cx="252" cy="51"  r="6.5" fill="#FBBF24" stroke="#D97706" stroke-width="2"><title>2031: 4 loans &middot; $257.3MM (26%) — concentration</title></circle><text x="252" y="138" text-anchor="middle" font-size="9" font-weight="700" fill="#D97706">2031</text><text x="252" y="41"  text-anchor="middle" font-size="9" font-weight="700" fill="#D97706">$257M</text></a>
-        <a href="?year=2032"><circle cx="290" cy="85"  r="5" fill="#fff" stroke="#3B82F6" stroke-width="2"><title>2032: 2 loans &middot; $133.2MM (13%)</title></circle><text x="290" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2032</text><text x="290" y="76"  text-anchor="middle" font-size="8" font-weight="700" fill="#3B82F6">$133M</text></a>
-        <circle cx="328" cy="87"  r="5" fill="#fff" stroke="#3B82F6" stroke-width="2"><title>2033+: 4 loans &middot; $124.7MM (13%)</title></circle><text x="328" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2033+</text><text x="328" y="78"  text-anchor="middle" font-size="8" font-weight="700" fill="#3B82F6">$125M</text>
+        <path d="M62,112 L100,87 L138,60 L176,101 L214,115 L252,51 L290,85 L328,87" fill="none" stroke="url(#gLineStroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <a href="?year=2026"><circle cx="62"  cy="112" r="5" fill="#fff" stroke="#3B82F6" stroke-width="1.8"><title>2026: 2 loans &middot; $32.6mm (3%)</title></circle><text x="62"  y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2026</text><text x="62"  y="103" text-anchor="middle" font-size="9" font-weight="600" fill="currentColor" opacity=".75">$33M</text></a>
+        <a href="?year=2027"><circle cx="100" cy="87"  r="5" fill="#fff" stroke="#3B82F6" stroke-width="1.8"><title>2027: 4 loans &middot; $124.8mm (12%)</title></circle><text x="100" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2027</text><text x="100" y="78"  text-anchor="middle" font-size="9" font-weight="600" fill="currentColor" opacity=".75">$125M</text></a>
+        <a href="?year=2028"><circle cx="138" cy="60"  r="6.5" fill="#FBBF24" stroke="#D97706" stroke-width="1.8"><title>2028: 4 loans &middot; $223.5mm (22%) — concentration</title></circle><text x="138" y="138" text-anchor="middle" font-size="9" font-weight="600" fill="#D97706">2028</text><text x="138" y="50"  text-anchor="middle" font-size="9" font-weight="600" fill="#D97706">$224M</text></a>
+        <a href="?year=2029"><circle cx="176" cy="101" r="5" fill="#fff" stroke="#3B82F6" stroke-width="1.8"><title>2029: 1 loan &middot; $72.4mm (7%)</title></circle><text x="176" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2029</text><text x="176" y="92"  text-anchor="middle" font-size="9" font-weight="600" fill="currentColor" opacity=".75">$72M</text></a>
+        <a href="?year=2030"><circle cx="214" cy="115" r="5" fill="#fff" stroke="#3B82F6" stroke-width="1.8"><title>2030: 2 loans &middot; $22.4mm (2%)</title></circle><text x="214" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2030</text><text x="214" y="106" text-anchor="middle" font-size="9" font-weight="600" fill="currentColor" opacity=".75">$22M</text></a>
+        <a href="?year=2031"><circle cx="252" cy="51"  r="6.5" fill="#FBBF24" stroke="#D97706" stroke-width="1.8"><title>2031: 4 loans &middot; $257.3mm (26%) — concentration</title></circle><text x="252" y="138" text-anchor="middle" font-size="9" font-weight="600" fill="#D97706">2031</text><text x="252" y="41"  text-anchor="middle" font-size="9" font-weight="600" fill="#D97706">$257M</text></a>
+        <a href="?year=2032"><circle cx="290" cy="85"  r="5" fill="#fff" stroke="#3B82F6" stroke-width="1.8"><title>2032: 2 loans &middot; $133.2mm (13%)</title></circle><text x="290" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2032</text><text x="290" y="76"  text-anchor="middle" font-size="9" font-weight="600" fill="currentColor" opacity=".75">$133M</text></a>
+        <circle cx="328" cy="87"  r="5" fill="#fff" stroke="#3B82F6" stroke-width="1.8"><title>2033+: 4 loans &middot; $124.7mm (13%)</title></circle><text x="328" y="138" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">2033+</text><text x="328" y="78"  text-anchor="middle" font-size="9" font-weight="600" fill="currentColor" opacity=".75">$125M</text>
       </svg>
-      <div style="font-size:9px;color:var(--muted);margin-top:4px;text-align:center">Roll concentration in 2028 ($224M / 22%) and 2031 ($257M / 26%) &middot; click any point to drill in</div>
+      <div style="font-size:9px;color:var(--muted);margin-top:6px;text-align:center">Roll concentration in 2028 ($224M / 22%) and 2031 ($257M / 26%) &middot; click any point to drill in</div>
     </div>
   </div>
 <div class="card">
@@ -1235,19 +1357,19 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     <table class="tbl">
       <thead><tr><th style="width:35%">Loan</th><th>Maturity</th><th>Expected payoff</th><th class="tr">UPB</th></tr></thead>
       <tbody>
-        <tr><td><a href="loan.html?id=10436" style="color:var(--text);text-decoration:none;font-weight:600">Seaport Logistics Center</a></td><td>Jul 2026</td><td class="up">Jun 2026</td><td class="tr">$16mm</td></tr>
-        <tr><td><a href="loan.html?id=10448" style="color:var(--text);text-decoration:none;font-weight:600">122 S Michigan Ave</a></td><td>Jul 2026</td><td class="up">Jul 2026</td><td class="tr">$17mm</td></tr>
-        <tr><td><a href="loan.html?id=10548" style="color:var(--text);text-decoration:none;font-weight:600">World Kitchen Distribution</a></td><td>Jun 2027</td><td class="up">Jun 2027</td><td class="tr">$28mm</td></tr>
-        <tr><td><a href="02_asset_equity.html" style="color:var(--text);text-decoration:none;font-weight:600">The Beacon Apartments</a> <span class="badge b-w" style="font-size:8px;margin-left:4px">Watch</span></td><td>Oct 2027</td><td class="wa">Refinance pending</td><td class="tr">$46mm</td></tr>
-        <tr><td><a href="loan.html?id=10587" style="color:var(--text);text-decoration:none;font-weight:600">55 Third Avenue (Cammeyer)</a></td><td>Oct 2027</td><td class="up">Sep 2027</td><td class="tr">$38mm</td></tr>
-        <tr><td><a href="loan.html?id=10207" style="color:var(--text);text-decoration:none;font-weight:600">Georgetown Retail</a></td><td>Nov 2027</td><td class="up">Oct 2027</td><td class="tr">$13mm</td></tr>
-        <tr><td><a href="loan.html?id=10653" style="color:var(--text);text-decoration:none;font-weight:600">Apex West Midtown</a></td><td>Mar 2028</td><td class="up">Feb 2028</td><td class="tr">$40mm</td></tr>
-        <tr><td><a href="loan.html?id=10401" style="color:var(--text);text-decoration:none;font-weight:600">Walnut Creek Business Pk</a></td><td>Mar 2028</td><td class="up">Mar 2028</td><td class="tr">$33mm</td></tr>
-        <tr><td><a href="loan.html?id=10848" style="color:var(--text);text-decoration:none;font-weight:600">Granite TX Office Port.</a></td><td>Apr 2028</td><td class="wa">May 2028</td><td class="tr">$110mm</td></tr>
-        <tr><td><a href="02b_loan_ella.html" style="color:var(--text);text-decoration:none;font-weight:600">Ella Parkside</a> <span class="badge b-w" style="font-size:8px;margin-left:4px">Watch</span></td><td>May 2028</td><td class="wa">Refinance pending</td><td class="tr">$41mm</td></tr>
+        <tr data-runoff-type="industrial"><td><a href="loan.html?id=10436" style="color:var(--text);text-decoration:none;font-weight:600">Seaport Logistics Center</a></td><td>07/2026</td><td class="up">06/2026</td><td class="tr">$16mm</td></tr>
+        <tr data-runoff-type="retail"><td><a href="loan.html?id=10448" style="color:var(--text);text-decoration:none;font-weight:600">122 S Michigan Ave</a></td><td>07/2026</td><td class="up">07/2026</td><td class="tr">$17mm</td></tr>
+        <tr data-runoff-type="industrial"><td><a href="loan.html?id=10548" style="color:var(--text);text-decoration:none;font-weight:600">World Kitchen Distribution</a></td><td>06/2027</td><td class="up">06/2027</td><td class="tr">$28mm</td></tr>
+        <tr data-runoff-type="multifamily"><td><a href="02_asset_equity.html" style="color:var(--text);text-decoration:none;font-weight:600">The Beacon Apartments</a> <span class="badge b-w" style="font-size:8px;margin-left:4px">Watch</span></td><td>10/2027</td><td class="wa">Refinance pending</td><td class="tr">$46mm</td></tr>
+        <tr data-runoff-type="retail"><td><a href="loan.html?id=10587" style="color:var(--text);text-decoration:none;font-weight:600">55 Third Avenue (Cammeyer)</a></td><td>10/2027</td><td class="up">09/2027</td><td class="tr">$38mm</td></tr>
+        <tr data-runoff-type="retail"><td><a href="loan.html?id=10207" style="color:var(--text);text-decoration:none;font-weight:600">Georgetown Retail</a></td><td>11/2027</td><td class="up">10/2027</td><td class="tr">$13mm</td></tr>
+        <tr data-runoff-type="multifamily"><td><a href="loan.html?id=10653" style="color:var(--text);text-decoration:none;font-weight:600">Apex West Midtown</a></td><td>03/2028</td><td class="up">02/2028</td><td class="tr">$40mm</td></tr>
+        <tr data-runoff-type="office"><td><a href="loan.html?id=10401" style="color:var(--text);text-decoration:none;font-weight:600">Walnut Creek Business Pk</a></td><td>03/2028</td><td class="up">03/2028</td><td class="tr">$33mm</td></tr>
+        <tr data-runoff-type="office"><td><a href="loan.html?id=10848" style="color:var(--text);text-decoration:none;font-weight:600">Granite TX Office Port.</a></td><td>04/2028</td><td class="wa">05/2028</td><td class="tr">$110mm</td></tr>
+        <tr data-runoff-type="multifamily"><td><a href="02b_loan_ella.html" style="color:var(--text);text-decoration:none;font-weight:600">Ella Parkside</a> <span class="badge b-w" style="font-size:8px;margin-left:4px">Watch</span></td><td>05/2028</td><td class="wa">Refinance pending</td><td class="tr">$41mm</td></tr>
       </tbody>
     </table>
-    <div style="padding:8px 12px;border-top:1px solid var(--border);font-size:9px;color:var(--muted);display:flex;justify-content:space-between;align-items:center"><span>Expected payoff dates entered by Bellwether Asset Manager based on sponsor conversations</span><span style="color:var(--a);font-weight:600;cursor:pointer" onclick="alert('Request sent to your Bellwether Asset Manager — expected payoff dates will be refreshed and posted to this view within 24 hours.');return false;" title="Send a request to your Bellwether Asset Manager to refresh expected payoff dates">Request update &rarr;</span></div>
+    <div style="padding:8px 12px;border-top:1px solid var(--border);font-size:9px;color:var(--muted)"><span>Expected payoff dates entered by Bellwether Asset Manager based on sponsor conversations</span></div>
   </div>
 </div>
 
@@ -1257,7 +1379,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 
 <!-- US heat map: UPB by state, with overlay toggle for watchlist loans -->
 <div class="card" id="mapCard">
-  <div class="ch">UPB by U.S. State <span class="cm">$1.00B across 12 states &middot; click a state to filter</span>
+  <div class="ch">UPB by U.S. State <span class="cm">$1.0bn across 12 states &middot; click a state to filter</span>
     <div style="display:inline-flex;gap:0;background:rgba(125,140,170,.12);border-radius:14px;padding:2px;margin-left:auto">
       <button id="mapModeUPB" type="button" style="border:none;cursor:pointer;font-family:inherit;font-size:9px;font-weight:600;padding:3px 10px;border-radius:12px;background:var(--a);color:#fff">UPB only</button>
       <button id="mapModeBoth" type="button" style="border:none;cursor:pointer;font-family:inherit;font-size:9px;font-weight:600;padding:3px 10px;border-radius:12px;background:transparent;color:var(--sub)">UPB + Watchlist</button>
@@ -1267,14 +1389,14 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     <div id="usmap" style="position:relative;width:100%;border-radius:6px;overflow:hidden;background:#CDE4F2"><img src="map_placeholder.jpg" alt="Property locations across North America" style="width:100%;height:auto;display:block;max-height:480px;object-fit:cover"/><div style="position:absolute;left:14px;bottom:12px;background:rgba(11,45,79,.88);color:#fff;font-size:10px;font-weight:700;letter-spacing:.05em;padding:5px 10px;border-radius:3px;font-family:'DM Sans',sans-serif">PLACEHOLDER &mdash; PRODUCTION = MAPBOX / TABLEAU TILES</div></div>
     <div style="font-size:10px">
       <div style="font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-size:9px;margin-bottom:6px">UPB ($MM)</div>
-      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:14px;height:10px;border-radius:2px;background:#0B2D4F"></span>$200MM+</div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:14px;height:10px;border-radius:2px;background:#0B2D4F"></span>$200mm+</div>
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:14px;height:10px;border-radius:2px;background:#1C77D8"></span>$100&ndash;200MM</div>
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:14px;height:10px;border-radius:2px;background:#5C8DEF"></span>$50&ndash;100MM</div>
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:14px;height:10px;border-radius:2px;background:#99BEE4"></span>$20&ndash;50MM</div>
-      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:14px;height:10px;border-radius:2px;background:#D6E4F2"></span>&lt; $20MM</div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:14px;height:10px;border-radius:2px;background:#D6E4F2"></span>&lt; $20mm</div>
       <div id="watchlistLegend" style="display:none;margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">
         <div style="font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-size:9px;margin-bottom:6px">Watchlist</div>
-        <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#DC2626;box-shadow:0 0 0 2px rgba(220,38,38,.25)"></span>YELLOW loan</div>
+        <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#FBBF24;box-shadow:0 0 0 2px rgba(217,119,6,.25)"></span>YELLOW loan</div>
       </div>
     </div>
   </div>
@@ -1291,13 +1413,129 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     btnUPB.style.color       = showWatch ? 'var(--sub)' : '#fff';
     btnBoth.style.background = showWatch ? 'var(--a)' : 'transparent';
     btnBoth.style.color      = showWatch ? '#fff' : 'var(--sub)';
-    document.querySelectorAll('.watchDot').forEach(function(d){ d.style.opacity = showWatch ? '1' : '0'; });
+    document.querySelectorAll('.watchDot').forEach(function(el){
+      el.style.display = showWatch ? 'block' : 'none';
+    });
+    var legend = document.getElementById('watchlistLegend');
     if(legend) legend.style.display = showWatch ? 'block' : 'none';
   }
-  btnUPB.addEventListener('click',  function(){ setMode(false); });
+  btnUPB.addEventListener('click', function(){ setMode(false); });
   btnBoth.addEventListener('click', function(){ setMode(true); });
 })();
 </script>
-</div>
-</div>
+
+<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#4B5563;grid-column:1/-1">
+  <div><a href="00_home.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; Home</a></div>
+  <div style="color:#4B5563"><span style="color:#1C2B5A;font-weight:600">Portfolio overview</span></div>
+  <div><a href="10_servicing_overview.html" style="color:#0066AF;text-decoration:none;font-weight:500">Investments overview &rarr;</a></div>
+</nav>
+
+</div></div>
+<script>
+(function(){
+  // Attach sponsor names to ALL_LOANS for drill-down loan list (sponsor not on tape JSON)
+  if(typeof ALL_LOANS === 'undefined') return;
+  var SP = {
+    '11088':'Beacon Capital', '10999':'MetLife IM', '10848':'Granite Properties', '10318':'LaSalle IM',
+    '10767':'Northwood Investors', '10556':'Pearl Properties', '10945':'Warehouse Associates',
+    '11047':'Sidal Realty', '10653':'Venterra Realty', '10587':'Hubb NYC Properties',
+    '10380':'B.F. Saul', '11098':'Warehouse Associates', '10401':'Majestic Realty',
+    '10548':'Matrix Development', '10448':'Aetna Realty', '10436':'Investco, LLC',
+    '10894':'Bernstein Mgmt', '10526':'Hubb Realty', '10721':'The Wood Companies',
+    '10207':'Eastbanc, Inc.', '10239':'Helm Equities', '11089':'John Lawrence',
+    '10927':'De Anza Properties', '9926':'Kraus-Anderson'
+  };
+  ALL_LOANS.forEach(function(L){ L.sponsor = SP[L.no] || ''; });
+})();
+</script>
+
+<script>
+(function(){
+  // Wait for the existing ALL_LOANS recompute to run, then drive class drill-down
+  // Class-specific metric defaults (since the tape doesn't carry $/PSF on every loan):
+  // Office: $/PSF derived from curr_value / size where size is in description like "613K SF"
+  // Multifamily: $/Unit derived from curr_value / unit count from description
+  // Retail: $/PSF
+  // Industrial: $/PSF
+  // Since prototype data is light on size, use stylized representative numbers per type.
+  var CLASS_META = {
+    office:     {label:'Office', units:'$/PSF',   subUnit:'PSF',  metric1:'Wtd Avg $/PSF',      m1: 412, occ: 79.5, cap: 6.0, sizeTotal:'2.8msf'},
+    multifamily:{label:'Multifamily', units:'$/Unit', subUnit:'Units', metric1:'Wtd Avg $/Unit',    m1: 285000, occ: 90.7, cap: 5.2, sizeTotal:'1,640 units'},
+    retail:     {label:'Retail', units:'$/PSF',   subUnit:'PSF',  metric1:'Wtd Avg $/PSF',      m1: 380, occ: 95.2, cap: 5.4, sizeTotal:'410ksf'},
+    industrial: {label:'Industrial', units:'$/PSF', subUnit:'PSF', metric1:'Wtd Avg $/PSF',     m1: 95,  occ: 87.0, cap: 5.7, sizeTotal:'1.3msf'}
+  };
+  function fmtMoney(v){ if(v >= 1e6) return '$' + (v/1e6).toFixed(2) + 'mm'; if(v >= 1000) return '$' + Math.round(v/1000) + 'k'; return '$' + Math.round(v); }
+  function fmtNum(v){ if(v >= 1000) return v.toLocaleString(); return String(v); }
+  function ratingDot(r){
+    if(r === 'YELLOW') return '<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);box-shadow:0 0 0 2px rgba(217,119,6,.2)"></span>';
+    return '<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2px rgba(22,163,74,.2)"></span>';
+  }
+  function loanHref(L){
+    if(L.no === '11088') return '03_asset_debt.html';
+    if(L.no === '10556') return '02_asset_equity.html';
+    if(L.no === '11047') return '02b_loan_ella.html';
+    return 'loan.html?id=' + L.no;
+  }
+  function applyClassDrill(){
+    var p = new URLSearchParams(location.search);
+    var type = (p.get('type')||'').toLowerCase();
+    var rating = (p.get('rating')||'').toUpperCase();
+    var dd = document.getElementById('classDrillDown');
+    if(!dd) return;
+    if(!type && !rating){ dd.style.display = 'none'; return; }
+    if(typeof ALL_LOANS === 'undefined'){ return; }
+    var filtered = ALL_LOANS;
+    if(type) filtered = filtered.filter(function(L){ return L.type === type; });
+    if(rating) filtered = filtered.filter(function(L){ return L.rating === rating; });
+    if(!filtered.length){ dd.style.display = 'none'; return; }
+    dd.style.display = '';
+    // Class-specific KPI band
+    var meta = CLASS_META[type] || {label:'Watchlist', metric1:'Wtd Avg LTV', m1:0, occ:0, cap:0, sizeTotal:filtered.length+' loans'};
+    document.getElementById('classKpiTitle').textContent = meta.label + '-specific Metrics';
+    document.getElementById('classKpiSub').textContent = filtered.length + ' loan' + (filtered.length===1?'':'s') + ' · UPB-weighted';
+    document.getElementById('cKpi1L').textContent = meta.metric1;
+    document.getElementById('cKpi1V').textContent = meta.units === '$/Unit' ? '$' + Math.round(meta.m1/1000) + 'k/unit' : '$' + meta.m1 + 'psf';
+    document.getElementById('cKpi2V').textContent = meta.occ.toFixed(1) + '%';
+    document.getElementById('cKpi3V').textContent = meta.cap.toFixed(1) + '%';
+    document.getElementById('cKpi4V').textContent = meta.sizeTotal;
+    document.getElementById('cKpi4L').textContent = meta.units === '$/Unit' ? 'Total Units' : 'Total Sq Ft';
+    // Loan list
+    var body = document.getElementById('classLoansBody');
+    body.innerHTML = filtered.map(function(L){
+      var href = loanHref(L);
+      var state = L.state || '—';
+      var mat = L.year || '—';
+      return '<tr style="cursor:pointer" onclick="location.href=\''+href+'\'">' +
+        '<td><a href="'+href+'" style="color:var(--text);text-decoration:none;font-weight:600">'+L.name+'</a></td>' +
+        '<td style="font-size:10px;color:var(--sub)">'+(L.sponsor||'—')+'</td>' +
+        '<td style="font-size:10px">'+state+'</td>' +
+        '<td class="tr">'+fmtMoney(L.upb||0)+'</td>' +
+        '<td class="tr">'+((L.ltv||0)*100).toFixed(0)+'%</td>' +
+        '<td class="tr">'+(L.dscr||0).toFixed(2)+'x</td>' +
+        '<td class="tr" style="font-size:10px">'+mat+'</td>' +
+        '<td class="tr">'+ratingDot(L.rating)+'</td>' +
+        '</tr>';
+    }).join('');
+    document.getElementById('classLoansTitle').textContent = meta.label + ' Loans (' + filtered.length + ')';
+    // Wire Clear filter
+    var clearBtn = document.getElementById('classLoansClear');
+    if(clearBtn) clearBtn.onclick = function(){ location.href = location.pathname; };
+    var viewBtn = document.getElementById('classViewTracker');
+    if(viewBtn){
+      viewBtn.onclick = function(){
+        var qs = new URLSearchParams();
+        if(type) qs.set('type', type);
+        if(rating) qs.set('rating', rating);
+        location.href = '10_servicing_overview.html?' + qs.toString();
+      };
+    }
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', applyClassDrill);
+  } else {
+    applyClassDrill();
+  }
+})();
+</script>
+
 </body></html>

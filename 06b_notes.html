@@ -3,7 +3,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--text:#0A1628;--sub:#6B7280;--muted:#9CA3AF;--g:#059669;--r:#DC2626;--y:#D97706;}
+:root{--n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--text:#0A1628;--sub:#374151;--muted:#4B5563;--g:#059669;--r:#DC2626;--y:#D97706;}
 body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 .shell{display:grid;grid-template-columns:210px 1fr;grid-template-rows:52px 1fr;min-height:100vh}
 .tb{grid-column:1/-1;background:var(--n);display:flex;align-items:center;padding:0 22px;gap:12px;height:52px;border-bottom:3px solid var(--a)}
@@ -11,7 +11,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .logo-sub{color:var(--s);margin-left:1px;font-size:11px}
 .tb-tag{font-size:8px;font-weight:700;letter-spacing:.10em;color:var(--s);padding:2px 8px;border:1px solid rgba(255,255,255,.18);border-radius:14px;text-transform:uppercase}
 .tb-sep{width:1px;height:18px;background:rgba(255,255,255,.18)}
-.tb-crumb{font-size:11px;color:rgba(255,255,255,.42)}
+.tb-crumb{font-size:11px;color:rgba(255,255,255,.72)}
 .bw-pill{font-size:9px;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:3px 9px;border-radius:14px;display:flex;align-items:center;gap:5px;margin-left:8px}
 .bw-pill-lbl{font-size:7px;color:var(--s);letter-spacing:.05em;text-transform:uppercase}
 .tb-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;margin-left:8px}
@@ -61,9 +61,9 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 <!-- PIMCO-PORTAL-SEARCH-V1 -->
 .gsearch{position:relative;display:flex;align-items:center;gap:6px;margin-left:18px}
 .gsearch-input{width:240px;padding:5px 10px 5px 28px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;outline:none;transition:background .15s, border-color .15s}
-.gsearch-input::placeholder{color:rgba(255,255,255,.45)}
+.gsearch-input::placeholder{color:rgba(255,255,255,.78)}
 .gsearch-input:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);width:300px}
-.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.55);pointer-events:none}
+.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.82);pointer-events:none}
 .gsearch-dd{position:absolute;top:36px;left:0;width:340px;max-height:360px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 14px 32px rgba(11,31,79,.22);z-index:9994;display:none;padding:4px 0}
 .gsearch-dd.open{display:block}
 .gsearch-item{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:1px solid #F3F4F6;cursor:pointer;text-decoration:none;color:var(--text)}
@@ -114,6 +114,13 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !
 html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
 html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
 
+
+/* BW/Client role tags for activity feed */
+.role-tag{display:inline-block;font-size:8px;font-weight:700;padding:1px 6px;border-radius:10px;letter-spacing:.04em;margin-right:5px;vertical-align:middle}
+.role-tag.bw{background:#EBF2FA;color:#1C2B5A;border:1px solid #99BEE4}
+.role-tag.client{background:#FEF3C7;color:#92400E;border:1px solid #FCD34D}
+html[data-theme="dark"] .role-tag.bw{background:#1A2540 !important;color:#9BBCFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .role-tag.client{background:#3B2A0B !important;color:#FCD34D !important;border-color:#92400E !important}
 </style>
 </head><body>
 <div class="shell">
@@ -143,7 +150,9 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !
   <a class="ni sub" href="01_portfolio_overview.html?type=retail" style="text-decoration:none"><div class="dot dp"></div>Retail</a>
   <a class="ni sub" href="01_portfolio_overview.html?type=industrial" style="text-decoration:none"><div class="dot ds"></div>Industrial</a>
   <a class="ni sub" href="01_portfolio_overview.html?rating=YELLOW" style="text-decoration:none"><div class="dot dy"></div>Watchlist</a>
-  <a class="ni sub" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Valuation</a>
+  <div class="sb-div"></div>
+  <div class="sl">Valuation</div>
+  <a class="ni" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Overview</a>
   <div class="sb-div"></div>
   <div class="sl">Investments</div>
   <a class="ni" href="10_servicing_overview.html" style="text-decoration:none"><div class="dot dr"></div>Overview</a>
@@ -243,11 +252,11 @@ var LOANS=[
 {no:'10927',name:'C9 Flats Apartments',href:'loan.html?id=10927'}
 ];
 var DEFAULT_NOTES=[
-{author:'Bellwether',tag:'watchlist',loan:'10556',body:'Beacon Apartments DSCR at 1.26x, watching closely ahead of Oct 2027 maturity.',when:'2026-04-08 10:22'},
+{author:'Bellwether',tag:'watchlist',loan:'10556',body:'Beacon Apartments DSCR at 1.26x, watching closely ahead of 10/2027 maturity.',when:'2026-04-08 10:22'},
 {author:'PIMCO',tag:'reporting',loan:'11088',body:'Need updated cap stack breakdown for 333 W Wacker — board materials due 5/15.',when:'2026-04-15 14:05'},
 {author:'Bellwether',tag:'market',loan:'11047',body:'Austin MF supply continues to weigh on Ella Parkside. Q1 occupancy fell 1 point to 89%.',when:'2026-04-22 09:11'},
 {author:'PIMCO',tag:'sponsor',loan:'11088',body:'Spoke with Beacon Capital this morning re: 333 W Wacker leasing pipeline.',when:'2026-05-01 16:48'},
-{author:'Bellwether',tag:'',loan:'',body:'Quarterly tape reconciled — $1.00B UPB across 24 loans, 3 on watchlist.',when:'2026-05-05 11:30'}
+{author:'Bellwether',tag:'',loan:'',body:'Quarterly tape reconciled — $1.0bn UPB across 24 loans, 3 on watchlist.',when:'2026-05-05 11:30'}
 ];
 function load(){try{var r=localStorage.getItem(STORAGE_KEY);if(r)return JSON.parse(r);}catch(e){}return DEFAULT_NOTES.slice();}
 function save(n){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(n));}catch(e){}}
@@ -403,9 +412,9 @@ render();
 })();
 </script>
 
-<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#6B7280;grid-column:1/-1">
+<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#4B5563;grid-column:1/-1">
   <div><a href="06_workspace.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; Workspace</a></div>
-  <div style="color:#9CA3AF"><span style="color:#1C2B5A;font-weight:600">Notes</span></div>
+  <div style="color:#4B5563"><span style="color:#1C2B5A;font-weight:600">Notes</span></div>
   <div><a href="07_deliverables_flash.html" style="color:#0066AF;text-decoration:none;font-weight:500">Reporting &rarr;</a></div>
 </nav>
 </body></html>

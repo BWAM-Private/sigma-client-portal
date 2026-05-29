@@ -6,8 +6,8 @@
 :root{
   --n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--ink:#0E1C2A;
   --g:#059669;--r:#DC2626;--y:#D97706;--teal:#0891B2;
-  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#9CA3AF;
-  --text:#0A1628;--sub:#6B7280;
+  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#4B5563;
+  --text:#0A1628;--sub:#374151;
 }
 body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 .shell{display:grid;grid-template-columns:210px 1fr;grid-template-rows:52px 1fr;min-height:100vh}
@@ -15,17 +15,17 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 /* topbar */
 .tb{grid-column:1/-1;background:var(--n);display:flex;align-items:center;padding:0 22px;gap:12px;height:52px;border-bottom:3px solid var(--a)}
 .logo{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;color:#fff;letter-spacing:-.2px;flex-shrink:0}
-.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.45);margin-left:2px;letter-spacing:.02em}
+.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.78);margin-left:2px;letter-spacing:.02em}
 .tb-tag{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(153,190,228,.3);border-radius:20px;flex-shrink:0}
 .tb-sep{flex:1}
-.tb-crumb{font-size:11px;color:rgba(255,255,255,.42)}
-.tb-crumb .cur{color:rgba(255,255,255,.85);font-weight:500}
+.tb-crumb{font-size:11px;color:rgba(255,255,255,.72)}
+.tb-crumb .cur{color:rgba(255,255,255,.92);font-weight:500}
 .tb-crumb .sep{margin:0 4px;opacity:.3}
 .tb-client{font-size:11px;font-weight:500;color:var(--s)}
 .tb-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
 .bw-pill{display:flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;flex-shrink:0}
 .bw-pill-lbl{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;text-transform:uppercase}
-.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.55)}
+.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.82)}
 
 /* sidebar */
 .sb{background:var(--card);border-right:1px solid var(--border);padding:14px 0;overflow-y:auto}
@@ -167,10 +167,10 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-logo-area{display:flex;align-items:center;gap:12px}
 .flash-client-logo{font-size:13px;font-weight:600;color:#fff;padding:4px 10px;border:1px solid rgba(255,255,255,.25);border-radius:4px}
 .flash-divider-v{width:1px;height:20px;background:rgba(255,255,255,.2)}
-.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.7);font-weight:400}
+.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.90);font-weight:400}
 .flash-title-area{text-align:right}
 .flash-report-type{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase}
-.flash-as-of{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
+.flash-as-of{font-size:10px;color:rgba(255,255,255,.80);margin-top:1px}
 .flash-deal-bar{background:#EBF2FA;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:12px}
 .flash-deal-name{font-size:14px;font-weight:700;color:var(--n);flex:1}
 .flash-metric{text-align:center;min-width:80px}
@@ -183,7 +183,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-key-metrics{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fkm{padding:6px 8px;text-align:center;border-right:1px solid var(--border);background:var(--n)}
 .fkm:last-child{border-right:none}
-.fkm-l{font-size:8px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.fkm-l{font-size:8px;color:rgba(255,255,255,.92);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
 .fkm-v{font-size:11px;font-weight:700;color:#fff}
 .flash-cap-stack{border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fcs-header{background:var(--n);padding:6px 10px;font-size:10px;font-weight:700;color:#fff;text-align:center}
@@ -238,7 +238,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .embed-frame{border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .embed-top{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-bottom:1px solid #F3F4F6;background:var(--n)}
 .embed-title{font-size:11px;font-weight:600;color:#fff}
-.embed-src{font-size:9px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
+.embed-src{font-size:9px;color:rgba(255,255,255,.80);display:flex;align-items:center;gap:4px}
 .live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--g);margin-right:3px}
 
 .sd{display:flex;align-items:center;gap:8px;margin:2px 0}
@@ -285,14 +285,14 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
   .sigma-head-icon svg{width:18px;height:18px}
   .sigma-head-title{font-family:'DM Serif Display',Georgia,serif;font-size:16px;font-weight:400;line-height:1.1}
   .sigma-head-sub{font-size:10.5px;color:rgba(255,255,255,.78);margin-top:2px;letter-spacing:.02em}
-  .sigma-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,.7);
+  .sigma-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,.90);
     cursor:pointer;font-size:18px;line-height:1;padding:2px 6px;border-radius:4px}
   .sigma-close:hover{background:rgba(255,255,255,.12);color:#fff}
 
   .sigma-body{padding:14px 14px 12px;overflow-y:auto;flex:1}
   .sigma-intro{font-size:12px;color:#374151;line-height:1.45;margin-bottom:12px}
   .sigma-intro b{color:#0E1C2A}
-  .sigma-section{font-size:9.5px;font-weight:600;color:#9CA3AF;letter-spacing:.10em;
+  .sigma-section{font-size:9.5px;font-weight:600;color:#4B5563;letter-spacing:.10em;
     text-transform:uppercase;margin:6px 0 8px}
   .sigma-chips{display:flex;flex-direction:column;gap:7px}
   .sigma-chip{text-align:left;background:#F4F7FB;border:1px solid #E2E8F2;border-radius:8px;
@@ -306,7 +306,7 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
   .sigma-msg{font-size:12px;line-height:1.45;padding:8px 11px;border-radius:8px;max-width:88%}
   .sigma-msg.u{background:#0066AF;color:#fff;align-self:flex-end;border-bottom-right-radius:2px}
   .sigma-msg.b{background:#F4F5F7;color:#0E1C2A;align-self:flex-start;border-bottom-left-radius:2px}
-  .sigma-msg.b em{color:#6B7280;font-style:normal}
+  .sigma-msg.b em{color:#4B5563;font-style:normal}
 
   .sigma-foot{border-top:1px solid #F0F2F5;padding:10px 12px;background:#FAFBFC;
     display:flex;align-items:center;gap:8px}
@@ -317,7 +317,7 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
     color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
   .sigma-send:hover{background:#1C2B5A}
   .sigma-send svg{width:14px;height:14px}
-  .sigma-disclaimer{font-size:9.5px;color:#9CA3AF;text-align:center;padding:6px 12px 10px;
+  .sigma-disclaimer{font-size:9.5px;color:#4B5563;text-align:center;padding:6px 12px 10px;
     background:#FAFBFC}
 
 
@@ -359,6 +359,18 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !
 html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
 html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
 
+
+.kd-2col{display:grid;grid-template-columns:1fr 1fr;column-gap:0;row-gap:0}
+.kd-2col > .cov{border-bottom:1px solid #F3F4F6}
+.kd-2col > .cov:nth-child(odd){border-right:1px solid #F3F4F6}
+@media (max-width:780px){.kd-2col{grid-template-columns:1fr}.kd-2col > .cov:nth-child(odd){border-right:none}}
+
+/* BW/Client role tags for activity feed */
+.role-tag{display:inline-block;font-size:8px;font-weight:700;padding:1px 6px;border-radius:10px;letter-spacing:.04em;margin-right:5px;vertical-align:middle}
+.role-tag.bw{background:#EBF2FA;color:#1C2B5A;border:1px solid #99BEE4}
+.role-tag.client{background:#FEF3C7;color:#92400E;border:1px solid #FCD34D}
+html[data-theme="dark"] .role-tag.bw{background:#1A2540 !important;color:#9BBCFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .role-tag.client{background:#3B2A0B !important;color:#FCD34D !important;border-color:#92400E !important}
 </style>
 
 <style>
@@ -366,7 +378,7 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !
 :root{
   --n:#1C2B5A; --a:#0066AF; --s:#99BEE4;
   --bg:#F4F5F7; --card:#fff; --border:#E2E5EA;
-  --text:#0A1628; --sub:#6B7280; --muted:#9CA3AF;
+  --text:#0A1628; --sub:#374151; --muted:#4B5563;
   --g:#059669; --r:#DC2626; --y:#D97706; --teal:#0891B2;
   --bar-grad-a: linear-gradient(180deg, #1C77D8 0%, #0066AF 100%);
   --bar-shadow: 0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.10) inset;
@@ -412,7 +424,7 @@ html[data-theme="dark"] .brf{ filter: brightness(1.1) }
 
 /* Theme toggle button */
 .theme-toggle{ display:inline-flex; align-items:center; gap:6px; padding:4px 9px; border-radius:14px;
-  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.90);
   font-size:10px; font-weight:600; cursor:pointer; letter-spacing:.04em; user-select:none; transition:background .15s }
 .theme-toggle:hover{ background:rgba(255,255,255,.16); color:#fff }
 .theme-toggle .tt-dot{ width:8px; height:8px; border-radius:50%; background:#FBBF24 }
@@ -574,8 +586,8 @@ html[data-theme="dark"] .dm2, html[data-theme="dark"] .dd{ color:#9BBCFF !import
 .docprev-head{ background:var(--n); color:#fff; padding:14px 16px 12px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border) }
 .docprev-head-icon{ width:34px; height:34px; border-radius:6px; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; flex-shrink:0 }
 .docprev-head-title{ font-family:'DM Serif Display',serif; font-size:15px; line-height:1.15; font-weight:400 }
-.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.6); margin-top:2px }
-.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.7); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
+.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.92); margin-top:2px }
+.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.90); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
 .docprev-close:hover{ color:#fff }
 .docprev-body{ flex:1; overflow:auto; padding:18px 18px 24px; background:var(--bg); color:var(--text) }
 .docprev-meta{ display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; font-size:11px; padding:10px 14px; background:var(--card); border:1px solid var(--border); border-radius:6px; margin-bottom:14px }
@@ -648,7 +660,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
   }
   function defaultPreview(opts){
     var loan = opts.loan || '333 West Wacker';
-    var date = opts.date || 'Q1 2026';
+    var date = opts.date || '1Q 2026';
     var meta = ''
       + '<div class="docprev-meta">'
       + '  <div><dt>Loan</dt><dd>'+loan+'</dd></div>'
@@ -660,15 +672,15 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
     return meta
       + '<div class="docprev-page">'
       + '  <h1>'+(opts.title||'Document Preview')+'</h1>'
-      + '  <p style="font-style:italic;color:#6B7280">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
+      + '  <p style="font-style:italic;color:#4B5563">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
       + '  <h2>Summary</h2><p>'+summary+'</p>'
       + '  <h2>Selected metrics</h2>'
       + '  <ul style="padding-left:18px">'
-      + '    <li>UPB: $173.1mm of $185.0mm original</li>'
+      + '    <li>UPB: $173.1mm of $185mm original</li>'
       + '    <li>Interest rate: 6.00% fixed (IO period · 40 mo. remaining)</li>'
-      + '    <li>Occupancy: 78.3% (Q1 2026 tape)</li>'
-      + '    <li>In-place LTV: 60.1% &middot; Debt yield: 9.8%</li>'
-      + '    <li>Maturity: July 10, 2031</li>'
+      + '    <li>Occupancy: 78.3% (1Q 2026 tape)</li>'
+      + '    <li>In-place LTV: 60% &middot; DY: 9.8%</li>'
+      + '    <li>Maturity: 07/10/2031</li>'
       + '  </ul>'
       + '  <h2>Notes</h2>'
       + '  <p>This is a stylised in-app preview. In production, the slide-out would render the actual PDF / Excel / Word document from the document store with full pagination and download controls.</p>'
@@ -684,7 +696,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
       sub:   el.getAttribute('data-doc-sub')   || 'Bellwether Asset Management',
       kind:  el.getAttribute('data-doc-kind')  || 'PDF',
       loan:  el.getAttribute('data-doc-loan')  || '333 West Wacker',
-      date:  el.getAttribute('data-doc-date')  || 'Q1 2026',
+      date:  el.getAttribute('data-doc-date')  || '1Q 2026',
       summary: el.getAttribute('data-doc-summary') || ''
     });
   });
@@ -795,9 +807,9 @@ html[data-theme="dark"] .doc-view-btn:hover{ background:#7AA5F4 !important; colo
 <!-- PIMCO-PORTAL-SEARCH-V1 -->
 .gsearch{position:relative;display:flex;align-items:center;gap:6px;margin-left:18px}
 .gsearch-input{width:240px;padding:5px 10px 5px 28px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;outline:none;transition:background .15s, border-color .15s}
-.gsearch-input::placeholder{color:rgba(255,255,255,.45)}
+.gsearch-input::placeholder{color:rgba(255,255,255,.78)}
 .gsearch-input:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);width:300px}
-.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.55);pointer-events:none}
+.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.82);pointer-events:none}
 .gsearch-dd{position:absolute;top:36px;left:0;width:340px;max-height:360px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 14px 32px rgba(11,31,79,.22);z-index:9994;display:none;padding:4px 0}
 .gsearch-dd.open{display:block}
 .gsearch-item{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:1px solid #F3F4F6;cursor:pointer;text-decoration:none;color:var(--text)}
@@ -914,7 +926,7 @@ html[data-theme="dark"] .compose textarea,
 html[data-theme="dark"] .sigma-input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] input[type="text"]::placeholder{color:#9EAAC4 !important}
 html[data-theme="dark"] .gsearch-input{background:rgba(255,255,255,.10) !important;color:#FFFFFF !important;border-color:rgba(255,255,255,.18) !important}
-html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.55) !important}
+html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.82) !important}
 html[data-theme="dark"] #loanSel{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD{background:#162035 !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
@@ -972,7 +984,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <a class="ni sub" href="01_portfolio_overview.html?type=retail" style="text-decoration:none"><div class="dot dp"></div>Retail</a>
   <a class="ni sub" href="01_portfolio_overview.html?type=industrial" style="text-decoration:none"><div class="dot ds"></div>Industrial</a>
   <a class="ni sub" href="01_portfolio_overview.html?rating=YELLOW" style="text-decoration:none"><div class="dot dy"></div>Watchlist</a>
-  <a class="ni sub" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Valuation</a>
+  <div class="sb-div"></div>
+  <div class="sl">Valuation</div>
+  <a class="ni" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Overview</a>
   <div class="sb-div"></div>
   <div class="sl">Investments</div>
   <a class="ni" href="10_servicing_overview.html" style="text-decoration:none"><div class="dot dr"></div>Overview</a>
@@ -1004,6 +1018,8 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <span class="ps" id="loanSubtitle">Loan #—</span>
 </div>
 
+<div class="sponsor-bar" style="display:flex;align-items:center;gap:10px;background:#F9FAFB;border:1px solid var(--border);border-radius:6px;padding:9px 14px;margin-bottom:6px"><span style="font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Sponsor</span><span style="font-size:13px;font-weight:600;color:var(--text)" id="loanSponsor">—</span><span style="margin-left:auto;font-size:10px;color:var(--muted)">Borrower of record</span></div>
+
 <div class="tabs">
   <a class="tab on" href="#" id="tabSum" style="text-decoration:none">Summary</a>
   <a class="tab" href="#" id="tabCov" style="text-decoration:none;color:var(--muted)">Covenants</a>
@@ -1029,18 +1045,18 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
       <tr><td>Annual P&amp;I</td><td id="finPI">—</td></tr>
       <tr><td>T12 NOI</td><td id="finNOI">—</td></tr>
       <tr><td>Current value</td><td id="finValue">—</td></tr>
-      <tr><td>Debt yield</td><td id="finDY">—</td></tr>
+      <tr><td>DY</td><td id="finDY">—</td></tr>
       <tr><td>Payment type</td><td id="finPayType">—</td></tr>
     </table>
   </div>
   <div class="card">
     <div class="ch">Key dates</div>
-    <div class="cov"><div><div class="cov-n">Closed</div></div><div id="kdClosed">—</div></div>
+    <div class="kd-2col"><div class="cov"><div><div class="cov-n">Closed</div></div><div id="kdClosed">—</div></div>
     <div class="cov"><div><div class="cov-n">Original term</div></div><div id="kdOrigTerm">—</div></div>
     <div class="cov"><div><div class="cov-n">Remaining term</div></div><div id="kdRemTerm">—</div></div>
     <div class="cov"><div><div class="cov-n">IO remaining</div></div><div id="kdIO">—</div></div>
     <div class="cov"><div><div class="cov-n">Maturity</div></div><div id="kdMaturity">—</div></div>
-  </div>
+  </div></div>
 </div>
 
 <div class="card">
@@ -1116,7 +1132,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 
 <script>
 (function(){
-  var LOANS = {"10318": {"rating": "SURV", "no": "10318", "name": "101 North Wacker", "investor": "AZ Life", "sponsor": "LaSalle Investment Management, Inc", "prop_type": "office", "city": "Chicago", "state": "IL", "desc": "24-story, Class A, 613K SF", "closed": "09/30/2014", "maturity": "04/10/2029", "rate": 0.06, "orig_term": 174, "rem_term": 37, "orig_io": 174, "rem_io": 37, "payment_type": "Interest Only", "orig_amt": 116000000, "curr_upb": 72392762, "annual_pi": 4343565.72, "occ_pct": 0.7643, "noi": 45838, "curr_value": 75604516, "ltv": 0.9575190191019807, "dscr": 1.54699054, "dy": 0.09281943}, "10945": {"rating": "SURV", "no": "10945", "name": "Orleans at Fannin Station", "investor": "AZ Life", "sponsor": "Warehouse Associates Partners I, Ltd", "prop_type": "multifamily", "city": "Houston", "state": "TX", "desc": "338-unit garden-style", "closed": "07/12/2021", "maturity": "08/10/2041", "rate": 0.0384, "orig_term": 240, "rem_term": 185, "orig_io": 60, "rem_io": 5, "payment_type": "Interest Only", "orig_amt": 42000000, "curr_upb": 42000000, "annual_pi": 1612800, "occ_pct": 0.8876, "noi": 45657, "curr_value": 42089975, "ltv": 0.9978623175708705, "dscr": 2.04613095, "dy": 0.07857143}, "10448": {"rating": "SURV", "no": "10448", "name": "122 South Michigan Avenue", "investor": "AZ Life", "sponsor": "Aetna Realty", "prop_type": "retail", "city": "Chicago", "state": "IL", "desc": "3 condo, 27K SF", "closed": "06/30/2016", "maturity": "07/10/2026", "rate": 0.0385, "orig_term": 120, "rem_term": 4, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 23000000, "curr_upb": 16588014.92, "annual_pi": 1434067.92, "occ_pct": 1, "noi": 45657, "curr_value": 20827811, "ltv": 0.7964358289980642, "dscr": 1.30407891, "dy": 0.1127403}, "11047": {"rating": "YELLOW", "no": "11047", "name": "Ella Parkside", "investor": "AZ Life, AGCS", "sponsor": "Sidal Realty Co Limited Partnership, LLLP", "prop_type": "multifamily", "city": "Austin", "state": "TX", "desc": "309-unit", "closed": "04/13/2023", "maturity": "05/10/2028", "rate": 0.0579, "orig_term": 60, "rem_term": 26, "orig_io": 60, "rem_io": 26, "payment_type": "Interest Only", "orig_amt": 41000000, "curr_upb": 41000000, "annual_pi": 2373900, "occ_pct": 0.8903, "noi": 45657, "curr_value": 50797641, "ltv": 0.8071240946011646, "dscr": 1.32288595, "dy": 0.0765951}, "10848": {"rating": "SURV", "no": "10848", "name": "Granite TX Office Portfolio", "investor": "AZ Life", "sponsor": "Granite Properties, Inc", "prop_type": "office", "city": "Various", "state": "TX", "desc": "3 Buildings, The Douglas - 13 stories 160K SF , 3333 Lee Parkway - 12 stories 233K SF, Southlake - 6 stories 158K SF", "closed": "03/26/2020", "maturity": "04/10/2028", "rate": 0.0322, "orig_term": 96, "rem_term": 25, "orig_io": 24, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 120000000, "curr_upb": 110082153.07, "annual_pi": 6243285.72, "occ_pct": 0.7116, "noi": 45657, "curr_value": 160464089, "ltv": 0.6860236066276486, "dscr": 1.56262174, "dy": 0.08862376}, "10556": {"rating": "YELLOW", "no": "10556", "name": "The Beacon Apartments", "investor": "AZ Life", "sponsor": "Pearl Properties", "prop_type": "multifamily", "city": "Philadelphia", "state": "PA", "desc": "98-unit, Class A", "closed": "09/12/2017", "maturity": "10/10/2027", "rate": 0.0435, "orig_term": 120, "rem_term": 19, "orig_io": 6, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 54300000, "curr_upb": 45985155.48, "annual_pi": 3243741.6, "occ_pct": 0.99, "noi": 45657, "curr_value": 51200516, "ltv": 0.8981385164165142, "dscr": 1.25780673, "dy": 0.08872428}, "10767": {"rating": "SURV", "no": "10767", "name": "715 Peachtree Street", "investor": "Resolution, Talcott, AZ Life", "sponsor": "Northwood Investors, LLC", "prop_type": "office", "city": "Atlanta", "state": "GA", "desc": "10-story, Class A, 319K SF", "closed": "07/11/2019", "maturity": "08/10/2031", "rate": 0.037, "orig_term": 144, "rem_term": 65, "orig_io": 144, "rem_io": 65, "payment_type": "Interest Only", "orig_amt": 60000000, "curr_upb": 60000000, "annual_pi": 2220000, "occ_pct": 0.7618, "noi": 45657, "curr_value": 75474574, "ltv": 0.7949697072818191, "dscr": 3.44714698, "dy": 0.12754444}, "10653": {"rating": "SURV", "no": "10653", "name": "Apex West Midtown", "investor": "AZ Life, Talcott, Resolution", "sponsor": "Venterra Realty Management Co, Inc", "prop_type": "multifamily", "city": "Atlanta", "state": "GA", "desc": "340-unit", "closed": "03/01/2018", "maturity": "03/10/2028", "rate": 0.0393, "orig_term": 120, "rem_term": 24, "orig_io": 24, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 45000000, "curr_upb": 39679186.52, "annual_pi": 2556298.08, "occ_pct": 0.8818, "noi": 45657, "curr_value": 48007729, "ltv": 0.8265166327696943, "dscr": 1.12173028, "dy": 0.07226653}, "10207": {"rating": "SURV", "no": "10207", "name": "Georgetown Retail", "investor": "AZ Life", "sponsor": "Eastbanc, Inc.", "prop_type": "retail", "city": "Washington", "state": "DC", "desc": "6, 2 and 3-story buildings, spanning 28K SF,", "closed": "10/23/2012", "maturity": "11/10/2027", "rate": 0.0472, "orig_term": 180, "rem_term": 20, "orig_io": 6, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 18500000, "curr_upb": 13303783.5, "annual_pi": 1154046.12, "occ_pct": 0.8207, "noi": 45657, "curr_value": 17338754.01, "ltv": 0.7672860167649381, "dscr": 1.3641353, "dy": 0.11833288}, "10587": {"rating": "SURV", "no": "10587", "name": "55 Third Avenue-Cammeyer", "investor": "AZ Life", "sponsor": "Hubb Nyc Properties, LLC", "prop_type": "retail", "city": "New York", "state": "NY", "desc": "two groundfloor", "closed": "09/28/2017", "maturity": "10/10/2027", "rate": 0.0401, "orig_term": 120, "rem_term": 19, "orig_io": 120, "rem_io": 19, "payment_type": "Interest Only", "orig_amt": 38000000, "curr_upb": 38000000, "annual_pi": 1523799.96, "occ_pct": 1, "noi": 45657, "curr_value": 44522525, "ltv": 0.8535005595482287, "dscr": 1.93571377, "dy": 0.07762212}, "10721": {"rating": "SURV", "no": "10721", "name": "Brunner Building", "investor": "AZ Life", "sponsor": "The Wood Companies", "prop_type": "multifamily", "city": "Columbus", "state": "OH", "desc": "33-unit, 6 story, mixed use", "closed": "12/17/2018", "maturity": "01/10/2039", "rate": 0.0492, "orig_term": 240, "rem_term": 154, "orig_io": 12, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 15000000, "curr_upb": 13422401.49, "annual_pi": 957497.4, "occ_pct": 0.946, "noi": 45657, "curr_value": 13179531, "ltv": 1.018427855285594, "dscr": 1.14522184, "dy": 0.08169529}, "10380": {"rating": "SURV", "no": "10380", "name": "8201 Greensboro Drive", "investor": "AZ Life", "sponsor": "B.F. Saul Company", "prop_type": "office", "city": "Mclean", "state": "VA", "desc": "12-story, Class B, 364K SF", "closed": "10/09/2015", "maturity": "10/10/2035", "rate": 0.039, "orig_term": 240, "rem_term": 115, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 60000000, "curr_upb": 34538920.17, "annual_pi": 4325212.8, "occ_pct": 0.699, "noi": 45657, "curr_value": 42885040, "ltv": 0.8053838860824195, "dscr": 0.88853594, "dy": 0.11126888}, "10999": {"rating": "SURV", "no": "10999", "name": "Intersect", "investor": "AZ Life", "sponsor": "MetLife Investment Management, LLC", "prop_type": "office", "city": "Irvine", "state": "CA", "desc": "a 5 building Class A, 446K SF,", "closed": "06/17/2022", "maturity": "07/10/2032", "rate": 0.0468, "orig_term": 120, "rem_term": 76, "orig_io": 120, "rem_io": 76, "payment_type": "Interest Only", "orig_amt": 117625000, "curr_upb": 117625000, "annual_pi": 5504850, "occ_pct": 0.7467, "noi": 45657, "curr_value": 155701656, "ltv": 0.7554511815853776, "dscr": 2.65223599, "dy": 0.12412464}, "10526": {"rating": "SURV", "no": "10526", "name": "185 Avenue B Apartments", "investor": "AZ Life", "sponsor": "Hubb Realty, LLC", "prop_type": "multifamily", "city": "New York", "state": "NY", "desc": "40-unit", "closed": "08/09/2017", "maturity": "09/10/2032", "rate": 0.0428, "orig_term": 181, "rem_term": 78, "orig_io": 48, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 17000000, "curr_upb": 15587227.22, "annual_pi": 1007143.44, "occ_pct": 1, "noi": 45657, "curr_value": 17124870, "ltv": 0.9102099589661119, "dscr": 1.40496373, "dy": 0.09077946}, "10239": {"rating": "SURV", "no": "10239", "name": "Trader Joes", "investor": "AZ Life", "sponsor": "Helm Equities, LLC", "prop_type": "retail", "city": "Staten Island", "state": "NY", "desc": "2 story 38K SF", "closed": "07/11/2013", "maturity": "08/10/2033", "rate": 0.0431, "orig_term": 240, "rem_term": 89, "orig_io": 38, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 16000000, "curr_upb": 12811207.1, "annual_pi": 976480.92, "occ_pct": 1, "noi": 45657, "curr_value": 15767427, "ltv": 0.8125109505818546, "dscr": 1.09884071, "dy": 0.08375456}, "11089": {"rating": "SURV", "no": "11089", "name": "333 West Wacker", "investor": "AZ Life", "sponsor": "John Lawrence", "prop_type": "office", "city": "Chicago", "state": "IL", "desc": "36-story, Class A, 875K SF", "closed": "06/20/2024", "maturity": "07/10/2031", "rate": 0.06, "orig_term": 84, "rem_term": 64, "orig_io": 60, "rem_io": 40, "payment_type": "Interest Only", "orig_amt": 76000000, "curr_upb": 12572108.67, "annual_pi": 0, "occ_pct": 0.7825, "noi": 45657, "curr_value": 287769296, "ltv": 0.043688151740830614, "dscr": "0E-8", "dy": 0.97715699}, "10894": {"rating": "SURV", "no": "10894", "name": "600 Pennsylvania Avenue", "investor": "AZ Life", "sponsor": "Bernstein Management Corporation", "prop_type": "office", "city": "Washington", "state": "DC", "desc": "88K SF, 5-story", "closed": "10/14/2020", "maturity": "11/10/2030", "rate": 0.032, "orig_term": 120, "rem_term": 56, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 18000000, "curr_upb": 15920326.38, "annual_pi": 934128.48, "occ_pct": 0.9255, "noi": 45657, "curr_value": 19345753, "ltv": 0.8229365060124566, "dscr": 1.31858979, "dy": 0.07736853}, "9926": {"rating": "YELLOW", "no": "9926", "name": "Prairie Lakes Corporate Center", "investor": "AZ Life", "sponsor": "Kraus-Anderson Inc", "prop_type": "office", "city": "Eden Prairie", "state": "MN", "desc": "Two interconnected Buildings. PL1 (7 Units) 132K SF, PL2 (12 Units) 69K SF", "closed": "09/23/2005", "maturity": "10/10/2030", "rate": 0.0563, "orig_term": 300, "rem_term": 55, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 21400000, "curr_upb": 6437798.67, "annual_pi": 1596984, "occ_pct": 0.4098, "noi": 45657, "curr_value": 7903966, "ltv": 0.8145023232640424, "dscr": 0.84143805, "dy": 0.20873022}, "10927": {"rating": "SURV", "no": "10927", "name": "C9 Flats Apartments", "investor": "AZ Life", "sponsor": "De Anza Properties", "prop_type": "multifamily", "city": "Salt Lake City", "state": "UT", "desc": "97-unit", "closed": "06/24/2021", "maturity": "07/10/2031", "rate": 0.0282, "orig_term": 120, "rem_term": 64, "orig_io": 24, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 12400000, "curr_upb": 11671640.8, "annual_pi": 612994.2, "occ_pct": 0.8673, "noi": 45657, "curr_value": 14937058, "ltv": 0.7813881957210048, "dscr": 1.50900979, "dy": 0.07925315}, "10401": {"rating": "SURV", "no": "10401", "name": "Walnut Creek Business Park", "investor": "AZ Life", "sponsor": "Majestic Realty Co", "prop_type": "office", "city": "San Dimas", "state": "CA", "desc": "6 Flex Buidlings, totaling 409k sf,", "closed": "02/11/2016", "maturity": "03/10/2028", "rate": 0.0432, "orig_term": 144, "rem_term": 24, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 54000000, "curr_upb": 32732847.03, "annual_pi": 4036884, "occ_pct": 1, "noi": 45657, "curr_value": 67874813, "ltv": 0.48225321858345305, "dscr": 2.24354581, "dy": 0.27669253}, "11088": {"rating": "SURV", "no": "11088", "name": "333 West Wacker", "investor": "AZ Life", "sponsor": "Beacon Capital Partners, LLC", "prop_type": "office", "city": "Chicago", "state": "IL", "desc": "36-story, Class A, 875K SF", "closed": "06/20/2024", "maturity": "07/10/2031", "rate": 0.06, "orig_term": 84, "rem_term": 64, "orig_io": 60, "rem_io": 40, "payment_type": "Interest Only", "orig_amt": 185000000, "curr_upb": 173082030.53, "annual_pi": 0, "occ_pct": 0.7825, "noi": 45657, "curr_value": 287769296, "ltv": 0.60146107641032, "dscr": "0E-8", "dy": 0.07097747}, "10436": {"rating": "SURV", "no": "10436", "name": "Seaport Logistics Center", "investor": "AZ Life", "sponsor": "Investco, LLC", "prop_type": "industrial", "city": "Sumner", "state": "WA", "desc": "single-story, 334K SF", "closed": "06/30/2016", "maturity": "07/10/2026", "rate": 0.0385, "orig_term": 120, "rem_term": 4, "orig_io": 12, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 19550000, "curr_upb": 15985344.43, "annual_pi": 1099824.12, "occ_pct": 0.7293, "noi": 45657, "curr_value": 41942715, "ltv": 0.3811232637181451, "dscr": 1.04759401, "dy": 0.07207659}, "10548": {"rating": "SURV", "no": "10548", "name": "World Kitchen Distribution", "investor": "AZ Life", "sponsor": "Matrix Development Group", "prop_type": "industrial", "city": "Greencastle", "state": "PA", "desc": "single-story, 1MM SF", "closed": "05/11/2017", "maturity": "06/10/2027", "rate": 0.0425, "orig_term": 120, "rem_term": 15, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 33400000, "curr_upb": 27559737.59, "annual_pi": 1971695.04, "occ_pct": 1, "noi": 45657, "curr_value": 56709529, "ltv": 0.48598071745579124, "dscr": 2.75263439, "dy": 0.1969306}, "11098": {"rating": "SURV", "no": "11098", "name": "Charleston at Fannin Station", "investor": "AZ Life", "sponsor": "Warehouse Associates Partners I, Ltd", "prop_type": "multifamily", "city": "Houston", "state": "TX", "desc": "", "closed": null, "maturity": "12/10/2044", "rate": 0.056, "orig_term": 240, "rem_term": 225, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 35000000, "curr_upb": 34417286.42, "annual_pi": 2411131.68, "occ_pct": 0.8959, "noi": 45657, "curr_value": 44397200, "ltv": 0.7752129958646041, "dscr": 1.07974775, "dy": 0.07564263}};
+  var LOANS = {"10318": {"rating": "SURV", "no": "10318", "name": "101 North Wacker", "investor": "AZ Life", "sponsor": "LaSalle Investment Management, Inc", "prop_type": "office", "city": "Chicago", "state": "IL", "desc": "24-story, Class A, 613K SF", "closed": "09/30/2014", "maturity": "04/10/2029", "rate": 0.06, "orig_term": 174, "rem_term": 37, "orig_io": 174, "rem_io": 37, "payment_type": "Interest Only", "orig_amt": 116000000, "curr_upb": 72392762, "annual_pi": 4343565.72, "occ_pct": 0.7643, "noi": 6719538, "curr_value": 75604516, "ltv": 0.9575190191019807, "dscr": 1.54699054, "dy": 0.09281943}, "10945": {"rating": "SURV", "no": "10945", "name": "Orleans at Fannin Station", "investor": "AZ Life", "sponsor": "Warehouse Associates Partners I, Ltd", "prop_type": "multifamily", "city": "Houston", "state": "TX", "desc": "338-unit garden-style", "closed": "07/12/2021", "maturity": "08/10/2041", "rate": 0.0384, "orig_term": 240, "rem_term": 185, "orig_io": 60, "rem_io": 5, "payment_type": "Interest Only", "orig_amt": 42000000, "curr_upb": 42000000, "annual_pi": 1612800, "occ_pct": 0.8876, "noi": 3300317, "curr_value": 42089975, "ltv": 0.9978623175708705, "dscr": 2.04613095, "dy": 0.07857143}, "10448": {"rating": "SURV", "no": "10448", "name": "122 South Michigan Avenue", "investor": "AZ Life", "sponsor": "Aetna Realty", "prop_type": "retail", "city": "Chicago", "state": "IL", "desc": "3 condo, 27K SF", "closed": "06/30/2016", "maturity": "07/10/2026", "rate": 0.0385, "orig_term": 120, "rem_term": 4, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 23000000, "curr_upb": 16588014.92, "annual_pi": 1434067.92, "occ_pct": 1, "noi": 1870022, "curr_value": 20827811, "ltv": 0.7964358289980642, "dscr": 1.30407891, "dy": 0.1127403}, "11047": {"rating": "YELLOW", "no": "11047", "name": "Ella Parkside", "investor": "AZ Life, AGCS", "sponsor": "Sidal Realty Co Limited Partnership, LLLP", "prop_type": "multifamily", "city": "Austin", "state": "TX", "desc": "309-unit", "closed": "04/13/2023", "maturity": "05/10/2028", "rate": 0.0579, "orig_term": 60, "rem_term": 26, "orig_io": 60, "rem_io": 26, "payment_type": "Interest Only", "orig_amt": 41000000, "curr_upb": 41000000, "annual_pi": 2373900, "occ_pct": 0.8903, "noi": 3140667, "curr_value": 50797641, "ltv": 0.8071240946011646, "dscr": 1.32288595, "dy": 0.0765951}, "10848": {"rating": "SURV", "no": "10848", "name": "Granite TX Office Portfolio", "investor": "AZ Life", "sponsor": "Granite Properties, Inc", "prop_type": "office", "city": "Various", "state": "TX", "desc": "3 Buildings, The Douglas - 13 stories 160K SF , 3333 Lee Parkway - 12 stories 233K SF, Southlake - 6 stories 158K SF", "closed": "03/26/2020", "maturity": "04/10/2028", "rate": 0.0322, "orig_term": 96, "rem_term": 25, "orig_io": 24, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 120000000, "curr_upb": 110082153.07, "annual_pi": 6243285.72, "occ_pct": 0.7116, "noi": 9758256, "curr_value": 160464089, "ltv": 0.6860236066276486, "dscr": 1.56262174, "dy": 0.08862376}, "10556": {"rating": "YELLOW", "no": "10556", "name": "The Beacon Apartments", "investor": "AZ Life", "sponsor": "Pearl Properties", "prop_type": "multifamily", "city": "Philadelphia", "state": "PA", "desc": "98-unit, Class A", "closed": "09/12/2017", "maturity": "10/10/2027", "rate": 0.0435, "orig_term": 120, "rem_term": 19, "orig_io": 6, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 54300000, "curr_upb": 45985155.48, "annual_pi": 3243741.6, "occ_pct": 0.99, "noi": 4080628, "curr_value": 51200516, "ltv": 0.8981385164165142, "dscr": 1.25780673, "dy": 0.08872428}, "10767": {"rating": "SURV", "no": "10767", "name": "715 Peachtree Street", "investor": "Resolution, Talcott, AZ Life", "sponsor": "Northwood Investors, LLC", "prop_type": "office", "city": "Atlanta", "state": "GA", "desc": "10-story, Class A, 319K SF", "closed": "07/11/2019", "maturity": "08/10/2031", "rate": 0.037, "orig_term": 144, "rem_term": 65, "orig_io": 144, "rem_io": 65, "payment_type": "Interest Only", "orig_amt": 60000000, "curr_upb": 60000000, "annual_pi": 2220000, "occ_pct": 0.7618, "noi": 7652940, "curr_value": 75474574, "ltv": 0.7949697072818191, "dscr": 3.44714698, "dy": 0.12754444}, "10653": {"rating": "SURV", "no": "10653", "name": "Apex West Midtown", "investor": "AZ Life, Talcott, Resolution", "sponsor": "Venterra Realty Management Co, Inc", "prop_type": "multifamily", "city": "Atlanta", "state": "GA", "desc": "340-unit", "closed": "03/01/2018", "maturity": "03/10/2028", "rate": 0.0393, "orig_term": 120, "rem_term": 24, "orig_io": 24, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 45000000, "curr_upb": 39679186.52, "annual_pi": 2556298.08, "occ_pct": 0.8818, "noi": 2868166, "curr_value": 48007729, "ltv": 0.8265166327696943, "dscr": 1.12173028, "dy": 0.07226653}, "10207": {"rating": "SURV", "no": "10207", "name": "Georgetown Retail", "investor": "AZ Life", "sponsor": "Eastbanc, Inc.", "prop_type": "retail", "city": "Washington", "state": "DC", "desc": "6, 2 and 3-story buildings, spanning 28K SF,", "closed": "10/23/2012", "maturity": "11/10/2027", "rate": 0.0472, "orig_term": 180, "rem_term": 20, "orig_io": 6, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 18500000, "curr_upb": 13303783.5, "annual_pi": 1154046.12, "occ_pct": 0.8207, "noi": 1574119, "curr_value": 17338754.01, "ltv": 0.7672860167649381, "dscr": 1.3641353, "dy": 0.11833288}, "10587": {"rating": "SURV", "no": "10587", "name": "55 Third Avenue-Cammeyer", "investor": "AZ Life", "sponsor": "Hubb Nyc Properties, LLC", "prop_type": "retail", "city": "New York", "state": "NY", "desc": "two groundfloor", "closed": "09/28/2017", "maturity": "10/10/2027", "rate": 0.0401, "orig_term": 120, "rem_term": 19, "orig_io": 120, "rem_io": 19, "payment_type": "Interest Only", "orig_amt": 38000000, "curr_upb": 38000000, "annual_pi": 1523799.96, "occ_pct": 1, "noi": 2950077, "curr_value": 44522525, "ltv": 0.8535005595482287, "dscr": 1.93571377, "dy": 0.07762212}, "10721": {"rating": "SURV", "no": "10721", "name": "Brunner Building", "investor": "AZ Life", "sponsor": "The Wood Companies", "prop_type": "multifamily", "city": "Columbus", "state": "OH", "desc": "33-unit, 6 story, mixed use", "closed": "12/17/2018", "maturity": "01/10/2039", "rate": 0.0492, "orig_term": 240, "rem_term": 154, "orig_io": 12, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 15000000, "curr_upb": 13422401.49, "annual_pi": 957497.4, "occ_pct": 0.946, "noi": 1096335, "curr_value": 13179531, "ltv": 1.018427855285594, "dscr": 1.14522184, "dy": 0.08169529}, "10380": {"rating": "SURV", "no": "10380", "name": "8201 Greensboro Drive", "investor": "AZ Life", "sponsor": "B.F. Saul Company", "prop_type": "office", "city": "Mclean", "state": "VA", "desc": "12-story, Class B, 364K SF", "closed": "10/09/2015", "maturity": "10/10/2035", "rate": 0.039, "orig_term": 240, "rem_term": 115, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 60000000, "curr_upb": 34538920.17, "annual_pi": 4325212.8, "occ_pct": 0.699, "noi": 3843114, "curr_value": 42885040, "ltv": 0.8053838860824195, "dscr": 0.88853594, "dy": 0.11126888}, "10999": {"rating": "SURV", "no": "10999", "name": "Intersect", "investor": "AZ Life", "sponsor": "MetLife Investment Management, LLC", "prop_type": "office", "city": "Irvine", "state": "CA", "desc": "a 5 building Class A, 446K SF,", "closed": "06/17/2022", "maturity": "07/10/2032", "rate": 0.0468, "orig_term": 120, "rem_term": 76, "orig_io": 120, "rem_io": 76, "payment_type": "Interest Only", "orig_amt": 117625000, "curr_upb": 117625000, "annual_pi": 5504850, "occ_pct": 0.7467, "noi": 14598861, "curr_value": 155701656, "ltv": 0.7554511815853776, "dscr": 2.65223599, "dy": 0.12412464}, "10526": {"rating": "SURV", "no": "10526", "name": "185 Avenue B Apartments", "investor": "AZ Life", "sponsor": "Hubb Realty, LLC", "prop_type": "multifamily", "city": "New York", "state": "NY", "desc": "40-unit", "closed": "08/09/2017", "maturity": "09/10/2032", "rate": 0.0428, "orig_term": 181, "rem_term": 78, "orig_io": 48, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 17000000, "curr_upb": 15587227.22, "annual_pi": 1007143.44, "occ_pct": 1, "noi": 1415036, "curr_value": 17124870, "ltv": 0.9102099589661119, "dscr": 1.40496373, "dy": 0.09077946}, "10239": {"rating": "SURV", "no": "10239", "name": "Trader Joes", "investor": "AZ Life", "sponsor": "Helm Equities, LLC", "prop_type": "retail", "city": "Staten Island", "state": "NY", "desc": "2 story 38K SF", "closed": "07/11/2013", "maturity": "08/10/2033", "rate": 0.0431, "orig_term": 240, "rem_term": 89, "orig_io": 38, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 16000000, "curr_upb": 12811207.1, "annual_pi": 976480.92, "occ_pct": 1, "noi": 1073049, "curr_value": 15767427, "ltv": 0.8125109505818546, "dscr": 1.09884071, "dy": 0.08375456}, "11089": {"rating": "SURV", "no": "11089", "name": "333 West Wacker", "investor": "AZ Life", "sponsor": "John Lawrence", "prop_type": "office", "city": "Chicago", "state": "IL", "desc": "36-story, Class A, 875K SF", "closed": "06/20/2024", "maturity": "07/10/2031", "rate": 0.06, "orig_term": 84, "rem_term": 64, "orig_io": 60, "rem_io": 40, "payment_type": "Interest Only", "orig_amt": 76000000, "curr_upb": 12572108.67, "annual_pi": 0, "occ_pct": 0.7825, "noi": 12288683, "curr_value": 287769296, "ltv": 0.043688151740830614, "dscr": "0E-8", "dy": 0.97715699}, "10894": {"rating": "SURV", "no": "10894", "name": "600 Pennsylvania Avenue", "investor": "AZ Life", "sponsor": "Bernstein Management Corporation", "prop_type": "office", "city": "Washington", "state": "DC", "desc": "88K SF, 5-story", "closed": "10/14/2020", "maturity": "11/10/2030", "rate": 0.032, "orig_term": 120, "rem_term": 56, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 18000000, "curr_upb": 15920326.38, "annual_pi": 934128.48, "occ_pct": 0.9255, "noi": 1232128, "curr_value": 19345753, "ltv": 0.8229365060124566, "dscr": 1.31858979, "dy": 0.07736853}, "9926": {"rating": "YELLOW", "no": "9926", "name": "Prairie Lakes Corporate Center", "investor": "AZ Life", "sponsor": "Kraus-Anderson Inc", "prop_type": "office", "city": "Eden Prairie", "state": "MN", "desc": "Two interconnected Buildings. PL1 (7 Units) 132K SF, PL2 (12 Units) 69K SF", "closed": "09/23/2005", "maturity": "10/10/2030", "rate": 0.0563, "orig_term": 300, "rem_term": 55, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 21400000, "curr_upb": 6437798.67, "annual_pi": 1596984, "occ_pct": 0.4098, "noi": 1343564, "curr_value": 7903966, "ltv": 0.8145023232640424, "dscr": 0.84143805, "dy": 0.20873022}, "10927": {"rating": "SURV", "no": "10927", "name": "C9 Flats Apartments", "investor": "AZ Life", "sponsor": "De Anza Properties", "prop_type": "multifamily", "city": "Salt Lake City", "state": "UT", "desc": "97-unit", "closed": "06/24/2021", "maturity": "07/10/2031", "rate": 0.0282, "orig_term": 120, "rem_term": 64, "orig_io": 24, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 12400000, "curr_upb": 11671640.8, "annual_pi": 612994.2, "occ_pct": 0.8673, "noi": 924802, "curr_value": 14937058, "ltv": 0.7813881957210048, "dscr": 1.50900979, "dy": 0.07925315}, "10401": {"rating": "SURV", "no": "10401", "name": "Walnut Creek Business Park", "investor": "AZ Life", "sponsor": "Majestic Realty Co", "prop_type": "office", "city": "San Dimas", "state": "CA", "desc": "6 Flex Buidlings, totaling 409k sf,", "closed": "02/11/2016", "maturity": "03/10/2028", "rate": 0.0432, "orig_term": 144, "rem_term": 24, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 54000000, "curr_upb": 32732847.03, "annual_pi": 4036884, "occ_pct": 1, "noi": 9058769, "curr_value": 67874813, "ltv": 0.48225321858345305, "dscr": 2.24354581, "dy": 0.27669253}, "11088": {"rating": "SURV", "no": "11088", "name": "333 West Wacker", "investor": "AZ Life", "sponsor": "Beacon Capital Partners, LLC", "prop_type": "office", "city": "Chicago", "state": "IL", "desc": "36-story, Class A, 875K SF", "closed": "06/20/2024", "maturity": "07/10/2031", "rate": 0.06, "orig_term": 84, "rem_term": 64, "orig_io": 60, "rem_io": 40, "payment_type": "Interest Only", "orig_amt": 185000000, "curr_upb": 173082030.53, "annual_pi": 0, "occ_pct": 0.7825, "noi": 12288683, "curr_value": 287769296, "ltv": 0.60146107641032, "dscr": "0E-8", "dy": 0.07097747}, "10436": {"rating": "SURV", "no": "10436", "name": "Seaport Logistics Center", "investor": "AZ Life", "sponsor": "Investco, LLC", "prop_type": "industrial", "city": "Sumner", "state": "WA", "desc": "single-story, 334K SF", "closed": "06/30/2016", "maturity": "07/10/2026", "rate": 0.0385, "orig_term": 120, "rem_term": 4, "orig_io": 12, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 19550000, "curr_upb": 15985344.43, "annual_pi": 1099824.12, "occ_pct": 0.7293, "noi": 1152415, "curr_value": 41942715, "ltv": 0.3811232637181451, "dscr": 1.04759401, "dy": 0.07207659}, "10548": {"rating": "SURV", "no": "10548", "name": "World Kitchen Distribution", "investor": "AZ Life", "sponsor": "Matrix Development Group", "prop_type": "industrial", "city": "Greencastle", "state": "PA", "desc": "single-story, 1MM SF", "closed": "05/11/2017", "maturity": "06/10/2027", "rate": 0.0425, "orig_term": 120, "rem_term": 15, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 33400000, "curr_upb": 27559737.59, "annual_pi": 1971695.04, "occ_pct": 1, "noi": 5428236, "curr_value": 56709529, "ltv": 0.48598071745579124, "dscr": 2.75263439, "dy": 0.1969306}, "11098": {"rating": "SURV", "no": "11098", "name": "Charleston at Fannin Station", "investor": "AZ Life", "sponsor": "Warehouse Associates Partners I, Ltd", "prop_type": "multifamily", "city": "Houston", "state": "TX", "desc": "", "closed": null, "maturity": "12/10/2044", "rate": 0.056, "orig_term": 240, "rem_term": 225, "orig_io": 0, "rem_io": 0, "payment_type": "Amortizing", "orig_amt": 35000000, "curr_upb": 34417286.42, "annual_pi": 2411131.68, "occ_pct": 0.8959, "noi": 2604003, "curr_value": 44397200, "ltv": 0.7752129958646041, "dscr": 1.07974775, "dy": 0.07564263}};
   var WATCHLIST_DETAIL = {
     '11088': '03_asset_debt.html',
     '10556': '02_asset_equity.html',
@@ -1149,6 +1165,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     var tcls = {office:'b-dt', multifamily:'b-eq', retail:'b-mx', industrial:'b-mx'}[L.prop_type] || 'b-mx';
     typeBadge.className = 'badge ' + tcls;
     typeBadge.textContent = L.prop_type ? L.prop_type.charAt(0).toUpperCase() + L.prop_type.slice(1) : '—';
+    var spEl = document.getElementById('loanSponsor'); if(spEl) spEl.textContent = L.sponsor || '—';
     document.getElementById('loanSubtitle').textContent = 'Loan #' + L.no + ' · ' + L.city + ', ' + L.state + (L.desc ? ' · ' + L.desc : '');
 
     document.getElementById('kpiUpb').textContent = fmtMoney(L.curr_upb);
@@ -1227,11 +1244,11 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     var NOTES_KEY = 'pimcoPortalNotes_v2';
     var THIS_LOAN_NO = L.no;
     var DEFAULT_NOTES = [
-      {author:'Bellwether', tag:'watchlist', loan:'10556', body:'Beacon Apartments DSCR at 1.26x, watching closely ahead of Oct 2027 maturity.', when:'2026-04-08 10:22'},
+      {author:'Bellwether', tag:'watchlist', loan:'10556', body:'Beacon Apartments DSCR at 1.26x, watching closely ahead of 10/2027 maturity.', when:'2026-04-08 10:22'},
       {author:'PIMCO',      tag:'reporting', loan:'11088', body:'Need updated cap stack breakdown for 333 W Wacker.', when:'2026-04-15 14:05'},
       {author:'Bellwether', tag:'market',    loan:'11047', body:'Austin MF supply continues to weigh on Ella Parkside.', when:'2026-04-22 09:11'},
       {author:'PIMCO',      tag:'sponsor',   loan:'11088', body:'Spoke with Beacon Capital this morning re: 333 W Wacker leasing pipeline.', when:'2026-05-01 16:48'},
-      {author:'Bellwether', tag:'',          loan:'',      body:'Quarterly tape reconciled \u2014 $1.00B UPB across 24 loans, 3 on watchlist.', when:'2026-05-05 11:30'}
+      {author:'Bellwether', tag:'',          loan:'',      body:'Quarterly tape reconciled \u2014 $1.0bn UPB across 24 loans, 3 on watchlist.', when:'2026-05-05 11:30'}
     ];
     function loadNotes(){ try{ var r=localStorage.getItem(NOTES_KEY); if(r) return JSON.parse(r); }catch(e){} return DEFAULT_NOTES.slice(); }
     function saveNotes(n){ try{ localStorage.setItem(NOTES_KEY, JSON.stringify(n)); }catch(e){} }
@@ -1331,9 +1348,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         <span class="sigma-chip-eye">Valuation</span>
         Compare appraisal vs. model valuation across my equity assets.
       </button>
-      <button class="sigma-chip" data-prompt="Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.">
+      <button class="sigma-chip" data-prompt="Summarize the 1Q 2026 Flash &amp; Dash for 333 W Wacker.">
         <span class="sigma-chip-eye">Deliverables</span>
-        Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.
+        Summarize the 1Q 2026 Flash &amp; Dash for 333 W Wacker.
       </button>
     </div>
     <div class="sigma-msgs" id="sigmaMsgs"></div>
@@ -1525,14 +1542,14 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         return !q || (L.n+' '+L.no+' '+L.spn+' '+L.loc).toLowerCase().indexOf(q) >= 0;
       });
       if(!matches.length){
-        dd.innerHTML = '<div style="padding:10px;font-size:10px;color:#9CA3AF;text-align:center">No matches</div>';
+        dd.innerHTML = '<div style="padding:10px;font-size:10px;color:#4B5563;text-align:center">No matches</div>';
       } else {
         dd.innerHTML = matches.map(function(L){
           return '<a href="'+L.href+'" style="display:block;padding:7px 10px;font-size:11px;color:inherit;text-decoration:none;border-bottom:1px solid #F3F4F6">'
             + ratingDot(L.rating)
             + '<span style="font-weight:600">'+L.n+'</span>'
-            + '<span style="float:right;font-size:9px;color:#9CA3AF">#'+L.no+'</span>'
-            + '<div style="font-size:9px;color:#9CA3AF;margin-top:1px;margin-left:13px">'+L.spn+' &middot; '+L.loc+'</div>'
+            + '<span style="float:right;font-size:9px;color:#4B5563">#'+L.no+'</span>'
+            + '<div style="font-size:9px;color:#4B5563;margin-top:1px;margin-left:13px">'+L.spn+' &middot; '+L.loc+'</div>'
             + '</a>';
         }).join('');
       }
@@ -1562,9 +1579,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 })();
 </script>
 
-<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#6B7280;grid-column:1/-1">
+<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#4B5563;grid-column:1/-1">
   <div><a href="10_servicing_overview.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; Loan portfolio</a></div>
-  <div style="color:#9CA3AF"><span style="color:#1C2B5A;font-weight:600">Loan summary</span></div>
+  <div style="color:#4B5563"><span style="color:#1C2B5A;font-weight:600">Loan summary</span></div>
   <div><a href="10_servicing_overview.html" style="color:#0066AF;text-decoration:none;font-weight:500">Loan portfolio &rarr;</a></div>
 </nav>
 </body></html>

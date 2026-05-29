@@ -1,13 +1,13 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Valuation Roll-up</title>
+<title>Valuation</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--ink:#0E1C2A;
   --g:#059669;--r:#DC2626;--y:#D97706;--teal:#0891B2;
-  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#9CA3AF;
-  --text:#0A1628;--sub:#6B7280;
+  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#4B5563;
+  --text:#0A1628;--sub:#374151;
 }
 body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 .shell{display:grid;grid-template-columns:210px 1fr;grid-template-rows:52px 1fr;min-height:100vh}
@@ -15,17 +15,17 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 /* topbar */
 .tb{grid-column:1/-1;background:var(--n);display:flex;align-items:center;padding:0 22px;gap:12px;height:52px;border-bottom:3px solid var(--a)}
 .logo{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;color:#fff;letter-spacing:-.2px;flex-shrink:0}
-.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.45);margin-left:2px;letter-spacing:.02em}
+.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.78);margin-left:2px;letter-spacing:.02em}
 .tb-tag{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(153,190,228,.3);border-radius:20px;flex-shrink:0}
 .tb-sep{flex:1}
-.tb-crumb{font-size:11px;color:rgba(255,255,255,.42)}
-.tb-crumb .cur{color:rgba(255,255,255,.85);font-weight:500}
+.tb-crumb{font-size:11px;color:rgba(255,255,255,.72)}
+.tb-crumb .cur{color:rgba(255,255,255,.92);font-weight:500}
 .tb-crumb .sep{margin:0 4px;opacity:.3}
 .tb-client{font-size:11px;font-weight:500;color:var(--s)}
 .tb-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
 .bw-pill{display:flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;flex-shrink:0}
 .bw-pill-lbl{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;text-transform:uppercase}
-.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.55)}
+.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.82)}
 
 /* sidebar */
 .sb{background:var(--card);border-right:1px solid var(--border);padding:14px 0;overflow-y:auto}
@@ -167,10 +167,10 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-logo-area{display:flex;align-items:center;gap:12px}
 .flash-client-logo{font-size:13px;font-weight:600;color:#fff;padding:4px 10px;border:1px solid rgba(255,255,255,.25);border-radius:4px}
 .flash-divider-v{width:1px;height:20px;background:rgba(255,255,255,.2)}
-.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.7);font-weight:400}
+.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.90);font-weight:400}
 .flash-title-area{text-align:right}
 .flash-report-type{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase}
-.flash-as-of{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
+.flash-as-of{font-size:10px;color:rgba(255,255,255,.80);margin-top:1px}
 .flash-deal-bar{background:#EBF2FA;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:12px}
 .flash-deal-name{font-size:14px;font-weight:700;color:var(--n);flex:1}
 .flash-metric{text-align:center;min-width:80px}
@@ -183,7 +183,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-key-metrics{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fkm{padding:6px 8px;text-align:center;border-right:1px solid var(--border);background:var(--n)}
 .fkm:last-child{border-right:none}
-.fkm-l{font-size:8px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.fkm-l{font-size:8px;color:rgba(255,255,255,.92);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
 .fkm-v{font-size:11px;font-weight:700;color:#fff}
 .flash-cap-stack{border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fcs-header{background:var(--n);padding:6px 10px;font-size:10px;font-weight:700;color:#fff;text-align:center}
@@ -238,7 +238,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .embed-frame{border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .embed-top{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-bottom:1px solid #F3F4F6;background:var(--n)}
 .embed-title{font-size:11px;font-weight:600;color:#fff}
-.embed-src{font-size:9px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
+.embed-src{font-size:9px;color:rgba(255,255,255,.80);display:flex;align-items:center;gap:4px}
 .live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--g);margin-right:3px}
 
 .sd{display:flex;align-items:center;gap:8px;margin:2px 0}
@@ -285,14 +285,14 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
   .sigma-head-icon svg{width:18px;height:18px}
   .sigma-head-title{font-family:'DM Serif Display',Georgia,serif;font-size:16px;font-weight:400;line-height:1.1}
   .sigma-head-sub{font-size:10.5px;color:rgba(255,255,255,.78);margin-top:2px;letter-spacing:.02em}
-  .sigma-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,.7);
+  .sigma-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,.90);
     cursor:pointer;font-size:18px;line-height:1;padding:2px 6px;border-radius:4px}
   .sigma-close:hover{background:rgba(255,255,255,.12);color:#fff}
 
   .sigma-body{padding:14px 14px 12px;overflow-y:auto;flex:1}
   .sigma-intro{font-size:12px;color:#374151;line-height:1.45;margin-bottom:12px}
   .sigma-intro b{color:#0E1C2A}
-  .sigma-section{font-size:9.5px;font-weight:600;color:#9CA3AF;letter-spacing:.10em;
+  .sigma-section{font-size:9.5px;font-weight:600;color:#4B5563;letter-spacing:.10em;
     text-transform:uppercase;margin:6px 0 8px}
   .sigma-chips{display:flex;flex-direction:column;gap:7px}
   .sigma-chip{text-align:left;background:#F4F7FB;border:1px solid #E2E8F2;border-radius:8px;
@@ -306,7 +306,7 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
   .sigma-msg{font-size:12px;line-height:1.45;padding:8px 11px;border-radius:8px;max-width:88%}
   .sigma-msg.u{background:#0066AF;color:#fff;align-self:flex-end;border-bottom-right-radius:2px}
   .sigma-msg.b{background:#F4F5F7;color:#0E1C2A;align-self:flex-start;border-bottom-left-radius:2px}
-  .sigma-msg.b em{color:#6B7280;font-style:normal}
+  .sigma-msg.b em{color:#4B5563;font-style:normal}
 
   .sigma-foot{border-top:1px solid #F0F2F5;padding:10px 12px;background:#FAFBFC;
     display:flex;align-items:center;gap:8px}
@@ -317,7 +317,7 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
     color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
   .sigma-send:hover{background:#1C2B5A}
   .sigma-send svg{width:14px;height:14px}
-  .sigma-disclaimer{font-size:9.5px;color:#9CA3AF;text-align:center;padding:6px 12px 10px;
+  .sigma-disclaimer{font-size:9.5px;color:#4B5563;text-align:center;padding:6px 12px 10px;
     background:#FAFBFC}
 
 
@@ -359,6 +359,13 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !
 html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
 html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
 
+
+/* BW/Client role tags for activity feed */
+.role-tag{display:inline-block;font-size:8px;font-weight:700;padding:1px 6px;border-radius:10px;letter-spacing:.04em;margin-right:5px;vertical-align:middle}
+.role-tag.bw{background:#EBF2FA;color:#1C2B5A;border:1px solid #99BEE4}
+.role-tag.client{background:#FEF3C7;color:#92400E;border:1px solid #FCD34D}
+html[data-theme="dark"] .role-tag.bw{background:#1A2540 !important;color:#9BBCFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .role-tag.client{background:#3B2A0B !important;color:#FCD34D !important;border-color:#92400E !important}
 </style>
 
 <style>
@@ -366,7 +373,7 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !
 :root{
   --n:#1C2B5A; --a:#0066AF; --s:#99BEE4;
   --bg:#F4F5F7; --card:#fff; --border:#E2E5EA;
-  --text:#0A1628; --sub:#6B7280; --muted:#9CA3AF;
+  --text:#0A1628; --sub:#374151; --muted:#4B5563;
   --g:#059669; --r:#DC2626; --y:#D97706; --teal:#0891B2;
   --bar-grad-a: linear-gradient(180deg, #1C77D8 0%, #0066AF 100%);
   --bar-shadow: 0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.10) inset;
@@ -412,7 +419,7 @@ html[data-theme="dark"] .brf{ filter: brightness(1.1) }
 
 /* Theme toggle button */
 .theme-toggle{ display:inline-flex; align-items:center; gap:6px; padding:4px 9px; border-radius:14px;
-  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.90);
   font-size:10px; font-weight:600; cursor:pointer; letter-spacing:.04em; user-select:none; transition:background .15s }
 .theme-toggle:hover{ background:rgba(255,255,255,.16); color:#fff }
 .theme-toggle .tt-dot{ width:8px; height:8px; border-radius:50%; background:#FBBF24 }
@@ -574,8 +581,8 @@ html[data-theme="dark"] .dm2, html[data-theme="dark"] .dd{ color:#9BBCFF !import
 .docprev-head{ background:var(--n); color:#fff; padding:14px 16px 12px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border) }
 .docprev-head-icon{ width:34px; height:34px; border-radius:6px; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; flex-shrink:0 }
 .docprev-head-title{ font-family:'DM Serif Display',serif; font-size:15px; line-height:1.15; font-weight:400 }
-.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.6); margin-top:2px }
-.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.7); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
+.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.92); margin-top:2px }
+.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.90); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
 .docprev-close:hover{ color:#fff }
 .docprev-body{ flex:1; overflow:auto; padding:18px 18px 24px; background:var(--bg); color:var(--text) }
 .docprev-meta{ display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; font-size:11px; padding:10px 14px; background:var(--card); border:1px solid var(--border); border-radius:6px; margin-bottom:14px }
@@ -648,7 +655,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
   }
   function defaultPreview(opts){
     var loan = opts.loan || '333 West Wacker';
-    var date = opts.date || 'Q1 2026';
+    var date = opts.date || '1Q 2026';
     var meta = ''
       + '<div class="docprev-meta">'
       + '  <div><dt>Loan</dt><dd>'+loan+'</dd></div>'
@@ -660,15 +667,15 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
     return meta
       + '<div class="docprev-page">'
       + '  <h1>'+(opts.title||'Document Preview')+'</h1>'
-      + '  <p style="font-style:italic;color:#6B7280">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
+      + '  <p style="font-style:italic;color:#4B5563">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
       + '  <h2>Summary</h2><p>'+summary+'</p>'
       + '  <h2>Selected metrics</h2>'
       + '  <ul style="padding-left:18px">'
-      + '    <li>UPB: $173.1mm of $185.0mm original</li>'
+      + '    <li>UPB: $173.1mm of $185mm original</li>'
       + '    <li>Interest rate: 6.00% fixed (IO period · 40 mo. remaining)</li>'
-      + '    <li>Occupancy: 78.3% (Q1 2026 tape)</li>'
-      + '    <li>In-place LTV: 60.1% &middot; Debt yield: 9.8%</li>'
-      + '    <li>Maturity: July 10, 2031</li>'
+      + '    <li>Occupancy: 78.3% (1Q 2026 tape)</li>'
+      + '    <li>In-place LTV: 60% &middot; DY: 9.8%</li>'
+      + '    <li>Maturity: 07/10/2031</li>'
       + '  </ul>'
       + '  <h2>Notes</h2>'
       + '  <p>This is a stylised in-app preview. In production, the slide-out would render the actual PDF / Excel / Word document from the document store with full pagination and download controls.</p>'
@@ -684,7 +691,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
       sub:   el.getAttribute('data-doc-sub')   || 'Bellwether Asset Management',
       kind:  el.getAttribute('data-doc-kind')  || 'PDF',
       loan:  el.getAttribute('data-doc-loan')  || '333 West Wacker',
-      date:  el.getAttribute('data-doc-date')  || 'Q1 2026',
+      date:  el.getAttribute('data-doc-date')  || '1Q 2026',
       summary: el.getAttribute('data-doc-summary') || ''
     });
   });
@@ -795,9 +802,9 @@ html[data-theme="dark"] .doc-view-btn:hover{ background:#7AA5F4 !important; colo
 <!-- PIMCO-PORTAL-SEARCH-V1 -->
 .gsearch{position:relative;display:flex;align-items:center;gap:6px;margin-left:18px}
 .gsearch-input{width:240px;padding:5px 10px 5px 28px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;outline:none;transition:background .15s, border-color .15s}
-.gsearch-input::placeholder{color:rgba(255,255,255,.45)}
+.gsearch-input::placeholder{color:rgba(255,255,255,.78)}
 .gsearch-input:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);width:300px}
-.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.55);pointer-events:none}
+.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.82);pointer-events:none}
 .gsearch-dd{position:absolute;top:36px;left:0;width:340px;max-height:360px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 14px 32px rgba(11,31,79,.22);z-index:9994;display:none;padding:4px 0}
 .gsearch-dd.open{display:block}
 .gsearch-item{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:1px solid #F3F4F6;cursor:pointer;text-decoration:none;color:var(--text)}
@@ -914,7 +921,7 @@ html[data-theme="dark"] .compose textarea,
 html[data-theme="dark"] .sigma-input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] input[type="text"]::placeholder{color:#9EAAC4 !important}
 html[data-theme="dark"] .gsearch-input{background:rgba(255,255,255,.10) !important;color:#FFFFFF !important;border-color:rgba(255,255,255,.18) !important}
-html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.55) !important}
+html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.82) !important}
 html[data-theme="dark"] #loanSel{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD{background:#162035 !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
@@ -940,7 +947,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   </a>
   <span class="tb-tag">Investment Portal</span>
   <div class="tb-sep"></div>
-  <span class="tb-crumb">/ Roll-up / <span class='cur'>Valuation</span></span>
+  <span class="tb-crumb">/ <span class='cur'>Valuation</span></span>
   <a class="bw-pill" href="https://bwam-private.github.io/bellwether-data-platform-overview/index.html" target="_blank" rel="noopener" title="Bellwether Data Platform overview"><span class="bw-pill-lbl">powered by</span><span class="bw-pill-name">Bellwether</span></a>
     <div class="gsearch" style="position:relative">
     <svg class="gsearch-icon" width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -961,7 +968,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <a class="ni sub" href="01_portfolio_overview.html?type=retail" style="text-decoration:none"><div class="dot dp"></div>Retail</a>
   <a class="ni sub" href="01_portfolio_overview.html?type=industrial" style="text-decoration:none"><div class="dot ds"></div>Industrial</a>
   <a class="ni sub" href="01_portfolio_overview.html?rating=YELLOW" style="text-decoration:none"><div class="dot dy"></div>Watchlist</a>
-  <a class="ni sub on" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Valuation</a>
+  <div class="sb-div"></div>
+  <div class="sl">Valuation</div>
+  <a class="ni on" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Overview</a>
   <div class="sb-div"></div>
   <div class="sl">Investments</div>
   <a class="ni" href="10_servicing_overview.html" style="text-decoration:none"><div class="dot dr"></div>Overview</a>
@@ -976,35 +985,60 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 </div>
 <div class="main">
 
-<div class="ph"><span class="pt">Valuation</span><span class="ps">24 loans · collateral basis · tape Mar 26, 2026 · next review June 2026</span></div>
-<div class="filter-row" id="valPills">
-  <a class="pill" href="?method=income" style="text-decoration:none">Income approach</a>
-  <a class="pill" href="?method=dcf" style="text-decoration:none">DCF</a>
-  <a class="pill" href="?method=sales" style="text-decoration:none">Sales comp</a>
-  <a class="pill" href="?" style="text-decoration:none">All methods</a>
+<div class="ph"><span class="pt">Valuations as of 1Q 2026</span><span id="valFilterStatus" style="font-size:11px;color:var(--sub);font-weight:500"></span></div>
+<div class="filter-row" id="valPills" style="margin-bottom:6px"><span style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-right:6px">Method</span>
+  <a class="pill" data-method="income" href="#" style="text-decoration:none">Income approach</a>
+  <a class="pill" data-method="dcf" href="#" style="text-decoration:none">DCF</a>
+  <a class="pill" data-method="sales" href="#" style="text-decoration:none">Sales comp</a>
+  <a class="pill" data-method="" href="#" style="text-decoration:none">All methods</a>
 </div>
-<script>(function(){try{var p=new URLSearchParams(location.search);var pills=document.querySelectorAll('#valPills .pill');var i=3;if(p.get('method')==='income')i=0;else if(p.get('method')==='dcf')i=1;else if(p.get('method')==='sales')i=2;if(pills[i])pills[i].classList.add('on');}catch(e){}})();</script>
+<div class="filter-row" id="valTypePills" style="margin-bottom:10px"><span style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-right:6px">Asset class</span>
+  <a class="pill" data-type="office" href="#" style="text-decoration:none">Office</a>
+  <a class="pill" data-type="multifamily" href="#" style="text-decoration:none">Multifamily</a>
+  <a class="pill" data-type="retail" href="#" style="text-decoration:none">Retail</a>
+  <a class="pill" data-type="industrial" href="#" style="text-decoration:none">Industrial</a>
+  <a class="pill" data-type="" href="#" style="text-decoration:none">All</a>
+</div>
 <div class="krow k4">
-  <div class="kpi"><div class="kl">Total collateral value</div><div class="kv">$1.35B</div><div class="ks nu">Implied LTV 74.5%</div></div>
-  <div class="kpi"><div class="kl">Total UPB</div><div class="kv">$1.00B</div><div class="ks nu">vs. $1.24B original</div></div>
+  <div class="kpi"><div class="kl">Total collateral value</div><div class="kv">$1.4bn</div><div class="ks nu">Implied LTV 74%</div></div>
+  <div class="kpi"><div class="kl">Total UPB</div><div class="kv">$1.0bn</div><div class="ks nu">vs. $1.2bn original</div></div>
   <div class="kpi"><div class="kl">Wtd avg cap rate</div><div class="kv">5.7%</div><div class="ks nu">vs. 5.4% prior Q</div></div>
   <div class="kpi"><div class="kl">Loans reviewed</div><div class="kv">24 / 24</div><div class="ks up">All current</div></div>
 </div>
 <div class="card">
-  <div class="ch">Appraisal vs. internal model — top loans</div>
+  <div class="ch">Investment Level Valuations <span class="cm">All 24 loans · click loan to drill into detail</span></div>
+  <div style="max-height:560px;overflow-y:auto">
   <table class="tbl">
-    <thead><tr><th style="width:22%">Loan / Collateral</th><th>Type</th><th>Method</th><th class="tr">Appraised</th><th class="tr">Model</th><th class="tr">Δ</th><th class="tr">Cap rate</th><th>Reviewed</th></tr></thead>
+    <thead style="position:sticky;top:0;z-index:5;background:var(--n);color:#fff"><tr><th style="width:20%">Loan / Collateral</th><th>Type</th><th>Method</th><th class="tr">Appraised</th><th class="tr">Model</th><th class="tr">Δ Model</th><th class="tr">Q-o-Q Δ</th><th class="tr">Cap Rate</th><th>Reviewed</th></tr></thead>
     <tbody>
-      <tr><td><a href="03_asset_debt.html">333 West Wacker</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$288mm</td><td class="tr">$291mm</td><td class="tr up">+1.0%</td><td class="tr">5.9%</td><td>Mar 20</td></tr>
-      <tr><td><a href="loan.html?id=10999">Intersect</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$156mm</td><td class="tr">$158mm</td><td class="tr up">+1.3%</td><td class="tr">5.5%</td><td>Mar 18</td></tr>
-      <tr><td><a href="loan.html?id=10848">Granite TX Office Port.</a></td><td><span class="badge b-dt">OFF</span></td><td>DCF</td><td class="tr">$160mm</td><td class="tr">$155mm</td><td class="tr dn">-3.1%</td><td class="tr">7.1%</td><td>Mar 22</td></tr>
-      <tr><td><a href="loan.html?id=10318">101 North Wacker</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$76mm</td><td class="tr">$78mm</td><td class="tr up">+2.6%</td><td class="tr">6.4%</td><td>Mar 19</td></tr>
-      <tr><td><a href="loan.html?id=10767">715 Peachtree Street</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$76mm</td><td class="tr">$77mm</td><td class="tr up">+1.3%</td><td class="tr">5.7%</td><td>Mar 21</td></tr>
-      <tr><td><a href="02_asset_equity.html">The Beacon Apartments</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$51mm</td><td class="tr">$50mm</td><td class="tr dn">-2.0%</td><td class="tr">5.1%</td><td>Mar 22</td></tr>
-      <tr><td>Orleans at Fannin Stn</td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$42mm</td><td class="tr">$41mm</td><td class="tr dn">-2.4%</td><td class="tr">5.0%</td><td>Mar 17</td></tr>
-      <tr class="tot-r"><td>Top 7 subtotal</td><td></td><td></td><td class="tr">$849mm</td><td class="tr">$850mm</td><td class="tr up">+0.1%</td><td class="tr">5.9%</td><td></td></tr>
+      <tr><td><a href="03_asset_debt.html">333 West Wacker</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$288mm</td><td class="tr">$291mm</td><td class="tr up">+1%</td><td class="tr up">+2.1%</td><td class="tr">5.9%</td><td>03/20/2026</td></tr>
+      <tr><td><a href="loan.html?id=10999">Intersect</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$156mm</td><td class="tr">$158mm</td><td class="tr up">+1.3%</td><td class="tr up">+1.5%</td><td class="tr">5.5%</td><td>03/18/2026</td></tr>
+      <tr><td><a href="loan.html?id=10848">Granite TX Office Port.</a></td><td><span class="badge b-dt">OFF</span></td><td>DCF</td><td class="tr">$160mm</td><td class="tr">$155mm</td><td class="tr dn">-3.1%</td><td class="tr dn">-1.8%</td><td class="tr">7.1%</td><td>03/22/2026</td></tr>
+      <tr><td><a href="loan.html?id=10318">101 North Wacker</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$76mm</td><td class="tr">$78mm</td><td class="tr up">+2.6%</td><td class="tr up">+0.9%</td><td class="tr">6.4%</td><td>03/19/2026</td></tr>
+      <tr><td><a href="loan.html?id=10767">715 Peachtree Street</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$76mm</td><td class="tr">$77mm</td><td class="tr up">+1.3%</td><td class="tr up">+1.2%</td><td class="tr">5.7%</td><td>03/21/2026</td></tr>
+      <tr><td><a href="02_asset_equity.html">The Beacon Apartments</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$51mm</td><td class="tr">$50mm</td><td class="tr dn">-2%</td><td class="tr dn">-2.4%</td><td class="tr">5.1%</td><td>03/22/2026</td></tr>
+      <tr><td><a href="loan.html?id=10945">Orleans at Fannin Station</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$42mm</td><td class="tr">$41mm</td><td class="tr dn">-2.4%</td><td class="tr dn">-0.7%</td><td class="tr">5%</td><td>03/17/2026</td></tr>
+      <tr><td><a href="02b_loan_ella.html">Ella Parkside</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$51mm</td><td class="tr">$51mm</td><td class="tr nu">+0%</td><td class="tr dn">-1.2%</td><td class="tr">5.3%</td><td>03/15/2026</td></tr>
+      <tr><td><a href="loan.html?id=10653">Apex West Midtown</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$48mm</td><td class="tr">$48mm</td><td class="tr up">+0.3%</td><td class="tr up">+0.4%</td><td class="tr">5.2%</td><td>03/14/2026</td></tr>
+      <tr><td><a href="loan.html?id=10587">55 Third Avenue (Cammeyer)</a></td><td><span class="badge b-mx">RET</span></td><td>Income</td><td class="tr">$45mm</td><td class="tr">$45mm</td><td class="tr nu">-0.1%</td><td class="tr up">+0.8%</td><td class="tr">5.4%</td><td>03/16/2026</td></tr>
+      <tr><td><a href="loan.html?id=11098">Charleston at Fannin Station</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$44mm</td><td class="tr">$44mm</td><td class="tr up">+0.2%</td><td class="tr up">+0.6%</td><td class="tr">5.1%</td><td>03/13/2026</td></tr>
+      <tr><td><a href="loan.html?id=10380">8201 Greensboro Drive</a></td><td><span class="badge b-dt">OFF</span></td><td>DCF</td><td class="tr">$43mm</td><td class="tr">$43mm</td><td class="tr dn">-0.4%</td><td class="tr dn">-2.1%</td><td class="tr">7.4%</td><td>03/12/2026</td></tr>
+      <tr><td><a href="loan.html?id=10401">Walnut Creek Business Park</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$68mm</td><td class="tr">$68mm</td><td class="tr up">+0.1%</td><td class="tr up">+0.3%</td><td class="tr">6.2%</td><td>03/11/2026</td></tr>
+      <tr><td><a href="loan.html?id=10548">World Kitchen Distribution</a></td><td><span class="badge b-mx">IND</span></td><td>Income</td><td class="tr">$57mm</td><td class="tr">$57mm</td><td class="tr up">+0.2%</td><td class="tr up">+1.1%</td><td class="tr">5.8%</td><td>03/10/2026</td></tr>
+      <tr><td><a href="loan.html?id=10894">600 Pennsylvania Avenue</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$19mm</td><td class="tr">$19mm</td><td class="tr nu">+0.1%</td><td class="tr up">+0.2%</td><td class="tr">5.9%</td><td>03/09/2026</td></tr>
+      <tr><td><a href="loan.html?id=10448">122 South Michigan Avenue</a></td><td><span class="badge b-mx">RET</span></td><td>Sales comp</td><td class="tr">$21mm</td><td class="tr">$21mm</td><td class="tr nu">+0%</td><td class="tr nu">+0%</td><td class="tr">5.5%</td><td>03/08/2026</td></tr>
+      <tr><td><a href="loan.html?id=10436">Seaport Logistics Center</a></td><td><span class="badge b-mx">IND</span></td><td>Income</td><td class="tr">$42mm</td><td class="tr">$42mm</td><td class="tr up">+0.1%</td><td class="tr up">+0.5%</td><td class="tr">5.6%</td><td>03/07/2026</td></tr>
+      <tr><td><a href="loan.html?id=10526">185 Avenue B Apartments</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$17mm</td><td class="tr">$17mm</td><td class="tr up">+0.1%</td><td class="tr up">+0.4%</td><td class="tr">5%</td><td>03/06/2026</td></tr>
+      <tr><td><a href="loan.html?id=10721">Brunner Building</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$13mm</td><td class="tr">$13mm</td><td class="tr dn">-0.5%</td><td class="tr dn">-1%</td><td class="tr">5.3%</td><td>03/05/2026</td></tr>
+      <tr><td><a href="loan.html?id=10207">Georgetown Retail</a></td><td><span class="badge b-mx">RET</span></td><td>Income</td><td class="tr">$17mm</td><td class="tr">$17mm</td><td class="tr up">+0.2%</td><td class="tr up">+0.7%</td><td class="tr">5.4%</td><td>03/04/2026</td></tr>
+      <tr><td><a href="loan.html?id=10239">Trader Joes</a></td><td><span class="badge b-mx">RET</span></td><td>Income</td><td class="tr">$16mm</td><td class="tr">$16mm</td><td class="tr nu">+0%</td><td class="tr nu">+0.1%</td><td class="tr">5.2%</td><td>03/03/2026</td></tr>
+      <tr><td><a href="loan.html?id=11089">333 West Wacker (Mezz)</a></td><td><span class="badge b-dt">OFF</span></td><td>Income</td><td class="tr">$288mm</td><td class="tr">$291mm</td><td class="tr up">+1%</td><td class="tr up">+2.1%</td><td class="tr">5.9%</td><td>03/20/2026</td></tr>
+      <tr><td><a href="loan.html?id=10927">C9 Flats Apartments</a></td><td><span class="badge b-eq">MF</span></td><td>Sales comp</td><td class="tr">$15mm</td><td class="tr">$15mm</td><td class="tr up">+0.3%</td><td class="tr up">+0.5%</td><td class="tr">5%</td><td>03/02/2026</td></tr>
+      <tr><td><a href="loan.html?id=9926">Prairie Lakes Corporate Center</a></td><td><span class="badge b-dt">OFF</span></td><td>DCF</td><td class="tr">$8mm</td><td class="tr">$8mm</td><td class="tr dn">-4.2%</td><td class="tr dn">-3.8%</td><td class="tr">8.2%</td><td>03/01/2026</td></tr>
+      <tr class="tot-r"><td>Portfolio (24 loans)</td><td></td><td></td><td class="tr">$1.4bn</td><td class="tr">$1.4bn</td><td class="tr up">+0.3%</td><td class="tr up">+0.5%</td><td class="tr">5.7%</td><td></td></tr>
     </tbody>
   </table>
+  </div>
 </div>
 <div class="two">
   <div class="card">
@@ -1017,15 +1051,15 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         <circle cx="150" cy="52" r="3" fill="#1C2B5A"/><circle cx="220" cy="46" r="3" fill="#1C2B5A"/>
         <circle cx="290" cy="40" r="3" fill="#1C2B5A"/><circle cx="380" cy="32" r="3" fill="#1C2B5A"/>
         <circle cx="480" cy="24" r="3" fill="#1C2B5A"/>
-        <text x="20" y="86" text-anchor="middle" font-size="8" fill="#9CA3AF" font-family="Arial">Q3'24</text>
-        <text x="480" y="86" text-anchor="middle" font-size="8" fill="#9CA3AF" font-family="Arial">Q1'26</text>
+        <text x="20" y="86" text-anchor="middle" font-size="8" fill="#9CA3AF" font-family="Arial">3Q 2024</text>
+        <text x="480" y="86" text-anchor="middle" font-size="8" fill="#9CA3AF" font-family="Arial">1Q 2026</text>
       </svg>
     </div>
   </div>
   <div class="card">
     <div class="ch">Cap rate by sector <span class="cm">UPB-weighted</span></div>
     <div class="bw">
-      <div class="br"><span class="brl">Office (63% UPB)</span><div class="brt"><div class="brf" style="width:60%;background:var(--y)"></div></div><span class="brv">6.0%</span></div>
+      <div class="br"><span class="brl">Office (63% UPB)</span><div class="brt"><div class="brf" style="width:60%;background:var(--y)"></div></div><span class="brv">6%</span></div>
       <div class="br"><span class="brl">Multifamily (24%)</span><div class="brt"><div class="brf" style="width:51%;background:var(--y)"></div></div><span class="brv">5.1%</span></div>
       <div class="br"><span class="brl">Retail (8%)</span><div class="brt"><div class="brf" style="width:55%;background:var(--y)"></div></div><span class="brv">5.5%</span></div>
       <div class="br"><span class="brl">Industrial (4%)</span><div class="brt"><div class="brf" style="width:49%;background:var(--y)"></div></div><span class="brv">4.9%</span></div>
@@ -1089,9 +1123,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         <span class="sigma-chip-eye">Valuation</span>
         Compare appraisal vs. model valuation across my equity assets.
       </button>
-      <button class="sigma-chip" data-prompt="Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.">
+      <button class="sigma-chip" data-prompt="Summarize the 1Q 2026 Flash &amp; Dash for 333 W Wacker.">
         <span class="sigma-chip-eye">Deliverables</span>
-        Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.
+        Summarize the 1Q 2026 Flash &amp; Dash for 333 W Wacker.
       </button>
     </div>
     <div class="sigma-msgs" id="sigmaMsgs"></div>
@@ -1171,7 +1205,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     {n:'Apex West Midtown', no:'10653', spn:'Venterra Realty Mgmt', loc:'Atlanta, GA', rating:'SURV', href:'loan.html?id=10653'},
     {n:'55 Third Avenue-Cammeyer', no:'10587', spn:'Hubb NYC Properties', loc:'New York, NY', rating:'SURV', href:'loan.html?id=10587'},
     {n:'Charleston at Fannin Station', no:'11098', spn:'Warehouse Associates', loc:'Houston, TX', rating:'SURV', href:'loan.html?id=11098'},
-    {n:'8201 Greensboro Drive', no:'10380', spn:'B.F. Saul Company', loc:'Mclean, VA', rating:'SURV', href:'loan.html?id=10380'},
+    {n:'8201 Greensboro Drive', no:'10380', spn:'B.F. Saul Company', loc:'McLean, VA', rating:'SURV', href:'loan.html?id=10380'},
     {n:'Walnut Creek Business Park', no:'10401', spn:'Majestic Realty', loc:'San Dimas, CA', rating:'SURV', href:'loan.html?id=10401'},
     {n:'World Kitchen Distribution', no:'10548', spn:'Matrix Development', loc:'Greencastle, PA', rating:'SURV', href:'loan.html?id=10548'},
     {n:'600 Pennsylvania Avenue', no:'10894', spn:'Bernstein Mgmt Corp', loc:'Washington, DC', rating:'SURV', href:'loan.html?id=10894'},
@@ -1185,66 +1219,141 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     {n:'C9 Flats Apartments', no:'10927', spn:'De Anza Properties', loc:'Salt Lake City, UT', rating:'SURV', href:'loan.html?id=10927'},
     {n:'Prairie Lakes Corporate Center', no:'9926', spn:'Kraus-Anderson Inc', loc:'Eden Prairie, MN', rating:'YELLOW', href:'loan.html?id=9926'}
   ];
-  function ratingDot(r){
-    if(r === 'YELLOW') return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);margin-right:5px;vertical-align:middle"></span>';
-    return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);margin-right:5px;vertical-align:middle"></span>';
-  }
-  document.addEventListener('DOMContentLoaded', function(){
-    var input = document.getElementById('loanSel');
-    var dd    = document.getElementById('loanSelDD');
-    var info  = document.getElementById('loanSelActive');
-    if(!input || !dd) return;
-    function render(q){
-      q = (q||'').trim().toLowerCase();
-      var matches = LOANS_LIST.filter(function(L){
-        return !q || (L.n+' '+L.no+' '+L.spn+' '+L.loc).toLowerCase().indexOf(q) >= 0;
-      });
-      if(!matches.length){
-        dd.innerHTML = '<div style="padding:10px;font-size:10px;color:var(--muted);text-align:center">No matches</div>';
-      } else {
-        dd.innerHTML = matches.map(function(L){
-          return '<a href="'+L.href+'" style="display:block;padding:7px 10px;font-size:11px;color:var(--text);text-decoration:none;border-bottom:1px solid #F3F4F6">'
-            + ratingDot(L.rating)
-            + '<span style="font-weight:600">'+L.n+'</span>'
-            + '<span style="float:right;font-size:9px;color:var(--muted)">#'+L.no+'</span>'
-            + '<div style="font-size:9px;color:var(--muted);margin-top:1px;margin-left:13px">'+L.spn+' &middot; '+L.loc+'</div>'
-            + '</a>';
-        }).join('');
-      }
-    }
-    // On focus: clear input + render ALL loans so user can pick a different one
-    input.addEventListener('focus', function(){
-      input.dataset.prev = input.value;
-      input.value = '';
-      render('');
-      dd.style.display='block';
-    });
-    input.addEventListener('input', function(){ render(input.value); dd.style.display='block'; });
-    // On blur with no selection: restore previous value
-    input.addEventListener('blur', function(){
-      setTimeout(function(){
-        if(input.value === '' && input.dataset.prev){ input.value = input.dataset.prev; }
-      }, 200);
-    });
-    document.addEventListener('click', function(e){
-      if(!e.target.closest('.loan-selector')) dd.style.display='none';
-    });
-    // Detect current loan from URL
-    var current = LOANS_LIST.find(function(L){ return location.pathname.endsWith(L.href) || location.search.indexOf(encodeURIComponent(L.n)) >= 0; });
-    if(current){
-      input.value = current.n;
-      info.innerHTML = ratingDot(current.rating) + 'Loan #'+current.no+' · '+current.spn;
-    } else {
-      info.textContent = '24 loans · 3 on watchlist';
-    }
-  });
 })();
 </script>
 
-
-<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#6B7280;grid-column:1/-1">
-  <div><a href="03_asset_debt.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; 333 West Wacker</a></div>
+<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#4B5563;grid-column:1/-1">
+  <div><a href="01_portfolio_overview.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; Portfolio overview</a></div>
   <div style="color:#9CA3AF"><span style="color:#1C2B5A;font-weight:600">Valuation</span></div>
-  <div><a href="06_workspace.html" style="color:#0066AF;text-decoration:none;font-weight:500">Workspace &rarr;</a></div>
+  <div><a href="10_servicing_overview.html" style="color:#0066AF;text-decoration:none;font-weight:500">Investments overview &rarr;</a></div>
 </nav>
+
+
+<script>
+(function(){
+  function getParams(){
+    var p = new URLSearchParams(location.search);
+    return { method: (p.get('method')||'').toLowerCase(), type: (p.get('type')||'').toLowerCase() };
+  }
+  function setOn(){
+    var st = getParams();
+    document.querySelectorAll('#valPills .pill').forEach(function(a){
+      var m = (a.getAttribute('data-method')||'');
+      a.classList.toggle('on', m === st.method);
+    });
+    document.querySelectorAll('#valTypePills .pill').forEach(function(a){
+      var t = (a.getAttribute('data-type')||'');
+      a.classList.toggle('on', t === st.type);
+    });
+  }
+  function methodMatches(rowMethod, filter){
+    if(!filter) return true;
+    var m = (rowMethod||'').toLowerCase();
+    if(filter==='income') return m.indexOf('income')>=0;
+    if(filter==='dcf') return m === 'dcf';
+    if(filter==='sales') return m.indexOf('sales')>=0;
+    return true;
+  }
+  function typeMatches(rowBadge, filter){
+    if(!filter) return true;
+    var b = (rowBadge||'').toLowerCase();
+    if(filter==='office') return b==='off';
+    if(filter==='multifamily') return b==='mf';
+    if(filter==='retail') return b==='ret';
+    if(filter==='industrial') return b==='ind';
+    return true;
+  }
+  function parseDollar(s){
+    var m = (s||'').match(/\$([0-9.]+)/);
+    return m ? parseFloat(m[1]) : 0;
+  }
+  function applyFilter(){
+    var st = getParams();
+    var rows = document.querySelectorAll('.card table.tbl tbody tr');
+    var shown=0, totalApp=0, totalMod=0, capRateSum=0, capRateN=0;
+    rows.forEach(function(r){
+      if(r.classList.contains('tot-r')) return;
+      var cells = r.querySelectorAll('td');
+      if(cells.length < 3) return;
+      var badge = (cells[1].querySelector('.badge')||{}).textContent || '';
+      var method = cells[2].textContent.trim();
+      var keep = methodMatches(method, st.method) && typeMatches(badge, st.type);
+      r.style.display = keep ? '' : 'none';
+      if(keep){
+        shown++;
+        totalApp += parseDollar(cells[3].textContent);
+        totalMod += parseDollar(cells[4].textContent);
+        var crm = cells[7].textContent.match(/([0-9.]+)/);
+        if(crm){ capRateSum += parseFloat(crm[1]); capRateN++; }
+      }
+    });
+    var tot = document.querySelector('.card table.tbl tbody tr.tot-r');
+    if(tot) tot.style.display = (st.method || st.type) ? 'none' : '';
+    var cm = document.querySelector('.card .ch .cm');
+    if(cm){
+      if(st.method || st.type){
+        var bits = [];
+        if(st.type) bits.push(st.type.charAt(0).toUpperCase()+st.type.slice(1));
+        if(st.method) bits.push(st.method.charAt(0).toUpperCase()+st.method.slice(1));
+        cm.textContent = bits.join(' \u00b7 ') + ' \u00b7 ' + shown + ' loan' + (shown===1?'':'s') + ' shown';
+      } else {
+        cm.textContent = 'All 24 loans \u00b7 click loan to drill into detail';
+      }
+    }
+    var kpis = document.querySelectorAll('.krow.k4 .kpi .kv');
+    var subs = document.querySelectorAll('.krow.k4 .kpi .ks');
+    if(kpis.length >= 4 && (st.method || st.type)){
+      kpis[0].textContent = totalMod >= 1000 ? '$' + (totalMod/1000).toFixed(2) + 'bn' : '$' + Math.round(totalMod) + 'mm';
+      if(subs[0]) subs[0].textContent = 'Filtered subset';
+      kpis[2].textContent = capRateN > 0 ? (capRateSum/capRateN).toFixed(1) + '%' : '\u2014';
+      if(subs[2]) subs[2].textContent = 'Filtered avg';
+      kpis[3].textContent = shown + ' / 24';
+      if(subs[3]) subs[3].textContent = 'Filtered subset';
+    }
+    var status = document.getElementById('valFilterStatus');
+    if(status){
+      if(st.method || st.type){
+        var sBits = [];
+        if(st.type) sBits.push(st.type.charAt(0).toUpperCase()+st.type.slice(1));
+        if(st.method) sBits.push(st.method+' approach');
+        status.textContent = '\u00a0\u00b7\u00a0Filtered: ' + sBits.join(' + ');
+      } else {
+        status.textContent = '';
+      }
+    }
+  }
+  function navigate(updates){
+    var p = new URLSearchParams(location.search);
+    Object.keys(updates).forEach(function(k){
+      if(updates[k]) p.set(k, updates[k]); else p.delete(k);
+    });
+    var qs = p.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?'+qs : ''));
+    setOn();
+    applyFilter();
+  }
+  function wire(){
+    document.querySelectorAll('#valPills .pill').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        navigate({ method: a.getAttribute('data-method') });
+      });
+    });
+    document.querySelectorAll('#valTypePills .pill').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        navigate({ type: a.getAttribute('data-type') });
+      });
+    });
+    setOn();
+    applyFilter();
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', wire);
+  } else {
+    wire();
+  }
+})();
+</script>
+
 </body></html>

@@ -6,8 +6,8 @@
 :root{
   --n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--ink:#0E1C2A;
   --g:#059669;--r:#DC2626;--y:#D97706;--teal:#0891B2;
-  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#9CA3AF;
-  --text:#0A1628;--sub:#6B7280;
+  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#4B5563;
+  --text:#0A1628;--sub:#374151;
 }
 body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 .shell{display:grid;grid-template-columns:210px 1fr;grid-template-rows:52px 1fr;min-height:100vh}
@@ -15,17 +15,17 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 /* topbar */
 .tb{grid-column:1/-1;background:var(--n);display:flex;align-items:center;padding:0 22px;gap:12px;height:52px;border-bottom:3px solid var(--a)}
 .logo{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;color:#fff;letter-spacing:-.2px;flex-shrink:0}
-.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.45);margin-left:2px;letter-spacing:.02em}
+.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.78);margin-left:2px;letter-spacing:.02em}
 .tb-tag{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(153,190,228,.3);border-radius:20px;flex-shrink:0}
 .tb-sep{flex:1}
-.tb-crumb{font-size:11px;color:rgba(255,255,255,.42)}
-.tb-crumb .cur{color:rgba(255,255,255,.85);font-weight:500}
+.tb-crumb{font-size:11px;color:rgba(255,255,255,.72)}
+.tb-crumb .cur{color:rgba(255,255,255,.92);font-weight:500}
 .tb-crumb .sep{margin:0 4px;opacity:.3}
 .tb-client{font-size:11px;font-weight:500;color:var(--s)}
 .tb-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
 .bw-pill{display:flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;flex-shrink:0}
 .bw-pill-lbl{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;text-transform:uppercase}
-.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.55)}
+.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.82)}
 
 /* sidebar */
 .sb{background:var(--card);border-right:1px solid var(--border);padding:14px 0;overflow-y:auto}
@@ -167,10 +167,10 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-logo-area{display:flex;align-items:center;gap:12px}
 .flash-client-logo{font-size:13px;font-weight:600;color:#fff;padding:4px 10px;border:1px solid rgba(255,255,255,.25);border-radius:4px}
 .flash-divider-v{width:1px;height:20px;background:rgba(255,255,255,.2)}
-.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.7);font-weight:400}
+.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.90);font-weight:400}
 .flash-title-area{text-align:right}
 .flash-report-type{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase}
-.flash-as-of{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
+.flash-as-of{font-size:10px;color:rgba(255,255,255,.80);margin-top:1px}
 .flash-deal-bar{background:#EBF2FA;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:12px}
 .flash-deal-name{font-size:14px;font-weight:700;color:var(--n);flex:1}
 .flash-metric{text-align:center;min-width:80px}
@@ -183,7 +183,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-key-metrics{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fkm{padding:6px 8px;text-align:center;border-right:1px solid var(--border);background:var(--n)}
 .fkm:last-child{border-right:none}
-.fkm-l{font-size:8px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.fkm-l{font-size:8px;color:rgba(255,255,255,.92);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
 .fkm-v{font-size:11px;font-weight:700;color:#fff}
 .flash-cap-stack{border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fcs-header{background:var(--n);padding:6px 10px;font-size:10px;font-weight:700;color:#fff;text-align:center}
@@ -238,7 +238,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .embed-frame{border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .embed-top{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-bottom:1px solid #F3F4F6;background:var(--n)}
 .embed-title{font-size:11px;font-weight:600;color:#fff}
-.embed-src{font-size:9px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
+.embed-src{font-size:9px;color:rgba(255,255,255,.80);display:flex;align-items:center;gap:4px}
 .live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--g);margin-right:3px}
 
 .sd{display:flex;align-items:center;gap:8px;margin:2px 0}
@@ -296,6 +296,13 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !
 html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
 html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
 
+
+/* BW/Client role tags for activity feed */
+.role-tag{display:inline-block;font-size:8px;font-weight:700;padding:1px 6px;border-radius:10px;letter-spacing:.04em;margin-right:5px;vertical-align:middle}
+.role-tag.bw{background:#EBF2FA;color:#1C2B5A;border:1px solid #99BEE4}
+.role-tag.client{background:#FEF3C7;color:#92400E;border:1px solid #FCD34D}
+html[data-theme="dark"] .role-tag.bw{background:#1A2540 !important;color:#9BBCFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .role-tag.client{background:#3B2A0B !important;color:#FCD34D !important;border-color:#92400E !important}
 </style>
 
 <style>
@@ -303,7 +310,7 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !
 :root{
   --n:#1C2B5A; --a:#0066AF; --s:#99BEE4;
   --bg:#F4F5F7; --card:#fff; --border:#E2E5EA;
-  --text:#0A1628; --sub:#6B7280; --muted:#9CA3AF;
+  --text:#0A1628; --sub:#374151; --muted:#4B5563;
   --g:#059669; --r:#DC2626; --y:#D97706; --teal:#0891B2;
   --bar-grad-a: linear-gradient(180deg, #1C77D8 0%, #0066AF 100%);
   --bar-shadow: 0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.10) inset;
@@ -349,7 +356,7 @@ html[data-theme="dark"] .brf{ filter: brightness(1.1) }
 
 /* Theme toggle button */
 .theme-toggle{ display:inline-flex; align-items:center; gap:6px; padding:4px 9px; border-radius:14px;
-  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.90);
   font-size:10px; font-weight:600; cursor:pointer; letter-spacing:.04em; user-select:none; transition:background .15s }
 .theme-toggle:hover{ background:rgba(255,255,255,.16); color:#fff }
 .theme-toggle .tt-dot{ width:8px; height:8px; border-radius:50%; background:#FBBF24 }
@@ -511,8 +518,8 @@ html[data-theme="dark"] .dm2, html[data-theme="dark"] .dd{ color:#9BBCFF !import
 .docprev-head{ background:var(--n); color:#fff; padding:14px 16px 12px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border) }
 .docprev-head-icon{ width:34px; height:34px; border-radius:6px; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; flex-shrink:0 }
 .docprev-head-title{ font-family:'DM Serif Display',serif; font-size:15px; line-height:1.15; font-weight:400 }
-.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.6); margin-top:2px }
-.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.7); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
+.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.92); margin-top:2px }
+.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.90); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
 .docprev-close:hover{ color:#fff }
 .docprev-body{ flex:1; overflow:auto; padding:18px 18px 24px; background:var(--bg); color:var(--text) }
 .docprev-meta{ display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; font-size:11px; padding:10px 14px; background:var(--card); border:1px solid var(--border); border-radius:6px; margin-bottom:14px }
@@ -585,7 +592,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
   }
   function defaultPreview(opts){
     var loan = opts.loan || '333 West Wacker';
-    var date = opts.date || 'Q1 2026';
+    var date = opts.date || '1Q 2026';
     var meta = ''
       + '<div class="docprev-meta">'
       + '  <div><dt>Loan</dt><dd>'+loan+'</dd></div>'
@@ -597,15 +604,15 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
     return meta
       + '<div class="docprev-page">'
       + '  <h1>'+(opts.title||'Document Preview')+'</h1>'
-      + '  <p style="font-style:italic;color:#6B7280">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
+      + '  <p style="font-style:italic;color:#4B5563">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
       + '  <h2>Summary</h2><p>'+summary+'</p>'
       + '  <h2>Selected metrics</h2>'
       + '  <ul style="padding-left:18px">'
-      + '    <li>UPB: $173.1mm of $185.0mm original</li>'
+      + '    <li>UPB: $173.1mm of $185mm original</li>'
       + '    <li>Interest rate: 6.00% fixed (IO period · 40 mo. remaining)</li>'
-      + '    <li>Occupancy: 78.3% (Q1 2026 tape)</li>'
-      + '    <li>In-place LTV: 60.1% &middot; Debt yield: 9.8%</li>'
-      + '    <li>Maturity: July 10, 2031</li>'
+      + '    <li>Occupancy: 78.3% (1Q 2026 tape)</li>'
+      + '    <li>In-place LTV: 60% &middot; DY: 9.8%</li>'
+      + '    <li>Maturity: 07/10/2031</li>'
       + '  </ul>'
       + '  <h2>Notes</h2>'
       + '  <p>This is a stylised in-app preview. In production, the slide-out would render the actual PDF / Excel / Word document from the document store with full pagination and download controls.</p>'
@@ -621,7 +628,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
       sub:   el.getAttribute('data-doc-sub')   || 'Bellwether Asset Management',
       kind:  el.getAttribute('data-doc-kind')  || 'PDF',
       loan:  el.getAttribute('data-doc-loan')  || '333 West Wacker',
-      date:  el.getAttribute('data-doc-date')  || 'Q1 2026',
+      date:  el.getAttribute('data-doc-date')  || '1Q 2026',
       summary: el.getAttribute('data-doc-summary') || ''
     });
   });
@@ -731,9 +738,9 @@ html[data-theme="dark"] .doc-view-btn:hover{ background:#7AA5F4 !important; colo
 <!-- PIMCO-PORTAL-SEARCH-V1 -->
 .gsearch{position:relative;display:flex;align-items:center;gap:6px;margin-left:18px}
 .gsearch-input{width:240px;padding:5px 10px 5px 28px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;outline:none;transition:background .15s, border-color .15s}
-.gsearch-input::placeholder{color:rgba(255,255,255,.45)}
+.gsearch-input::placeholder{color:rgba(255,255,255,.78)}
 .gsearch-input:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);width:300px}
-.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.55);pointer-events:none}
+.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.82);pointer-events:none}
 .gsearch-dd{position:absolute;top:36px;left:0;width:340px;max-height:360px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 14px 32px rgba(11,31,79,.22);z-index:9994;display:none;padding:4px 0}
 .gsearch-dd.open{display:block}
 .gsearch-item{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:1px solid #F3F4F6;cursor:pointer;text-decoration:none;color:var(--text)}
@@ -850,7 +857,7 @@ html[data-theme="dark"] .compose textarea,
 html[data-theme="dark"] .sigma-input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] input[type="text"]::placeholder{color:#9EAAC4 !important}
 html[data-theme="dark"] .gsearch-input{background:rgba(255,255,255,.10) !important;color:#FFFFFF !important;border-color:rgba(255,255,255,.18) !important}
-html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.55) !important}
+html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.82) !important}
 html[data-theme="dark"] #loanSel{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD{background:#162035 !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
@@ -898,7 +905,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <a class="ni sub" href="01_portfolio_overview.html?type=retail" style="text-decoration:none"><div class="dot dp"></div>Retail</a>
   <a class="ni sub" href="01_portfolio_overview.html?type=industrial" style="text-decoration:none"><div class="dot ds"></div>Industrial</a>
   <a class="ni sub" href="01_portfolio_overview.html?rating=YELLOW" style="text-decoration:none"><div class="dot dy"></div>Watchlist</a>
-  <a class="ni sub" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Valuation</a>
+  <div class="sb-div"></div>
+  <div class="sl">Valuation</div>
+  <a class="ni" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Overview</a>
   <div class="sb-div"></div>
   <div class="sl">Investments</div>
   <a class="ni on" href="10_servicing_overview.html" style="text-decoration:none"><div class="dot dr"></div>Overview</a>
@@ -912,10 +921,10 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 </div>
 <div class="main">
 
-<div class="ph"><span class="pt">Your loan portfolio</span><span class="ps">Asset-managed by Bellwether · Q1 2026 · 24 active loans · tape 03/26/2026</span></div>
+<div class="ph"><span class="pt">Your loan portfolio</span><span class="ps">Asset-managed by Bellwether · 1Q 2026 · 24 active loans · tape 03/26/2026</span></div>
 <div class="krow k4">
-  <div class="kpi"><div class="kl">Total Commitment</div><div class="kv">$1.24B</div><div class="ks nu">Across 24 loans</div></div>
-  <div class="kpi"><div class="kl">Total UPB</div><div class="kv">$1.00B</div><div class="ks nu">81% drawn</div></div>
+  <div class="kpi"><div class="kl">Total Commitment</div><div class="kv">$1.2bn</div><div class="ks nu">Across 24 loans</div></div>
+  <div class="kpi"><div class="kl">Total UPB</div><div class="kv">$1.0bn</div><div class="ks nu">81% drawn</div></div>
   <div class="kpi"><div class="kl">Watchlist Alerts</div><div class="kv">3</div><div class="ks wa">Yellow rated loans</div></div>
   <div class="kpi"><div class="kl">Last Tape Refresh</div><div class="kv">03/26/2026</div><div class="ks up">Fully reconciled</div></div>
 </div>
@@ -972,7 +981,30 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
       <option value="2032">2032</option>
       <option value="2033">2033+</option>
     </select>
-    <span style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Search</span>
+    <span style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Sponsor</span><select id="fltSponsor" style="font-family:inherit;font-size:11px;padding:4px 10px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--text);max-width:180px"><option value="">All sponsors</option>
+      <option value="Aetna Realty">Aetna Realty</option>
+      <option value="B.F. Saul Company">B.F. Saul Company</option>
+      <option value="Beacon Capital Partners, LLC">Beacon Capital Partners, LLC</option>
+      <option value="Bernstein Mgmt Corp">Bernstein Mgmt Corp</option>
+      <option value="De Anza Properties">De Anza Properties</option>
+      <option value="Eastbanc, Inc.">Eastbanc, Inc.</option>
+      <option value="Granite Properties">Granite Properties</option>
+      <option value="Helm Equities">Helm Equities</option>
+      <option value="Hubb NYC Properties">Hubb NYC Properties</option>
+      <option value="Hubb Realty">Hubb Realty</option>
+      <option value="Investco, LLC">Investco, LLC</option>
+      <option value="John Lawrence">John Lawrence</option>
+      <option value="Kraus-Anderson Inc">Kraus-Anderson Inc</option>
+      <option value="LaSalle Investment Mgmt">LaSalle Investment Mgmt</option>
+      <option value="Majestic Realty">Majestic Realty</option>
+      <option value="Matrix Development">Matrix Development</option>
+      <option value="MetLife Investment Mgmt">MetLife Investment Mgmt</option>
+      <option value="Northwood Investors">Northwood Investors</option>
+      <option value="Pearl Properties">Pearl Properties</option>
+      <option value="Sidal Realty">Sidal Realty</option>
+      <option value="The Wood Companies">The Wood Companies</option>
+      <option value="Venterra Realty Mgmt">Venterra Realty Mgmt</option>
+      <option value="Warehouse Associates">Warehouse Associates</option></select><span style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Search</span>
     <input id="fltSearch" type="text" placeholder="Name, sponsor, city, loan #" style="font-family:inherit;font-size:11px;padding:4px 10px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--text);width:180px;outline:none;flex:1;min-width:160px">
     <button id="fltClear" type="button" style="font-family:inherit;font-size:10px;padding:4px 11px;border:1px solid var(--border);border-radius:14px;background:#fff;color:var(--sub);cursor:pointer">Clear</button>
     <span id="fltCount" style="margin-left:auto;font-size:10px;color:var(--muted);font-weight:500">— loans</span>
@@ -986,8 +1018,8 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <div style="max-height:600px;overflow-y:auto">
   <table class="tbl">
     <thead style="position:sticky;top:0;z-index:5;background:#0B2D4F;color:#fff"><tr>
-  <th data-sort="name" style="width:22%;cursor:pointer;user-select:none">Loan name <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
-  <th data-sort="no" style="cursor:pointer;user-select:none">Loan # <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
+  <th data-sort="name" style="width:17%;cursor:pointer;user-select:none">Loan name <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
+  <th data-sort="no" style="cursor:pointer;user-select:none">Loan # <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th><th data-sort="sponsor" style="width:14%;cursor:pointer;user-select:none">Sponsor <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
   <th data-sort="orig" class="tr" style="cursor:pointer;user-select:none">Commitment <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
   <th data-sort="upb" class="tr" style="cursor:pointer;user-select:none">UPB <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
   <th data-sort="rate" class="tr" style="cursor:pointer;user-select:none">Rate <span class="sort-ind" style="font-size:8px;opacity:.5">&#x21C5;</span></th>
@@ -998,168 +1030,168 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 </tr></thead>
     <tbody>
       <tr>
-        <td><a href="03_asset_debt.html">333 West Wacker</a></td><td>#11088</td>
+        <td><a href="03_asset_debt.html">333 West Wacker</a></td><td>#11088</td><td style="font-size:10.5px;line-height:1.3">Beacon Capital Partners, LLC</td>
         <td class="tr">$185mm</td><td class="tr">$173.1mm</td>
         <td class="tr">6.00%</td><td class="tr">0.00x</td><td class="tr">60%</td>
         <td class="tr">07/01/2031</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10999">Intersect</a></td><td>#10999</td>
+        <td><a href="loan.html?id=10999">Intersect</a></td><td>#10999</td><td style="font-size:10.5px;line-height:1.3">MetLife Investment Mgmt</td>
         <td class="tr">$118mm</td><td class="tr">$117.6mm</td>
         <td class="tr">4.68%</td><td class="tr">2.65x</td><td class="tr">76%</td>
         <td class="tr">07/01/2032</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10848">Granite TX Office Portfolio</a></td><td>#10848</td>
+        <td><a href="loan.html?id=10848">Granite TX Office Portfolio</a></td><td>#10848</td><td style="font-size:10.5px;line-height:1.3">Granite Properties</td>
         <td class="tr">$120mm</td><td class="tr">$110.1mm</td>
         <td class="tr">3.22%</td><td class="tr">1.56x</td><td class="tr">69%</td>
         <td class="tr">04/01/2028</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10318">101 North Wacker</a></td><td>#10318</td>
+        <td><a href="loan.html?id=10318">101 North Wacker</a></td><td>#10318</td><td style="font-size:10.5px;line-height:1.3">LaSalle Investment Mgmt</td>
         <td class="tr">$116mm</td><td class="tr">$72.4mm</td>
         <td class="tr">6.00%</td><td class="tr">1.55x</td><td class="tr">96%</td>
         <td class="tr">04/01/2029</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10767">715 Peachtree Street</a></td><td>#10767</td>
-        <td class="tr">$60mm</td><td class="tr">$60.0mm</td>
+        <td><a href="loan.html?id=10767">715 Peachtree Street</a></td><td>#10767</td><td style="font-size:10.5px;line-height:1.3">Northwood Investors</td>
+        <td class="tr">$60mm</td><td class="tr">$60mm</td>
         <td class="tr">3.70%</td><td class="tr">3.45x</td><td class="tr">79%</td>
         <td class="tr">08/01/2031</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="02_asset_equity.html">The Beacon Apartments</a></td><td>#10556</td>
-        <td class="tr">$54mm</td><td class="tr">$46.0mm</td>
+        <td><a href="02_asset_equity.html">The Beacon Apartments</a></td><td>#10556</td><td style="font-size:10.5px;line-height:1.3">Pearl Properties</td>
+        <td class="tr">$54mm</td><td class="tr">$46mm</td>
         <td class="tr">4.35%</td><td class="tr">1.26x</td><td class="tr">90%</td>
         <td class="tr">10/01/2027</td>
         <td class="tr"><span title="Watchlist" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);box-shadow:0 0 0 2.5px rgba(217,119,6,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10945">Orleans at Fannin Station</a></td><td>#10945</td>
-        <td class="tr">$42mm</td><td class="tr">$42.0mm</td>
+        <td><a href="loan.html?id=10945">Orleans at Fannin Station</a></td><td>#10945</td><td style="font-size:10.5px;line-height:1.3">Warehouse Associates</td>
+        <td class="tr">$42mm</td><td class="tr">$42mm</td>
         <td class="tr">3.84%</td><td class="tr">2.05x</td><td class="tr">100%</td>
         <td class="tr">08/01/2041</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="02b_loan_ella.html">Ella Parkside</a></td><td>#11047</td>
-        <td class="tr">$41mm</td><td class="tr">$41.0mm</td>
+        <td><a href="02b_loan_ella.html">Ella Parkside</a></td><td>#11047</td><td style="font-size:10.5px;line-height:1.3">Sidal Realty</td>
+        <td class="tr">$41mm</td><td class="tr">$41mm</td>
         <td class="tr">5.79%</td><td class="tr">1.32x</td><td class="tr">81%</td>
         <td class="tr">05/01/2028</td>
         <td class="tr"><span title="Watchlist" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FCD34D,#D97706);box-shadow:0 0 0 2.5px rgba(217,119,6,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10653">Apex West Midtown</a></td><td>#10653</td>
+        <td><a href="loan.html?id=10653">Apex West Midtown</a></td><td>#10653</td><td style="font-size:10.5px;line-height:1.3">Venterra Realty Mgmt</td>
         <td class="tr">$45mm</td><td class="tr">$39.7mm</td>
         <td class="tr">3.93%</td><td class="tr">1.12x</td><td class="tr">83%</td>
         <td class="tr">03/01/2028</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10587">55 Third Avenue-Cammeyer</a></td><td>#10587</td>
-        <td class="tr">$38mm</td><td class="tr">$38.0mm</td>
+        <td><a href="loan.html?id=10587">55 Third Avenue-Cammeyer</a></td><td>#10587</td><td style="font-size:10.5px;line-height:1.3">Hubb NYC Properties</td>
+        <td class="tr">$38mm</td><td class="tr">$38mm</td>
         <td class="tr">4.01%</td><td class="tr">1.94x</td><td class="tr">85%</td>
         <td class="tr">10/01/2027</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10380">8201 Greensboro Drive</a></td><td>#10380</td>
+        <td><a href="loan.html?id=10380">8201 Greensboro Drive</a></td><td>#10380</td><td style="font-size:10.5px;line-height:1.3">B.F. Saul Company</td>
         <td class="tr">$60mm</td><td class="tr">$34.5mm</td>
         <td class="tr">3.90%</td><td class="tr">0.89x</td><td class="tr">81%</td>
         <td class="tr">10/01/2035</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=11098">Charleston at Fannin Station</a></td><td>#11098</td>
+        <td><a href="loan.html?id=11098">Charleston at Fannin Station</a></td><td>#11098</td><td style="font-size:10.5px;line-height:1.3">Warehouse Associates</td>
         <td class="tr">$35mm</td><td class="tr">$34.4mm</td>
         <td class="tr">5.60%</td><td class="tr">1.08x</td><td class="tr">78%</td>
         <td class="tr">12/01/2044</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10401">Walnut Creek Business Park</a></td><td>#10401</td>
+        <td><a href="loan.html?id=10401">Walnut Creek Business Park</a></td><td>#10401</td><td style="font-size:10.5px;line-height:1.3">Majestic Realty</td>
         <td class="tr">$54mm</td><td class="tr">$32.7mm</td>
         <td class="tr">4.32%</td><td class="tr">2.24x</td><td class="tr">48%</td>
         <td class="tr">03/01/2028</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10548">World Kitchen Distribution</a></td><td>#10548</td>
+        <td><a href="loan.html?id=10548">World Kitchen Distribution</a></td><td>#10548</td><td style="font-size:10.5px;line-height:1.3">Matrix Development</td>
         <td class="tr">$33mm</td><td class="tr">$27.6mm</td>
         <td class="tr">4.25%</td><td class="tr">2.75x</td><td class="tr">49%</td>
         <td class="tr">06/01/2027</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10448">122 South Michigan Avenue</a></td><td>#10448</td>
+        <td><a href="loan.html?id=10448">122 South Michigan Avenue</a></td><td>#10448</td><td style="font-size:10.5px;line-height:1.3">Aetna Realty</td>
         <td class="tr">$23mm</td><td class="tr">$16.6mm</td>
         <td class="tr">3.85%</td><td class="tr">1.30x</td><td class="tr">80%</td>
         <td class="tr">07/01/2026</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10436">Seaport Logistics Center</a></td><td>#10436</td>
-        <td class="tr">$20mm</td><td class="tr">$16.0mm</td>
+        <td><a href="loan.html?id=10436">Seaport Logistics Center</a></td><td>#10436</td><td style="font-size:10.5px;line-height:1.3">Investco, LLC</td>
+        <td class="tr">$20mm</td><td class="tr">$16mm</td>
         <td class="tr">3.85%</td><td class="tr">1.05x</td><td class="tr">38%</td>
         <td class="tr">07/01/2026</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10894">600 Pennsylvania Avenue</a></td><td>#10894</td>
+        <td><a href="loan.html?id=10894">600 Pennsylvania Avenue</a></td><td>#10894</td><td style="font-size:10.5px;line-height:1.3">Bernstein Mgmt Corp</td>
         <td class="tr">$18mm</td><td class="tr">$15.9mm</td>
         <td class="tr">3.20%</td><td class="tr">1.32x</td><td class="tr">82%</td>
         <td class="tr">11/01/2030</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10526">185 Avenue B Apartments</a></td><td>#10526</td>
+        <td><a href="loan.html?id=10526">185 Avenue B Apartments</a></td><td>#10526</td><td style="font-size:10.5px;line-height:1.3">Hubb Realty</td>
         <td class="tr">$17mm</td><td class="tr">$15.6mm</td>
         <td class="tr">4.28%</td><td class="tr">1.40x</td><td class="tr">91%</td>
         <td class="tr">09/01/2032</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10721">Brunner Building</a></td><td>#10721</td>
+        <td><a href="loan.html?id=10721">Brunner Building</a></td><td>#10721</td><td style="font-size:10.5px;line-height:1.3">The Wood Companies</td>
         <td class="tr">$15mm</td><td class="tr">$13.4mm</td>
         <td class="tr">4.92%</td><td class="tr">1.15x</td><td class="tr">102%</td>
         <td class="tr">01/01/2039</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10207">Georgetown Retail</a></td><td>#10207</td>
+        <td><a href="loan.html?id=10207">Georgetown Retail</a></td><td>#10207</td><td style="font-size:10.5px;line-height:1.3">Eastbanc, Inc.</td>
         <td class="tr">$18mm</td><td class="tr">$13.3mm</td>
         <td class="tr">4.72%</td><td class="tr">1.36x</td><td class="tr">77%</td>
         <td class="tr">11/01/2027</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10239">Trader Joes</a></td><td>#10239</td>
+        <td><a href="loan.html?id=10239">Trader Joes</a></td><td>#10239</td><td style="font-size:10.5px;line-height:1.3">Helm Equities</td>
         <td class="tr">$16mm</td><td class="tr">$12.8mm</td>
         <td class="tr">4.31%</td><td class="tr">1.10x</td><td class="tr">81%</td>
         <td class="tr">08/01/2033</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=11089">333 West Wacker</a></td><td>#11089</td>
+        <td><a href="loan.html?id=11089">333 West Wacker</a></td><td>#11089</td><td style="font-size:10.5px;line-height:1.3">John Lawrence</td>
         <td class="tr">$76mm</td><td class="tr">$12.6mm</td>
         <td class="tr">6.00%</td><td class="tr">0.00x</td><td class="tr">4%</td>
         <td class="tr">07/01/2031</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=10927">C9 Flats Apartments</a></td><td>#10927</td>
+        <td><a href="loan.html?id=10927">C9 Flats Apartments</a></td><td>#10927</td><td style="font-size:10.5px;line-height:1.3">De Anza Properties</td>
         <td class="tr">$12mm</td><td class="tr">$11.7mm</td>
         <td class="tr">2.82%</td><td class="tr">1.51x</td><td class="tr">78%</td>
         <td class="tr">07/01/2031</td>
         <td class="tr"><span title="Current" style="display:inline-block;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#86EFAC,#16A34A);box-shadow:0 0 0 2.5px rgba(22,163,74,.22)"></span></td>
       </tr>
       <tr>
-        <td><a href="loan.html?id=9926">Prairie Lakes Corporate Center</a></td><td>#9926</td>
+        <td><a href="loan.html?id=9926">Prairie Lakes Corporate Center</a></td><td>#9926</td><td style="font-size:10.5px;line-height:1.3">Kraus-Anderson Inc</td>
         <td class="tr">$21mm</td><td class="tr">$6.4mm</td>
         <td class="tr">5.63%</td><td class="tr">0.84x</td><td class="tr">81%</td>
         <td class="tr">10/01/2030</td>
@@ -1326,9 +1358,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 })();
 </script>
 
-<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#6B7280;grid-column:1/-1">
+<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#4B5563;grid-column:1/-1">
   <div><a href="01_portfolio_overview.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; Portfolio overview</a></div>
-  <div style="color:#9CA3AF"><span style="color:#1C2B5A;font-weight:600">Loan portfolio</span></div>
+  <div style="color:#4B5563"><span style="color:#1C2B5A;font-weight:600">Loan portfolio</span></div>
   <div><a href="02_asset_equity.html" style="color:#0066AF;text-decoration:none;font-weight:500">The Beacon Apartments &rarr;</a></div>
 </nav>
 
@@ -1389,11 +1421,11 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     // MM/DD/YYYY → YYYYMMDD numeric for proper date sort
     var iso = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
     if(iso) return parseInt(iso[3],10)*10000 + parseInt(iso[1],10)*100 + parseInt(iso[2],10);
-    // "Jul 2031" fallback
+    // "07/2031" fallback
     var months = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
     var d = s.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})$/);
     if(d) return parseInt(d[2],10)*100 + months[d[1]];
-    // Dollar shorthand $185mm, $1.00B
+    // Dollar shorthand $185mm, $1.0bn
     var dol = s.match(/\$?([0-9.]+)\s*(b|B|mm|MM|m|M|k|K)?/);
     if(dol){
       var val = parseFloat(dol[1]);
@@ -1410,6 +1442,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     var rating = (document.getElementById('fltRating').value||'').toUpperCase();
     var year   = document.getElementById('fltYear').value;
     var q      = (document.getElementById('fltSearch').value||'').toLowerCase().trim();
+    var sponsor = (document.getElementById('fltSponsor')||{value:''}).value;
     var rows   = document.querySelectorAll('table.tbl tbody tr');
     var shown  = 0;
     rows.forEach(function(r){
@@ -1419,6 +1452,7 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         if(type && m.type !== type) keep = false;
         if(rating && m.rating !== rating) keep = false;
         if(year && m.year !== year) keep = false;
+        if(sponsor && m.spn !== sponsor) keep = false;
         if(q){
           var hay = (m.name+' '+m.no+' '+m.spn+' '+m.loc+' '+m.type).toLowerCase();
           if(hay.indexOf(q) < 0) keep = false;
@@ -1440,8 +1474,8 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
     var asc = tbody.dataset.sortKey === key ? tbody.dataset.sortAsc !== 'true' : true;
     tbody.dataset.sortKey = key;
     tbody.dataset.sortAsc = String(asc);
-    var idx = {name:0,no:1,orig:2,upb:3,rate:4,dscr:5,ltv:6,maturity:7}[key];
-    var isText = (key === 'name');
+    var idx = {name:0,no:1,sponsor:2,orig:3,upb:4,rate:5,dscr:6,ltv:7,maturity:8}[key];
+    var isText = (key === 'name' || key === 'sponsor');
     rows.sort(function(a,b){
       var ax = (a.querySelectorAll('td')[idx] && a.querySelectorAll('td')[idx].textContent.trim()) || '';
       var bx = (b.querySelectorAll('td')[idx] && b.querySelectorAll('td')[idx].textContent.trim()) || '';
@@ -1462,15 +1496,28 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
       if(ind) ind.textContent = label;
     });
   }
+
+  function hydrateFromUrl(){
+    var p = new URLSearchParams(location.search);
+    var setVal = function(id, val){ var el = document.getElementById(id); if(el && val){ el.value = val; } };
+    setVal('fltType', p.get('type') || '');
+    setVal('fltRating', p.get('rating') || '');
+    setVal('fltYear', p.get('year') || '');
+    setVal('fltSponsor', p.get('sponsor') || '');
+    var q = p.get('search') || p.get('q');
+    setVal('fltSearch', q || '');
+    applyFilters();
+  }
   function wire(){
     stampRows();
-    ['fltType','fltRating','fltYear','fltSearch'].forEach(function(id){
+    hydrateFromUrl();
+    ['fltType','fltRating','fltYear','fltSearch','fltSponsor'].forEach(function(id){
       var el = document.getElementById(id);
       if(el){ el.addEventListener('input', applyFilters); el.addEventListener('change', applyFilters); }
     });
     var clr = document.getElementById('fltClear');
     if(clr) clr.addEventListener('click', function(){
-      ['fltType','fltRating','fltYear','fltSearch'].forEach(function(id){
+      ['fltType','fltRating','fltYear','fltSearch','fltSponsor'].forEach(function(id){
         var el = document.getElementById(id); if(el) el.value = '';
       });
       applyFilters();

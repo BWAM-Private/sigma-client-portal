@@ -6,8 +6,8 @@
 :root{
   --n:#1C2B5A;--a:#0066AF;--s:#99BEE4;--ink:#0E1C2A;
   --g:#059669;--r:#DC2626;--y:#D97706;--teal:#0891B2;
-  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#9CA3AF;
-  --text:#0A1628;--sub:#6B7280;
+  --bg:#F4F5F7;--card:#fff;--border:#E2E5EA;--muted:#4B5563;
+  --text:#0A1628;--sub:#374151;
 }
 body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 .shell{display:grid;grid-template-columns:210px 1fr;grid-template-rows:52px 1fr;min-height:100vh}
@@ -15,17 +15,17 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 /* topbar */
 .tb{grid-column:1/-1;background:var(--n);display:flex;align-items:center;padding:0 22px;gap:12px;height:52px;border-bottom:3px solid var(--a)}
 .logo{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;color:#fff;letter-spacing:-.2px;flex-shrink:0}
-.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.45);margin-left:2px;letter-spacing:.02em}
+.logo-sub{font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.78);margin-left:2px;letter-spacing:.02em}
 .tb-tag{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(153,190,228,.3);border-radius:20px;flex-shrink:0}
 .tb-sep{flex:1}
-.tb-crumb{font-size:11px;color:rgba(255,255,255,.42)}
-.tb-crumb .cur{color:rgba(255,255,255,.85);font-weight:500}
+.tb-crumb{font-size:11px;color:rgba(255,255,255,.72)}
+.tb-crumb .cur{color:rgba(255,255,255,.92);font-weight:500}
 .tb-crumb .sep{margin:0 4px;opacity:.3}
 .tb-client{font-size:11px;font-weight:500;color:var(--s)}
 .tb-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
 .bw-pill{display:flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;flex-shrink:0}
 .bw-pill-lbl{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.05em;text-transform:uppercase}
-.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.55)}
+.bw-pill-name{font-size:10px;font-weight:500;color:rgba(255,255,255,.82)}
 
 /* sidebar */
 .sb{background:var(--card);border-right:1px solid var(--border);padding:14px 0;overflow-y:auto}
@@ -167,10 +167,10 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-logo-area{display:flex;align-items:center;gap:12px}
 .flash-client-logo{font-size:13px;font-weight:600;color:#fff;padding:4px 10px;border:1px solid rgba(255,255,255,.25);border-radius:4px}
 .flash-divider-v{width:1px;height:20px;background:rgba(255,255,255,.2)}
-.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.7);font-weight:400}
+.flash-bw-logo{font-family:'DM Serif Display',serif;font-size:14px;color:rgba(255,255,255,.90);font-weight:400}
 .flash-title-area{text-align:right}
 .flash-report-type{font-size:9px;font-weight:600;color:var(--s);letter-spacing:.08em;text-transform:uppercase}
-.flash-as-of{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
+.flash-as-of{font-size:10px;color:rgba(255,255,255,.80);margin-top:1px}
 .flash-deal-bar{background:#EBF2FA;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:12px}
 .flash-deal-name{font-size:14px;font-weight:700;color:var(--n);flex:1}
 .flash-metric{text-align:center;min-width:80px}
@@ -183,7 +183,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .flash-key-metrics{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fkm{padding:6px 8px;text-align:center;border-right:1px solid var(--border);background:var(--n)}
 .fkm:last-child{border-right:none}
-.fkm-l{font-size:8px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.fkm-l{font-size:8px;color:rgba(255,255,255,.92);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
 .fkm-v{font-size:11px;font-weight:700;color:#fff}
 .flash-cap-stack{border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fcs-header{background:var(--n);padding:6px 10px;font-size:10px;font-weight:700;color:#fff;text-align:center}
@@ -238,7 +238,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--bg);color:var(--tex
 .embed-frame{border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .embed-top{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-bottom:1px solid #F3F4F6;background:var(--n)}
 .embed-title{font-size:11px;font-weight:600;color:#fff}
-.embed-src{font-size:9px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
+.embed-src{font-size:9px;color:rgba(255,255,255,.80);display:flex;align-items:center;gap:4px}
 .live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--g);margin-right:3px}
 
 .sd{display:flex;align-items:center;gap:8px;margin:2px 0}
@@ -285,14 +285,14 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
   .sigma-head-icon svg{width:18px;height:18px}
   .sigma-head-title{font-family:'DM Serif Display',Georgia,serif;font-size:16px;font-weight:400;line-height:1.1}
   .sigma-head-sub{font-size:10.5px;color:rgba(255,255,255,.78);margin-top:2px;letter-spacing:.02em}
-  .sigma-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,.7);
+  .sigma-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,.90);
     cursor:pointer;font-size:18px;line-height:1;padding:2px 6px;border-radius:4px}
   .sigma-close:hover{background:rgba(255,255,255,.12);color:#fff}
 
   .sigma-body{padding:14px 14px 12px;overflow-y:auto;flex:1}
   .sigma-intro{font-size:12px;color:#374151;line-height:1.45;margin-bottom:12px}
   .sigma-intro b{color:#0E1C2A}
-  .sigma-section{font-size:9.5px;font-weight:600;color:#9CA3AF;letter-spacing:.10em;
+  .sigma-section{font-size:9.5px;font-weight:600;color:#4B5563;letter-spacing:.10em;
     text-transform:uppercase;margin:6px 0 8px}
   .sigma-chips{display:flex;flex-direction:column;gap:7px}
   .sigma-chip{text-align:left;background:#F4F7FB;border:1px solid #E2E8F2;border-radius:8px;
@@ -306,7 +306,7 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
   .sigma-msg{font-size:12px;line-height:1.45;padding:8px 11px;border-radius:8px;max-width:88%}
   .sigma-msg.u{background:#0066AF;color:#fff;align-self:flex-end;border-bottom-right-radius:2px}
   .sigma-msg.b{background:#F4F5F7;color:#0E1C2A;align-self:flex-start;border-bottom-left-radius:2px}
-  .sigma-msg.b em{color:#6B7280;font-style:normal}
+  .sigma-msg.b em{color:#4B5563;font-style:normal}
 
   .sigma-foot{border-top:1px solid #F0F2F5;padding:10px 12px;background:#FAFBFC;
     display:flex;align-items:center;gap:8px}
@@ -317,7 +317,7 @@ a.bw-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.
     color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
   .sigma-send:hover{background:#1C2B5A}
   .sigma-send svg{width:14px;height:14px}
-  .sigma-disclaimer{font-size:9.5px;color:#9CA3AF;text-align:center;padding:6px 12px 10px;
+  .sigma-disclaimer{font-size:9.5px;color:#4B5563;text-align:center;padding:6px 12px 10px;
     background:#FAFBFC}
 
 
@@ -359,6 +359,13 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"]{background:#10192E !
 html[data-theme="dark"] nav[aria-label="Portal pagination"] a{color:#7AA5F4 !important}
 html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !important}
 
+
+/* BW/Client role tags for activity feed */
+.role-tag{display:inline-block;font-size:8px;font-weight:700;padding:1px 6px;border-radius:10px;letter-spacing:.04em;margin-right:5px;vertical-align:middle}
+.role-tag.bw{background:#EBF2FA;color:#1C2B5A;border:1px solid #99BEE4}
+.role-tag.client{background:#FEF3C7;color:#92400E;border:1px solid #FCD34D}
+html[data-theme="dark"] .role-tag.bw{background:#1A2540 !important;color:#9BBCFF !important;border-color:#38436A !important}
+html[data-theme="dark"] .role-tag.client{background:#3B2A0B !important;color:#FCD34D !important;border-color:#92400E !important}
 </style>
 
 <style>
@@ -366,7 +373,7 @@ html[data-theme="dark"] nav[aria-label="Portal pagination"] span{color:#F2F5FB !
 :root{
   --n:#1C2B5A; --a:#0066AF; --s:#99BEE4;
   --bg:#F4F5F7; --card:#fff; --border:#E2E5EA;
-  --text:#0A1628; --sub:#6B7280; --muted:#9CA3AF;
+  --text:#0A1628; --sub:#374151; --muted:#4B5563;
   --g:#059669; --r:#DC2626; --y:#D97706; --teal:#0891B2;
   --bar-grad-a: linear-gradient(180deg, #1C77D8 0%, #0066AF 100%);
   --bar-shadow: 0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.10) inset;
@@ -412,7 +419,7 @@ html[data-theme="dark"] .brf{ filter: brightness(1.1) }
 
 /* Theme toggle button */
 .theme-toggle{ display:inline-flex; align-items:center; gap:6px; padding:4px 9px; border-radius:14px;
-  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.90);
   font-size:10px; font-weight:600; cursor:pointer; letter-spacing:.04em; user-select:none; transition:background .15s }
 .theme-toggle:hover{ background:rgba(255,255,255,.16); color:#fff }
 .theme-toggle .tt-dot{ width:8px; height:8px; border-radius:50%; background:#FBBF24 }
@@ -574,8 +581,8 @@ html[data-theme="dark"] .dm2, html[data-theme="dark"] .dd{ color:#9BBCFF !import
 .docprev-head{ background:var(--n); color:#fff; padding:14px 16px 12px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border) }
 .docprev-head-icon{ width:34px; height:34px; border-radius:6px; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; flex-shrink:0 }
 .docprev-head-title{ font-family:'DM Serif Display',serif; font-size:15px; line-height:1.15; font-weight:400 }
-.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.6); margin-top:2px }
-.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.7); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
+.docprev-head-sub{ font-size:10px; color:rgba(255,255,255,.92); margin-top:2px }
+.docprev-close{ margin-left:auto; background:transparent; border:none; color:rgba(255,255,255,.90); cursor:pointer; font-size:22px; line-height:1; padding:0 4px }
 .docprev-close:hover{ color:#fff }
 .docprev-body{ flex:1; overflow:auto; padding:18px 18px 24px; background:var(--bg); color:var(--text) }
 .docprev-meta{ display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; font-size:11px; padding:10px 14px; background:var(--card); border:1px solid var(--border); border-radius:6px; margin-bottom:14px }
@@ -648,7 +655,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
   }
   function defaultPreview(opts){
     var loan = opts.loan || '333 West Wacker';
-    var date = opts.date || 'Q1 2026';
+    var date = opts.date || '1Q 2026';
     var meta = ''
       + '<div class="docprev-meta">'
       + '  <div><dt>Loan</dt><dd>'+loan+'</dd></div>'
@@ -660,15 +667,15 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
     return meta
       + '<div class="docprev-page">'
       + '  <h1>'+(opts.title||'Document Preview')+'</h1>'
-      + '  <p style="font-style:italic;color:#6B7280">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
+      + '  <p style="font-style:italic;color:#4B5563">'+date+' &middot; '+loan+' &middot; '+(opts.sub||'Bellwether Asset Management')+'</p>'
       + '  <h2>Summary</h2><p>'+summary+'</p>'
       + '  <h2>Selected metrics</h2>'
       + '  <ul style="padding-left:18px">'
-      + '    <li>UPB: $173.1mm of $185.0mm original</li>'
+      + '    <li>UPB: $173.1mm of $185mm original</li>'
       + '    <li>Interest rate: 6.00% fixed (IO period · 40 mo. remaining)</li>'
-      + '    <li>Occupancy: 78.3% (Q1 2026 tape)</li>'
-      + '    <li>In-place LTV: 60.1% &middot; Debt yield: 9.8%</li>'
-      + '    <li>Maturity: July 10, 2031</li>'
+      + '    <li>Occupancy: 78.3% (1Q 2026 tape)</li>'
+      + '    <li>In-place LTV: 60% &middot; DY: 9.8%</li>'
+      + '    <li>Maturity: 07/10/2031</li>'
       + '  </ul>'
       + '  <h2>Notes</h2>'
       + '  <p>This is a stylised in-app preview. In production, the slide-out would render the actual PDF / Excel / Word document from the document store with full pagination and download controls.</p>'
@@ -684,7 +691,7 @@ html[data-theme="dark"] .docprev-page p, html[data-theme="dark"] .docprev-page l
       sub:   el.getAttribute('data-doc-sub')   || 'Bellwether Asset Management',
       kind:  el.getAttribute('data-doc-kind')  || 'PDF',
       loan:  el.getAttribute('data-doc-loan')  || '333 West Wacker',
-      date:  el.getAttribute('data-doc-date')  || 'Q1 2026',
+      date:  el.getAttribute('data-doc-date')  || '1Q 2026',
       summary: el.getAttribute('data-doc-summary') || ''
     });
   });
@@ -797,9 +804,9 @@ html[data-theme="dark"] .doc-view-btn:hover{ background:#7AA5F4 !important; colo
 <!-- PIMCO-PORTAL-SEARCH-V1 -->
 .gsearch{position:relative;display:flex;align-items:center;gap:6px;margin-left:18px}
 .gsearch-input{width:240px;padding:5px 10px 5px 28px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;outline:none;transition:background .15s, border-color .15s}
-.gsearch-input::placeholder{color:rgba(255,255,255,.45)}
+.gsearch-input::placeholder{color:rgba(255,255,255,.78)}
 .gsearch-input:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);width:300px}
-.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.55);pointer-events:none}
+.gsearch-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.82);pointer-events:none}
 .gsearch-dd{position:absolute;top:36px;left:0;width:340px;max-height:360px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 14px 32px rgba(11,31,79,.22);z-index:9994;display:none;padding:4px 0}
 .gsearch-dd.open{display:block}
 .gsearch-item{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:1px solid #F3F4F6;cursor:pointer;text-decoration:none;color:var(--text)}
@@ -916,7 +923,7 @@ html[data-theme="dark"] .compose textarea,
 html[data-theme="dark"] .sigma-input{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] input[type="text"]::placeholder{color:#9EAAC4 !important}
 html[data-theme="dark"] .gsearch-input{background:rgba(255,255,255,.10) !important;color:#FFFFFF !important;border-color:rgba(255,255,255,.18) !important}
-html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.55) !important}
+html[data-theme="dark"] .gsearch-input::placeholder{color:rgba(255,255,255,.82) !important}
 html[data-theme="dark"] #loanSel{background:#1A243F !important;color:#FFFFFF !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD{background:#162035 !important;border-color:#38436A !important}
 html[data-theme="dark"] #loanSelDD a{color:#FFFFFF !important;border-bottom-color:#2E3954 !important}
@@ -972,7 +979,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
   <a class="ni sub" href="01_portfolio_overview.html?type=retail" style="text-decoration:none"><div class="dot dp"></div>Retail</a>
   <a class="ni sub" href="01_portfolio_overview.html?type=industrial" style="text-decoration:none"><div class="dot ds"></div>Industrial</a>
   <a class="ni sub" href="01_portfolio_overview.html?rating=YELLOW" style="text-decoration:none"><div class="dot dy"></div>Watchlist</a>
-  <a class="ni sub" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Valuation</a>
+  <div class="sb-div"></div>
+  <div class="sl">Valuation</div>
+  <a class="ni" href="05_valuation.html" style="text-decoration:none"><div class="dot dy"></div>Overview</a>
   <div class="sb-div"></div>
   <div class="sl">Investments</div>
   <a class="ni" href="10_servicing_overview.html" style="text-decoration:none"><div class="dot dr"></div>Overview</a>
@@ -1019,28 +1028,28 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 <div class="three">
   <div class="card">
     <div class="ch">Loan documents</div>
-    <div class="dr2" data-doc-preview data-doc-title="Loan Agreement — 333 West Wacker" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="06/20/2024"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Loan Agreement &mdash; 333 West Wacker</div><div class="dm2">$185.0mm orig · 6.00% fixed · Executed 06/20/2024</div></div><button class="doc-view-btn" type="button">View</button></div>
+    <div class="dr2" data-doc-preview data-doc-title="Loan Agreement — 333 West Wacker" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="06/20/2024"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Loan Agreement &mdash; 333 West Wacker</div><div class="dm2">$185mm orig · 6.00% fixed · Executed 06/20/2024</div></div><button class="doc-view-btn" type="button">View</button></div>
     <div class="dr2" data-doc-preview data-doc-title="Mortgage / Deed of Trust" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="06/20/2024"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Mortgage &mdash; Chicago, IL</div><div class="dm2">Cook County · Doc #2401140892</div></div><button class="doc-view-btn" type="button">View</button></div>
     <div class="dr2" data-doc-preview data-doc-title="Guaranty Agreement" data-doc-loan="333 West Wacker" data-doc-kind="DOC" data-doc-date="06/20/2024"><div class="di di-doc">DOC</div><div style="min-width:0;flex:1"><div class="dn2">Guaranty Agreement</div><div class="dm2">Non-recourse · standard carve-outs · Executed</div></div><button class="doc-view-btn" type="button">View</button></div>
     <div class="dr2" data-doc-preview data-doc-title="Environmental Indemnity Agreement" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="06/20/2024"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Environmental Indemnity Agreement</div><div class="dm2">36-story Class A office, 875K SF · Executed</div></div><button class="doc-view-btn" type="button">View</button></div>
   </div>
   <div class="card">
     <div class="ch">Quarterly financials <span class="cm">Borrower-submitted · reviewed by Bellwether</span></div>
-    <div class="dr2" data-doc-preview data-doc-title="Q1 2026 Operating Statement &amp; Rent Roll" data-doc-loan="333 West Wacker" data-doc-kind="XLSX" data-doc-date="Mar 26, 2026"><div class="di di-xl">XLS</div><div style="min-width:0;flex:1"><div class="dn2">Q1 2026 Operating Statement &amp; Rent Roll</div><div class="dm2">Reviewed · 78% leased · Mar 26, 2026</div></div><button class="doc-view-btn" type="button">View</button></div>
-    <div class="dr2" data-doc-preview data-doc-title="Q4 2025 Operating Statement &amp; Rent Roll" data-doc-loan="333 West Wacker" data-doc-kind="XLSX" data-doc-date="Dec 31, 2025"><div class="di di-xl">XLS</div><div style="min-width:0;flex:1"><div class="dn2">Q4 2025 Operating Statement &amp; Rent Roll</div><div class="dm2">Reviewed · Covenants: pass · Dec 31, 2025</div></div><button class="doc-view-btn" type="button">View</button></div>
-    <div class="dr2" data-doc-preview data-doc-title="Q3 2025 Operating Statement &amp; Rent Roll" data-doc-loan="333 West Wacker" data-doc-kind="XLSX" data-doc-date="Sep 30, 2025"><div class="di di-xl">XLS</div><div style="min-width:0;flex:1"><div class="dn2">Q3 2025 Operating Statement &amp; Rent Roll</div><div class="dm2">Reviewed · Covenants: pass · Sep 30, 2025</div></div><button class="doc-view-btn" type="button">View</button></div>
-    <div class="dr2" data-doc-preview data-doc-title="2025 Audited Financials" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="Feb 28, 2026"><div class="di di-xl">XLS</div><div style="min-width:0;flex:1"><div class="dn2">2025 Audited Financials &mdash; Beacon Capital Partners</div><div class="dm2">CPA certified · Reviewed · Feb 28, 2026</div></div><button class="doc-view-btn" type="button">View</button></div>
+    <div class="dr2" data-doc-preview data-doc-title="1Q 2026 Operating Statement &amp; Rent Roll" data-doc-loan="333 West Wacker" data-doc-kind="XLSX" data-doc-date="03/26/2026"><div class="di di-xl">XLS</div><div style="min-width:0;flex:1"><div class="dn2">1Q 2026 Operating Statement &amp; Rent Roll</div><div class="dm2">Reviewed · 78% leased · 03/26/2026</div></div><button class="doc-view-btn" type="button">View</button></div>
+    <div class="dr2" data-doc-preview data-doc-title="4Q 2025 Operating Statement &amp; Rent Roll" data-doc-loan="333 West Wacker" data-doc-kind="XLSX" data-doc-date="12/31/2025"><div class="di di-xl">XLS</div><div style="min-width:0;flex:1"><div class="dn2">4Q 2025 Operating Statement &amp; Rent Roll</div><div class="dm2">Reviewed · Covenants: pass · 12/31/2025</div></div><button class="doc-view-btn" type="button">View</button></div>
+    <div class="dr2" data-doc-preview data-doc-title="3Q 2025 Operating Statement &amp; Rent Roll" data-doc-loan="333 West Wacker" data-doc-kind="XLSX" data-doc-date="09/30/2025"><div class="di di-xl">XLS</div><div style="min-width:0;flex:1"><div class="dn2">3Q 2025 Operating Statement &amp; Rent Roll</div><div class="dm2">Reviewed · Covenants: pass · 09/30/2025</div></div><button class="doc-view-btn" type="button">View</button></div>
+    <div class="dr2" data-doc-preview data-doc-title="2025 Audited Financials" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="02/28/2026"><div class="di di-xl">XLS</div><div style="min-width:0;flex:1"><div class="dn2">2025 Audited Financials &mdash; Beacon Capital Partners</div><div class="dm2">CPA certified · Reviewed · 02/28/2026</div></div><button class="doc-view-btn" type="button">View</button></div>
   </div>
   <div style="display:flex;flex-direction:column;gap:10px">
     <div class="card">
       <div class="ch">Inspections <span class="cm">Bellwether field team</span></div>
-      <div class="dr2" data-doc-preview data-doc-title="Q1 2026 Site Inspection" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="Mar 26, 2026"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Q1 2026 Site Inspection</div><div class="dm2">No material findings · Mar 26, 2026</div></div><button class="doc-view-btn" type="button">View</button></div>
-      <div class="dr2" data-doc-preview data-doc-title="Q1 2025 Site Inspection" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="Apr 8, 2025"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Q1 2025 Site Inspection</div><div class="dm2">No material findings · Apr 8, 2025</div></div><button class="doc-view-btn" type="button">View</button></div>
+      <div class="dr2" data-doc-preview data-doc-title="1Q 2026 Site Inspection" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="03/26/2026"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">1Q 2026 Site Inspection</div><div class="dm2">No material findings · 03/26/2026</div></div><button class="doc-view-btn" type="button">View</button></div>
+      <div class="dr2" data-doc-preview data-doc-title="1Q 2025 Site Inspection" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="04/08/2025"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">1Q 2025 Site Inspection</div><div class="dm2">No material findings · 04/08/2025</div></div><button class="doc-view-btn" type="button">View</button></div>
     </div>
     <div class="card">
       <div class="ch">Insurance <span class="cm">Verified by Bellwether</span></div>
-      <div class="dr2" data-doc-preview data-doc-title="Certificate of Insurance — 2026 Renewal" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="Mar 15, 2026"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Certificate of Insurance &mdash; 2026 Renewal</div><div class="dm2">All coverage verified · Exp. Mar 2027</div></div><button class="doc-view-btn" type="button">View</button></div>
-      <div class="dr2" data-doc-preview data-doc-title="Certificate of Insurance — 2025" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="Mar 2025"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Certificate of Insurance &mdash; 2025</div><div class="dm2">Expired Mar 2026 · On file</div></div><button class="doc-view-btn" type="button">View</button></div>
+      <div class="dr2" data-doc-preview data-doc-title="Certificate of Insurance — 2026 Renewal" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="03/15/2026"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Certificate of Insurance &mdash; 2026 Renewal</div><div class="dm2">All coverage verified · Exp. 03/2027</div></div><button class="doc-view-btn" type="button">View</button></div>
+      <div class="dr2" data-doc-preview data-doc-title="Certificate of Insurance — 2025" data-doc-loan="333 West Wacker" data-doc-kind="PDF" data-doc-date="03/2025"><div class="di di-pdf">PDF</div><div style="min-width:0;flex:1"><div class="dn2">Certificate of Insurance &mdash; 2025</div><div class="dm2">Expired 03/2026 · On file</div></div><button class="doc-view-btn" type="button">View</button></div>
     </div>
   </div>
 </div>
@@ -1099,9 +1108,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         <span class="sigma-chip-eye">Valuation</span>
         Compare appraisal vs. model valuation across my equity assets.
       </button>
-      <button class="sigma-chip" data-prompt="Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.">
+      <button class="sigma-chip" data-prompt="Summarize the 1Q 2026 Flash &amp; Dash for 333 W Wacker.">
         <span class="sigma-chip-eye">Deliverables</span>
-        Summarize the Q1 2026 Flash &amp; Dash for 333 W Wacker.
+        Summarize the 1Q 2026 Flash &amp; Dash for 333 W Wacker.
       </button>
     </div>
     <div class="sigma-msgs" id="sigmaMsgs"></div>
@@ -1293,14 +1302,14 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
         return !q || (L.n+' '+L.no+' '+L.spn+' '+L.loc).toLowerCase().indexOf(q) >= 0;
       });
       if(!matches.length){
-        dd.innerHTML = '<div style="padding:10px;font-size:10px;color:#9CA3AF;text-align:center">No matches</div>';
+        dd.innerHTML = '<div style="padding:10px;font-size:10px;color:#4B5563;text-align:center">No matches</div>';
       } else {
         dd.innerHTML = matches.map(function(L){
           return '<a href="'+L.href+'" style="display:block;padding:7px 10px;font-size:11px;color:inherit;text-decoration:none;border-bottom:1px solid #F3F4F6">'
             + ratingDot(L.rating)
             + '<span style="font-weight:600">'+L.n+'</span>'
-            + '<span style="float:right;font-size:9px;color:#9CA3AF">#'+L.no+'</span>'
-            + '<div style="font-size:9px;color:#9CA3AF;margin-top:1px;margin-left:13px">'+L.spn+' &middot; '+L.loc+'</div>'
+            + '<span style="float:right;font-size:9px;color:#4B5563">#'+L.no+'</span>'
+            + '<div style="font-size:9px;color:#4B5563;margin-top:1px;margin-left:13px">'+L.spn+' &middot; '+L.loc+'</div>'
             + '</a>';
         }).join('');
       }
@@ -1330,9 +1339,9 @@ html[data-theme="dark"] #loanSelDD a:hover{background:#1F2D4D !important}
 })();
 </script>
 
-<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#6B7280;grid-column:1/-1">
+<nav aria-label="Portal pagination" style="display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:#fff;border-top:1px solid #E2E5EA;font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#4B5563;grid-column:1/-1">
   <div><a href="03_asset_debt.html" style="color:#0066AF;text-decoration:none;font-weight:500">&larr; 333 West Wacker</a></div>
-  <div style="color:#9CA3AF"><span style="color:#1C2B5A;font-weight:600">333 West Wacker — Documents</span></div>
+  <div style="color:#4B5563"><span style="color:#1C2B5A;font-weight:600">333 West Wacker — Documents</span></div>
   <div><a href="03_asset_debt.html" style="color:#0066AF;text-decoration:none;font-weight:500">333 West Wacker &rarr;</a></div>
 </nav>
 </body></html>
